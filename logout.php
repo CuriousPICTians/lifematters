@@ -3,14 +3,14 @@
 session_start();
 session_destroy();
 
-//header("windows.parent || window.Location: MainHomepage.php");
+//header("windows.parent || window.Location: index.php");
 ?>
 <script>
   alert('Successfully Logout...');
                   //window.location.href="Admin.php";
-                  (window.parent || window).location.href="MainHomepage.php";
+                  (window.parent || window).location.href="index.php";
                </script>
-//header(("window.parent || window).location.href: MainHomepage.php");
+//header(("window.parent || window).location.href: index.php");
 <?php
 exit();
 ?>
