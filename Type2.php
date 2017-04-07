@@ -52,7 +52,7 @@
 </head>
 <body>
 
-<form method="post" action="t2.php">
+<form method="post" action="DeadDonor.php">
 
 					<b>After Death You Donote :-</b>
 							<br><br>

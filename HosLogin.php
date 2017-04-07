@@ -177,7 +177,7 @@ font-size: .85em;
 </br>
 <input type="submit" name="submit" onclick="(window.parent || window). location.href='Hospital.php'" class="btn btn-default" value="submit"/>
   <h2>
-    <a href='q1.php'> Hospital Registration..!!  </a>
+    <a href='HospitalRegi.php'> Hospital Registration..!!  </a>
   </h2>
 </section>
 

@@ -1,4 +1,11 @@
  <!DOCTYPE html>
+<?php
+
+session_start();
+echo $_SESSION['uname'];
+
+?>
+
  <html lang="en">
 <html>
 <head>
@@ -295,13 +302,4 @@ $(document).on("click",".sidebar-toggle",function(){
 
 </body>
 </html>
-
-<a href="Default.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Home </a>
-						<a href="Psearch.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Search</a> 
-						<a href="ListDonor.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Dlist </a> 
-						<a href="ListReceiver.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-bars fa-fw w3-margin-right"></i> Rlist </a> 
-						<a href="Mreport.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> Report </a>
-						<a href="index.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-spinner fa-spin fa-fw w3-margin-right"></i> Logout </a>
-						
-
 
