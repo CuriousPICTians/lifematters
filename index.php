@@ -108,7 +108,7 @@ color: #ffffff;
 							<a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding" title="close menu">
 								<i class="fa fa-remove"></i>
 							</a>
-							<img src="img\m.jpg" style="width:35%;" class="w3-circle"><br><br>
+							<img src="img/m.jpg" style="width:35%;" class="w3-circle"><br><br>
 							<p> <b>Project by PICT </b></p>
 						</div>
 	  
