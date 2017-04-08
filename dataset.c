@@ -1,3 +1,11 @@
+/*
+./dataset 5000 1000 10 > donor.json
+./dataset 10000 7000 20 > receiver.json
+
+mongoimport -d rootkea -c donorinfo --jsonArray donor.json
+mongoimport -d rootkea -c receiverinfo --jsonArray receiver.json
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
