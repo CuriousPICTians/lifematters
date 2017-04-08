@@ -56,7 +56,7 @@
 
 															</div>
 
-																<input type="submit" class="btn btn-default" name="submit" value="Search"/>
+																<input type="submit" class="btn btn-large btn-success" name="submit" value="Search"/>
 															
 
 
@@ -89,15 +89,14 @@ if(isset($_POST['submit']))
 {
    
     $email = $_POST['email'];
+				$_SESSION['email']=$email;
     
   $con = new MongoClient();
 
 
     $database=$con->organ;
-
     $collection=$database->receiverinfo;
-
-    $collectionD=$database->donorinfo;
+				$collectionD=$database->donorinfo;
 
  $cursor = $collection->find(array("email" => $email));
  $cursor_count = $cursor->count();
@@ -106,82 +105,147 @@ if(isset($_POST['submit']))
  else
     $cursor = $collectionD->find(array("email" => $email));
 
-  foreach ($cursor as $venue) 
+  //foreach ($cursor as $venue) 
 {
+?>
+
+<!-- Middle Column -->
+    <div class="w3-col m12">
+ 
+      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <img src="img-1/ab.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:100px">
+        <span class="w3-right w3-opacity">  </span>
+        <h4> Patient information </h4><br>
+       <hr>
+
+<table class="table table-responsive bio-table table-bordered table-hover table-condensed" >
+														<thead>
+																<tr>
+																		<th>First Name</th>
+																		<th>Middle Name</th>
+																		<th>Last Name</th>
+																		<th>Gender</th>
+																		<th>Birth Date</th>
+																		<th>Birth Group</th>
+																		<th>Birth Place</th>
+																		<th>Mobile NO</th>
+																		<th>Address</th>
+																		<th>City</th>
+																		<th>State</th>
+																		<th>Nationality</th>
+																		<th>Hospital</th>
+																		<th> Donated Organ</th>
+																</tr>
+														</thead>
+														<tbody>
+								
+																			<?php
+
+																			foreach ($cursor as $venue) 
+																						{
+																							echo "
+																							<tr>
+																												<td>{$venue  ['firstname']} </td>
+																												<td>{$venue  ['middlename']}</td>
+																												<td>{$venue  ['lastname']}</td>
+																												<td>{$venue  ['gender']}</td>
+																												<td>{$venue  ['day']}  </td>
+																												<td>{$venue  ['blood']}</td>
+																												<td>{$venue  ['dobplace']}</td>
+																												<td>{$venue  ['mobileno']}</td>
+																												<td>{$venue  ['address']}</td>
+																												<td>{$venue  ['city']}</td>
+																												<td>{$venue  ['state']}</td>
+																												<td>{$venue  ['nati']}</td>
+																												<td>{$venue  ['hospital']}</td>
+																												<td>{$venue  ['organ']}</td>
+						
+																												</tr>
+																							";  
+																				}
+																			?>
+  
+													</tbody>
+					</table>	      
+     
+      
+
+
+<!--
     echo "<table table width='50%' class='table-hover table-bordered table-condensed'>";
 
     echo "<tr>";
     //echo "<td> Name :  </td>";
     echo "<td>First Name :- </td>"; 
-    echo "<td>".$venue ['info']['firstname'] . "</td>";
+    echo "<td>".$venue ['firstname'] . "</td>";
     echo "</tr>";
     
     echo "<tr>";
     echo "<td>Middle Name :- </td>"; 
-    echo "<td>" .$venue ['info'] ['middlename'] . "</td>";
+    echo "<td>" .$venue  ['middlename'] . "</td>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<td>Last Name :- </td>"; 
-    echo "<td>" .$venue ['info'] ['lastname'] . "</td>";
+    echo "<td>" .$venue  ['lastname'] . "</td>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<td>Gender :- </td>"; 
-    echo "<td>" .$venue ['info'] ['gender'] . "</td>";
+    echo "<td>" .$venue  ['gender'] . "</td>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<td>Birth Date :- </td>"; 
-    echo "<td>" .$venue ['info'] ['day'] 
-    .$venue ['info'] ['month']
-    .$venue ['info'] ['year']. "</td>";
+    echo "<td>" .$venue  ['day'] 
+    .$venue  ['month']
+    .$venue  ['year']. "</td>";
     echo "</tr>";
     echo "<tr>";
 
     echo "<tr>";
     echo "<td>Blood Group :- </td>"; 
-    echo "<td>" .$venue ['info'] ['blood'] . "</td>";
+    echo "<td>" .$venue  ['blood'] . "</td>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<td>Birth Place :- </td>"; 
-    echo "<td>" .$venue ['info'] ['dobplace'] . "</td>";
+    echo "<td>" .$venue  ['dobplace'] . "</td>";
     echo "</tr>";
     
     echo "<tr>";
     echo "<td>Mobile No :- </td>"; 
-    echo "<td>" .$venue ['info'] ['mobileno'] . "</td>";
+    echo "<td>" .$venue  ['mobileno'] . "</td>";
     echo "</tr>";
     
     echo "<tr>";
     echo "<td>Address :- </td>"; 
-    echo "<td>" .$venue ['info'] ['address'] . "</td>";
+    echo "<td>" .$venue  ['address'] . "</td>";
     echo "</tr>";
     
     echo "<tr>";
     echo "<td>city :- </td>"; 
-    echo "<td>" .$venue ['info'] ['city'] . "</td>";
+    echo "<td>" .$venue  ['city'] . "</td>";
     echo "</tr>";
     
     echo "<tr>";
     echo "<td>State :- </td>"; 
-    echo "<td>" .$venue ['info'] ['state'] . "</td>";
+    echo "<td>" .$venue  ['state'] . "</td>";
     echo "</tr>";
     
     echo "<tr>";
     echo "<td>Nationality :- </td>"; 
-    echo "<td>" .$venue ['info'] ['nati'] . "</td>";
+    echo "<td>" .$venue  ['nati'] . "</td>";
     echo "</tr>";
     
     echo "<tr>";
     echo "<td>Zip Code :- </td>"; 
-    echo "<td>" .$venue ['info'] ['zipcode'] . "</td>";
+    echo "<td>" .$venue  ['zipcode'] . "</td>";
     echo "</tr>";
     
 
     echo "<td>Hospital1 :- </td>";
-    echo "<td>".$venue ['hospital']['hospital'] . "</td>";
+    echo "<td>".$venue ['hospital'] . "</td>";
     echo "</tr>";
 
   	 echo "<tc>";
@@ -189,46 +253,21 @@ if(isset($_POST['submit']))
     echo "</tc>";
 
 				echo "<tc>";
-    echo "<td>" .$venue ['info']['donor'] . "</td>";
+    echo "<td>" .$venue ['donor'] . "</td>";
     echo "</tc>";
  
     echo "<tr>";
-    echo "<td>Organ1 :- </td>";
-    echo "<td>".$venue ['organ']['kidney'] . "</td>";
+    echo "<td>Organ Name :- </td>";
+    echo "<td>".$venue ['organ'] . "</td>";
     echo "</tr>";
 
-    echo "<tr>";
-    echo "<td>Organ. 2 :- </td>";
-    echo "<td>".$venue ['organ']['heart'] . "</td>";
-    echo "</tr>";
-
-    echo "<td>Organ. 3 :- </td>";
-    echo "<td>".$venue ['organ']['liver'] . "</td>";
-    echo "</tr>";    
-
-    echo "<td>Organ. 4 :- </td>";
-    echo "<td>".$venue ['organ']['lportion'] . "</td>";
-    echo "</tr>";   
-
-    echo "<tr>";
-    echo "<td>Organ. 5 :- </td>";
-    echo "<td>".$venue ['organ']['pancreas'] . "</td>";
-    echo "</tr>";
-
-    echo "<tr>";
-    echo "<td>Organ. 6 :- </td>";
-    echo "<td>".$venue ['organ']['eyes'] . "</td>";
-    echo "</tr>";
-
-    echo "<tr>";
-    echo "<td>Organ. 7 :- </td>";
-    echo "<td>".$venue ['organ']['bones'] . "</td>";
-    echo "</tr>";
-    echo "<tr>";
 
     echo "<tr>";
     echo "<td>";
+
+
 ?>
+
 
 <script type="text/javascript">
     function showokidney(kidneycheck) {
@@ -248,7 +287,7 @@ if(isset($_POST['submit']))
         echo "Medical Details :";
         echo "</br>";
         echo "</br>";
-        echo "<input type='checkbox' id='kidneycheck' onclick=showokidney(this) value= ".$venue ['organ']['kidney'].">Kidney";
+        echo "<input type='checkbox' id='kidneycheck' onclick=showokidney(this) value= ".$venue ['kidney'].">Kidney";
         echo "</br>";
         echo "</br>";
 ?>      
@@ -261,7 +300,7 @@ if(isset($_POST['submit']))
      </div>
     
 
-<?php       echo "<input type='checkbox' id='livercheck' onclick=showliver(this) value= ".$venue ['organ']['liver'].">Liver";
+<?php       echo "<input type='checkbox' id='livercheck' onclick=showliver(this) value= ".$venue ['liver'].">Liver";
 echo "</br>";
         echo "</br>";
 ?>
@@ -273,19 +312,13 @@ echo "</br>";
          <input type = "submit"/>
          </br>
         </br>
-     </div>
+     </div>-->
     
          
-        <button type="reset" class="btn btn-default" onclick="location.href='mdetails.php'"> NEXT </button>
+        <button type="reset" class="btn btn-large btn-success" onclick="location.href='mdetails.php'"> NEXT </button>
+</div>
 <?php
     }
 
-
     }
-
-
-
-
-
-
 ?>

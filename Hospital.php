@@ -1,9 +1,20 @@
- <!DOCTYPE html>
- <html lang="en">
-<html>
-<head>
+	<!DOCTYPE html>
 
-  	<meta charset="UTF-8">
+
+<?php
+
+session_start();
+echo $_SESSION['uname'];
+
+?>
+
+	<html lang="en">
+	<html>
+
+
+	<head>
+	
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- Latest compiled and minified CSS -->
@@ -16,180 +27,12 @@
 	<!-- Latest compiled JavaScript -->
 		<script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
 		
-
-
-<style>
-
-body {
-    background-color: #ffffff;
-}
-
-.topbar {
-	background: #2A3F54;
-	border-color: #2A3F54;
-	border-radius: 0px;
-}
-
-.topbar .navbar-header a {
-	color: #ffffff;
-}
-
-.wrapper {
-    padding-left: 0px;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-.sidebar {
-    z-index: 1000;
-    position: fixed;
-    top: 60px;
-    left: -50px;
-    width: 50px;
-    height: 100%;
-    overflow-y: auto;
-    background: #2A3F54;
-	color: #ffffff;
-	-webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-.main {
-	width: 100%;
-    position: relative;
-    padding-bottom:20px;
-}
-
-.wrapper.toggled {
-	padding-left: 50px;
-}
-
-.wrapper.toggled .sidebar {
-	left: 0;
-}
-
-/* Sidebar Styles */
-
-.sidebar-nav {
-    position: absolute;
-    top: 52px;
-    width: 50px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-.sidebar-nav li {
-    line-height: 40px;
-}
-.sidebar-nav li a {
-    display: block;
-    text-decoration: none;
-    color: #e8e8e8;
-    padding: 0;
-    text-align:center;
-}
-
-.sidebar-nav li a:hover, .sidebar-nav li.active a {
-    text-decoration: none;
-    color: #fff;
-    background: #fff;
-    background: rgba(255,255,255,0.2);
-}
-
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-    text-decoration: none;
-}
-
-.sidebar-nav li span, .subbar li span {
-	display : none;
-}
-
-nav.subbar {
-	position: relative;
-	width: 100%;
-	border-radius: 0px;
-	background: #fff;
-	margin: 50px 0 -50px 0;
-	padding: 10px 0 0 0;
-	z-index: 2;
-}
-nav.subbar > ul.nav.nav-tabs {
-	padding: 0 5px;
-}
-
-nav.subbar > ul.nav.nav-tabs > li.active > a {
-    background: #dedede;
-    border-top: 1px solid #a6a6a6;
-    border-left: 1px solid #a6a6a6;
-    border-right: 1px solid #a6a6a6;
-    border-radius: 0px;
-}
-
-.content {
-    margin-top: 70px;
-    padding: 0 30px;
-}
-
-@media(min-width:768px){
-	.subbar li span {
-		display: inline;
-	}
-}
-
-@media(min-width:992px) {
-    .wrapper {
-    	padding-left: 50px;
-    }
-
-    .sidebar {
-    	left: 0;
-    	width: 50px;
-	}
-
-	.wrapper.toggled {
-		padding-left: 200px;
-	}
-
-	.wrapper.toggled .sidebar, .wrapper.toggled .sidebar-nav {
-		width: 200px;
-	}
+	<!-- W3.CSS is a modern CSS framework -->		
+		<link rel="stylesheet" href="w3.css">
 	
-	.wrapper.toggled .sidebar-nav li a {
-		text-align: left;
-		padding: 0 0 0 10px;
-	}
-
-	.wrapper.toggled .sidebar-nav li span {
-		display: inline;
-	}
-
-}
-
-.navbar-btn {
-    background: none;
-    border: none;
-    height: 35px;
-    min-width: 95px;
-    color: #fff;
-}
-.navbar-text {
-  margin-top: 14px;
-  margin-bottom: 14px;
-}
-@media (min-width: 768px) {
-  .navbar-text {
-    float: left;
-    margin-left: 15px;
-    margin-right: 15px;
-  }
-}
-
-		
+	
+	<style>
+			
 			.w3-container	  
 {
 background-color: #fafafa;
@@ -201,107 +44,97 @@ position: ;
 		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
 		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
 }
-
-</style>  
-
-
-
-<script>
-$(document).on("click",".sidebar-toggle",function(){
-    $(".wrapper").toggleClass("toggled");
-});
-
-</script>
-
-</head>
-
-<body class="w3-content" style="max-width:1360px">
-						
-
-				
 		
-		
+		.w3-sidenav 
+{
+background-color: #404040;
+color: #ffffff;
+		z-index: 999;
+		border: 0px solid;
+		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+		transition:all ease 0.8s;
+		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+}	
 
-    <nav class="navbar navbar-default navbar-top topbar">
-		<div class="container-fluid">
+.w3-navbar 
+{
+background-color: #204060;
+color: #ffffff;
+		z-index: 999;
+		border: 0px solid;
+		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+		transition:all ease 0.8s;
+		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+}
 
-			<div class="navbar-header">
 
-				<a href="#" class="navbar-brand">
-					<span class="visible-xs">KL</span>
-					<span class="hidden-xs"> HOME </span>
-
-				</a>
-
-				<p class="navbar-text">
-					<a href="#" class="sidebar-toggle">
-                        <i class="fa fa-bars"></i>
-                    </a>
-				</p>
-
-			</div>
-
-			<div class="navbar-collapse collapse" id="navbar-collapse-main">
-
-				<ul class="nav navbar-nav navbar-right">
-                    
-                    <li>
-                        <button class="navbar-btn">
-                            <i class="fa fa-bell"></i>
-                        </button>
-                    </li>
-                    
-					<li class="dropdown">
-						<button class="navbar-btn" data-toggle="dropdown">
-							<img src="img/a11.png" style="height:30px;width:30px" class="img-circle">
-						</button>
-						<ul class="dropdown-menu">
-							<li><a href="#">Account</a></li>
-							<li><a href="#">Dashboard</a></li>
-							<li class="nav-divider"></li>
-							<li><a href="logout.php">Logout</a></li>
-						</ul>
-					</li>
-
-				</ul>
-
-			</div>
-		</div>
-	</nav>
+	</style>
 	
-	<article class="wrapper">
-	    
-	    <aside class="sidebar">
-	        <ul class="sidebar-nav">
-			    <li class="active"><a href="#"><i class="fa fa-dashboard"></i> <span> Hospital details </span></a></li>
-			    <li><a href="#" ><i class="fa fa-cogs"></i> <span> Approve Doctor </span></a></li>
-			    <li><a href="#users" data-toggle="tab"><i class="fa fa-users"></i> <span>Users</span></a></li>
-			    <li><a href="#mail" data-toggle="tab"><i class="fa fa-envelope"></i> <span>Mail</span></a></li>
-		    </ul>
-	    </aside>
-	    
-	   
-	    
-	</article>
+	</head>
 
-<!-- !PAGE CONTENT! -->
-
-					<div class="w3-main" style="margin-left:50px;margin-top:10px;">
-
-
-<div id="section">
-					<iframe src="Default.php" name="cp" width="1280px" height="570px" style="border:none" ></iframe>
+	<body class="w3-content" style="max-width:1350px">
+		
+						
+<!-- Navigation bar with social media icons -->
+<div class="w3-bar w3-black w3-hide-small">
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-facebook-official"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-instagram"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-snapchat"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-flickr"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-twitter"></i></a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-linkedin"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-right"><i class="fa fa-search"></i></a>
+</div>
+		
+				
+		<!-- Header -->		
+				
+				<div class="w3-container w3-light-grey w3-medium ">
+					<h3> <b>Organ Donation System </b></h3> 
+					<p> Be a Donor & Save Lifes..!! </p> 
+					
+					
 				</div>
+		
+				<br>
+	
+			<!-- Sidenav/menu -->
 
+					<nav class="w3-sidenav w3-collapse w3-animate-left" style="z-index:3;width:160px;" id="mySidenav"><br>
+						<div class="w3-container-fluid">
+							
+							<a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding" title="close menu">
+								<i class="fa fa-remove"></i>
+							</a>
+							<img src="img\m.jpg" style="width:35%;" class="w3-circle"><br><br>
+							<p> <b>Project by PICT </b></p>
+						</div>
+	  
+						<a href="Default.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Hospital </a>
+						<a href="#" target="" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> Approve Doctor  </a>
+						<a href="Result.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> match List  </a>
+						<a href="logout.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-spinner fa-spin fa-fw w3-margin-right"></i> Logout </a>
+						
+					</nav>
+
+		
+		
+		
+		<!-- Overlay effect when opening sidenav on small screens -->
+
+					<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+
+		<!-- !PAGE CONTENT! -->
+
+					<div class="w3-main" style="margin-left:170px">
+
+					
+				
+				<div id="section">
+					<iframe src="Default.php" name="cp" width="1180px" height="550px" style="border:none" ></iframe>
+				</div>
 </body>
 </html>
-
-<a href="Default.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Home </a>
-						<a href="Psearch.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Search</a> 
-						<a href="ListDonor.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Dlist </a> 
-						<a href="ListReceiver.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-bars fa-fw w3-margin-right"></i> Rlist </a> 
-						<a href="Mreport.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> Report </a>
-						<a href="index.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-spinner fa-spin fa-fw w3-margin-right"></i> Logout </a>
-						
-
-

@@ -151,20 +151,20 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 																						{
 																							echo "
 																							<tr>
-																												<td>{$venue ['info'] ['firstname']} </td>
-																												<td>{$venue ['info'] ['middlename']}</td>
-																												<td>{$venue ['info'] ['lastname']}</td>
-																												<td>{$venue ['info'] ['gender']}</td>
-																												<td>{$venue ['info'] ['day']} {$venue ['info'] ['month']} {$venue ['info'] ['year']} </td>
-																												<td>{$venue ['info'] ['blood']}</td>
-																												<td>{$venue ['info'] ['dobplace']}</td>
-																												<td>{$venue ['info'] ['mobileno']}</td>
-																												<td>{$venue ['info'] ['address']}</td>
-																												<td>{$venue ['info'] ['city']}</td>
-																												<td>{$venue ['info'] ['state']}</td>
-																												<td>{$venue ['info'] ['nati']}</td>
-																												<td>{$venue ['hospital'] ['hospital']}</td>
-																												<td>{$venue ['organ'] ['kidney']} {$venue ['organ'] ['liver']} {$venue ['organ'] ['lportion']} {$venue ['organ'] ['pancreas']} </td>
+																												<td>{$venue  ['firstname']} </td>
+																												<td>{$venue  ['middlename']}</td>
+																												<td>{$venue  ['lastname']}</td>
+																												<td>{$venue  ['gender']}</td>
+																												<td>{$venue  ['day']}  </td>
+																												<td>{$venue  ['blood']}</td>
+																												<td>{$venue  ['dobplace']}</td>
+																												<td>{$venue  ['mobileno']}</td>
+																												<td>{$venue  ['address']}</td>
+																												<td>{$venue  ['city']}</td>
+																												<td>{$venue  ['state']}</td>
+																												<td>{$venue  ['nati']}</td>
+																												<td>{$venue  ['hospital']}</td>
+																												<td>{$venue  ['organ']}</td>
 						
 																												</tr>
 																							";  
@@ -185,108 +185,6 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
   
 <!-- End Page Container -->
 </div>
-
-
-
-
-
-
-
-
- <!-- Middle Column --
-    <div class="w3-col m7">
-    
-      <div class="w3-row-padding">
-        <div class="w3-col m12">
-          <div class="w3-card-2 w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h6 class="w3-opacity "> List Of Donor </h6>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-<br>
-
-
-<?php
-
-		session_start();
-   
-	$con = new MongoClient();
-
-  if($con)
-  {
-    
-
-    $database=$con->organ;
-    $collection=$database->donorinfo;
-
-    $cursor = $collection->find();
-		}
-?>
-
-
-
-
- <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
-
-        <span class="w3-col-m11 w3-opacity">  </span>
-        <h4> Patient information </h4><br>
-       
-														
-														<table class="table table-responsive bio-table table-hover  table-condensed">
-														<thead>
-																<tr>
-																		<th>First Name</th>
-																		<th>Middle Name</th>
-																		<th>Last Name</th>
-																		<th>Gender</th>
-																		<th>Birth Date</th>
-																		<th>Birth Group</th>
-																		<th>Birth Place</th>
-																		<th>Mobile NO</th>
-																		<th>Address</th>
-																		<th>City</th>
-																		<th>State</th>
-																		<th>Nationality</th>
-																		<th>Hospital</th>
-																		<th> Donated Organ</th>
-																</tr>
-														</thead>
-														<tbody>
-								
-																			<?php
-
-																			foreach ($cursor as $venue) 
-																						{
-																							echo "
-																							<tr>
-																												<td>{$venue ['info'] ['firstname']} </td>
-																												<td>{$venue ['info'] ['middlename']}</td>
-																												<td>{$venue ['info'] ['lastname']}</td>
-																												<td>{$venue ['info'] ['gender']}</td>
-																												<td>{$venue ['info'] ['day']} {$venue ['info'] ['month']} {$venue ['info'] ['year']} </td>
-																												<td>{$venue ['info'] ['blood']}</td>
-																												<td>{$venue ['info'] ['dobplace']}</td>
-																												<td>{$venue ['info'] ['mobileno']}</td>
-																												<td>{$venue ['info'] ['address']}</td>
-																												<td>{$venue ['info'] ['city']}</td>
-																												<td>{$venue ['info'] ['state']}</td>
-																												<td>{$venue ['info'] ['nati']}</td>
-																												<td>{$venue ['hospital'] ['hospital']}</td>
-																												<td>{$venue ['organ'] ['kidney']} {$venue ['organ'] ['liver']} {$venue ['organ'] ['lportion']} {$venue ['organ'] ['pancreas']} </td>
-						
-																												</tr>
-																							";  
-																				}
-																			?>
-  
-													</tbody>
-					</table>		
-</div>
-
--->
 
 </body>
 </html>

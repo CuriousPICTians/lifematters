@@ -1,8 +1,13 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<html>
+
 <?php
 session_start();
 echo $_SESSION['email'];
 ?>
-           
+
+<body>           
             <form name="newad" method="post" enctype="multipart/form-data"  action="">
                 <br/>
                 <label for="file">Enter Report Name :</label>
@@ -42,7 +47,8 @@ echo $_SESSION['email'];
         <br/><br/>
         
               
-
+</body>
+</html>
 
 
 
@@ -96,8 +102,7 @@ echo $_SESSION['email'];
                    
                     $p=array("approved"=>$approved);
                    
-                   $cursor= $collection->update(array("email" => $_SESSION['email']),array('$set' => array('medical_details' => $arr,'severity' => $patient,
-                        'approved' => $approved)));
+                   $cursor= $collection->update(array("email" => $_SESSION['email']),array('$set' => array($arr,$patient,'approved' => $approved)));
  //$collection->update(array("email" => $_SESSION['email']),array('$set' => array('info' => $data)));
 
                     

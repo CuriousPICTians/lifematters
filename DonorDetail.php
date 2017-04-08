@@ -110,12 +110,12 @@ session_start();
          <h4 class="w3-center"> Profile</h4>
          <p class="w3-center"><img src="img/a1.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
-        <?php echo" <p><i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i>" .$venue ['info']['firstname'] ."  " .$venue ['info']['middlename'] . "  "  .$venue ['info']['lastname'] . " </p>"; ?>
-								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i>"  .$venue ['hospital']['hospital'] ."</p>"; ?>        
- 							<?php echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i>" .$venue ['organ']['kidney'] .$venue ['organ']['liver'] .$venue ['organ']['lportion'] .$venue ['organ']['pancreas'] . "</p>"; ?>        
-								<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i>" .$venue ['info']['blood'] ." </p>"; ?>																					
-									<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i>" .$venue ['info']['gender'] ." </p>"; ?>
-         <?php echo"<p><i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i>" .$venue ['info'] ['day'] .$venue ['info'] ['month'].$venue ['info'] ['year']. "</p>";?>
+        <?php echo" <p><i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i>" .$venue ['firstname'] ."  " .$venue ['middlename'] . "  "  .$venue ['lastname'] . " </p>"; ?>
+								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i>"  .$venue ['hospital'] ."</p>"; ?>        
+ 							<?php echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i>" .$venue ['organ'] . "</p>"; ?>        
+								<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i>" .$venue ['blood'] ." </p>"; ?>																					
+									<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i>" .$venue ['gender'] ." </p>"; ?>
+         <?php echo"<p><i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i>" .$venue  ['day'] .$venue  ['month'].$venue  ['year']. "</p>";?>
         </div>
       </div> 
 				
@@ -158,47 +158,47 @@ session_start();
 																																		echo"<tbody>";
 
 																																	echo"<tr>  <td>First Name :- </td> ";
-																																																																													echo" <td>".$venue ['info']['firstname'] . "</td>"; 
+																																																																													echo" <td>".$venue ['firstname'] . "</td>"; 
 																																																																					echo" </tr>";
 
 																																																																				echo"<tr>  <td> Middle Name :- </td> ";
-																																																																													echo" <td>".$venue ['info']['middlename'] . "</td>"; 
+																																																																													echo" <td>".$venue ['middlename'] . "</td>"; 
 																																																																					echo" </tr>";
 
 																																																																				echo"<tr>  <td> Last Name :- </td> ";
-																																																																													echo" <td>".$venue ['info']['lastname'] . "</td>"; 
+																																																																													echo" <td>".$venue ['lastname'] . "</td>"; 
 																																																																					echo" </tr>";
 																																																																					echo"<tr>  <td> Gender :- </td> ";
-																																																																													echo" <td>".$venue ['info']['gender'] . "</td>"; 
+																																																																													echo" <td>".$venue ['gender'] . "</td>"; 
 																																																																					echo" </tr>";
 
 																																																																				echo"<tr>  <td> Birth Date :- </td> ";
-    																																																																									echo "<td>" .$venue ['info'] ['day'] .$venue ['info'] ['month'].$venue ['info'] ['year']. "</td>";
+    																																																																									echo "<td>" .$venue  ['day'] .$venue  ['month'].$venue  ['year']. "</td>";
 																																																																					echo" </tr>";
 
 																																																																				echo"<tr>  <td> Blood group :- </td> ";
-																																																																													echo" <td>".$venue ['info']['blood'] . "</td>"; 
+																																																																													echo" <td>".$venue ['blood'] . "</td>"; 
 																																																																					echo" </tr>";
 																																																																				echo"<tr>  <td> Birth Place :- </td> ";
-																																																																													echo" <td>".$venue ['info']['dobplace'] . "</td>"; 
+																																																																													echo" <td>".$venue ['dobplace'] . "</td>"; 
 																																																																					echo" </tr>";
 																																																																				echo"<tr>  <td> Mobile Number :- </td> ";
-																																																																													echo" <td>".$venue ['info']['mobileno'] . "</td>"; 
+																																																																													echo" <td>".$venue ['mobileno'] . "</td>"; 
 																																																																					echo" </tr>";
 																																																																				echo"<tr>  <td>  Address :- </td> ";
-																																																																													echo" <td>".$venue ['info']['address'] . "</td>"; 
+																																																																													echo" <td>".$venue ['address'] . "</td>"; 
 																																																																					echo" </tr>";
 																																																																				echo"<tr>  <td> city:- </td> ";
-																																																																													echo" <td>".$venue ['info']['city'] . "</td>"; 
+																																																																													echo" <td>".$venue ['city'] . "</td>"; 
 																																																																					echo" </tr>";
 																																																																				echo"<tr>  <td> state:- </td> ";
-																																																																													echo" <td>".$venue ['info']['state'] . "</td>"; 
+																																																																													echo" <td>".$venue ['state'] . "</td>"; 
 																																																																					echo" </tr>";
 																																																																				echo"<tr>  <td> Nationality :- </td> ";
-																																																																													echo" <td>".$venue ['info']['nati'] . "</td>"; 
+																																																																													echo" <td>".$venue ['nati'] . "</td>"; 
 																																																																					echo" </tr>";
 																																																																				echo"<tr>  <td> Zip Code :- </td> ";
-																																																																													echo" <td>".$venue ['info']['zipcode'] . "</td>"; 
+																																																																													echo" <td>".$venue ['zipcode'] . "</td>"; 
 																																																																					echo" </tr>";
 										
 																															echo" </tbody>";
@@ -212,7 +212,7 @@ session_start();
 																									echo"<tbody>";
 
 																							echo"<tr>  <td> hospital-1 :- </td> ";
-																																																																													echo" <td>".$venue ['hospital']['hospital'] . "</td>"; 
+																																																																													echo" <td>".$venue ['hospital'] . "</td>"; 
 																																																																					echo" </tr>";
 																																																																			
 																																																																					echo "</tr>";
@@ -221,24 +221,24 @@ session_start();
     																																																																	echo "</tc>";
 	   																																																																 
 																																																																				echo "<tr>";																																																																				
-																																																																				echo "<td>Organ1 :- </td>";
-    																																																																echo "<td>".$venue ['organ']['kidney'] . "</td>"; 
+																																																																				echo "<td>Organ :- </td>";
+    																																																																echo "<td>".$venue ['organ'] . "</td>"; 
 																																																																					echo" </tr>";
-
+/*
 																																																																			echo "<tr>";
 																																																																			echo "<td>Organ. 2 :- </td>";
-																																																																			echo "<td>".$venue ['organ']['liver'] . "</td>";
+																																																																			echo "<td>".$venue ['liver'] . "</td>";
 																																																																			echo "</tr>";
 																																																																				 
 																																																																					echo "<tr>";
 																																																																					echo "<td>Organ. 3 :- </td>";
-																																																																					echo "<td>".$venue ['organ']['lportion'] . "</td>";
+																																																																					echo "<td>".$venue ['lportion'] . "</td>";
 																																																																					echo "</tr>";
 
 																																																																					echo "<tr>";
 																																																																					echo "<td>Organ. 4 :- </td>";
-																																																																					echo "<td>".$venue ['organ']['pancreas'] . "</td>";
-																																																																					echo "</tr>";
+																																																																					echo "<td>".$venue ['pancreas'] . "</td>";
+																																																																					echo "</tr>";*/
 										
 																						echo" </tbody>";
 																						echo"</table>";

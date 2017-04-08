@@ -1,4 +1,11 @@
 	<!DOCTYPE html>
+
+<?php
+
+session_start();
+echo $_SESSION['uname'];
+
+?>
 	<html lang="en">
 	<html>
 
@@ -109,7 +116,7 @@ color: #ffffff;
 						<a href="RecieverDetail.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Reciever Detail </a>
 						<a href="RecieverUpdate.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Update Information </a> 
 						<a href="CheckStatus.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-bars fa-fw w3-margin-right"></i> Check Status </a> 
-						<a href="index.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-spinner fa-spin fa-fw w3-margin-right"></i> Logout </a>
+						<a href="logout.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-spinner fa-spin fa-fw w3-margin-right"></i> Logout </a>
 						
 					</nav>
 
@@ -131,7 +138,7 @@ color: #ffffff;
 				 <div class="container-fluid">
 					<li><a href="RecieverDetail.php" target="cp" ><i class="fa fa-home w3-margin-right"></i>Home</a></li>		
 					<ul class="nav navbar-nav navbar-right">
-      <li><a href="hm.php" class="w3-text-white" ><span class="glyphicon glyphicon-log-out"></span> Logout  </a></li>
+      <li><a href="logout.php" class="w3-text-white" ><span class="glyphicon glyphicon-log-out"></span> Logout  </a></li>
     </ul>
 				</div>
 				</ul>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<title>Organ Donation</title>
 
-<title> Registration </title>
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
@@ -17,64 +18,86 @@
 	
 	<!-- Latest compiled JavaScript -->
 		<script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+		
+		<!-- W3.CSS is a modern CSS framework -->		
+		<link rel="stylesheet" href="w3.css">
+
+<link rel="stylesheet" href="w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
 
 <style>
-  
-    
-</style>  
+
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+</style>
+
+
 </head>
 <body>
 
 <form method="post" action="livedonor.php">
 
-					<b>Alive Donoer Can Donote Following Orgas Only :-</b>
-								
-								<br>
-								<br>
+<div class="w3-col m7">
+    
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card-2 w3-round w3-white">
+            <div class="w3-container w3-padding">
+              <h6 class=""> Alive Donoer Can Donote Following Orgas Only : </h6>
+              
+<hr>
+
+
 								<ol>
-													<li> Kidney</li>
+													<li> <img src="img/Kidney.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
+																		<a href="#" title="About Kidney" data-toggle="popover" data-trigger="hover" data-content="Your kidneys filter wastes from your blood and convert them to urine. 
+																		When your kidneys stop working you can develop kidney failure. Harmful wastes and fluids build up in your body and your blood pressure may rise. 
+																		You can live healthily with one kidney."> <b>Kidney</b>  </a> </li> 
 													<br>
-													<li> Liver</li>
+													<li>  <img src="img/Kidney.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
+																			<a href="#" title="About Kidney" data-toggle="popover" data-trigger="hover" data-content="Your kidneys filter wastes from your blood and convert them to urine. 	
+																				When your kidneys stop working you can develop kidney failure. Harmful wastes and fluids build up in your body and your blood pressure may rise. 											
+																				You can live healthily with one kidney."><b> Liver </b> </a> </li>
 													<br>
-													<li> A Portion of the Liver</li>
+
+													<li>  <img src="img/Liver.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
+																			<a href="#" title="About Liver" data-toggle="popover" data-trigger="hover" data-content="Your liver produces bile to clean out your body. 
+																						If your liver isn’t working right, you will begin to feel tired, experience nausea, vomiting, decreased appetite, brown urine, 
+																						or even jaundice - yellowing in the whites of your eyes."><b> A Portion of the Liver </b> </a> </li>
 													<br>
-													<li> Pancreas or Intestine</li>
+
+													<li>  <img src="img/Pancreas.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
+																			<a href="#" title="About Pancreas" data-toggle="popover" data-trigger="hover" data-content="Your pancreas is in your abdomen. 
+																											It produces insulin to control your blood sugar levels. If your pancreas is not working correctly your blood sugar level rises, 
+																											which can lead to  diabetes."> <b>Pancreas or Intestine </b> </a> </li>
 								</ol>
 
 					<br>
-
-				<b>Select Which Organs You want to Donate :- </b></br></br>
-								
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="img/Kidney.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
-									<a href="#" title="About Kidney" data-toggle="popover" data-trigger="hover" data-content="Your kidneys filter wastes from your blood and convert them to urine. 
-									When your kidneys stop working you can develop kidney failure. Harmful wastes and fluids build up in your body and your blood pressure may rise. 
-									You can live healthily with one kidney.">
-								<input type="checkbox" name="kidney" value="Kidney" ></a> Kidney</br></br>
-
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		<img src="img/Liver.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
-							<a href="#" title="About Liver" data-toggle="popover" data-trigger="hover" data-content="Your liver produces bile to clean out your body. 
-							If your liver isn’t working right, you will begin to feel tired, experience nausea, vomiting, decreased appetite, brown urine, 
-							or even jaundice - yellowing in the whites of your eyes."> 
-							<input type="checkbox" name="liver" value="Liver"></a> Liver</br></br>
+<hr>
 
 
 
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		<img src="img/Liver.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
-							<a href="#" title="About Liver" data-toggle="popover" data-trigger="hover" data-content="You can Donate 25% Portion of Liver and Your liver produces bile to clean out your body. 
-							If your liver isn’t working right, you will begin to feel tired, experience nausea, vomiting, decreased appetite, brown urine, 
-							or even jaundice - yellowing in the whites of your eyes."> 
-							<input type="checkbox" name="lportion" value="PortionofLiver"></a> A Portion of the Liver</br></br>
+<div class="form-inline">
+  <label for="ex2"> <b>Select Which Organs You want to Donate :- </b> </label>	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;										
+ <select name="organ" class="form-control" style="width:200px;">
+
+									<option value="1">Kidney</option>
+									<option value="2"> Liver</option>
+									<option value="3">Heart</option>
+									
+</select>
+</div>
+
+</br>				
+</br>
 
 
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		<img src="img/Pancreas.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
-								<a href="#" title="About Pancreas" data-toggle="popover" data-trigger="hover" data-content="Your pancreas is in your abdomen. 
-								It produces insulin to control your blood sugar levels. If your pancreas is not working correctly your blood sugar level rises, which can lead to  diabetes.">
-								<input type="checkbox" name="pancreas" value="PancreasorIntestine"></a> Pancreas or Intestine</br></br>
-
-
-						<b>Select Nearest Hospital For Primary Checkup:- </b>&nbsp;&nbsp;&nbsp; 
-							
-					<select name="hospital"  style="width:200px;">
+			<div class="form-inline">
+  	<label><b>Select Nearest Hospital For Primary Checkup:- </b> </label>	&nbsp;&nbsp;					
+ 			<select name="hospital"  class="form-control" style="width:200px;">
 
 									<option value="Sahyadri Hospital Pune">Sahyadri Hospital Pune</option>
 									<option value="Sankriti Hospital Pune"> Sankriti Hospital Pune</option>
@@ -83,11 +106,19 @@
 									<option value="KEM Hospital Pune">KEM Hospital Pune</option>
 									<option value="KEM Hospital Mumbai">KEM Hospital Mumbai</option>
 				</select>
-<br/>
-<p>-----------------------------------------------------------------------------------------------------------------</p>
+</div>
+<hr>
+<input type="submit" name="submit" class="btn btn-large btn-success" value="submit"/>
+</div>
+							
 
-<input type="submit" name="submit" class="btn btn-default" value="submit"/>
-
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+<br>
+					
 
 
 </div>

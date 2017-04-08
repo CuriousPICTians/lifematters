@@ -42,11 +42,9 @@ session_start();
 if(isset($_POST['submit']))
 {
    
-    $kidney = $_POST['kidney'];
-    $liver= $_POST['liver'];
-    $lportion= $_POST['lportion'];
-    $pancreas= $_POST['pancreas'];
+    
     $hospital=$_POST['hospital'];
+				$organ=$_POST['organ'];
 
 
 
@@ -62,20 +60,22 @@ if(isset($_POST['submit']))
     //$data=array('session'=>array('colg'=>$colg,'class'=>$class));
 
     $data=array('hospital'=>$hospital);
+				$data1=array('organ'=>$organ);
 
    // $collection->update (array("email" => $_SESSION['email'] ), array ('$set' => array('organ' => $data)));
     
-    if($kidney)
-    $collection->update(array("email" => $_SESSION['email']), array('$set' => array('organ.kidney'=>$kidney)));
-  if($liver)
+   // if($k)
+    //$collection->update(array("email" => $_SESSION['email']), array('$set' => array('kidney'=>$k)));
+  /*if($liver)
     $collection->update(array("email" => $_SESSION['email']), array('$set' => array('organ.liver'=>$liver)));
   if($lportion)
     $collection->update(array("email" => $_SESSION['email']), array('$set' => array('organ.lportion'=>$lportion)));
   if($pancreas)
     $collection->update(array("email" => $_SESSION['email']), array('$set' => array('organ.pancreas'=>$pancreas)));
-
-
-  $collection->update (array("email" => $_SESSION['email'] ), array ('$set' => array('hospital' => $data)));
+*/
+$collection->update (array("email" => $_SESSION['email'] ), array ('$set' => $data));
+  
+$collection->update (array("email" => $_SESSION['email'] ), array ('$set' => $data1));
     //$collection->insert($data);
     //echo $_SESSION['email'];
 
@@ -90,75 +90,79 @@ $cursor_count = $cursor->count();
     echo "<tr>";
     //echo "<td> Name :  </td>";
     echo "<td>First Name :- </td>"; 
-    echo "<td>".$venue ['info']['firstname'] . "</td>";
+    echo "<td>".$venue ['firstname'] . "</td>";
     echo "</tr>";
     
     echo "<tr>";
     echo "<td>Middle Name :- </td>"; 
-    echo "<td>" .$venue ['info'] ['middlename'] . "</td>";
+    echo "<td>" .$venue  ['middlename'] . "</td>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<td>Last Name :- </td>"; 
-    echo "<td>" .$venue ['info'] ['lastname'] . "</td>";
+    echo "<td>" .$venue  ['lastname'] . "</td>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<td>Gender :- </td>"; 
-    echo "<td>" .$venue ['info'] ['gender'] . "</td>";
+    echo "<td>" .$venue  ['gender'] . "</td>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<td>Birth Date :- </td>"; 
-    echo "<td>" .$venue ['info'] ['day'] 
-    .$venue ['info'] ['month']
-    .$venue ['info'] ['year']. "</td>";
+    echo "<td>" .$venue  ['day'] 
+    .$venue  ['month']
+    .$venue  ['year']. "</td>";
     echo "</tr>";
     echo "<tr>";
 
     echo "<tr>";
     echo "<td>Blood Group :- </td>"; 
-    echo "<td>" .$venue ['info'] ['blood'] . "</td>";
+    echo "<td>" .$venue  ['blood'] . "</td>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<td>Birth Place :- </td>"; 
-    echo "<td>" .$venue ['info'] ['dobplace'] . "</td>";
+    echo "<td>" .$venue  ['dobplace'] . "</td>";
     echo "</tr>";
     
     echo "<tr>";
     echo "<td>Mobile No :- </td>"; 
-    echo "<td>" .$venue ['info'] ['mobileno'] . "</td>";
+    echo "<td>" .$venue  ['mobileno'] . "</td>";
     echo "</tr>";
     
     echo "<tr>";
     echo "<td>Address :- </td>"; 
-    echo "<td>" .$venue ['info'] ['address'] . "</td>";
+    echo "<td>" .$venue  ['address'] . "</td>";
     echo "</tr>";
     
     echo "<tr>";
     echo "<td>city :- </td>"; 
-    echo "<td>" .$venue ['info'] ['city'] . "</td>";
+    echo "<td>" .$venue  ['city'] . "</td>";
     echo "</tr>";
     
     echo "<tr>";
     echo "<td>State :- </td>"; 
-    echo "<td>" .$venue ['info'] ['state'] . "</td>";
+    echo "<td>" .$venue  ['state'] . "</td>";
     echo "</tr>";
     
     echo "<tr>";
     echo "<td>Nationality :- </td>"; 
-    echo "<td>" .$venue ['info'] ['nati'] . "</td>";
+    echo "<td>" .$venue  ['nati'] . "</td>";
     echo "</tr>";
     
     echo "<tr>";
     echo "<td>Zip Code :- </td>"; 
-    echo "<td>" .$venue ['info'] ['zipcode'] . "</td>";
+    echo "<td>" .$venue  ['zipcode'] . "</td>";
     echo "</tr>";
     
 
+				echo "<td>organ :- </td>";
+    echo "<td>".$venue ['organ'] . "</td>";
+
+
     echo "<td>Hospital1 :- </td>";
-    echo "<td>".$venue ['hospital']['hospital'] . "</td>";
+    echo "<td>".$venue ['hospital'] . "</td>";
 
     echo "</tr>";
   /*
@@ -172,22 +176,22 @@ $cursor_count = $cursor->count();
     echo "</tc>";
     echo "<tr>";
     echo "<td>Organ1 :- </td>";
-    echo "<td>".$venue ['organ']['kidney'] . "</td>";
+    echo "<td>".$venue ['kidney'] . "</td>";
     echo "</tr>";
     
     echo "<tr>";
     echo "<td>Organ. 2 :- </td>";
-    echo "<td>".$venue ['organ']['liver'] . "</td>";
+    echo "<td>".$venue ['liver'] . "</td>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<td>Organ. 3 :- </td>";
-    echo "<td>".$venue ['organ']['lportion'] . "</td>";
+    echo "<td>".$venue ['lportion'] . "</td>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<td>Organ. 4 :- </td>";
-    echo "<td>".$venue ['organ']['pancreas'] . "</td>";
+    echo "<td>".$venue ['pancreas'] . "</td>";
     echo "</tr>";
     echo "</table>";
   }

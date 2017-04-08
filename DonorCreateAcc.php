@@ -405,7 +405,7 @@ session_start();
 			$databse=$con->organ;
 			$collection=$databse->donorinfo;
 
-			$query=array('donorinfo.email'=>$_POST['email']);
+			$query=array('email'=>$_POST['email']);
 			$count=$collection->findOne($query);
 
 			if(!count($count))

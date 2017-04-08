@@ -38,7 +38,7 @@ if(isset($_POST['submit']))
           'address'=>$address,'city'=>$city,'state'=>$state,'nati'=>$nati,'zipcode'=>$zipcode);
 
 
-       $collection->update(array("email" => $_SESSION['email']),array('$set' => array('info' => $data)));
+       $collection->update(array("email" => $_SESSION['email']),array('$set' =>  $data));
          
  //$collection->update (array("name" => $_SESSION['name'] ), array ('$set' => array(collage=> $data)));
 
@@ -55,9 +55,12 @@ if(isset($_POST['submit']))
 ?>
 
 <!DOCTYPE html>
-	<html lang="en">
-	<html>
+<html lang="en">
+<head>
+<title>Organ Donation</title>
 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,74 +75,75 @@ if(isset($_POST['submit']))
 	<!-- Latest compiled JavaScript -->
 		<script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
 		
-<head>	
+		<!-- W3.CSS is a modern CSS framework -->		
+		<link rel="stylesheet" href="w3.css">
 
-<style>
-  	
-		
-	#section {
-    		width:550px;
-    		float:left;
-    		padding:10px;	
- 	 
-		}
+<link rel="stylesheet" href="w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-		
-</style>  
 </head>
 
+<style>
+
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+</style>
 
 <body>
 <form method="post" action="RecieverRegComplete.php">
 
+
+
+
+
 <div class="container">
 
-				<b><h4>Select which Organ you want ?</h4></b>
-							</br>
+<div class="w3-col m7">
+    
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card-2 w3-round w3-white">
+            <div class="w3-container w3-padding">
+              <h6 class=""> Please Select Organ and Hospital </h6>
+														<hr>
+              <div class="form-inline">
+																		<label for="ex2"> <b>Select Which Organs You want to Donate :- </b> </label>	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;										
+																		<select name="organ" class="form-control" style="width:200px;">
 
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-															<input type="checkbox" name="kidney" value="kidney"> Kidney 
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-															
-															<input type="checkbox" name="heart" value="heart"> Heart</br></br>
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-															<input type="checkbox" name="eyes" value="eyes"> Eyes
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-															&nbsp;&nbsp;
-															<input type="checkbox" name="bones" value="bones"> Bones</br></br>
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-															<input type="checkbox" name="lportion" value="PortionofLiver"> A Portion of the Liver
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
-
-															<input type="checkbox" name="pancreas" value="PancreasIntestine"> Pancreas or Intestine</br></br>
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-				<b>	Select Nearest Hospital For Primary Checkup :- </b> &nbsp;&nbsp;&nbsp;&nbsp; 
+																						<option value="1">Kidney</option>
+																						<option value="2"> Liver</option>
+																						<option value="3">Heart</option>
 									
-															<select name="hospital">
-																				<option value="Sahyadri Hospital Pune">Sahyadri Hospital Pune</option>
-																				<option value="Sankriti Hospital Pune"> Sankriti Hospital Pune</option>
-																				<option value="Aditya Birla Hospital Pune">Aditya Birla Hospital Pune</option>
-																				<option value="Sahyadri Hospital Nashik">Sahyadri Hospital Nashik</option>
-																				<option value="KEM Hospital Pune">KEM Hospital Pune</option>
-																				<option value="KEM Hospital Mumbai">KEM Hospital Mumbai</option>
-															</select>
-													<br>
-					
-						<p>----------------------------------------------------------------------
-									-------------------------------------------------</p>
+																	</select>
+														</div>
 
-					<input type="submit" name="submit" class="btn btn-default" value="submit"/>
+												<br>
+												<br>
+
+												<div class="form-inline">
+															<label><b>Select Nearest Hospital For Primary Checkup:- </b> </label>	&nbsp;&nbsp;					
+																<select name="hospital"  class="form-control" style="width:200px;">
+
+																					<option value="Sahyadri Hospital Pune">Sahyadri Hospital Pune</option>
+																					<option value="Sankriti Hospital Pune"> Sankriti Hospital Pune</option>
+																					<option value="Aditya Birla Hospital Pune">Aditya Birla Hospital Pune</option>
+																					<option value="Sahyadri Hospital Nashik">Sahyadri Hospital Nashik</option>
+																					<option value="KEM Hospital Pune">KEM Hospital Pune</option>
+																					<option value="KEM Hospital Mumbai">KEM Hospital Mumbai</option>
+																</select>
+												</div>
+
+												<hr>
+
+												<input type="submit" name="submit" class="btn btn-large btn-success" value="submit"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
 
 </div>
 </form>

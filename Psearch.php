@@ -106,7 +106,7 @@ session_start();
 																								$database=$con->organ;
 																								$collection=$database->donorinfo;
 
-																								if($organ_name=="PancreasorIntestine")
+																							/*	if($organ_name=="PancreasorIntestine")
 																											$cursor = $collection->find(array('info.city'=>$city ,'organ.pancreas'=>$organ_name));
 
 																								if($organ_name=="PortionofLiver")
@@ -114,9 +114,9 @@ session_start();
 
 																								if($organ_name=="Liver")
 																											$cursor = $collection->find(array('info.city'=>$city ,'organ.liver'=>$organ_name));
-
-																								if($organ_name=="Kidney")
-																											$cursor = $collection->find(array('info.city'=>$city ,'organ.kidney'=>$organ_name));										
+*/
+																								if($organ_name=="organ")
+																											$cursor = $collection->find(array('city'=>$city ,'organ'=>$organ_name));										
 																								
 																								echo"Search By :-";
 																								echo "$organ_name";  
@@ -162,19 +162,19 @@ echo"<div class='row  form-group' > ";
 																																																																				echo"<th>  Hospital </th> "; 
 																																																																				echo"<th> 	Donated Organ </th> "; 
 																																																																				echo"<tr>";
-																																																																													echo" <td>".$venue ['info']['firstname'] . "</td>"; 
-																																																																													echo" <td>".$venue ['info']['middlename'] . "</td>";
-																																																																													echo" <td>".$venue ['info'] ['lastname']. "</td>";
-																																																																												 echo"	<td>".$venue ['info'] ['gender'] ." </td>";
-																																																																													echo" <td>".$venue ['info'] ['day'] .$venue ['info'] ['month'] .$venue ['info'] ['year']. "</td>";
-																																																																													echo" <td>".$venue ['info'] ['blood'] ." </td>";
-																																																																													echo"<td>".$venue ['info'] ['dobplace']." </td>";
-																																																																													echo"<td>".$venue ['info'] ['mobileno']. "</td>";
-																																																																													echo"<td>".$venue ['info'] ['address']. "</td>";
-																																																																													echo"<td>".$venue ['info'] ['city']." </td>";
-																																																																													echo"<td>".$venue ['info'] ['state']." </td>";
-																																																																													echo"<td>".$venue ['hospital'] ['hospital']." </td>";
-																																																																													echo"<td>".$venue ['organ'] ['kidney'] .$venue ['organ'] ['liver'] .$venue ['organ'] ['lportion'] .$venue ['organ'] ['pancreas']." </td>";
+																																																																													echo" <td>".$venue ['firstname'] . "</td>"; 
+																																																																													echo" <td>".$venue ['middlename'] . "</td>";
+																																																																													echo" <td>".$venue  ['lastname']. "</td>";
+																																																																												 echo"	<td>".$venue  ['gender'] ." </td>";
+																																																																													echo" <td>".$venue  ['day'] . "</td>";
+																																																																													echo" <td>".$venue  ['blood'] ." </td>";
+																																																																													echo"<td>".$venue  ['dobplace']." </td>";
+																																																																													echo"<td>".$venue  ['mobileno']. "</td>";
+																																																																													echo"<td>".$venue  ['address']. "</td>";
+																																																																													echo"<td>".$venue  ['city']." </td>";
+																																																																													echo"<td>".$venue  ['state']." </td>";
+																																																																													echo"<td>".$venue  ['hospital']." </td>";
+																																																																													echo"<td>".$venue  ['organ'] ." </td>";
 								
 																																																																				echo" </tr>";
 																																																																			

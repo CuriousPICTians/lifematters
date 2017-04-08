@@ -108,17 +108,17 @@ session_start();
 		
             <label class="col-md-2 control-label" for="first_name">First Name :-</label>  
 							            <div class="col-md-2">
-																	<?php						echo" <input  name='firstname'  class='form-control input-md-2' value=".$venue ['info']['firstname']. " type='text'> "; ?>
+																	<?php						echo" <input  name='firstname'  class='form-control input-md-2' value=".$venue ['firstname']. " type='text'> "; ?>
 																		</div>
 
             <label class="col-md-2 control-label" for="middle_name">Middle Name :-</label>  
             							<div class="col-md-2">
-																							<?php  echo" <input name='middlename' class='form-control input-md' value =" .$venue ['info']['middlename']. " type='text'> "; ?>           												 
+																							<?php  echo" <input name='middlename' class='form-control input-md' value =" .$venue ['middlename']. " type='text'> "; ?>           												 
 																			</div>
 
             <label class="col-md-2 control-label" for="last_name">Last Name :-</label>  
 							            <div class="col-md-2">
-																							<?php echo "<input name='lastname' class='form-control input-md' value=" .$venue ['info']['lastname']. " type='text' >"; ?>
+																							<?php echo "<input name='lastname' class='form-control input-md' value=" .$venue ['lastname']. " type='text' >"; ?>
            							</div>
           </div>
 
@@ -127,18 +127,18 @@ session_start();
 						
 												<label class="col-md-2 control-label" for="smartphone"> Gender:-  </label>
            									 <div class="col-md-2">
-																										 <?php  echo" <input name='gender' class='form-control input-md' value =" .$venue ['info']['gender']. " type='text'> "; ?>   
+																										 <?php  echo" <input name='gender' class='form-control input-md' value =" .$venue ['gender']. " type='text'> "; ?>   
             									</div>
 
 
 													<label class="col-md-2 control-label" for="last_name"> Birth Date :-</label>  
 							            <div class="col-md-2">
-																							<?php  echo" <input name='day' class='form-control input-md' value=".$venue ['info'] ['day'].$venue ['info'] ['month'].$venue ['info'] ['year']. " type='text'>"; ?>
+																							<?php  echo" <input name='day' class='form-control input-md' value=".$venue  ['day'].$venue  ['month'].$venue  ['year']. " type='text'>"; ?>
            							</div>
 
 												<label class="col-md-2 control-label" for="smartphone"> Blood Group :-  </label>
            									 <div class="col-md-2">
-																										 <?php  echo" <input name='blood' class='form-control input-md' value =" .$venue ['info']['blood']. " type='text'> "; ?>   
+																										 <?php  echo" <input name='blood' class='form-control input-md' value =" .$venue ['blood']. " type='text'> "; ?>   
             									</div>
           </div>
 
@@ -146,19 +146,19 @@ session_start();
 		
             <label class="col-md-2 control-label" for="first_name"> Birth Place :-</label>  
 							            <div class="col-md-2">
-																							 <?php echo"<input name='dobplace'  class='form-control input-md-2' value=" .$venue ['info']['dobplace']. " type='text'>"; ?>
+																							 <?php echo"<input name='dobplace'  class='form-control input-md-2' value=" .$venue ['dobplace']. " type='text'>"; ?>
 																		</div>
 
             <label class="col-md-2 control-label" for="mobile">Contact No :-</label>
             					<div class="col-md-2">
    								 										
-              							<?php echo"	<input  maxlength='10' name='mobileno' class='form-control input-md ac_mobile' value=" .$venue ['info']['mobileno']. " type='text'  >"; ?>
+              							<?php echo"	<input  maxlength='10' name='mobileno' class='form-control input-md ac_mobile' value=" .$venue ['mobileno']. " type='text'  >"; ?>
 		
             					</div>
 
             <label class="col-md-2 control-label" for="last_name"> Adhar Number :-</label>  
 							            <div class="col-md-2">
-																							<?php echo" <input name='adharno' class='form-control input-md'  value=" .$venue ['info'] ['adharno']. " type='text'>"; ?>
+																							<?php echo" <input name='adharno' class='form-control input-md'  value=" .$venue  ['adharno']. " type='text'>"; ?>
            							</div>
           </div>
 										
@@ -176,7 +176,7 @@ session_start();
 																
 								        <label class="col-md-2 control-label" for="street_address">Address:- </label>
 								        <div class="col-md-2	">
-																				 <?php echo"<textarea class='form-control' name='address'>" .$venue ['info']['address']. " </textarea>"; ?>
+																				 <?php echo"<textarea class='form-control' name='address'>" .$venue ['address']. " </textarea>"; ?>
 					       				 </div>
 
 										      
@@ -184,7 +184,7 @@ session_start();
 																	<label class="col-md-2 control-label" for="district"> City / District:- </label>
 												       <div class="col-md-2">
 
-										        <?php  echo"<input name='city' class='form-control input-md ac_district' value=" .$venue ['info']['city']. " type='text'>"; ?>
+										        <?php  echo"<input name='city' class='form-control input-md ac_district' value=" .$venue ['city']. " type='text'>"; ?>
 										       </div>
 
           </div>
@@ -193,18 +193,18 @@ session_start();
 
 									        <label class="col-md-2 control-label" for="tal">State:- </label>  
 								        <div class="col-md-2">
-								          <?php echo"<input name='state' class='form-control input-md ac_tal'  value=" .$venue ['info']['state']. " type='text'>"; ?>
+								          <?php echo"<input name='state' class='form-control input-md ac_tal'  value=" .$venue ['state']. " type='text'>"; ?>
 								        </div>
 
 								       
 								        <label class="col-md-2 control-label" for="PinCode">Pin Code:- </label>  
 								        <div class="col-md-2">
-								         <?php echo "<input name='zipcode' class='form-control input-md' value=".$venue ['info']['zipcode']. " type='text'>"; ?>
+								         <?php echo "<input name='zipcode' class='form-control input-md' value=".$venue ['zipcode']. " type='text'>"; ?>
 								        </div>
 
 																	<label class="col-md-2 control-label" for="pin_code">  Nationality:-  </label>  
 								        <div class="col-md-2">
-								         <?php echo "<input name='nati' class='form-control input-md' value=" .$venue ['info']['nati']. " type='text'>"; ?>
+								         <?php echo "<input name='nati' class='form-control input-md' value=" .$venue ['nati']. " type='text'>"; ?>
 								        </div>
 	
           </div>
@@ -241,7 +241,7 @@ $data=array('firstname'=>$firstname,'middlename'=>$middlename,'lastname'=>$lastn
           'day'=>$bdate,'blood'=>$blood,'dobplace'=>$dobplace,'mobileno'=>$mobileno,'adharno'=>$adharno,
           'address'=>$address,'city'=>$city,'state'=>$state,'nati'=>$nati,'zipcode'=>$zipcode);
 
-$cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' =>array('info'=> $data)));
+$cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
 
 }
 ?>

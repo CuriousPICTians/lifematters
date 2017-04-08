@@ -36,7 +36,7 @@ if(isset($_POST['submit']))
           'address'=>$address,'city'=>$city,'state'=>$state,'nati'=>$nati,'zipcode'=>$zipcode);
 
 
-       $collection->update(array("email" => $_SESSION['email']),array('$set' => array('info' => $data)));
+       $collection->update(array("email" => $_SESSION['email']),array('$set' =>$data));
          
  //$collection->update (array("name" => $_SESSION['name'] ), array ('$set' => array(collage=> $data)));
 

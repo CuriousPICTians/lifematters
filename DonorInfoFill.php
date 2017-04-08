@@ -214,8 +214,8 @@ var zc= signup1.zipcode.value;
 	  //If all conditions satisfied.........
 }
 
-
 </script>
+
 
 
 
@@ -378,14 +378,14 @@ var zc= signup1.zipcode.value;
 							<select name="blood" class="textfield2">
 
 								<option value="Select">Select</option>
-								<option value="A+">A+</option>
-								<option value="A-">A-</option>
-								<option value="B+">B+</option>
-								<option value="B-">B-</option>
-								<option value="O+">O+</option>
-								<option value="O-">O-</option>
-								<option value="AB+">AB+</option>
-								<option value="AB-">AB-</option>
+								<option value="1">A+</option>
+								<option value="2">A-</option>
+								<option value="3">B+</option>
+								<option value="4">B-</option>
+								<option value="5">O+</option>
+								<option value="6">O-</option>
+								<option value="7">AB+</option>
+								<option value="8">AB-</option>
 							</select>
 								
 
