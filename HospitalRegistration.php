@@ -426,13 +426,14 @@ if(isset($_POST['submit']))
     $collection=$database->hospitalinfo;
     
     //$data=array('session'=>array('colg'=>$colg,'class'=>$class));
-        $data=array('flag'=>'0','hospital_name'=>$hospital_name,'address'=>$address,'state'=>$state,'city'=>$city,
+        $data=array('hospital_name'=>$hospital_name,'address'=>$address,'state'=>$state,'city'=>$city,
           'phno'=>$phno,'email'=>$email,'website'=>$website,'dname1'=>$dname1,'demail1'=>$demail1,'dphno1'=>$dphno1,'dname2'=>$dname2,
           'demail2'=>$demail2,'dphno2'=>$dphno2,'diname'=>$diname,'diph'=>$diph,'diemail'=>$diemail,'LiverLicense'=>$LiverLicense,
 										'KidneyLicense'=>$KidneyLicense,'HeartLicense'=>$HeartLicense,'LungsLicense'=>$LungsLicense,'status'=>$_SESSION['status']);
 
 
-       $collection->insert($data);
+       $collection->update(array("email" => $_SESSION['email']),array('$set' =>$data));
+       //$collection->update('$set' => $data);
          
  //$collection->update (array("name" => $_SESSION['name'] ), array ('$set' => array(collage=> $data)));
 
