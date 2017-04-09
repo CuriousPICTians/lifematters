@@ -414,7 +414,7 @@ if(isset($_POST['submit']))
     $KidneyLicense=$_POST['KidneyLicense'];
     $HeartLicense=$_POST['HeartLicense'];
     $LungsLicense=$_POST['LungsLicense'];
-    	
+    $_SESSION['status']="Pending";
 
   $con = new MongoClient();
 
@@ -429,7 +429,7 @@ if(isset($_POST['submit']))
         $data=array('flag'=>'0','hospital_name'=>$hospital_name,'address'=>$address,'state'=>$state,'city'=>$city,
           'phno'=>$phno,'email'=>$email,'website'=>$website,'dname1'=>$dname1,'demail1'=>$demail1,'dphno1'=>$dphno1,'dname2'=>$dname2,
           'demail2'=>$demail2,'dphno2'=>$dphno2,'diname'=>$diname,'diph'=>$diph,'diemail'=>$diemail,'LiverLicense'=>$LiverLicense,
-										'KidneyLicense'=>$KidneyLicense,'HeartLicense'=>$HeartLicense,'LungsLicense'=>$LungsLicense);
+										'KidneyLicense'=>$KidneyLicense,'HeartLicense'=>$HeartLicense,'LungsLicense'=>$LungsLicense,'status'=>$_SESSION['status']);
 
 
        $collection->insert($data);
@@ -437,7 +437,7 @@ if(isset($_POST['submit']))
  //$collection->update (array("name" => $_SESSION['name'] ), array ('$set' => array(collage=> $data)));
 
 ?>
-                <script>alert('Successfully..!! Please Login '); window.location.href="HosLogin.php";
+                <script>alert('Successfully..!! Please Login '); window.location.href="HospitalLogin.php";
                 </script>
 
 <?php
