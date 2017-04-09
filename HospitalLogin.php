@@ -17,9 +17,9 @@
 		<script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
 		
 
+
 <style>
   	
-		  	
 * {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -128,30 +128,40 @@ font-size: .85em;
 
 </style>  
 
-
+<script>
+function validateForm() {
+    var x = document.forms["myForm22"]["email"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alert("please Enter Email-ID in Correct format");
+        return false;
+    }
+}
+</script>
 
 </head>
 
 <body>
 
-						<form method='post' name="qq" onSubmit="">
+<form method="post" name="myForm22" action="" onsubmit="return validateForm();">
+
 
 <section>
   <span></span>
   <h1>Member Login</h1>
-  <form>
 
+ 
 
-
-
+<form>
 <table>		
       			
       			<tr>
       				<td>		
-      				<p> Email-ID :-</p>
+      				<p> E-mail ID :-</p>
 					</td>
 						<td>
-							<input type="text" class="form-control"  name="uname" placeholder="Email-ID" required>
+							<input type="text" class="form-control"  name="email" placeholder=" Email-ID" required>
 						</td>
     			</tr>
 		
@@ -166,7 +176,7 @@ font-size: .85em;
       	<p> Password :-</p>
 					</td>
 						<td>
-							<input type="password" class="form-control"  name="upwd" placeholder="**********" required>
+							<input type="password" class="form-control"  name="password" placeholder="**********" required>
 						</td>
     			</tr>
 
@@ -175,17 +185,82 @@ font-size: .85em;
 
   </form>
 </br>
-<input type="submit" name="submit" onclick="(window.parent || window). location.href='Hospital.php'" class="btn btn-default" value="submit"/>
-  <h2>
-    <a href='HospitalRegistration.php'> Hospital Registration..!!  </a>
-  </h2>
+<input type="submit" name="submit" class="btn btn-default" value="Login"/>
+  
 </section>
 
+<br>
+<br>
 
-								
-
-	</form>
-		
-
+</form>
 </body>
 </html>
+
+
+<?php
+session_start();
+//echo $_SESSION['email'];
+
+if(isset($_POST['submit']))
+{
+		$login=$_POST['email'];
+
+		$_SESSION['email']=$login;
+		
+		$pass=$_POST['password'];
+
+
+		
+	$con = new MongoClient();
+
+	if($con)
+	{
+		
+
+		$database=$con->organ;
+		$collection=$database->hospitalinfo;
+	
+
+	//$qry = array('login'=>array("email" => $login,"password" => $pass));
+	$qry = array("email" => $login,"password" => $pass);
+	$result = $collection->findOne($qry);	
+
+		
+	
+	if($result)
+	{
+
+?>
+
+	<script>
+	alert('Successfully Login...');
+               		(window.parent || window).location.href="Hospital.php";
+               </script>
+
+<?php
+	}
+
+	else
+	{
+?>
+
+	<script>alert('Invalid Email-ID OR Password .');
+                		
+                 </script>	
+
+<?php
+	}
+
+
+ 	}
+	else
+ 	{
+die("Mongo DB not installed");
+	} 
+		
+
+
+
+}
+
+?>

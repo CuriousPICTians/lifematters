@@ -13,6 +13,7 @@ $con = new MongoClient();
 
       //connect to specific collection
       $collection=$database->hospitalinfo;
+      $collection1=$databse->user;
     }
 
  if ($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -21,6 +22,8 @@ $con = new MongoClient();
   if(isset($_POST['complaint']))
         header("Location: complaint.php");
 }
+
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET')
 {
@@ -45,8 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 			<?php
 		}
 		}
-  }
-  
+  } 
+
+  /* Update pending status to confirm in Database  */
+
   if(isset($_GET['process']))
   {
 		$temp = $collection -> find(array('_id' => new MongoId($_GET['process'])));
@@ -61,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 		}	
 		else
 		{
-		$collection -> update(array('_id' => new MongoId($_GET['process'])), array('$set' => array('complaint.status' => 'Confirmed')));
+		$collection -> update(array('_id' => new MongoId($_GET['process'])), array('$set' => array('status' => 'Confirmed')));
 		?>
 		<script>alert("Order has been confirmed.");</script>
 		<?php
@@ -127,7 +132,7 @@ echo $_SESSION['uname'];
      </h2>
 
 <?php
-    if($email != 'admin')
+    if($email != 'sunil@gmail.com')
     {
     	echo '<form id="register_complaint" action="" method="post">
      			<input type="submit" name="complaint" value="Register Complaint">
@@ -136,7 +141,7 @@ echo $_SESSION['uname'];
 ?>          
           <?php
           	echo"<div id='complaints'>";
-          	if($email == 'admin')
+          	if($email == 'sunil@gmail.com')
           		echo "<h3 style='text-align:center;'>User Orders</h3><br>";
           	else
           		echo "<h3 style='text-align:center;'> List Of Hospitals </h3>";
@@ -145,7 +150,7 @@ echo $_SESSION['uname'];
 
       <tr>
         <?php
-        	 if($email == 'admin')
+        	 if($email == 'sunil@gmail.com')
         	 	echo '<th>Name</th>';
         ?>
  <th>Hospital Name</th>
@@ -161,7 +166,7 @@ echo $_SESSION['uname'];
       </tr>
 
         <?php
-            if($email == 'admin')
+            if($email == 'sunil@gmail.com')
             	$result=$collection -> find(array("complaint"=> array('$exists' => true)));
             else
       	      $result=$collection->find(array('complaint.email'=>$email));
@@ -169,7 +174,7 @@ echo $_SESSION['uname'];
             {
 
                 echo "<tr>";
-              //  if($uemail == 'admin')
+              //  if($uemail == 'sunil@gmail.com')
 echo "<td>".$obj['hospital_name']. "</td>";
 echo"<td>".$obj['address']."</td>";
 echo"<td>".$obj['email']."</td>";
@@ -192,11 +197,12 @@ echo"<td>".$obj['KidneyLicense'].$obj['LiverLicense'].$obj['HeartLicense'].$obj[
 	              	echo "<a href='profile.php?process=".$obj['_id']."'>Confirm</a>";
 	            echo "<td><a href='orderSummary.php?key=".$obj['_id']."'>Summary</a>";
 */
-	               echo "<td><div class='action'><a href='profile.php?order=".$obj['_id']."'>Delete</a></div>";
-                if($email == 'admin')                
+	               echo "<td><div class='action'><a href='ApproveHospital.php?order=".$obj['_id']."'> Delete </a></div>";
+                
+												//if($email == 'sunil@gmail.com')                
 	              
-	              	echo "<div class='action'><a href='profile.php?process=".$obj['_id']."'>Confirm</a></div>";
-	                echo "<td><div class='action'><a href='orderSummary.php?key=".$obj['_id']."'>Summary</a></div>";
+	              	echo "<div class='action'><a href='ApproveHospital.php?process=".$obj['_id']."'> Confirm </a></div>";
+	                echo "<td><div class='action'><a href='orderSummary.php?key=".$obj['_id']."'> Summary </a></div>";
 
                 echo "</td></tr>";
             }
