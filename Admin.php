@@ -113,7 +113,7 @@ color: #ffffff;
 						</div>
 	  
 						<a href="Default.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Admin </a>
-						<a href="ApproveHospiatl.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> Approve Hospitals  </a>
+						<a href="ApproveHospital.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> Approve Hospitals  </a>
 						<a href="logout.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-spinner fa-spin fa-fw w3-margin-right"></i> Logout </a>
 						
 					</nav>
@@ -133,7 +133,7 @@ color: #ffffff;
 					
 				
 				<div id="section">
-					<iframe src="Default.php" name="cp" width="1180px" height="550px" style="border:none" ></iframe>
+					<iframe src="Default.php" name="cp" width="1180px" height="520px" style="border:none" ></iframe>
 				</div>
 </body>
 </html>

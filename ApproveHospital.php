@@ -139,9 +139,9 @@ echo $_SESSION['uname'];
           	if($email == 'admin')
           		echo "<h3 style='text-align:center;'>User Orders</h3><br>";
           	else
-          		echo "<h3 style='text-align:center;'>My Orders</h3>";
+          		echo "<h3 style='text-align:center;'> List Of Hospitals </h3>";
           ?>
-      <table class="table table-condensed table-responsive ">
+      <table class="table table-responsive bio-table table-bordered table-hover table-condensed" >
 
       <tr>
         <?php
@@ -178,15 +178,15 @@ echo"<td>".$obj['diname']. "</td>";
 echo"<td>".$obj['diph']."</td>";
 echo"<td>".$obj['KidneyLicense'].$obj['LiverLicense'].$obj['HeartLicense'].$obj['LungsLicense']. "</td>";
  
-                echo "<td style='font-weight:bold;";
+     echo "<td style='font-weight:bold;";
 
-				 	if($obj['complaint']['status'] == 'Confirmed')
+				 	if($obj ['status'] == 'Confirmed')
 			    		
 			    		echo "color:green'>";
 			    	else
 				    	echo "color:red'>";
                 
-                echo $obj['complaint']['status']."</td>";
+                echo $obj['status']."</td>";
 /*                echo "<td><a href='profile.php?order=".$obj['_id']."'>Delete</a>";
                 if($uemail == 'repair@gmail.com')                
 	              	echo "<a href='profile.php?process=".$obj['_id']."'>Confirm</a>";
@@ -205,9 +205,7 @@ echo"<td>".$obj['KidneyLicense'].$obj['LiverLicense'].$obj['HeartLicense'].$obj[
     </table>
     
     </section >
-    <footer>
-      &copy;Repair Electronics Inc. 2015
-    </footer>
+    
 <!--
     <script>
       $('.delete').click(function(){
