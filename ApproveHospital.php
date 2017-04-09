@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
   	
 		foreach($temp as $obj)
 		{
-		if($obj['complaint']['status'] == "Confirmed" )
+		if($obj['status'] == "Confirmed" )
 		{
 			?>
 			<script>alert("Sorry. Can not delete. Order has been confirmed already.");</script>
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
   	
 		foreach($temp as $obj)
 		{
-		if($obj['complaint']['status'] == "Confirmed" )
+		if($obj['status'] == "Confirmed" )
 		{
 			?>
 			<script>alert("Order confirmed already!");</script>
@@ -127,7 +127,6 @@ echo $_SESSION['uname'];
      </h2>
 
 <?php
-
     if($email != 'admin')
     {
     	echo '<form id="register_complaint" action="" method="post">
@@ -187,13 +186,13 @@ echo"<td>".$obj['KidneyLicense'].$obj['LiverLicense'].$obj['HeartLicense'].$obj[
 			    	else
 				    	echo "color:red'>";
                 
-                echo $obj['status']."</td>";
+                echo $obj  ['status']."</td>";
 /*                echo "<td><a href='profile.php?order=".$obj['_id']."'>Delete</a>";
                 if($uemail == 'repair@gmail.com')                
 	              	echo "<a href='profile.php?process=".$obj['_id']."'>Confirm</a>";
 	            echo "<td><a href='orderSummary.php?key=".$obj['_id']."'>Summary</a>";
 */
-	               echo "<td><div class='action'><a href='pro.php?order=".$obj['_id']."'>Delete</a></div>";
+	               echo "<td><div class='action'><a href='profile.php?order=".$obj['_id']."'>Delete</a></div>";
                 if($email == 'admin')                
 	              
 	              	echo "<div class='action'><a href='profile.php?process=".$obj['_id']."'>Confirm</a></div>";
