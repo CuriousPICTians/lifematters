@@ -127,6 +127,7 @@ echo $_SESSION['uname'];
      </h2>
 
 <?php
+
     if($email != 'admin')
     {
     	echo '<form id="register_complaint" action="" method="post">
@@ -192,7 +193,7 @@ echo"<td>".$obj['KidneyLicense'].$obj['LiverLicense'].$obj['HeartLicense'].$obj[
 	              	echo "<a href='profile.php?process=".$obj['_id']."'>Confirm</a>";
 	            echo "<td><a href='orderSummary.php?key=".$obj['_id']."'>Summary</a>";
 */
-	               echo "<td><div class='action'><a href='profile.php?order=".$obj['_id']."'>Delete</a></div>";
+	               echo "<td><div class='action'><a href='pro.php?order=".$obj['_id']."'>Delete</a></div>";
                 if($email == 'admin')                
 	              
 	              	echo "<div class='action'><a href='profile.php?process=".$obj['_id']."'>Confirm</a></div>";
