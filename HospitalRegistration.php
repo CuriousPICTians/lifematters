@@ -151,46 +151,7 @@ echo $_SESSION['uname'];
         </div>
       </div> 
       <hr>
-     
-<!-- class="w3-card-2 w3-round w3-white">
-        <div class="w3-container">
-        
-<table class="table table-condensed table-responsive " >
-    <thead>
-
-	<tr><th class="w3-center" colspan="2">  Transplant Coordinator</th></tr>
-            <tr>
-                <td>
-                    <span id="Label10">Name</span><span style="color:Red">*</span>
-                    </td>
-                <td>
-                    <input name="NameCoordi" type="text" class="form-control" style="width:250px;" />
-                    
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span id="Label11">Phone Number of  Co-ordinator </span><span style="color:Red">*</span>
-                </td>
-                <td>
-               <input name="CellNoCoordiCode" type="text" value="" maxlength="10" class="form-control" style="width:250px;" />
-                    
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span id="Label12">E-mail </span><span style="color:Red">*</span>
-                    </td>
-                <td>
-                    <input name="EmailIDCoordi" type="text" class="form-control" style="width:250px;" />
-                    
-                </td>
-            </tr>
-</thead>
-</table>
-</div>
-</div--
-      
+    
       
     
     <!-- End Left Column -->
@@ -415,59 +376,7 @@ echo $_SESSION['uname'];
 </div>      
 <hr>
 
-<!--div class="w3-card-2 w3-round w3-white w3-center">
-        <div class="w3-container">
-          <table class="table table-condensed table-responsive "  >
-    <thead>
-      
- <tr><th class="w3-center" colspan="2"> Details of the person, who fills this form</th></tr>
-
-        <tr>
-            <td>
-                <span id="Label46">Name</span><span style="color:Red">*</span>
-                </td>
-            <td>
-                <input name="personFilling" type="text" class="form-control" style="width:250px;" />
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <span id="Label47">E-mail address</span><span style="color:Red">*</span>
-                </td>
-            <td>
-                <input name="PersonFillingEmail" type="text" class="form-control" style="width:250px;" />
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <span id="Label48"> Phone Number </span><span style="color:Red">*</span>
-            </td>
-            <td>
-            <input name="PersonCellNoCode" type="text" value="" maxlength="10" class="form-control" style="width:250px;" />
-                
-            </td>
-        </tr>
-        
-        
-        
-        
-      
-       <tr><td colspan="2" align="center" style="padding:10px 0 0 0">
-         <input type="submit" name="btn_Confirm" value="Confirm" onclick="" class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all" style="width:150px;" />
-
-        </td></tr>
-        				        
-      </tr>
-
-           
-</thead>
-</table>
-</div>
-</div-->      
-
-      
+ 
     <!-- End Right Column -->
     </div>
     

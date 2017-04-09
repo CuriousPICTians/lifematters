@@ -165,32 +165,5 @@ if(isset($_POST['submit']))
 
 
 
-<!--
-<div class="container-fluid">
-			
-											<!-- Team Container 
-																			<div class="w3-container w3-padding-64" id="team">
-																			
-																										<h2> <b>Select Donor Type </b></h2>
-																								
-																										<div class="w3-row"><br>
-
-																																	<div class="w3-quarter w3-padding-64  " >
-																																			<a href="Type1.php" > <img src="img/22.png" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
-																																			<h4> Alive Donor </h4>
-																																	</div>
-
-																																	<div class="w3-quarter w3-padding-64 ">
-																																					<a href="Type2.php" ><img src="img/44.png" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
-																																				<h4> Death Donor </h4>
-																																	</div>
-
-																												</div>
-
-																							</div>
-
-
-</div>-->
-
 </body>
 </html>
