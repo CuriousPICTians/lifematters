@@ -129,7 +129,7 @@ echo $_SESSION['uname'];
                     <br />
                     <small>(Mail will be sent to this email id)</small></td>
                 <td>
-                    <input name="email" type="text" class="form-control" style="width:250px;" />
+                    <input name="hospitalemail" type="text" class="form-control" style="width:250px;" />
                     
                 </td>
             </tr>
@@ -399,7 +399,7 @@ if(isset($_POST['submit']))
     $state=$_POST['state'];
     $city=$_POST['city'];   
     $phno=$_POST['phno'];
-    $email=$_POST['email'];
+    $hospitalemail=$_POST['hospitalemail'];
     $website=$_POST['website'];
     $dname1=$_POST['dname1'];
     $demail1=$_POST['demail1'];
@@ -427,7 +427,7 @@ if(isset($_POST['submit']))
     
     //$data=array('session'=>array('colg'=>$colg,'class'=>$class));
         $data=array('hospital_name'=>$hospital_name,'address'=>$address,'state'=>$state,'city'=>$city,
-          'phno'=>$phno,'email'=>$email,'website'=>$website,'dname1'=>$dname1,'demail1'=>$demail1,'dphno1'=>$dphno1,'dname2'=>$dname2,
+          'phno'=>$phno,'hospitalemail'=>$hospitalemail,'website'=>$website,'dname1'=>$dname1,'demail1'=>$demail1,'dphno1'=>$dphno1,'dname2'=>$dname2,
           'demail2'=>$demail2,'dphno2'=>$dphno2,'diname'=>$diname,'diph'=>$diph,'diemail'=>$diemail,'LiverLicense'=>$LiverLicense,
 										'KidneyLicense'=>$KidneyLicense,'HeartLicense'=>$HeartLicense,'LungsLicense'=>$LungsLicense,'status'=>$_SESSION['status']);
 
