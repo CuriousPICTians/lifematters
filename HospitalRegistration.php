@@ -129,7 +129,7 @@ echo $_SESSION['uname'];
                     <br />
                     <small>(Mail will be sent to this email id)</small></td>
                 <td>
-                    <input name="email" type="text" class="form-control" style="width:250px;" />
+                    <input name="hospitalemail" type="text" class="form-control" style="width:250px;" />
                     
                 </td>
             </tr>
@@ -151,46 +151,7 @@ echo $_SESSION['uname'];
         </div>
       </div> 
       <hr>
-     
-<!-- class="w3-card-2 w3-round w3-white">
-        <div class="w3-container">
-        
-<table class="table table-condensed table-responsive " >
-    <thead>
-
-	<tr><th class="w3-center" colspan="2">  Transplant Coordinator</th></tr>
-            <tr>
-                <td>
-                    <span id="Label10">Name</span><span style="color:Red">*</span>
-                    </td>
-                <td>
-                    <input name="NameCoordi" type="text" class="form-control" style="width:250px;" />
-                    
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span id="Label11">Phone Number of  Co-ordinator </span><span style="color:Red">*</span>
-                </td>
-                <td>
-               <input name="CellNoCoordiCode" type="text" value="" maxlength="10" class="form-control" style="width:250px;" />
-                    
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span id="Label12">E-mail </span><span style="color:Red">*</span>
-                    </td>
-                <td>
-                    <input name="EmailIDCoordi" type="text" class="form-control" style="width:250px;" />
-                    
-                </td>
-            </tr>
-</thead>
-</table>
-</div>
-</div--
-      
+    
       
     
     <!-- End Left Column -->
@@ -415,59 +376,7 @@ echo $_SESSION['uname'];
 </div>      
 <hr>
 
-<!--div class="w3-card-2 w3-round w3-white w3-center">
-        <div class="w3-container">
-          <table class="table table-condensed table-responsive "  >
-    <thead>
-      
- <tr><th class="w3-center" colspan="2"> Details of the person, who fills this form</th></tr>
-
-        <tr>
-            <td>
-                <span id="Label46">Name</span><span style="color:Red">*</span>
-                </td>
-            <td>
-                <input name="personFilling" type="text" class="form-control" style="width:250px;" />
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <span id="Label47">E-mail address</span><span style="color:Red">*</span>
-                </td>
-            <td>
-                <input name="PersonFillingEmail" type="text" class="form-control" style="width:250px;" />
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <span id="Label48"> Phone Number </span><span style="color:Red">*</span>
-            </td>
-            <td>
-            <input name="PersonCellNoCode" type="text" value="" maxlength="10" class="form-control" style="width:250px;" />
-                
-            </td>
-        </tr>
-        
-        
-        
-        
-      
-       <tr><td colspan="2" align="center" style="padding:10px 0 0 0">
-         <input type="submit" name="btn_Confirm" value="Confirm" onclick="" class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all" style="width:150px;" />
-
-        </td></tr>
-        				        
-      </tr>
-
-           
-</thead>
-</table>
-</div>
-</div-->      
-
-      
+ 
     <!-- End Right Column -->
     </div>
     
@@ -490,7 +399,7 @@ if(isset($_POST['submit']))
     $state=$_POST['state'];
     $city=$_POST['city'];   
     $phno=$_POST['phno'];
-    $email=$_POST['email'];
+    $hospitalemail=$_POST['hospitalemail'];
     $website=$_POST['website'];
     $dname1=$_POST['dname1'];
     $demail1=$_POST['demail1'];
@@ -505,7 +414,7 @@ if(isset($_POST['submit']))
     $KidneyLicense=$_POST['KidneyLicense'];
     $HeartLicense=$_POST['HeartLicense'];
     $LungsLicense=$_POST['LungsLicense'];
-    	
+    $_SESSION['status']="Pending";
 
   $con = new MongoClient();
 
@@ -517,18 +426,19 @@ if(isset($_POST['submit']))
     $collection=$database->hospitalinfo;
     
     //$data=array('session'=>array('colg'=>$colg,'class'=>$class));
-        $data=array('flag'=>'0','hospital_name'=>$hospital_name,'address'=>$address,'state'=>$state,'city'=>$city,
-          'phno'=>$phno,'email'=>$email,'website'=>$website,'dname1'=>$dname1,'demail1'=>$demail1,'dphno1'=>$dphno1,'dname2'=>$dname2,
+        $data=array('hospital_name'=>$hospital_name,'address'=>$address,'state'=>$state,'city'=>$city,
+          'phno'=>$phno,'hospitalemail'=>$hospitalemail,'website'=>$website,'dname1'=>$dname1,'demail1'=>$demail1,'dphno1'=>$dphno1,'dname2'=>$dname2,
           'demail2'=>$demail2,'dphno2'=>$dphno2,'diname'=>$diname,'diph'=>$diph,'diemail'=>$diemail,'LiverLicense'=>$LiverLicense,
-										'KidneyLicense'=>$KidneyLicense,'HeartLicense'=>$HeartLicense,'LungsLicense'=>$LungsLicense);
+										'KidneyLicense'=>$KidneyLicense,'HeartLicense'=>$HeartLicense,'LungsLicense'=>$LungsLicense,'status'=>$_SESSION['status']);
 
 
-       $collection->insert($data);
+       $collection->update(array("email" => $_SESSION['email']),array('$set' =>$data));
+       //$collection->update('$set' => $data);
          
  //$collection->update (array("name" => $_SESSION['name'] ), array ('$set' => array(collage=> $data)));
 
 ?>
-                <script>alert('Successfully..!! Please Login '); window.location.href="HosLogin.php";
+                <script>alert('Successfully..!! Please Login '); window.location.href="HospitalLogin.php";
                 </script>
 
 <?php

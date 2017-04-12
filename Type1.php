@@ -99,12 +99,12 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
   	<label><b>Select Nearest Hospital For Primary Checkup:- </b> </label>	&nbsp;&nbsp;					
  			<select name="hospital"  class="form-control" style="width:200px;">
 
-									<option value="Sahyadri Hospital Pune">Sahyadri Hospital Pune</option>
-									<option value="Sankriti Hospital Pune"> Sankriti Hospital Pune</option>
-									<option value="Aditya Birla Hospital Pune">Aditya Birla Hospital Pune</option>
-									<option value="Sahyadri Hospital Nashik">Sahyadri Hospital Nashik</option>
-									<option value="KEM Hospital Pune">KEM Hospital Pune</option>
-									<option value="KEM Hospital Mumbai">KEM Hospital Mumbai</option>
+									<option value="Sahyadri Hospital Pune"> Sahyadri Hospital Pune </option>
+									<option value="Sankriti Hospital Pune"> Sankriti Hospital Pune </option>
+									<option value="Aditya Birla Hospital Pune"> Aditya Birla Hospital Pune </option>
+									<option value="Sahyadri Hospital Nashik"> Sahyadri Hospital Nashik </option>
+									<option value="KEM Hospital Pune"> KEM Hospital Pune </option>
+									<option value="KEM Hospital Mumbai"> KEM Hospital Mumbai </option>
 				</select>
 </div>
 <hr>

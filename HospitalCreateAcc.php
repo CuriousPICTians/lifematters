@@ -122,7 +122,7 @@ font-size: .85em;
 <script>
 function validateForm() 
 {
-    var x = document.forms["myForm2"]["email"].value;
+    var x = document.forms["myForm22"]["email"].value;
     var atpos = x.indexOf("@");
     var dotpos = x.lastIndexOf(".");
     if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
@@ -141,7 +141,7 @@ function validateForm()
 
 <div class="container-fluid">
 
-<form method="post" action="" name="myForm2" action="" onsubmit="return validateForm();">
+<form method="post" action="" name="myForm22" action="" onsubmit="return validateForm();">
 
 <section>
   <span></span>
@@ -206,9 +206,9 @@ function validateForm()
   </form>
 </br>
 <input type="submit" name="submit" class="btn btn-default" value="submit"/>
-  <h2>
-    <a href='DonorLogin.php'> Already Account then Login Here..!! </a>
-  </h2>
+  <h5>
+  <b>  <a href='HospitalLogin.php'> Already Account then Login Here..!! </a> </b>
+  </h5>
  
 </section>
 
@@ -275,18 +275,18 @@ session_start();
 		if($con)
 		{
 			$databse=$con->organ;
-			$collection=$databse->donorinfo;
+			$collection=$databse->hospitalinfo;
 
 			$query=array('email'=>$_POST['email']);
 			$count=$collection->findOne($query);
 
 			if(!count($count))
 			{
-				$user_data=array('email'=>$uemail,'password'=>$upass,'approved'=>'0');
+				$user_data=array('email'=>$uemail,'password'=>$upass);
 				$collection->insert($user_data);
 ?>
                 
-                <script>alert('Successfully Registered \n	Please Login.'); window.location.href="Dlogin.php";
+                <script>alert('Successfully Registered \n	Please Login.'); window.location.href="HospitalRegistration.php";
                 </script>
 
 <?php

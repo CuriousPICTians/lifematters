@@ -105,7 +105,7 @@ echo $_SESSION['email'];
 		if($approved == 1)
 		{
                    $cursor= $collection->update(array("email" => $_SESSION['email']),array('$set' => array($arr,$patient,'approved' => $approved)));
- 	     			exec("Rscript kmeans.R $_SESSION['email']", $out);
+ 	     //			exec("Rscript kmeans.R $_SESSION['email']", $out);
  //if `result` collection not empty then show the results to the doctor of donor. And not to any doctor.
  	     }
  //$collection->update(array("email" => $_SESSION['email']),array('$set' => array('info' => $data)));

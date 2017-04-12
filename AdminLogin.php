@@ -128,34 +128,24 @@ font-size: .85em;
 
 </style>  
 
-<script type="text/javascript">
-	function validate(form) {
-
-	//	String uname = document.getElementByName("uname").value;
-	//	String password = document.getElementsByName("upwd").value;
-		
-		var uname=form.uname.value;
-		var password=form.upwd.value;
-		if(uname.localeCompare("Admin")==0){
-			if(password.localeCompare("Admin")==0)
-				return true;
-			else{
-				alert("Invalid username or password..!");
-				return false;
-			}
-		}
-		else{
-			alert("Invalid username or password..!");
-			return false;
-		}
-	}
+<script>
+function validateForm() {
+    var x = document.forms["myForm21"]["uname"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alert("please Enter Email-ID in Correct format");
+        return false;
+    }
+}
 </script>
+
 
 </head>
 
 <body>
 
-<form method="post" name="login1" onSubmit="return validate(login1)">
+<form method="post" name="myForm21" action="" onsubmit="return validateForm();">
 
 <section>
   <span></span>

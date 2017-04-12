@@ -1,7 +1,3 @@
-
-
-
-
  <!DOCTYPE html>
  <html lang="en">
 <html>
@@ -134,7 +130,7 @@ font-size: .85em;
 
 <script>
 function validateForm() {
-    var x = document.forms["myForm12"]["email"].value;
+    var x = document.forms["myForm24"]["email"].value;
     var atpos = x.indexOf("@");
     var dotpos = x.lastIndexOf(".");
     if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
@@ -148,7 +144,7 @@ function validateForm() {
 
 <body>
 
-<form method="post" name="myForm12" action="" onsubmit="return validateForm();">
+<form method="post" name="myForm24" action="" onsubmit="return validateForm();">
 
 
 <section>
@@ -189,19 +185,20 @@ function validateForm() {
 
   </form>
 </br>
-<input type="submit" name="submit" onclick="window.parent.location.href='Doctor.php'" class="btn btn-default" value="submit"/>
-  
+<input type="submit" name="submit" class="btn btn-default" value="Login"/>
+   <h5>
+  <b>  <a href='DoctorCreateAcc.php'> Back to Registration..!! </a> </b>
+  </h5>
 </section>
 
 <br>
 <br>
 
 </form>
-
 </body>
 </html>
 
-<!--
+
 <?php
 session_start();
 //echo $_SESSION['email'];
@@ -223,7 +220,7 @@ if(isset($_POST['submit']))
 		
 
 		$database=$con->organ;
-		$collection=$database->donorinfo;
+		$collection=$database->docinfo;
 	
 
 	//$qry = array('login'=>array("email" => $login,"password" => $pass));
@@ -239,7 +236,7 @@ if(isset($_POST['submit']))
 
 	<script>
 	alert('Successfully Login...');
-               		(window.parent || window).location.href="DonorPage.php";
+               		(window.parent || window).location.href="Doctor.php";
                </script>
 
 <?php
@@ -268,4 +265,4 @@ die("Mongo DB not installed");
 
 }
 
-?>-->
+?>

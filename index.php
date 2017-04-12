@@ -138,8 +138,8 @@ color: #ffffff;
 					<li><a href="Default.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white" target="cp" ><i class="fa fa-home"></i> Home</a></li>
 								<li><a href="DonorLogin.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white"target ="cp"><i class="fa fa-male"></i> Donor </a></li>
         <li><a href="RecieverLogin.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white"target ="cp"><i class="fa fa-child"></i> Reciever </a></li>
-        <li><a href="DoctorLogin.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white"target ="cp"><i class="fa fa-male"></i> Doctor </a></li> 
-								<li><a href="HospitalLogin.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white" target ="cp"><i class="fa fa-laptop"></i> Hospital</a></li>    		
+        <li><a href="DoctorCreateAcc.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white"target ="cp"><i class="fa fa-male"></i> Doctor </a></li> 
+								<li><a href="HospitalCreateAcc.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white" target ="cp"><i class="fa fa-laptop"></i> Hospital</a></li>    		
 								<li><a href="#" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white" target =""><span class="glyphicon glyphicon-heart-empty"></span> Why Choose us</a></li>
        	<li><a href="#" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white" target =""><span class="glyphicon glyphicon-phone"></span> What We Do</a></li>
        	<li><a href="#" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white" target =""><span class="glyphicon glyphicon-user"></span> Contact Us</a></li>  

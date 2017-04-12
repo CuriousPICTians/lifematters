@@ -98,12 +98,13 @@ if(isset($_POST['submit']))
     $collection=$database->receiverinfo;
 				$collectionD=$database->donorinfo;
 
- $cursor = $collection->find(array("email" => $email));
+ if($cursor = $collection->find(array("email" => $email,"approved" => "0")))
+{
  $cursor_count = $cursor->count();
  if($cursor_count)
     ;
  else
-    $cursor = $collectionD->find(array("email" => $email));
+    $cursor = $collectionD->find(array("email" => $email,"approved" => "0"));
 
   //foreach ($cursor as $venue) 
 {
@@ -167,158 +168,24 @@ if(isset($_POST['submit']))
   
 													</tbody>
 					</table>	      
-     
-      
-
-
-<!--
-    echo "<table table width='50%' class='table-hover table-bordered table-condensed'>";
-
-    echo "<tr>";
-    //echo "<td> Name :  </td>";
-    echo "<td>First Name :- </td>"; 
-    echo "<td>".$venue ['firstname'] . "</td>";
-    echo "</tr>";
-    
-    echo "<tr>";
-    echo "<td>Middle Name :- </td>"; 
-    echo "<td>" .$venue  ['middlename'] . "</td>";
-    echo "</tr>";
-
-    echo "<tr>";
-    echo "<td>Last Name :- </td>"; 
-    echo "<td>" .$venue  ['lastname'] . "</td>";
-    echo "</tr>";
-
-    echo "<tr>";
-    echo "<td>Gender :- </td>"; 
-    echo "<td>" .$venue  ['gender'] . "</td>";
-    echo "</tr>";
-
-    echo "<tr>";
-    echo "<td>Birth Date :- </td>"; 
-    echo "<td>" .$venue  ['day'] 
-    .$venue  ['month']
-    .$venue  ['year']. "</td>";
-    echo "</tr>";
-    echo "<tr>";
-
-    echo "<tr>";
-    echo "<td>Blood Group :- </td>"; 
-    echo "<td>" .$venue  ['blood'] . "</td>";
-    echo "</tr>";
-
-    echo "<tr>";
-    echo "<td>Birth Place :- </td>"; 
-    echo "<td>" .$venue  ['dobplace'] . "</td>";
-    echo "</tr>";
-    
-    echo "<tr>";
-    echo "<td>Mobile No :- </td>"; 
-    echo "<td>" .$venue  ['mobileno'] . "</td>";
-    echo "</tr>";
-    
-    echo "<tr>";
-    echo "<td>Address :- </td>"; 
-    echo "<td>" .$venue  ['address'] . "</td>";
-    echo "</tr>";
-    
-    echo "<tr>";
-    echo "<td>city :- </td>"; 
-    echo "<td>" .$venue  ['city'] . "</td>";
-    echo "</tr>";
-    
-    echo "<tr>";
-    echo "<td>State :- </td>"; 
-    echo "<td>" .$venue  ['state'] . "</td>";
-    echo "</tr>";
-    
-    echo "<tr>";
-    echo "<td>Nationality :- </td>"; 
-    echo "<td>" .$venue  ['nati'] . "</td>";
-    echo "</tr>";
-    
-    echo "<tr>";
-    echo "<td>Zip Code :- </td>"; 
-    echo "<td>" .$venue  ['zipcode'] . "</td>";
-    echo "</tr>";
-    
-
-    echo "<td>Hospital1 :- </td>";
-    echo "<td>".$venue ['hospital'] . "</td>";
-    echo "</tr>";
-
-  	 echo "<tc>";
-    echo "<td> Organ of Patient :- </td>";
-    echo "</tc>";
-
-				echo "<tc>";
-    echo "<td>" .$venue ['donor'] . "</td>";
-    echo "</tc>";
- 
-    echo "<tr>";
-    echo "<td>Organ Name :- </td>";
-    echo "<td>".$venue ['organ'] . "</td>";
-    echo "</tr>";
-
-
-    echo "<tr>";
-    echo "<td>";
-
-
-?>
-
-
-<script type="text/javascript">
-    function showokidney(kidneycheck) {
-        kidney.style.display = kidneycheck.checked ? "block" : "none";
-    }
-
-</script>
-
-<script type="text/javascript">
-    function showliver(livercheck) {
-        liver.style.display = livercheck.checked ? "block" : "none";
-    }
-
-</script>
-
-<?php
-        echo "Medical Details :";
-        echo "</br>";
-        echo "</br>";
-        echo "<input type='checkbox' id='kidneycheck' onclick=showokidney(this) value= ".$venue ['kidney'].">Kidney";
-        echo "</br>";
-        echo "</br>";
-?>      
-        <div id="kidney" style="display: none">
-
-         <input type = "file" name = "image" value="Select Report File"/>
-         <input type = "submit"/>
-         </br>
-        </br>
-     </div>
-    
-
-<?php       echo "<input type='checkbox' id='livercheck' onclick=showliver(this) value= ".$venue ['liver'].">Liver";
-echo "</br>";
-        echo "</br>";
-?>
-
-
-    <div id="liver" style="display: none">
-
-         <input type = "file" name = "image" />
-         <input type = "submit"/>
-         </br>
-        </br>
-     </div>-->
-    
-         
+       
         <button type="reset" class="btn btn-large btn-success" onclick="location.href='mdetails.php'"> NEXT </button>
 </div>
 <?php
     }
 
     }
+else
+?>
+
+	<script>
+	alert('Successfully ..');
+               		
+               </script>
+
+<?php
+}
+
+
+
 ?>
