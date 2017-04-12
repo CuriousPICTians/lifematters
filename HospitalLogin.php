@@ -222,7 +222,7 @@ if(isset($_POST['submit']))
 	
 
 	//$qry = array('login'=>array("email" => $login,"password" => $pass));
-	$qry = array("email" => $login,"password" => $pass);
+	$qry = array("email" => $login,"password" => $pass,"status" => "Confirmed");
 	$result = $collection->findOne($qry);	
 
 		

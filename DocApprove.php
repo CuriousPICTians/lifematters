@@ -135,7 +135,7 @@ echo $_SESSION['uname'];
           	if($email == 'sunil@gmail.com')
           		echo "<h3 style='text-align:center;'>User Orders</h3><br>";
           	else
-          		echo "<h3 style='text-align:center;'> List Of Hospitals </h3>";
+          		echo "<h3 style='text-align:center;'> List Of Doctors:- </h3>";
           ?>
       <table class="table table-responsive bio-table table-bordered table-hover table-condensed" >
 
