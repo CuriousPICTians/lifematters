@@ -1,9 +1,10 @@
 /*
+gcc dataset.c -o dataset
 ./dataset 5000 1000 10 > donor.json
 ./dataset 10000 7000 20 > receiver.json
 
-mongoimport -d rootkea -c donorinfo --jsonArray donor.json
-mongoimport -d rootkea -c receiverinfo --jsonArray receiver.json
+mongoimport -d organ -c donorinfo --jsonArray donor.json
+mongoimport -d organ -c receiverinfo --jsonArray receiver.json
 */
 
 #include <stdio.h>
@@ -36,6 +37,7 @@ int main(int argc, char **argv)
 		fprintf(stdout, "{\n");
 	
 		fprintf(stdout, "\t\"email\" : "); fprintf(stdout, "\"%d@%s\",\n", i, domain[getRandom(sizeof(domain)/sizeof(domain[0]))]);
+		fprintf(stdout, "\t\"password\" : "); fprintf(stdout, "\"%s\",\n", "1234");
 		fprintf(stdout, "\t\"approved\" : "); fprintf(stdout, "\"%d\",\n", approved[getRandom(sizeof(approved)/sizeof(approved[0]))]);
 		fprintf(stdout, "\t\"priority\" : "); fprintf(stdout, "\"%d\",\n", priority[getRandom(sizeof(priority)/sizeof(priority[0]))]);
 		fprintf(stdout, "\t\"organ\" : "); fprintf(stdout, "\"%d\",\n", approved[getRandom(sizeof(organ)/sizeof(organ[0]))]);

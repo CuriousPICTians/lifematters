@@ -1,8 +1,15 @@
 #!/usr/bin/env Rscript
+# install.packages("rJava")
+# install.packages("RMongo")
+
+library(RMongo)
+library(rJava)
 
 #i <- as.numeric(commandArgs(TRUE))
-i <- commandArgs(TRUE)
-rootkea <- mongoDbConnect('rootkea')
+#i <- commandArgs(TRUE)
+i <- "1012@ymail.com"
+
+rootkea <- mongoDbConnect('organ')
 
 donors <- dbGetQuery(rootkea, 'donorinfo', '{"approved": "1"}', skip = 0, limit = 10000)
 receivers <- dbGetQuery(rootkea, 'receiverinfo', '{"approved": "1"}', skip = 0, limit = 20000)

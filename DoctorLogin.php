@@ -187,7 +187,7 @@ function validateForm() {
 </br>
 <input type="submit" name="submit" class="btn btn-default" value="Login"/>
    <h5>
-  <b>  <a href='DoctorCreateAcc.php'> Back to Registration..!! </a> </b>
+  <b>  <a href='DoctorCreateAcc.php'> Create Account..!! </a> </b>
   </h5>
 </section>
 
