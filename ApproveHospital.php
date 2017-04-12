@@ -158,7 +158,7 @@ echo $_SESSION['uname'];
 
         <?php
             if($email == 'sunil@gmail.com')
-            	$result=$collection -> find(array("complaint"=> array('$exists' => true)));
+            	$result=$collection -> find(array("email"=> array('$exists' => true)));
             else
       	      $result=$collection->find(array('complaint.email'=>$email));
             foreach($result as $obj)

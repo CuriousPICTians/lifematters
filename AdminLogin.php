@@ -270,9 +270,6 @@ die("Mongo DB not installed");
     //$data=array('user'=>array('loginid'=>$rlogin,'password'=>$rpass));
     //$collection->insert($data);
 
-  
-
-
 }
 
 ?>
