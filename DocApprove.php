@@ -12,8 +12,8 @@ $con = new MongoClient();
       $database=$con->organ;
 
       //connect to specific collection
-      $collection=$database->hospitalinfo;
-      $collection1=$databse->user;
+      $collection=$database->docinfo;
+      //$collection1=$databse->user;
     }
 
  if ($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 		{
 			$collection -> remove(array('_id' => new MongoId($_GET['order'])));
 			?>
-			<script>alert("Hospital Has Been Deleted Successfully.");</script>
+			<script>alert("Doctor Has Been Deleted Successfully.");</script>
 			<?php
 		
 		}
@@ -53,14 +53,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 		if($obj['status'] == "Confirmed" )
 		{
 			?>
-			<script>alert("Hospital confirmed already!");</script>
+			<script>alert("Doctor confirmed already!");</script>
 			<?php
 		}	
 		else
 		{
 		$collection -> update(array('_id' => new MongoId($_GET['process'])), array('$set' => array('status' => 'Confirmed')));
 		?>
-		<script>alert("Hospital has been confirmed.");</script>
+		<script>alert("Doctor has been confirmed.");</script>
 		<?php
   		}
   		}
@@ -144,21 +144,19 @@ echo $_SESSION['uname'];
         	 if($email == 'sunil@gmail.com')
         	 	echo '<th>Name</th>';
         ?>
- <th>Hospital Name</th>
-<th>Hospital Address</th>
-<th>Hospital Email</th>
-<th>Hospital Phone </th>
-<th>Hospital Director</th>
-<th>Director Phone</th>
-<th>Organs Transplant</th>
+ <th> Doctor Name </th>
+<th> Doctor R.G.NO</th>
+<th> Doctor Email </th>
+<th> Doctor Hospital </th>
+
 <th>Status</th>
 <th>Action</th>
 <th>View</th>
       </tr>
 
         <?php
-            if($email == 'sunil@gmail.com')
-            	$result=$collection -> find(array("complaint"=> array('$exists' => true)));
+            if($email == $_SESSION['email'])
+            	$result=$collection -> find(array("email"=> array('$exists' => true)));
             else
       	      $result=$collection->find(array('complaint.email'=>$email));
             foreach($result as $obj)
@@ -166,13 +164,11 @@ echo $_SESSION['uname'];
 
                 echo "<tr>";
               //  if($uemail == 'sunil@gmail.com')
-echo "<td>".$obj['hospital_name']. "</td>";
-echo"<td>".$obj['address']."</td>";
-echo"<td>".$obj['email']."</td>";
-echo"<td>".$obj['phno']."</td>";
-echo"<td>".$obj['diname']. "</td>";
-echo"<td>".$obj['diph']."</td>";
-echo"<td>".$obj['KidneyLicense'].$obj['LiverLicense'].$obj['HeartLicense'].$obj['LungsLicense']. "</td>";
+echo "<td>".$obj['fname']. $obj['mname'].$obj['lname']. "</td>";
+echo"<td>".$obj['grno']."</td>";
+echo"<td>".$obj['docemail']."</td>";
+echo"<td>".$obj['dochospital']."</td>";
+
  
      echo "<td style='font-weight:bold;";
 
@@ -188,11 +184,11 @@ echo"<td>".$obj['KidneyLicense'].$obj['LiverLicense'].$obj['HeartLicense'].$obj[
 	              	echo "<a href='profile.php?process=".$obj['_id']."'>Confirm</a>";
 	            echo "<td><a href='orderSummary.php?key=".$obj['_id']."'>Summary</a>";
 */
-	               echo "<td><div class='action'><a href='ApproveHospital.php?order=".$obj['_id']."'> Delete </a></div>";
+	               echo "<td><div class='action'><a href='DocApprove.php?order=".$obj['_id']."'> Delete </a></div>";
                 
 												//if($email == 'sunil@gmail.com')                
 	              
-	              	echo "<div class='action'><a href='ApproveHospital.php?process=".$obj['_id']."'> Confirm </a></div>";
+	              	echo "<div class='action'><a href='DocApprove.php?process=".$obj['_id']."'> Confirm </a></div>";
 	                echo "<td><div class='action'><a href='orderSummary.php?key=".$obj['_id']."'> Summary </a></div>";
 
                 echo "</td></tr>";

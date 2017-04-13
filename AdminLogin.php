@@ -149,7 +149,7 @@ function validateForm() {
 
 <section>
   <span></span>
-  <h1>Member Login</h1>
+  <h1> Admin Login</h1>
   <form>
 
 
@@ -269,9 +269,6 @@ die("Mongo DB not installed");
     //$data=array('session'=>array('name'=>$name,'address'=>$address));
     //$data=array('user'=>array('loginid'=>$rlogin,'password'=>$rpass));
     //$collection->insert($data);
-
-  
-
 
 }
 

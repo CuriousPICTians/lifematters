@@ -130,7 +130,7 @@ font-size: .85em;
 
 <script>
 function validateForm() {
-    var x = document.forms["myForm22"]["email"].value;
+    var x = document.forms["myForm24"]["email"].value;
     var atpos = x.indexOf("@");
     var dotpos = x.lastIndexOf(".");
     if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
@@ -144,12 +144,12 @@ function validateForm() {
 
 <body>
 
-<form method="post" name="myForm22" action="" onsubmit="return validateForm();">
+<form method="post" name="myForm24" action="" onsubmit="return validateForm();">
 
 
 <section>
   <span></span>
-  <h1>Hospital Login</h1>
+  <h1> Doctor Login</h1>
 
  
 
@@ -186,9 +186,9 @@ function validateForm() {
   </form>
 </br>
 <input type="submit" name="submit" class="btn btn-default" value="Login"/>
-<h5>
-  <b>  <a href='HospitalCreateAcc.php'> Create Account ..!! </a> </b>
-  </h5>  
+   <h5>
+  <b>  <a href='DoctorCreateAcc.php'> Create Account..!! </a> </b>
+  </h5>
 </section>
 
 <br>
@@ -220,11 +220,11 @@ if(isset($_POST['submit']))
 		
 
 		$database=$con->organ;
-		$collection=$database->hospitalinfo;
+		$collection=$database->docinfo;
 	
 
 	//$qry = array('login'=>array("email" => $login,"password" => $pass));
-	$qry = array("email" => $login,"password" => $pass,"status" => "Confirmed");
+	$qry = array("email" => $login,"password" => $pass, "status" => "Confirmed" );
 	$result = $collection->findOne($qry);	
 
 		
@@ -236,7 +236,7 @@ if(isset($_POST['submit']))
 
 	<script>
 	alert('Successfully Login...');
-               		(window.parent || window).location.href="Hospital.php";
+               		(window.parent || window).location.href="Doctor.php";
                </script>
 
 <?php
@@ -265,4 +265,3 @@ die("Mongo DB not installed");
 
 }
 
-?>

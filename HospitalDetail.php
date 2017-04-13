@@ -162,78 +162,7 @@ session_start();
  
 </div>
 </div> 
-<!--
-      <div class="w3-row-padding">
-        <div class="w3-col m12">
-          <div class="w3-card-2 w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h6 class="w3-opacity "> Wel-Come </h6>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
-        <!img src="img/a1.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:100px">
-        <span class="w3-right w3-opacity">  </span>
-        <h4> Director / Medical Superintendent of Hospital </h4><br>
-       <hr>
-        
 
-									<?php	
-
-
-															echo"<div class='row'>";
-															echo"	<div class='col-md-12'>";
-														
-															echo"</div>";
-
-											
-		echo"	<div class='col-md-8'>";
-		echo"<div class='table-responsive responsiv-table'>";
- 	echo"<table class='table bio-table table-hover  table-condensed '>";
-		echo"<tbody>";
-
-	echo"<tr>  <td> Name :- </td> ";
-	echo" <td>".$venue ['diname'] . "</td>"; 
-	echo" </tr>";
-
-	echo"<tr>  <td> Phone Number :- </td> ";
-	echo" <td>".$venue ['diph'] . "</td>"; 
-	echo" </tr>";
-
-	echo"<tr>  <td> Email-ID :- </td> ";
-	echo" <td>".$venue ['diemail'] . "</td>"; 
-	echo" </tr>";
-
-										
-	echo" </tbody>";
-	echo"</table>";
-echo"<hr>";
-?>
-
- <h4> Types of transplant being done in your hospital </h4><br>
-
-<?php
-		echo"	<div class='col-md-8'>";
-		echo"<div class='table-responsive responsiv-table'>";
- 	echo"<table class='table bio-table table-hover  table-condensed '>";
-		echo"<tbody>";
-
-	echo"<tr>  <td> License for :- </td> ";
-echo"<td>".$venue['KidneyLicense'].$venue['LiverLicense'].$venue['HeartLicense'].$venue['LungsLicense']. "</td>";
-	echo" </tr>";
-
-	echo" </tbody>";
-	echo"</table>";
-echo"<hr>";
-	echo" </div>";
-	echo"</div>";
-
-?>
-
--->
           
   <!-- End Middle Column -->
     </div>

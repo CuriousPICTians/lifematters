@@ -1,9 +1,11 @@
- <!DOCTYPE html>
- <html lang="en">
-<html>
-<head>
+	<!DOCTYPE html>
+	<html lang="en">
+	<html>
 
-  	<meta charset="UTF-8">
+
+	<head>
+	
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- Latest compiled and minified CSS -->
@@ -16,20 +18,19 @@
 	<!-- Latest compiled JavaScript -->
 		<script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
 		
-		
-		<!-- W3.CSS is a modern CSS framework -->		
+	<!-- W3.CSS is a modern CSS framework -->		
 		<link rel="stylesheet" href="w3.css">
 
 <link rel="stylesheet" href="w3-theme-blue-grey.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-</head>
-
-<style>
-  	
 	
-	/* edit profile css*/
+	<style>
+			
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+/* edit profile css*/
 
 .hve-pro {    background-color:rgb(255, 102, 0);padding: 5px; width:100%; height:auto;float:left;}
 .hve-pro p {float: left;color:#fff;font-size: 15px;text-transform: capitalize;padding: 5px 20px;font-family: 'Noto Sans', sans-serif;}
@@ -53,7 +54,6 @@ select.selectpicker option:first-child { color:#99999c;}
 .uplod-file {position: relative;overflow: hidden;color: #fff;background-color: rgb(0, 4, 51);border: 0px solid #a02e09;border-radius: 0px;
  transition:all ease 0.3s;margin: 5px;}
 .uplod-file input[type=file] {position: absolute;top: 0;right: 0;min-width: 100%;min-height: 100%;font-size: 100px;text-align: right;
-
 filter: alpha(opacity=0);opacity: 0;outline: none;background: white;cursor: inherit;display: block;}
 .uplod-file:hover, .uplod-file:focus {color: #fff;background-color:rgb(255, 102, 0);}
 h4.pro-title { font-size:24px; color:rgba(0, 4, 51, 0.96); text-transform:capitalize; text-align:justify;padding: 10px 15px;font-family: 'Bitter', serif;}
@@ -74,22 +74,34 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 
 }
 
+	</style>
 	
+	</head>
+
+	<body class="w3-theme-l5">
 		
 	
-</style>  
+<?php
 
-<body class="w3-theme-l5">
+session_start();
+
+  $con = new MongoClient();
+  if($con)
+  {
+    $database=$con->organ;
+    $collection=$database->docinfo;
+    $cursor = $collection->find(array("email"=>$_SESSION['email']));
+    $cursor_count = $cursor->count();
+    foreach ($cursor as $venue)
+    {
+?>
 
 <!-- Page Container -->
-<div class="w3-container w3-content" style="max-width:1400px;margin-top:10px">    
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
   <!-- The Grid -->
   <div class="w3-row">
-    
-    <!-- Middle Column -->
-    <div class="w3-col m12">
-    
-      <div class="w3-row-padding">
+
+<div class="w3-row-padding">
         <div class="w3-col m12">
           <div class="w3-card-2 w3-round w3-white">
             <div class="w3-container w3-padding">
@@ -99,101 +111,61 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
           </div>
         </div>
       </div>
-      
-      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
-        <img src="img-1/ab.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:100px">
-        <span class="w3-right w3-opacity">  </span>
-        <h4> Patient information </h4><br>
-       <hr>
-        <table class="table table-responsive bio-table table-bordered table-hover table-condensed" >
-														<thead>
-																<tr>
-																		<th>Patient's Email-ID </th>
-																	<th>First Name </th>
-																		<th>Last Name</th>
-																		<th>Gender</th>
-																		<th>Birth Date</th>
-																		<th>Birth Group</th>
-																		<th>Birth Place</th>
-																		<th>Mobile NO</th>
-																		<th>Address</th>
-																		<th>City</th>
-																		<th>State</th>
-																		<th>Nationality</th>
-																		<th>Hospital</th>
-																		<th> Donated Organ</th>
-																</tr>
-														</thead>
-														<tbody>
-<?php
+<hr>
+    <!-- Left Column -->
+    <div class="w3-col m4">      
 
-		session_start();
-   
-	$con = new MongoClient();
+							
 
-  if($con)
-  {
+      <div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center"> Doctor Details </h4>
+         <p class="w3-center"><img src="img/q1.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
+         <hr>
+			<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> Doctor Name :-"  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>"; ?>        
+ 			<?php echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> G.R.NO :-" .$venue ['grno'] . "</p>"; ?>        
+			<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Contact Number :- " .$venue ['docphno'] ." </p>"; ?>																					
+			<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> Email-ID :-" .$venue ['docemail'] ." </p>"; ?>
+			<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> work at :-" .$venue ['dochospital'] ." </p>"; ?>
+        </div>
+      </div> 
+				
+				<!-- End Left Column -->
+    </div>
+
     
+    <!-- Middle Column -->
+    <div class="w3-col m7">
 
-    $database=$con->organ;
-    $collection=$database->result;
-	$collectionD=$database->receiverinfo;
+    <div class="w3-row-padding">
+    <div class="w3-col m12">
 
-    $cursor = $collection->find();
-		}
-?>
-						<?php
-                 foreach ($cursor as $venue) 
-																						{
-																							echo "
-																							<tr>
-																												<td>{$venue  ['email']} </td>
-																								
-																							
-																							";
-	
-																			
+<div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+      <h4 class="w3-center"> <img src="img/q1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar">   Director / Medical Superintendent of Hospital </h4>
 
-$p=$venue['email'];
+         <hr>
+								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i>  Name :-"  .$venue ['diname'] ."</p>"; ?>        
+ 							<?php echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> phone No :-" .$venue ['diph'] . "</p>"; ?>        
+									<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> Email-ID :-" .$venue ['diemail'] ." </p>"; ?>
+        </div>
+      </div> 
+<hr>	
 
+<div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center"> <img src="img/z1.jpg" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Types of transplant being done in your hospital </h4>
+         <p class="w3-center"> </p>
+         <hr>
+								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> License For :-".$venue['KidneyLicense'].$venue['LiverLicense'].$venue['HeartLicense'].$venue['LungsLicense']."</p>"; ?>
+        </div>
+      </div>
+ 
+</div>
+</div> 
 
-?>
-<?php
-
-$cursor1 = $collectionD->find(array( 	"email" => $p ));
-
-foreach($cursor1 as $obj)
-{
-
-
-echo "
-					  
-															
-																												<td>{$obj  ['middlename']}</td>
-																												<td>{$obj  ['lastname']}</td>
-																												<td>{$obj  ['gender']}</td>
-																												<td>{$obj  ['day']} {$venue  ['month']} {$venue  ['year']} </td>
-																												<td>{$obj  ['blood']}</td>
-																												<td>{$obj  ['dobplace']}</td>
-																												<td>{$obj  ['mobileno']}</td>
-																												<td>{$obj  ['address']}</td>
-																												<td>{$obj  ['city']}</td>
-																												<td>{$obj  ['state']}</td>
-																												<td>{$obj  ['nati']}</td>
-																												<td>{$obj  ['hospital']}</td>
-																												<td>{$obj  ['organ']}</td>
-						
-																												</tr>
-																							"; 
-								}			
-
-}								
-  ?>
-													</tbody>
-					</table>	      
-     
-      
-    <!-- End Middle Column -->
+          
+  <!-- End Middle Column -->
     </div>
     
     
@@ -204,10 +176,13 @@ echo "
 <!-- End Page Container -->
 </div>
 
+<?php
 
 
-
-
+}
+}
+?>
+    
+   
 </body>
 </html>
-
