@@ -111,7 +111,7 @@ color: #ffffff;
 							<p> <b>Project by PICT </b></p>
 						</div>
 	  
-						<a href="Default.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Home </a>
+						<a href="DoctorDetails.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Home </a>
 						<a href="Psearch.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Search</a> 
 						<a href="ListDonor.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Dlist </a> 
 						<a href="ListReceiver.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-bars fa-fw w3-margin-right"></i> Rlist </a> 
@@ -135,7 +135,7 @@ color: #ffffff;
 				
 				
 				<div id="section">
-					<iframe src="Default.php" name="cp" width="1220px" height="530px" style="border:none" ></iframe>
+					<iframe src="DoctorDetails.php" name="cp" width="1220px" height="530px" style="border:none" ></iframe>
 				</div>
 </body>
 </html>

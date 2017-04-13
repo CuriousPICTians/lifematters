@@ -89,7 +89,7 @@ session_start();
   if($con)
   {
     $database=$con->organ;
-    $collection=$database->hospitalinfo;
+    $collection=$database->docinfo;
     $cursor = $collection->find(array("email"=>$_SESSION['email']));
     $cursor_count = $cursor->count();
     foreach ($cursor as $venue)
@@ -119,13 +119,14 @@ session_start();
 
       <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-         <h4 class="w3-center"> Hospital Details </h4>
-         <p class="w3-center"><img src="img/home1.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
+         <h4 class="w3-center"> Doctor Details </h4>
+         <p class="w3-center"><img src="img/q1.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
          <hr>
-								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> Hospital Name :-"  .$venue ['hospital_name'] ."</p>"; ?>        
- 							<?php echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> phone No :-" .$venue ['phno'] . "</p>"; ?>        
-								<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Website Name :- " .$venue ['website'] ." </p>"; ?>																					
-									<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> Email-ID :-" .$venue ['hospitalemail'] ." </p>"; ?>
+			<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> Doctor Name :-"  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>"; ?>        
+ 			<?php echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> G.R.NO :-" .$venue ['grno'] . "</p>"; ?>        
+			<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Contact Number :- " .$venue ['docphno'] ." </p>"; ?>																					
+			<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> Email-ID :-" .$venue ['docemail'] ." </p>"; ?>
+			<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> work at :-" .$venue ['dochospital'] ." </p>"; ?>
         </div>
       </div> 
 				
