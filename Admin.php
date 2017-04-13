@@ -1,10 +1,9 @@
 	<!DOCTYPE html>
 
-
 <?php
 
 session_start();
-echo $_SESSION['uname'];
+$_SESSION['uname'];
 
 ?>
 
@@ -33,19 +32,7 @@ echo $_SESSION['uname'];
 	
 	<style>
 			
-			.w3-container	  
-{
-background-color: #fafafa;
-position: ;
-		z-index: 999;
-		border: 0px solid;
-		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
-		transition:all ease 0.8s;
-		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
-		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
-}
-		
-		.w3-sidenav 
+.w3-sidenav 
 {
 background-color: #404040;
 color: #ffffff;
@@ -69,12 +56,43 @@ color: #ffffff;
 		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
 }
 
+body {
+    background-color: #fff;
+}
+
+.topbar {
+	background: #404040;
+	border-color: #2A3F54;
+	border-radius: 0px;
+}
+
+.topbar .navbar-header a {
+	color: #ffffff;
+}
+
+.content {
+    margin-top: 70px;
+    padding: 0 30px;
+}
+
+.navbar-btn {
+    background: none;
+    border: none;
+    height: 35px;
+    min-width: 35px;
+    color: #fff;
+}
+.navbar-text {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
 
 	</style>
 	
 	</head>
 
-	<body class="w3-content" style="max-width:1350px">
+	<body class="w3-content" style="max-width:1400px">
 		
 						
 <!-- Navigation bar with social media icons -->
@@ -89,20 +107,11 @@ color: #ffffff;
 </div>
 		
 				
-		<!-- Header -->		
-				
-				<div class="w3-container w3-light-grey w3-medium ">
-					<h3> <b>Organ Donation System </b></h3> 
-					<p> Be a Donor & Save Lifes..!! </p> 
-					
-					
-				</div>
 		
-				<br>
 	
 			<!-- Sidenav/menu -->
 
-					<nav class="w3-sidenav w3-collapse w3-animate-left" style="z-index:3;width:160px;" id="mySidenav"><br>
+					<nav class="w3-sidenav w3-collapse w3-animate-left" style="z-index:3;width:200px;" id="mySidenav"><br>
 						<div class="w3-container-fluid">
 							
 							<a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding" title="close menu">
@@ -112,14 +121,61 @@ color: #ffffff;
 							<p> <b>Project by PICT </b></p>
 						</div>
 	  
-						<a href="Default.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Admin </a>
-						<a href="ApproveHospital.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> Approve Hospitals  </a>
-						<a href="logout.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-spinner fa-spin fa-fw w3-margin-right"></i> Logout </a>
+<a href="Default.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Admin Details </a>
+<a href="ApproveHospital.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> Approve Hospitals  </a>
+<a href="ListDonor.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Donor List </a> 
+<a href="ListReceiver.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-bars fa-fw w3-margin-right"></i> Receiver List </a> 
+<a href="logout.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-spinner fa-spin fa-fw w3-margin-right"></i> Logout </a>
 						
 					</nav>
 
 		
 		
+
+  <nav class="navbar navbar-default topbar" style="margin-left:210px">
+		<div class="container-fluid">
+
+			<div class="navbar-header">
+
+				<p class="navbar-text">		
+				  <a class="sidebar-toggle">
+            <i class="fa fa-bars"></i>
+          </a>
+				</p>
+
+				<a class="navbar-brand">
+					<span> Admin </span>
+				</a>
+
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-collapse-main">
+
+				<ul class="nav navbar-nav navbar-right">
+                    
+            <li>
+                <button class="navbar-btn">
+                 <i class="fa fa-bell"></i>
+                </button>
+           </li>
+                    
+					<li class="dropdown">
+						<button class="navbar-btn" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Account</a></li>
+							<li><a href="#">Dashboard</a></li>
+							<li class="nav-divider"></li>
+							<li><a href="logout.php">Logout</a></li>
+						</ul>
+					</li>
+
+				</ul>
+
+			</div>
+		</div>
+	</nav>		
 		
 		<!-- Overlay effect when opening sidenav on small screens -->
 
@@ -128,12 +184,12 @@ color: #ffffff;
 
 		<!-- !PAGE CONTENT! -->
 
-					<div class="w3-main" style="margin-left:170px">
+					<div class="w3-main" style="margin-left:210px">
 
 					
 				
 				<div id="section">
-					<iframe src="Default.php" name="cp" width="1180px" height="520px" style="border:none" ></iframe>
+					<iframe src="Default.php" name="cp" width="1180px" height="570px" style="border:none" ></iframe>
 				</div>
 </body>
 </html>

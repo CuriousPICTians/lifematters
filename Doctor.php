@@ -95,7 +95,7 @@ body {
 	
 	</head>
 
-	<body class="w3-content" style="max-width:1350px">
+	<body class="w3-content" style="max-width:1400px">
 		
 						
 <!-- Navigation bar with social media icons -->
@@ -113,7 +113,7 @@ body {
 	
 		<!-- Sidenav/menu -->
 
-					<nav class="w3-sidenav w3-collapse w3-animate-left" style="z-index:3;width:120px;" id="mySidenav"><br>
+					<nav class="w3-sidenav w3-collapse w3-animate-left" style="z-index:3;width:180px;" id="mySidenav"><br>
 						<div class="w3-container-fluid">
 							
 							<a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding" title="close menu">
@@ -124,19 +124,17 @@ body {
 						</div>
 	  
 						<a href="DoctorDetails.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Home </a>
-						<a href="Psearch.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Search</a> 
-						<a href="ListDonor.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Dlist </a> 
-						<a href="ListReceiver.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-bars fa-fw w3-margin-right"></i> Rlist </a> 
-						<a href="Mreport.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> Report </a>
-						<a href="Result.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> match List  </a>
+						<a href="Psearch.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Search Patients</a> 
+						<a href="Mreport.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> Upload Report </a>
+						<a href="Result.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> Match List  </a>
 						<a href="logout.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-spinner fa-spin fa-fw w3-margin-right"></i> Logout </a>
 						
 					</nav>
 
 		
 
-  <nav class="navbar navbar-default topbar" style="margin-left:130px">
-		<div class="container">
+  <nav class="navbar navbar-default topbar" style="margin-left:190px">
+		<div class="container-fliud">
 
 			<div class="navbar-header">
 
@@ -170,7 +168,7 @@ body {
 							<li><a href="#">Account</a></li>
 							<li><a href="#">Dashboard</a></li>
 							<li class="nav-divider"></li>
-							<li><a href="#">Logout</a></li>
+							<li><a href="logout.php">Logout</a></li>
 						</ul>
 					</li>
 
@@ -188,12 +186,12 @@ body {
 
 		<!-- !PAGE CONTENT! -->
 
-					<div class="w3-main" style="margin-left:130px">
+					<div class="w3-main" style="margin-left:190px">
 
 				
 				
 				<div id="section">
-					<iframe src="DoctorDetails.php" name="cp" width="1220px" height="560px" style="border:none" ></iframe>
+					<iframe src="DoctorDetails.php" name="cp" width="1200px" height="560px" style="border:none" ></iframe>
 				</div>
 </body>
 </html>
