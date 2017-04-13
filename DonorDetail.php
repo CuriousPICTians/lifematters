@@ -97,7 +97,7 @@ session_start();
 ?>
 
 <!-- Page Container -->
-<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
+<div class="w3-container w3-content" style="max-width:1100px;margin-top:20px">    
   <!-- The Grid -->
   <div class="w3-row">
     <!-- Left Column -->
@@ -143,121 +143,93 @@ session_start();
        <hr>
         
 
-									<?php	
+<?php	
 
+	echo"<div class='row'>";
+	echo"	<div class='col-md-12'>";
+	echo"</div>";
+	echo"	<div class='col-md-6'>";
+	echo"<div class='table-responsive responsiv-table'>";
+	echo"<table class='table bio-table table-hover  table-condensed '>";
+	echo"<tbody>";
+			echo"<tr>  <td>First Name :- </td> ";
+			echo" <td>".$venue ['firstname'] . "</td>"; 
+			echo" </tr>";
+			echo"<tr>  <td> Middle Name :- </td> ";
+			echo" <td>".$venue ['middlename'] . "</td>"; 
+			echo" </tr>";
+			echo"<tr>  <td> Last Name :- </td> ";
+			echo" <td>".$venue ['lastname'] . "</td>"; 
+			echo" </tr>";
+			echo"<tr>  <td> Gender :- </td> ";
+			echo" <td>".$venue ['gender'] . "</td>"; 
+			echo" </tr>";
+			echo"<tr>  <td> Birth Date :- </td> ";
+			echo "<td>" .$venue  ['day'] .$venue  ['month'].$venue  ['year']. "</td>";
+			echo" </tr>";
+			echo"<tr>  <td> Blood group :- </td> ";
+			echo" <td>".$venue ['blood'] . "</td>"; 
+			echo" </tr>";
+			echo"<tr>  <td> Birth Place :- </td> ";
+			echo" <td>".$venue ['dobplace'] . "</td>"; 
+			echo" </tr>";
+			echo"<tr>  <td> Mobile Number :- </td> ";
+			echo" <td>".$venue ['mobileno'] . "</td>"; 
+			echo" </tr>";
+			echo"<tr>  <td>  Address :- </td> ";
+			echo" <td>".$venue ['address'] . "</td>"; 
+			echo" </tr>";
+			echo"<tr>  <td> city:- </td> ";
+			echo" <td>".$venue ['city'] . "</td>"; 
+			echo" </tr>";
+			echo"<tr>  <td> state:- </td> ";
+			echo" <td>".$venue ['state'] . "</td>"; 
+			echo" </tr>";
+			echo"<tr>  <td> Nationality :- </td> ";
+			echo" <td>".$venue ['nati'] . "</td>"; 
+			echo" </tr>";
+			echo"<tr>  <td> Zip Code :- </td> ";
+			echo" <td>".$venue ['zipcode'] . "</td>"; 
+			echo" </tr>";
+	
+echo" </tbody>";
+echo"</table>";
+echo" </div>";
+echo"</div>";
 
-															echo"<div class='row'>";
-															echo"	<div class='col-md-12'>";
-														
-															echo"</div>";
+																			
+echo"	<div class='col-md-6'>";
+echo"<div class='table-responsive responsiv-table'>";
+echo"<table class='table bio-table table-hover  table-condensed'>";
+echo"<tbody>";
 
-											
-																						echo"	<div class='col-md-6'>";
-																							echo"<div class='table-responsive responsiv-table'>";
- 																					 echo"<table class='table bio-table table-hover  table-condensed '>";
-																																		echo"<tbody>";
-
-																																	echo"<tr>  <td>First Name :- </td> ";
-																																																																													echo" <td>".$venue ['firstname'] . "</td>"; 
-																																																																					echo" </tr>";
-
-																																																																				echo"<tr>  <td> Middle Name :- </td> ";
-																																																																													echo" <td>".$venue ['middlename'] . "</td>"; 
-																																																																					echo" </tr>";
-
-																																																																				echo"<tr>  <td> Last Name :- </td> ";
-																																																																													echo" <td>".$venue ['lastname'] . "</td>"; 
-																																																																					echo" </tr>";
-																																																																					echo"<tr>  <td> Gender :- </td> ";
-																																																																													echo" <td>".$venue ['gender'] . "</td>"; 
-																																																																					echo" </tr>";
-
-																																																																				echo"<tr>  <td> Birth Date :- </td> ";
-    																																																																									echo "<td>" .$venue  ['day'] .$venue  ['month'].$venue  ['year']. "</td>";
-																																																																					echo" </tr>";
-
-																																																																				echo"<tr>  <td> Blood group :- </td> ";
-																																																																													echo" <td>".$venue ['blood'] . "</td>"; 
-																																																																					echo" </tr>";
-																																																																				echo"<tr>  <td> Birth Place :- </td> ";
-																																																																													echo" <td>".$venue ['dobplace'] . "</td>"; 
-																																																																					echo" </tr>";
-																																																																				echo"<tr>  <td> Mobile Number :- </td> ";
-																																																																													echo" <td>".$venue ['mobileno'] . "</td>"; 
-																																																																					echo" </tr>";
-																																																																				echo"<tr>  <td>  Address :- </td> ";
-																																																																													echo" <td>".$venue ['address'] . "</td>"; 
-																																																																					echo" </tr>";
-																																																																				echo"<tr>  <td> city:- </td> ";
-																																																																													echo" <td>".$venue ['city'] . "</td>"; 
-																																																																					echo" </tr>";
-																																																																				echo"<tr>  <td> state:- </td> ";
-																																																																													echo" <td>".$venue ['state'] . "</td>"; 
-																																																																					echo" </tr>";
-																																																																				echo"<tr>  <td> Nationality :- </td> ";
-																																																																													echo" <td>".$venue ['nati'] . "</td>"; 
-																																																																					echo" </tr>";
-																																																																				echo"<tr>  <td> Zip Code :- </td> ";
-																																																																													echo" <td>".$venue ['zipcode'] . "</td>"; 
-																																																																					echo" </tr>";
-										
-																															echo" </tbody>";
-																															echo"</table>";
-																															echo" </div>";
-																															echo"</div>";
-
-																			echo"	<div class='col-md-6'>";
-																												echo"<div class='table-responsive responsiv-table'>";
-																													echo"<table class='table bio-table table-hover  table-condensed'>";
-																									echo"<tbody>";
-
-																							echo"<tr>  <td> hospital-1 :- </td> ";
-																																																																													echo" <td>".$venue ['hospital'] . "</td>"; 
-																																																																					echo" </tr>";
-																																																																			
-																																																																					echo "</tr>";
-																																																																				echo "<tc>";
-    																																																																echo "<td> Follwing Organ to be donoted </td>";
-    																																																																	echo "</tc>";
-	   																																																																 
-																																																																				echo "<tr>";																																																																				
-																																																																				echo "<td>Organ :- </td>";
-    																																																																echo "<td>".$venue ['organ'] . "</td>"; 
-																																																																					echo" </tr>";
-/*
-																																																																			echo "<tr>";
-																																																																			echo "<td>Organ. 2 :- </td>";
-																																																																			echo "<td>".$venue ['liver'] . "</td>";
-																																																																			echo "</tr>";
-																																																																				 
-																																																																					echo "<tr>";
-																																																																					echo "<td>Organ. 3 :- </td>";
-																																																																					echo "<td>".$venue ['lportion'] . "</td>";
-																																																																					echo "</tr>";
-
-																																																																					echo "<tr>";
-																																																																					echo "<td>Organ. 4 :- </td>";
-																																																																					echo "<td>".$venue ['pancreas'] . "</td>";
-																																																																					echo "</tr>";*/
-										
-																						echo" </tbody>";
-																						echo"</table>";
-																						echo" </div>";
-																						echo"</div>";
+			echo"<tr>  <td> hospital-1 :- </td> ";
+			echo" <td>".$venue ['hospital'] . "</td>"; 
+			echo" </tr>";
+			echo "</tr>";
+			echo "<tc>";
+			echo "<td> Follwing Organ to be donoted </td>";
+			echo "</tc>";
+			echo "<tr>";																																																																				
+			echo "<td>Organ :- </td>";
+			echo "<td>".$venue ['organ'] . "</td>"; 
+			echo" </tr>";
+			echo" </tbody>";
+			echo"</table>";
+			echo" </div>";
+			echo"</div>";
 
 
 echo"</div>";
 echo"</div>";
 echo"</div>";
 ?>
-      
-     
+           
       
     <!-- End Middle Column -->
     </div>
     
-    
-    
+       
   <!-- End Grid -->
   </div>
   

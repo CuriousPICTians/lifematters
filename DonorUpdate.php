@@ -92,7 +92,7 @@ session_start();
 {
 ?>
 
-<div class="container-fluid" style="margin-top:50px;">
+<div class="container-fluid" style="margin-top:50px;max-width:1100px">
         <form class="form-horizontal" method="post" action="">
          
 				 <fieldset>

@@ -57,23 +57,45 @@ color: #ffffff;
 		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
 }	
 
-.w3-navbar 
-{
-background-color: #204060;
-color: #ffffff;
-		z-index: 999;
-		border: 0px solid;
-		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
-		transition:all ease 0.8s;
-		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
-		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+
+body {
+    background-color: #fff;
 }
+
+.topbar {
+	background: #404040;
+	border-color: #2A3F54;
+	border-radius: 0px;
+}
+
+.topbar .navbar-header a {
+	color: #ffffff;
+}
+
+.content {
+    margin-top: 70px;
+    padding: 0 30px;
+}
+
+.navbar-btn {
+    background: none;
+    border: none;
+    height: 35px;
+    min-width: 35px;
+    color: #fff;
+}
+.navbar-text {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+
 
 	</style>
 	
 	</head>
 
-	<body class="w3-content" style="max-width:1600px">
+	<body class="w3-content" style="max-width:1400px">
 		
 				
 		
@@ -90,15 +112,6 @@ color: #ffffff;
 </div>
 
 
-			<!-- Header -->		
-				
-				<div class="w3-container  w3-medium " id="header">
-<div class="text-left" id="logo">				
-	<h3> <b > Organ Donation System </b></h3> 
-					<p > Be a Donor & Save Lifes..!! </p> 
-	</div>				
-</div>
-<br>
 
 	<!-- Sidenav/menu -->
 
@@ -112,7 +125,7 @@ color: #ffffff;
 						</div>
 
 							<a href="DonorDetail.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Donor detail </a>
-						<a href="DonarUpadate.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Update Information </a> 
+						<a href="DonorUpdate.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Update Information </a> 
 						<a href="CheckStatus.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-bars fa-fw w3-margin-right"></i> Check Status </a> 
 						<a href="logout.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-spinner fa-spin fa-fw w3-margin-right"></i> Logout </a>
 						
@@ -121,6 +134,51 @@ color: #ffffff;
 
 
 
+  <nav class="navbar navbar-default topbar" style="margin-left:210px">
+		<div class="container-fliud">
+
+			<div class="navbar-header">
+
+				<p class="navbar-text">		
+				  <a class="sidebar-toggle">
+            <i class="fa fa-bars"></i>
+          </a>
+				</p>
+
+				<a class="navbar-brand">
+					<span> Donor </span>
+				</a>
+
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-collapse-main">
+
+				<ul class="nav navbar-nav navbar-right">
+                    
+            <li>
+                <button class="navbar-btn">
+                 <i class="fa fa-bell"></i>
+                </button>
+           </li>
+                    
+					<li class="dropdown">
+						<button class="navbar-btn" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Account</a></li>
+							<li><a href="#">Dashboard</a></li>
+							<li class="nav-divider"></li>
+							<li><a href="logout.php">Logout</a></li>
+						</ul>
+					</li>
+
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+			
 		
 		
 		<!-- Overlay effect when opening sidenav on small screens -->
@@ -133,21 +191,10 @@ color: #ffffff;
 					<div class="w3-main" style="margin-left:210px">
 
 
-					
-	<!-- Navigation Bar   onclick="location.href='homepage.php'"   -->  
-					
-				<ul class="w3-navbar navbar-default">
-				 <div class="container-fluid">
-					<li><a href="DonorDetail.php" target="cp" ><i class="fa fa-home w3-margin-right"></i>Home</a></li>		
-					<ul class="nav navbar-nav navbar-right">
-      <li><a href="hm.php" class="w3-text-white" ><span class="glyphicon glyphicon-log-out"></span> Logout  </a></li>
-    </ul>
-				</div>
-				</ul>
+	
 				
 				<div id="section">
-					<!iframe src="dregistration.php" name="cp" width="1150px" height="495px" style="border:none" ></iframe>
-					<iframe src="DonorDetail.php" name="cp" width="1150px" height="500px" style="border:none" ></iframe>
+					<iframe src="DonorDetail.php" name="cp" width="1180px" height="570px" style="border:none" ></iframe>
 				</div>
 </body>
 </html>
