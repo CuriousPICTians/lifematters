@@ -57,17 +57,37 @@ color: #ffffff;
 		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
 }	
 
-.w3-navbar 
-{
-background-color: #204060;
-color: #ffffff;
-		z-index: 999;
-		border: 0px solid;
-		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
-		transition:all ease 0.8s;
-		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
-		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+body {
+    background-color: #fff;
 }
+
+.topbar {
+	background: #404040;
+	border-color: #2A3F54;
+	border-radius: 0px;
+}
+
+.topbar .navbar-header a {
+	color: #ffffff;
+}
+
+.content {
+    margin-top: 70px;
+    padding: 0 30px;
+}
+
+.navbar-btn {
+    background: none;
+    border: none;
+    height: 35px;
+    min-width: 35px;
+    color: #fff;
+}
+.navbar-text {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
 
 
 		
@@ -89,15 +109,7 @@ color: #ffffff;
   <a href="#" class="w3-bar-item w3-button w3-right"><i class="fa fa-search"></i></a>
 </div>
 		
-		<!-- Header -->		
-				
-				<div class="w3-container  w3-medium " id="header">
-									<div class="text-left" id="logo">				
-														<h3> <b > Organ Donation System </b></h3> 
-														<p > Be a Donor & Save Lifes..!! </p> 
-								</div>				
-				</div>
-<br>
+		
 	
 		<!-- Sidenav/menu -->
 
@@ -122,7 +134,53 @@ color: #ffffff;
 					</nav>
 
 		
-		
+
+  <nav class="navbar navbar-default topbar" style="margin-left:130px">
+		<div class="container">
+
+			<div class="navbar-header">
+
+				<p class="navbar-text">		
+				  <a class="sidebar-toggle">
+            <i class="fa fa-bars"></i>
+          </a>
+				</p>
+
+				<a class="navbar-brand">
+					<span> Doctor </span>
+				</a>
+
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-collapse-main">
+
+				<ul class="nav navbar-nav navbar-right">
+                    
+            <li>
+                <button class="navbar-btn">
+                 <i class="fa fa-bell"></i>
+                </button>
+           </li>
+                    
+					<li class="dropdown">
+						<button class="navbar-btn" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Account</a></li>
+							<li><a href="#">Dashboard</a></li>
+							<li class="nav-divider"></li>
+							<li><a href="#">Logout</a></li>
+						</ul>
+					</li>
+
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+			
+
 		<!-- Overlay effect when opening sidenav on small screens -->
 
 					<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
@@ -135,7 +193,7 @@ color: #ffffff;
 				
 				
 				<div id="section">
-					<iframe src="DoctorDetails.php" name="cp" width="1220px" height="530px" style="border:none" ></iframe>
+					<iframe src="DoctorDetails.php" name="cp" width="1220px" height="560px" style="border:none" ></iframe>
 				</div>
 </body>
 </html>
