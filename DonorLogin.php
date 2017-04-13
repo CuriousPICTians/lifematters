@@ -234,7 +234,7 @@ if(isset($_POST['submit']))
 
 	<script>
 	alert('Successfully Login...');
-               		(window.parent || window).location.href="DonorPage.php";
+               		(window.parent || window).location.href="Donor.php";
                </script>
 
 <?php

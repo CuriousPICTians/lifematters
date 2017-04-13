@@ -3,10 +3,9 @@
 <?php
 
 session_start();
-$_SESSION['uname'];
+echo $_SESSION['uname'];
 
 ?>
-
 	<html lang="en">
 	<html>
 
@@ -32,7 +31,21 @@ $_SESSION['uname'];
 	
 	<style>
 			
-.w3-sidenav 
+
+			.w3-container	  
+{
+background-color: #fafafa;
+padding: 5px;
+		z-index: 999;
+		border: 0px solid;
+		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+		transition:all ease 0.8s;
+		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
+}
+
+
+		.w3-sidenav 
 {
 background-color: #404040;
 color: #ffffff;
@@ -44,17 +57,6 @@ color: #ffffff;
 		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
 }	
 
-.w3-navbar 
-{
-background-color: #204060;
-color: #ffffff;
-		z-index: 999;
-		border: 0px solid;
-		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
-		transition:all ease 0.8s;
-		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
-		box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
-}
 
 body {
     background-color: #fff;
@@ -88,13 +90,16 @@ body {
 }
 
 
+
 	</style>
 	
 	</head>
 
 	<body class="w3-content" style="max-width:1400px">
 		
-						
+				
+		
+				
 <!-- Navigation bar with social media icons -->
 <div class="w3-bar w3-black w3-hide-small">
   <a href="#" class="w3-bar-item w3-button"><i class="fa fa-facebook-official"></i></a>
@@ -105,35 +110,32 @@ body {
   <a href="#" class="w3-bar-item w3-button"><i class="fa fa-linkedin"></i></a>
   <a href="#" class="w3-bar-item w3-button w3-right"><i class="fa fa-search"></i></a>
 </div>
-		
-				
-		
-	
-			<!-- Sidenav/menu -->
 
-					<nav class="w3-sidenav w3-collapse w3-animate-left" style="z-index:3;width:200px;" id="mySidenav"><br>
-						<div class="w3-container-fluid">
-							
+
+
+	<!-- Sidenav/menu -->
+
+					<nav class="w3-sidenav w3-collapse  w3-animate-left" style="z-index:3;width:200px;" id="mySidenav"><br>
+						<div class="w3-container-fluid ">
 							<a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding" title="close menu">
 								<i class="fa fa-remove"></i>
 							</a>
 							<img src="img/m.jpg" style="width:35%;" class="w3-circle"><br><br>
 							<p> <b>Project by PICT </b></p>
 						</div>
-	  
-<a href="Default.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Admin Details </a>
-<a href="ApproveHospital.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> Approve Hospitals  </a>
-<a href="ListDonor.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Donor List </a> 
-<a href="ListReceiver.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-bars fa-fw w3-margin-right"></i> Receiver List </a> 
-<a href="logout.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-spinner fa-spin fa-fw w3-margin-right"></i> Logout </a>
+
+							<a href="DonorDetail.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Donor detail </a>
+						<a href="DonorUpdate.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Update Information </a> 
+						<a href="CheckStatus.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-bars fa-fw w3-margin-right"></i> Check Status </a> 
+						<a href="logout.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-spinner fa-spin fa-fw w3-margin-right"></i> Logout </a>
+						
 						
 					</nav>
 
-		
-		
+
 
   <nav class="navbar navbar-default topbar" style="margin-left:210px">
-		<div class="container-fluid">
+		<div class="container-fliud">
 
 			<div class="navbar-header">
 
@@ -144,7 +146,7 @@ body {
 				</p>
 
 				<a class="navbar-brand">
-					<span> Admin </span>
+					<span> Donor </span>
 				</a>
 
 		</div>
@@ -175,7 +177,9 @@ body {
 
 			</div>
 		</div>
-	</nav>		
+	</nav>
+			
+		
 		
 		<!-- Overlay effect when opening sidenav on small screens -->
 
@@ -186,10 +190,11 @@ body {
 
 					<div class="w3-main" style="margin-left:210px">
 
-					
+
+	
 				
 				<div id="section">
-					<iframe src="Default.php" name="cp" width="1180px" height="570px" style="border:none" ></iframe>
+					<iframe src="DonorDetail.php" name="cp" width="1180px" height="570px" style="border:none" ></iframe>
 				</div>
 </body>
 </html>
