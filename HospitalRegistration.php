@@ -163,7 +163,7 @@ echo $_SESSION['uname'];
 
 
 
-    <!-- Middle Column -->
+    <!-- Middle Column --
     <div class="w3-col m4">
     
       
@@ -245,7 +245,7 @@ echo $_SESSION['uname'];
 </div>
 <hr>
 
-    </div>
+    </div>-->
     <!-- Right Column -->
     
 
@@ -401,13 +401,15 @@ if(isset($_POST['submit']))
     $phno=$_POST['phno'];
     $hospitalemail=$_POST['hospitalemail'];
     $website=$_POST['website'];
-    $dname1=$_POST['dname1'];
+    
+				$dname1=$_POST['dname1'];
     $demail1=$_POST['demail1'];
     $dphno1=$_POST['dphno1'];
     $dname2=$_POST['dname2'];
     $demail2=$_POST['demail2'];
     $dphno2=$_POST['dphno2'];
-    $diname=$_POST['diname'];
+    
+				$diname=$_POST['diname'];
     $diph=$_POST['diph'];
     $diemail=$_POST['diemail'];
     $LiverLicense=$_POST['LiverLicense'];

@@ -152,7 +152,7 @@ function validateForm() {
 
 <section>
   <span></span>
-  <h1>Member Login</h1>
+  <h1>Receiver Login</h1>
   <form>
 
 

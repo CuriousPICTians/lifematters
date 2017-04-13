@@ -106,7 +106,16 @@ echo $_SESSION['uname'];
 																				    </select>
 														</div>
 												</div>
+<br>
+<br>
 
+<div class="row ">
+		
+            <label class="col-md-2 control-label" for="first_name"> G.R.NO :-</label>  
+							            <div class="col-md-2">
+																	<input  name="grno"  class="form-control input-md-2" maxlength="5" minlength="5"  value="" type="text"> 
+																		</div>
+</div>
 
 <br>
 <br>
@@ -138,8 +147,9 @@ if(isset($_POST['submit']))
     $docemail=$_POST['docemail'];
     $dochospital=$_POST['dochospital'];   
     $_SESSION['status']="Pending";
-   
-  $con = new MongoClient();
+    $grno=$_POST['grno'];
+  
+$con = new MongoClient();
 
   if($con)
   {
@@ -149,7 +159,7 @@ if(isset($_POST['submit']))
     $collection=$database->docinfo;
     
     //$data=array('session'=>array('colg'=>$colg,'class'=>$class));
-        $data=array('fname'=>$fname,'mname'=>$mname,'lname'=>$lname,'docphno'=>$docphno,'docemail'=>$docemail,'dochospital'=>$dochospital,'status'=>$_SESSION['status']);
+        $data=array('fname'=>$fname,'mname'=>$mname,'lname'=>$lname,'docphno'=>$docphno,'docemail'=>$docemail,'dochospital'=>$dochospital,'grno'=>$grno,'status'=>$_SESSION['status']);
 
 
        $collection->update(array("email" => $_SESSION['email']),array('$set' =>$data));

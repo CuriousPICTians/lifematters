@@ -144,6 +144,30 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 																</tr>
 														</thead>
 														<tbody>
+
+<!--
+	<?php
+ $cursor1 = $collection->find();
+
+																			foreach ($cursor1 as $venue) 
+																						{
+																					
+$o=$venue['organ'];
+
+if($o==1)
+echo"Heart";
+
+if($o==2)
+echo"Liver";
+
+if($o==3)
+echo"Lund";				
+
+-->
+								
+
+																			?>
+  
 								
 																			<?php
 
@@ -164,11 +188,15 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 																												<td>{$venue  ['state']}</td>
 																												<td>{$venue  ['nati']}</td>
 																												<td>{$venue  ['hospital']}</td>
-																												<td>{$venue  ['organ']}</td>
+																											<td>$venue  ['$o']</td>
+
+
 						
 																												</tr>
 																							";  
 																				}
+//}
+
 																			?>
   
 													</tbody>

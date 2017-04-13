@@ -181,7 +181,7 @@ echo "
 																												<td>{$obj  ['state']}</td>
 																												<td>{$obj  ['nati']}</td>
 																												<td>{$obj  ['hospital']}</td>
-																												<td>{$obj  ['kidney']}</td>
+																												<td>{$obj  ['organ']}</td>
 						
 																												</tr>
 																							"; 
