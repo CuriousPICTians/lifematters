@@ -105,7 +105,7 @@ if(isset($_GET['key']))
 <?php
 
 session_start();
-echo $_SESSION['uname'];
+$_SESSION['uname'];
 
 ?>
 
