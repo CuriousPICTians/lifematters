@@ -57,12 +57,26 @@ if(isset($_GET['key']))
         <th> Contact Number </th>
         <th> Email-ID</th>
         <th> Hospital </th>
+<th> Registration no. </th>
+<th> Date of Regi. </th>
+<th> State Medical Council </th>
+
+<th> qualification </th>
+<th> qualification year </th>
+<th> University </th>
+
       </tr>
       <tr>
         <td>".$venue['fname']." ".$venue['mname']." ".$venue['lname']."</td>
         <td>".$venue['docphno']."</td>
-        <td>".$venue['docemail']."</td>
+        <td>".$venue['email']."</td>
       	<td>".$venue['dochospital']."</td>
+        <td>".$venue['grno']."</td>
+        <td>".$venue['day']."</td>
+        <td>".$venue['medicalcouncil']."</td>
+        <td>".$venue['qualifi']."</td>
+        <td>".$venue['day1']."</td>
+        <td>".$venue['univername']."</td>
       </tr>
       </table>";
 		     
@@ -188,7 +202,7 @@ $_SESSION['uname'];
               //  if($uemail == 'sunil@gmail.com')
 echo "<td>".$obj['fname']." ".$obj['mname']. " " .$obj['lname']. "</td>";
 echo"<td>".$obj['grno']."</td>";
-echo"<td>".$obj['docemail']."</td>";
+echo"<td>".$obj['email']."</td>";
 echo"<td>".$obj['dochospital']."</td>";
 
  

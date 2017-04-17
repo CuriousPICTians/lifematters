@@ -120,9 +120,10 @@ session_start();
       <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
          <h4 class="w3-center"> Hospital Details </h4>
-         <p class="w3-center"><img src="img/home1.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
+         <p class="w3-center"><img src="img/hos.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
          <hr>
 								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> Hospital Name :-"  .$venue ['hospital_name'] ."</p>"; ?>        
+								<?php echo"<p> <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> Registration Number :-"  .$venue ['hgrno'] ."</p>"; ?>        
  							<?php echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> phone No :-" .$venue ['phno'] . "</p>"; ?>        
 								<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Website Name :- " .$venue ['website'] ." </p>"; ?>																					
 									<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> Email-ID :-" .$venue ['hospitalemail'] ." </p>"; ?>
@@ -156,7 +157,8 @@ session_start();
          <h4 class="w3-center"> <img src="img/z1.jpg" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Types of transplant being done in your hospital </h4>
          <p class="w3-center"> </p>
          <hr>
-								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> License For :-".$venue['KidneyLicense'].$venue['LiverLicense'].$venue['HeartLicense'].$venue['LungsLicense']."</p>"; ?>
+								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> License For :-".$venue['KidneyLicense']." " 
+																	.$venue['LiverLicense']. " " .$venue['HeartLicense']. " " .$venue['LungsLicense']."</p>"; ?>
         </div>
       </div>
  

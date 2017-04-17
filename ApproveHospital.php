@@ -54,15 +54,21 @@ if(isset($_GET['key']))
       <caption> <h4 style='text-align:center;'> <b> Hospital Details</b> </h4> </caption>
       <tr>
         <th> Hospital Name </th>
+        <th> Registration No. </th>
         <th> Contact Number </th>
         <th> Email-ID</th>
+        <th> City</th>
         <th> Hospital website </th>
+        <th> Transplant License for</th>
       </tr>
       <tr>
         <td>".$venue['hospital_name']."</td>
-        <td>".$venue['phno']."</td>
+        <td>".$venue['hgrno']."</td>       
+			 	<td>".$venue['phno']."</td>
         <td>".$venue['hospitalemail']."</td>
+        <td>".$venue['city']."</td>
       	<td>".$venue['website']."</td>
+				<td>".$venue['KidneyLicense']." " .$venue['LiverLicense']. " " .$venue['HeartLicense']. " " .$venue['LungsLicense']."</td>
       </tr>
       </table>";
 

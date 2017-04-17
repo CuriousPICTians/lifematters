@@ -213,8 +213,8 @@ $(document).ready(function(){
 if(isset($_POST['submit']))
 {
     $fname=$_POST['fname'];
-				$mname=$_POST['mname'];
-				$lname=$_POST['lname'];
+		$mname=$_POST['mname'];
+		$lname=$_POST['lname'];
     $docphno=$_POST['docphno'];
     $dochospital=$_POST['dochospital'];   
     $grno=$_POST['grno'];
@@ -246,7 +246,7 @@ $con = new MongoClient();
  //$collection->update (array("name" => $_SESSION['name'] ), array ('$set' => array(collage=> $data)));
 
 ?>
-                <script>alert('Successfully..!! Please Login '); window.location.href="DoctorLogin.php";
+                <script>alert('Successfully..!! Please Login '); window.location.href="DocLogin.php";
                 </script>
 
 <?php
