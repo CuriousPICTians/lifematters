@@ -137,7 +137,7 @@ echo $_SESSION['uname'];
           	else
           		echo "<h3 style='text-align:center;'> List Of Hospitals </h3>";
           ?>
-      <table class="table table-responsive bio-table table-bordered table-hover table-condensed" >
+      <table class="table table-responsive bio-table table-bordered table-hover table-condensed" style="max-width:1100px" >
 
       <tr>
         <?php
