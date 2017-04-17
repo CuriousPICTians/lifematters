@@ -120,13 +120,13 @@ session_start();
       <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
          <h4 class="w3-center"> Doctor Details </h4>
-         <p class="w3-center"><img src="img/q1.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
+         <p class="w3-center"><img src="img/doc.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
          <hr>
-			<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> Doctor Name :-"  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>"; ?>        
- 			<?php echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> G.R.NO :-" .$venue ['grno'] . "</p>"; ?>        
+			<?php echo"<p> <i class='fa fa-user-md fa-fw w3-margin-right w3-text-theme'></i> Doctor Name :- "  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>"; ?>        
 			<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Contact Number :- " .$venue ['docphno'] ." </p>"; ?>																					
-			<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> Email-ID :-" .$venue ['docemail'] ." </p>"; ?>
-			<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> work at :-" .$venue ['dochospital'] ." </p>"; ?>
+			<?php	echo"<p><i class='fa fa-at fa-fw w3-margin-right w3-text-theme'></i> Email-ID :- " .$venue ['email'] ." </p>"; ?>
+			<?php	echo"<p><i class='fa fa-briefcase fa-fw w3-margin-right w3-text-theme'></i> work at :- " .$venue ['dochospital'] ." </p>"; ?>
+			<?php	echo"<p><i class='fa fa-address-book fa-fw w3-margin-right w3-text-theme'></i> Permanent Address	 :- " .$venue ['paddress'] ." </p>"; ?>
         </div>
       </div> 
 				
@@ -142,22 +142,24 @@ session_start();
 
 <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-      <h4 class="w3-center"> <img src="img/q1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar">   Director / Medical Superintendent of Hospital </h4>
+      <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Registration Details :- </h4>
 
          <hr>
-								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i>  Name :-"  .$venue ['diname'] ."</p>"; ?>        
- 							<?php echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> phone No :-" .$venue ['diph'] . "</p>"; ?>        
-									<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> Email-ID :-" .$venue ['diemail'] ." </p>"; ?>
+								<?php echo"<p> <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> Registration Number :- "  .$venue ['grno'] ."</p>"; ?>        
+ 							<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> Date of Registration :- " .$venue ['day'] . "</p>"; ?>        
+									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> State Medical Council :- " .$venue ['medicalcouncil'] ." </p>"; ?>
         </div>
       </div> 
 <hr>	
 
 <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-         <h4 class="w3-center"> <img src="img/z1.jpg" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Types of transplant being done in your hospital </h4>
+         <h4 class="w3-center"> <img src="img/qu1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Qualification Details :- </h4>
          <p class="w3-center"> </p>
          <hr>
-								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> License For :-".$venue['KidneyLicense'].$venue['LiverLicense'].$venue['HeartLicense'].$venue['LungsLicense']."</p>"; ?>
+								<?php echo"<p> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> qualification :- ".$venue['qualifi']."</p>"; ?>
+								<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> qualification Year :- ".$venue['day1']."</p>"; ?>
+								<?php echo"<p> <i class='fa fa-university fa-fw w3-margin-right w3-text-theme'></i> University Name	 :- ".$venue['univername']."</p>"; ?>
         </div>
       </div>
  

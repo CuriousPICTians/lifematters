@@ -186,7 +186,7 @@ $_SESSION['uname'];
 
                 echo "<tr>";
               //  if($uemail == 'sunil@gmail.com')
-echo "<td>".$obj['fname']. $obj['mname'].$obj['lname']. "</td>";
+echo "<td>".$obj['fname']." ".$obj['mname']. " " .$obj['lname']. "</td>";
 echo"<td>".$obj['grno']."</td>";
 echo"<td>".$obj['docemail']."</td>";
 echo"<td>".$obj['dochospital']."</td>";
