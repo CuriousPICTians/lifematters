@@ -102,10 +102,15 @@ session_start();
   <div class="w3-row">
 
 <div class="w3-row-padding">
-        <div class="w3-col m12">
+        <div class="w3-col m11">
           <div class="w3-card-2 w3-round w3-white">
             <div class="w3-container w3-padding">
-              <h6 class="w3-opacity "> Wel-Come </h6>
+<label class="w3-right"> Edit Profile :- &nbsp; 
+
+<button type="button" class="btn btn-info btn-s w3-right" data-title='Confirm' data-toggle='modal' data-target='#confirm' > 
+
+<span class="glyphicon glyphicon-eye-open"></span> Edit </button> </label>
+              <h6 class=" "> Wel-Come </h6>
               
             </div>
           </div>
@@ -120,13 +125,13 @@ session_start();
       <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
          <h4 class="w3-center"> Doctor Details </h4>
-         <p class="w3-center"><img src="img/q1.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
+         <p class="w3-center"><img src="img/doc.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
          <hr>
-			<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> Doctor Name :-"  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>"; ?>        
- 			<?php echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> G.R.NO :-" .$venue ['grno'] . "</p>"; ?>        
+			<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-user-md fa-fw w3-margin-right w3-text-theme'></i> Doctor Name :- "  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>"; ?>        
 			<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Contact Number :- " .$venue ['docphno'] ." </p>"; ?>																					
-			<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> Email-ID :-" .$venue ['docemail'] ." </p>"; ?>
-			<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> work at :-" .$venue ['dochospital'] ." </p>"; ?>
+			<?php	echo"<p><i class='fa fa-at fa-fw w3-margin-right w3-text-theme'></i> Email-ID :- " .$venue ['email'] ." </p>"; ?>
+			<?php	echo"<p><i class='fa fa-briefcase fa-fw w3-margin-right w3-text-theme'></i> work at :- " .$venue ['dochospital'] ." </p>"; ?>
+			<?php	echo"<p><i class='fa fa-address-book fa-fw w3-margin-right w3-text-theme'></i> Permanent Address	 :- " .$venue ['paddress'] ." </p>"; ?>
         </div>
       </div> 
 				
@@ -142,22 +147,24 @@ session_start();
 
 <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-      <h4 class="w3-center"> <img src="img/q1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar">   Director / Medical Superintendent of Hospital </h4>
+      <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Registration Details :- </h4>
 
          <hr>
-								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i>  Name :-"  .$venue ['diname'] ."</p>"; ?>        
- 							<?php echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> phone No :-" .$venue ['diph'] . "</p>"; ?>        
-									<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> Email-ID :-" .$venue ['diemail'] ." </p>"; ?>
+								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> Registration Number :- "  .$venue ['grno'] ."</p>"; ?>        
+ 							<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> Date of Registration :- " .$venue ['day'] . "</p>"; ?>        
+									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> State Medical Council :- " .$venue ['medicalcouncil'] ." </p>"; ?>
         </div>
       </div> 
 <hr>	
 
 <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-         <h4 class="w3-center"> <img src="img/z1.jpg" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Types of transplant being done in your hospital </h4>
+         <h4 class="w3-center"> <img src="img/qu1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Qualification Details :- </h4>
          <p class="w3-center"> </p>
          <hr>
-								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> License For :-".$venue['KidneyLicense'].$venue['LiverLicense'].$venue['HeartLicense'].$venue['LungsLicense']."</p>"; ?>
+								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> qualification :- ".$venue['qualifi']."</p>"; ?>
+								<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> qualification Year :- ".$venue['day1']."</p>"; ?>
+								<?php echo"<p> <i class='fa fa-university fa-fw w3-margin-right w3-text-theme'></i> University Name	 :- ".$venue['univername']."</p>"; ?>
         </div>
       </div>
  
@@ -173,6 +180,81 @@ session_start();
   <!-- End Grid -->
   </div>
   
+
+<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading"> Fill Information </h4>
+      </div>
+          <div class="modal-body">
+       
+      <form class="form-horizontal" method="post" action="">
+         
+				 <fieldset>
+       
+          <div id="edit_farmer" style="display:none"></div>
+ 
+         
+          <div class="row form-group">
+		
+            <label class="col-md-2 control-label" for="first_name">First Name :-</label>  
+							            <div class="col-md-2">
+																	<?php						echo" <input  name='firstname'  class='form-control input-md-2' value=".$venue ['fname']. " type='text'> "; ?>
+																		</div>
+
+            <label class="col-md-2 control-label" for="middle_name">Middle Name :-</label>  
+            							<div class="col-md-2">
+																							<?php  echo" <input name='middlename' class='form-control input-md' value =" .$venue ['mname']. " type='text'> "; ?>           												 
+																			</div>
+
+            <label class="col-md-2 control-label" for="last_name">Last Name :-</label>  
+							            <div class="col-md-2">
+																							<?php echo "<input name='lastname' class='form-control input-md' value=" .$venue ['lname']. " type='text' >"; ?>
+           							</div>
+          </div>
+
+         
+          <div class="row form-group">
+						
+												<label class="col-md-2 control-label" for="smartphone"> phone No.:-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='docphno' class='form-control input-md' value =" .$venue ['docphno']. " type='text'> "; ?>   
+            									</div>
+
+
+													<label class="col-md-2 control-label" for="last_name"> Hospital :-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input name='dochospital' class='form-control input-md' value=".$venue ['dochospital']. " type='text'>"; ?>
+           							</div>
+
+												<label class="col-md-2 control-label" for="smartphone"> Registration No :-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='grno' class='form-control input-md' value =" .$venue ['grno']. " type='text'> "; ?>   
+            									</div>
+          </div>
+
+
+ 
+          <div class="form-group row">
+           
+											 <div class="col-md-8 text-center">
+              <button type="submit" name="submit" value="submit" class="btn btn-large btn-success"> Save Information</button>
+              <button class="btn btn-large btn-danger" type="button" data-dismiss="modal" > Cancel </button>
+
+            </div>
+          </div>
+          </fieldset>
+        </form>
+      </div>
+        </div>
+
+
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
 <!-- End Page Container -->
 </div>
 

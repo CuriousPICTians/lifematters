@@ -65,7 +65,7 @@ echo $_SESSION['uname'];
 
 
     <!-- Left Column -->
-    <div class="w3-col m4">
+    <div class="w3-col m5">
       
 
 							 <div class="w3-card-2 w3-round w3-white">
@@ -80,7 +80,7 @@ echo $_SESSION['uname'];
 												<tr><th class="w3-center" colspan="2">Hospital Details </th></tr>
             <tr>
                 <td>
-                    <span id="Label1"> Name of the Hospital :- </span><span style="color:Red">*</span>
+                    <span id="Label1"> Hospital Name :- </span><span style="color:Red">*</span>
                 </td>
                 <td >
                     <input name="hospital_name" type="text"  class="form-control" style="width:250px;" />
@@ -89,7 +89,16 @@ echo $_SESSION['uname'];
             </tr>
 <tr>
                 <td>
-                    <span id="Label2">Address </span><span style="color:Red">*</span>
+                    <span id="Label7"> Registration No :- </span>
+                </td>
+                <td>
+                    <input name="hgrno" type="text" maxlength="8" mimlength="8" class="form-control" style="width:250px;" />
+                </td>
+            </tr>
+
+<tr>
+                <td>
+                    <span id="Label2">Address :- </span><span style="color:Red">*</span>
                     </td>
                 <td>
                     <input name="address" type="text" class="form-control" style="width:250px;" />
@@ -98,7 +107,7 @@ echo $_SESSION['uname'];
             </tr>
 <tr>
                 <td>
-                    <span id="Label2"> State </span><span style="color:Red">*</span>
+                    <span id="Label2"> State :- </span><span style="color:Red">*</span>
                     </td>
                 <td>
                     <input name="state" type="text" class="form-control" style="width:250px;" />
@@ -107,7 +116,7 @@ echo $_SESSION['uname'];
             </tr>
 <tr>
                 <td>
-                    <span id="Label2"> City </span><span style="color:Red">*</span>
+                    <span id="Label2"> City :- </span><span style="color:Red">*</span>
                     </td>
                 <td>
                     <input name="city" type="text" class="form-control" style="width:250px;" />
@@ -116,7 +125,7 @@ echo $_SESSION['uname'];
             </tr>
 <tr>
                 <td>
-                    <span id="Label5">Phone No.</span><span style="color:Red">*</span>
+                    <span id="Label5">Phone No :-</span><span style="color:Red">*</span>
                     </td>
                 <td>
    																 <input name="phno" type="text" value="" maxlength="10" class="form-control" style="width:250px;" />
@@ -125,7 +134,7 @@ echo $_SESSION['uname'];
             </tr>
             <tr>
                 <td>
-                    <span id="Label6"> EMail ID </span><span style="color:Red">*</span>
+                    <span id="Label6"> EMail-ID :- </span><span style="color:Red">*</span>
                     <br />
                     <small>(Mail will be sent to this email id)</small></td>
                 <td>
@@ -135,7 +144,7 @@ echo $_SESSION['uname'];
             </tr>
             <tr>
                 <td>
-                    <span id="Label7"> WebSite Address </span>
+                    <span id="Label7"> WebSite Address :- </span>
                 </td>
                 <td>
                     <input name="website" type="text" class="form-control" style="width:250px;" />
@@ -159,97 +168,10 @@ echo $_SESSION['uname'];
     
 
 
-
-
-
-
-    <!-- Middle Column --
-    <div class="w3-col m4">
-    
-      
-      
-      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
-        
-
-
-         <table class="table table-condensed table-responsive">
-    <thead>
-      
-
-            <tr><th class="w3-center" colspan="2">  Doctor's Details :- </th></tr>
-            <tr><th class="w3-center" colspan="2" align="left"> Doctor 1</th></tr>
-            <tr>
-                <td>Name<span style="color:Red">*</span></td>
-                <td>
-                    <input name="dname1" type="text" class="form-control" style="width:250px;" />
-                    
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span id="Label13">E-mail</span><span style="color:Red">*</span>
-                    </td>
-                <td>
-                    <input name="demail1" type="text" class="form-control" style="width:250px;" />
-                    
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span id="Label21">Phone Number </span><span style="color:Red">*</span>
-                </td>
-                <td>
-           									 <input name="dphno1" type="text" value="" maxlength="10" class="form-control" style="width:250px;" />
-                   
-                </td>
-            </tr>
-</thead>
-</table>
-</div>
-
-
-<div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
-        
-
-
-         <table class="table table-condensed table-responsive">
-    <thead>
-            <tr><th class="w3-center" colspan="2" align="left"> Doctor 2</th></tr>
-            <tr>
-                <td>
-                    Name
-                </td>
-                <td>
-                    <input name="dname2" type="text" class="form-control" style="width:250px;" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span id="Label25">E-mail</span>
-                </td>
-                <td>
-                    <input name="demail2" type="text" class="form-control" style="width:250px;" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span id="Label26"> Phone Number </span>
-                </td>
-                <td>
-             <input name="dphno2" type="text" value="" maxlength="10" class="form-control" style="width:250px;" />
-                   
-                </td>
-            </tr>
-</thead>
-</table>
-</div>
-<hr>
-
-    </div>-->
     <!-- Right Column -->
     
 
-    <div class="w3-col m4">
+    <div class="w3-col m5">
 
 <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
@@ -260,7 +182,7 @@ echo $_SESSION['uname'];
 <tr><th class="w3-center" colspan="2"> Director / Medical Superintendent of Hospital</th></tr>
             <tr>
                 <td>
-                    Name<span style="color:Red">*</span>
+                    Full Name<span style="color:Red">*</span>
                 </td>
                 <td>
                     <input name="diname" type="text" class="form-control" style="width:250px;" />
@@ -269,7 +191,7 @@ echo $_SESSION['uname'];
             </tr>
             <tr>
                 <td>
-                    <span id="Label8">Phone</span><span style="color:Red">*</span>
+                    <span id="Label8">Phone :- </span><span style="color:Red">*</span>
                 </td>
                 <td>
              <input name="diph" type="text" value="" maxlength="10" class="form-control" style="width:250px;" />
@@ -278,7 +200,7 @@ echo $_SESSION['uname'];
             
             <tr>
                 <td>
-                    <span id="Label9">E-mail </span><span style="color:Red">*</span>
+                    <span id="Label9">Email-ID :- </span><span style="color:Red">*</span>
                    </td>
                 <td class="style3">
                     <input name="diemail" type="text" class="form-control" style="width:250px;" />
@@ -401,15 +323,8 @@ if(isset($_POST['submit']))
     $phno=$_POST['phno'];
     $hospitalemail=$_POST['hospitalemail'];
     $website=$_POST['website'];
-    
-				$dname1=$_POST['dname1'];
-    $demail1=$_POST['demail1'];
-    $dphno1=$_POST['dphno1'];
-    $dname2=$_POST['dname2'];
-    $demail2=$_POST['demail2'];
-    $dphno2=$_POST['dphno2'];
-    
-				$diname=$_POST['diname'];
+		$hgrno=$_POST['hgrno'];
+		$diname=$_POST['diname'];
     $diph=$_POST['diph'];
     $diemail=$_POST['diemail'];
     $LiverLicense=$_POST['LiverLicense'];
@@ -429,8 +344,7 @@ if(isset($_POST['submit']))
     
     //$data=array('session'=>array('colg'=>$colg,'class'=>$class));
         $data=array('hospital_name'=>$hospital_name,'address'=>$address,'state'=>$state,'city'=>$city,
-          'phno'=>$phno,'hospitalemail'=>$hospitalemail,'website'=>$website,'dname1'=>$dname1,'demail1'=>$demail1,'dphno1'=>$dphno1,'dname2'=>$dname2,
-          'demail2'=>$demail2,'dphno2'=>$dphno2,'diname'=>$diname,'diph'=>$diph,'diemail'=>$diemail,'LiverLicense'=>$LiverLicense,
+          'phno'=>$phno,'hospitalemail'=>$hospitalemail,'website'=>$website,'hgrno'=>$hgrno,'diname'=>$diname,'diph'=>$diph,'diemail'=>$diemail,'LiverLicense'=>$LiverLicense,
 										'KidneyLicense'=>$KidneyLicense,'HeartLicense'=>$HeartLicense,'LungsLicense'=>$LungsLicense,'status'=>$_SESSION['status']);
 
 

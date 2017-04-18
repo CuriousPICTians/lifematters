@@ -123,7 +123,7 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 		}
 ?>
 
-														<table class="table table-responsive bio-table table-bordered table-hover">
+														<table class="table table-responsive bio-table table-condensed table-bordered table-hover" style="max-width:1100px" >
 														<thead>
 																<tr>
 																		<th>First Name</th>

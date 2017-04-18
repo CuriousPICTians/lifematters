@@ -42,6 +42,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 		}
   } 
 
+if(isset($_GET['key']))
+  {
+  	$temp = $collection -> find(array('_id' => new MongoId($_GET['key'])));
+  	
+		foreach($temp as $venue)
+		{
+
+
+	 echo "<table class='table table-bordred table-striped custab'>
+      <caption> <h4 style='text-align:center;'> <b> Hospital Details</b> </h4> </caption>
+      <tr>
+        <th> Hospital Name </th>
+        <th> Registration No. </th>
+        <th> Contact Number </th>
+        <th> Email-ID</th>
+        <th> City</th>
+        <th> Hospital website </th>
+        <th> Transplant License for</th>
+      </tr>
+      <tr>
+        <td>".$venue['hospital_name']."</td>
+        <td>".$venue['hgrno']."</td>       
+			 	<td>".$venue['phno']."</td>
+        <td>".$venue['hospitalemail']."</td>
+        <td>".$venue['city']."</td>
+      	<td>".$venue['website']."</td>
+				<td>".$venue['KidneyLicense']." " .$venue['LiverLicense']. " " .$venue['HeartLicense']. " " .$venue['LungsLicense']."</td>
+      </tr>
+      </table>";
+
+
+}
+}
+
+
+	
   /* Update pending status to confirm in Database  */
 
   if(isset($_GET['process']))
@@ -74,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 <?php
 
 session_start();
-echo $_SESSION['uname'];
+ $_SESSION['uname'];
 
 ?>
 
@@ -105,59 +141,48 @@ echo $_SESSION['uname'];
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-</head>
+
 
 <style>
-
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
 </style>
 
   </head>
-  <body>
-    <header>
-      
-    <section>
-    <h2 style="color:#000">
-          <?php
 
-            if(isset($_SESSION['email']))
-             echo $_SESSION['email']."!";?>
-     </h2>
+<body class="w3-content" style="max-width:1000px">
 
-<?php
-    if($email != 'sunil@gmail.com')
-    {
-    	echo '<form id="register_complaint" action="" method="post">
-     		    		  </form>';
-    }
-?>          
-          <?php
-          	echo"<div id='complaints'>";
-          	if($email == 'sunil@gmail.com')
-          		echo "<h3 style='text-align:center;'>User Orders</h3><br>";
-          	else
-          		echo "<h3 style='text-align:center;'> List Of Hospitals </h3>";
+<div class="w3-container-fluid ">
+            <?php
+          	
+          		echo "<h3 style='text-align:left;'> List Of Hospitals :- </h3>";
           ?>
-      <table class="table table-responsive bio-table table-bordered table-hover table-condensed" >
+
+      <table class="table table-responsive table-bordered table-hover custab table-condensed" >
 
       <tr>
-        <?php
-        	 if($email == 'sunil@gmail.com')
-        	 	echo '<th>Name</th>';
-        ?>
- <th>Hospital Name</th>
-<th>Hospital Address</th>
-<th>Hospital Email</th>
-<th>Hospital Phone </th>
-<th>Hospital Director</th>
-<th>Director Phone</th>
-<th>Organs Transplant</th>
+        
+ <th> Hospital Name </th>
+<th> Contact Number </th>
+<th> Email </th>
+<th> website </th>
+
 <th>Status</th>
-<th>Action</th>
 <th>View</th>
+<th>Action</th>
       </tr>
 
         <?php
-            if($email == $_SESSION['email'] )
+            if($email == $_SESSION['email'])
             	$result=$collection -> find(array("email"=> array('$exists' => true)));
             else
       	      $result=$collection->find(array('complaint.email'=>$email));
@@ -167,12 +192,10 @@ echo $_SESSION['uname'];
                 echo "<tr>";
               //  if($uemail == 'sunil@gmail.com')
 echo "<td>".$obj['hospital_name']. "</td>";
-echo"<td>".$obj['address']."</td>";
-echo"<td>".$obj['email']."</td>";
 echo"<td>".$obj['phno']."</td>";
-echo"<td>".$obj['diname']. "</td>";
-echo"<td>".$obj['diph']."</td>";
-echo"<td>".$obj['KidneyLicense'].$obj['LiverLicense'].$obj['HeartLicense'].$obj['LungsLicense']. "</td>";
+echo"<td>".$obj['hospitalemail']."</td>";
+echo"<td>".$obj['website']."</td>";
+
  
      echo "<td style='font-weight:bold;";
 
@@ -188,30 +211,102 @@ echo"<td>".$obj['KidneyLicense'].$obj['LiverLicense'].$obj['HeartLicense'].$obj[
 	              	echo "<a href='profile.php?process=".$obj['_id']."'>Confirm</a>";
 	            echo "<td><a href='orderSummary.php?key=".$obj['_id']."'>Summary</a>";
 */
-	               echo "<td><div class='action'><a href='ApproveHospital.php?order=".$obj['_id']."'> Delete </a></div>";
+	               //echo "<td> <div class='action'> <a href='DocApprove.php?order=".$obj['_id']."'> Delete </a></div>";
                 
 												//if($email == 'sunil@gmail.com')                
 	              
-	              	echo "<div class='action'><a href='ApproveHospital.php?process=".$obj['_id']."'> Confirm </a></div>";
-	                echo "<td><div class='action'><a href='orderSummary.php?key=".$obj['_id']."'> Summary </a></div>";
+	              	//echo "<div class='action'><a href='DocApprove.php?process=".$obj['_id']."'> Confirm </a></div>";
 
-                echo "</td></tr>";
+echo "<td><div class='action'><a href='ApproveHospital.php?key=".$obj['_id']."'> 
+			<button type='button' class='btn btn-info btn-xs' > <span class='glyphicon glyphicon-eye-open'></span> View </button>  </a></div>";
+
+
+
+	echo "<td>
+
+				<button class='btn btn-success btn-xs' data-title='Confirm' data-toggle='modal' data-target='#confirm' ><span class='glyphicon glyphicon-ok'> Confirm</span></button>
+				<button class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#delete' ><span class='glyphicon glyphicon-trash'></span> Delete </button>
+			</td> ";
+
+               
             }
-            echo "</div>";
+            
           ?>
     </table>
     
-    </section >
+
     
-<!--
-    <script>
-      $('.delete').click(function(){
-        alert("hellooooooo");
-        if(confirm("You sure??")){
-          alert("conf");
-        }
-      });
-    </script>
--->
+
+<div class="clearfix"></div>
+<ul class="pagination pull-right">
+  <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+  <li class="active"><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+</ul>
+
+
+
+    
+ <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+      </div>
+          <div class="modal-body">
+       
+       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+       
+      </div>
+        <div class="modal-footer ">
+
+				<?php echo "<div class='action'> <a href='ApproveHospital.php?order=".$obj['_id']."'> 
+										<button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> Delete </button> </a> </div>";  ?>
+
+        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No </button>
+      </div>
+        </div>
+
+
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+
+
+<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading"> Confirm this entry</h4>
+      </div>
+          <div class="modal-body">
+       
+       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to confirm this Record?</div>
+       
+      </div>
+        <div class="modal-footer ">
+
+       <?php echo "<div class='action'> <a href='ApproveHospital.php?process=".$obj['_id']."'> 
+										<button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> Confirm </button> </a> </div>";  ?>
+
+        <div> <button type="button" class="btn btn-default" data-dismiss="modal"> <span class="glyphicon glyphicon-remove"></span> No </button> </div>
+      </div>
+        </div>
+
+
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+
+
+   </div>
   </body>
 </html>

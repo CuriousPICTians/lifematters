@@ -375,7 +375,7 @@ var zc= signup1.zipcode.value;
 
 						<label>Blood Group :- </label>
 						&nbsp;&nbsp;								  
-							<select name="blood" class="textfield2">
+							<select name="blood" class="textfield2" required>
 
 								<option value="Select">Select</option>
 								<option value="1">A+</option>
