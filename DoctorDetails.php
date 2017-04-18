@@ -102,10 +102,15 @@ session_start();
   <div class="w3-row">
 
 <div class="w3-row-padding">
-        <div class="w3-col m12">
+        <div class="w3-col m11">
           <div class="w3-card-2 w3-round w3-white">
             <div class="w3-container w3-padding">
-              <h6 class="w3-opacity "> Wel-Come </h6>
+<label class="w3-right"> Edit Profile :- &nbsp; 
+
+<button type="button" class="btn btn-info btn-s w3-right" data-title='Confirm' data-toggle='modal' data-target='#confirm' > 
+
+<span class="glyphicon glyphicon-eye-open"></span> Edit </button> </label>
+              <h6 class=" "> Wel-Come </h6>
               
             </div>
           </div>
@@ -175,6 +180,81 @@ session_start();
   <!-- End Grid -->
   </div>
   
+
+<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading"> Fill Information </h4>
+      </div>
+          <div class="modal-body">
+       
+      <form class="form-horizontal" method="post" action="">
+         
+				 <fieldset>
+       
+          <div id="edit_farmer" style="display:none"></div>
+ 
+         
+          <div class="row form-group">
+		
+            <label class="col-md-2 control-label" for="first_name">First Name :-</label>  
+							            <div class="col-md-2">
+																	<?php						echo" <input  name='firstname'  class='form-control input-md-2' value=".$venue ['fname']. " type='text'> "; ?>
+																		</div>
+
+            <label class="col-md-2 control-label" for="middle_name">Middle Name :-</label>  
+            							<div class="col-md-2">
+																							<?php  echo" <input name='middlename' class='form-control input-md' value =" .$venue ['mname']. " type='text'> "; ?>           												 
+																			</div>
+
+            <label class="col-md-2 control-label" for="last_name">Last Name :-</label>  
+							            <div class="col-md-2">
+																							<?php echo "<input name='lastname' class='form-control input-md' value=" .$venue ['lname']. " type='text' >"; ?>
+           							</div>
+          </div>
+
+         
+          <div class="row form-group">
+						
+												<label class="col-md-2 control-label" for="smartphone"> phone No.:-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='docphno' class='form-control input-md' value =" .$venue ['docphno']. " type='text'> "; ?>   
+            									</div>
+
+
+													<label class="col-md-2 control-label" for="last_name"> Hospital :-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input name='dochospital' class='form-control input-md' value=".$venue ['dochospital']. " type='text'>"; ?>
+           							</div>
+
+												<label class="col-md-2 control-label" for="smartphone"> Registration No :-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='grno' class='form-control input-md' value =" .$venue ['grno']. " type='text'> "; ?>   
+            									</div>
+          </div>
+
+
+ 
+          <div class="form-group row">
+           
+											 <div class="col-md-8 text-center">
+              <button type="submit" name="submit" value="submit" class="btn btn-large btn-success"> Save Information</button>
+              <button class="btn btn-large btn-danger" type="button" data-dismiss="modal" > Cancel </button>
+
+            </div>
+          </div>
+          </fieldset>
+        </form>
+      </div>
+        </div>
+
+
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
 <!-- End Page Container -->
 </div>
 
