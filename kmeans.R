@@ -1,13 +1,12 @@
 #!/usr/bin/env Rscript
-# install.packages("rJava")
-# install.packages("RMongo")
+#Usage : 
+#	1) From Command line : Rscript kmeans.R <email_id>
+#	2) From PHP : exec("Rscript kmeans.R <email_id>", $out);
 
-library(RMongo)
 library(rJava)
+library(RMongo)
 
-#i <- as.numeric(commandArgs(TRUE))
-#i <- commandArgs(TRUE)
-i <- "1012@ymail.com"
+i <- commandArgs(TRUE)
 
 rootkea <- mongoDbConnect('organ')
 
@@ -15,9 +14,7 @@ donors <- dbGetQuery(rootkea, 'donorinfo', '{"approved": "1"}', skip = 0, limit 
 receivers <- dbGetQuery(rootkea, 'receiverinfo', '{"approved": "1"}', skip = 0, limit = 20000)
 
 donor_ds <- donors[, c("email", "organ", "blood")]
-#donor_ds <- donors[, c("uid", "organ", "blood")]
 receiver_ds <- receivers[, c("email", "organ", "blood")]
-#receiver_ds <- receivers[, c("uid", "organ", "blood")]
 
 donor_clusters <- kmeans(donor_ds[, c("organ", "blood")], 8)
 receiver_clusters <- kmeans(receiver_ds[, c("organ", "blood")], 8)
@@ -44,14 +41,14 @@ temp <- receiver_ds[receiver_clusters$cluster == ans_cluster_l, ]
 
 final <- temp[(temp$organ == donor_ds[ans, ]$organ) & (temp$blood == donor_ds[ans,]$blood),]
 #print(final)
-#print(final$uid)
+print(final$email)
 
-for (email in final$email)
-{
-	query <- gsub(' ', '', paste('{"email":"', email, '"}'))
+#for (email in final$email)
+#{
+#	query <- gsub(' ', '', paste('{"email":"', email, '"}'))
 #	print(query)
-	dbInsertDocument(rootkea, "result", query)
-}
+#	dbInsertDocument(rootkea, "result", query)
+#}
 
 #k <- 1
 #rows <- nrow(final)
