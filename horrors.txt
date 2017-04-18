@@ -1,0 +1,3 @@
+sudo vim /etc/apache2/envvars
+sudo chown rootkea.rootkea -R /var/log/apache2
+sudo chown rootkea.rootkea -R /var/lock/apache2
