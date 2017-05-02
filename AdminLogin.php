@@ -204,7 +204,7 @@ function validateForm() {
 
 session_start();
 
-echo $_SESSION['uname'];
+//$_SESSION['uname'];
 
 if(isset($_POST['submit']))
 {

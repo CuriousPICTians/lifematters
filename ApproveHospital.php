@@ -2,7 +2,7 @@
 
 <?php
 session_start();
-$email = $_SESSION['email'];
+//$email = $_SESSION['email'];
 
 $con = new MongoClient();
 
@@ -13,7 +13,7 @@ $con = new MongoClient();
 
       //connect to specific collection
       $collection=$database->hospitalinfo;
-      $collection1=$databse->user;
+      $collection1=$database->user;
     }
 
  if ($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
   {
   	$temp = $collection -> find(array('_id' => new MongoId($_GET['order'])));
   	
-		foreach($temp as $obj)
+		foreach($temp as $venue)
 		{
 			$collection -> remove(array('_id' => new MongoId($_GET['order'])));
 			?>
@@ -84,9 +84,9 @@ if(isset($_GET['key']))
   {
 		$temp = $collection -> find(array('_id' => new MongoId($_GET['process'])));
   	
-		foreach($temp as $obj)
+		foreach($temp as $venue)
 		{
-		if($obj['status'] == "Confirmed" )
+		if($venue['status'] == "Confirmed" )
 		{
 			?>
 			<script>alert("Hospital confirmed already!");</script>
@@ -109,8 +109,8 @@ if(isset($_GET['key']))
 
 <?php
 
-session_start();
- $_SESSION['uname'];
+//session_start();
+ //$_SESSION['uname'];
 
 ?>
 
@@ -182,30 +182,30 @@ session_start();
       </tr>
 
         <?php
-            if($email == $_SESSION['email'])
+           // if($email == $_SESSION['email'])
             	$result=$collection -> find(array("email"=> array('$exists' => true)));
-            else
-      	      $result=$collection->find(array('complaint.email'=>$email));
-            foreach($result as $obj)
+           // else
+      	    //  $result=$collection->find(array('complaint.email'=>$email));
+            foreach($result as $venue)
             {
 
                 echo "<tr>";
               //  if($uemail == 'sunil@gmail.com')
-echo "<td>".$obj['hospital_name']. "</td>";
-echo"<td>".$obj['phno']."</td>";
-echo"<td>".$obj['hospitalemail']."</td>";
-echo"<td>".$obj['website']."</td>";
+echo "<td>".$venue['hospital_name']. "</td>";
+echo"<td>".$venue['phno']."</td>";
+echo"<td>".$venue['hospitalemail']."</td>";
+echo"<td>".$venue['website']."</td>";
 
  
      echo "<td style='font-weight:bold;";
 
-				 	if($obj ['status'] == 'Confirmed')
+				 	if($venue ['status'] == 'Confirmed')
 			    		
 			    		echo "color:green'>";
 			    	else
 				    	echo "color:red'>";
                 
-                echo $obj  ['status']."</td>";
+                echo $venue  ['status']."</td>";
 /*                echo "<td><a href='profile.php?order=".$obj['_id']."'>Delete</a>";
                 if($uemail == 'repair@gmail.com')                
 	              	echo "<a href='profile.php?process=".$obj['_id']."'>Confirm</a>";
@@ -217,7 +217,7 @@ echo"<td>".$obj['website']."</td>";
 	              
 	              	//echo "<div class='action'><a href='DocApprove.php?process=".$obj['_id']."'> Confirm </a></div>";
 
-echo "<td><div class='action'><a href='ApproveHospital.php?key=".$obj['_id']."'> 
+echo "<td><div class='action'><a href='ApproveHospital.php?key=".$venue['_id']."'> 
 			<button type='button' class='btn btn-info btn-xs' > <span class='glyphicon glyphicon-eye-open'></span> View </button>  </a></div>";
 
 
@@ -265,7 +265,7 @@ echo "<td><div class='action'><a href='ApproveHospital.php?key=".$obj['_id']."'>
       </div>
         <div class="modal-footer ">
 
-				<?php echo "<div class='action'> <a href='ApproveHospital.php?order=".$obj['_id']."'> 
+				<?php echo "<div class='action'> <a href='ApproveHospital.php?order=".$venue['_id']."'> 
 										<button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> Delete </button> </a> </div>";  ?>
 
         <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No </button>
@@ -279,7 +279,7 @@ echo "<td><div class='action'><a href='ApproveHospital.php?key=".$obj['_id']."'>
     </div>
 
 
-<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="confirm" aria-hidden="true">
       <div class="modal-dialog">
     <div class="modal-content">
           <div class="modal-header">
@@ -293,7 +293,7 @@ echo "<td><div class='action'><a href='ApproveHospital.php?key=".$obj['_id']."'>
       </div>
         <div class="modal-footer ">
 
-       <?php echo "<div class='action'> <a href='ApproveHospital.php?process=".$obj['_id']."'> 
+       <?php echo "<div class='action'> <a href='ApproveHospital.php?process=".$venue['_id']."'> 
 										<button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> Confirm </button> </a> </div>";  ?>
 
         <div> <button type="button" class="btn btn-default" data-dismiss="modal"> <span class="glyphicon glyphicon-remove"></span> No </button> </div>

@@ -71,7 +71,10 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 .stick a { line-height:20px !important;}
 .stick img { margin:0 !important;}
 
+}
 
+.custom-height-modal {
+  height: 1100px;
 }
 
 	</style>
@@ -182,13 +185,13 @@ session_start();
   
 
 <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
+      <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
           <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
         <h4 class="modal-title custom_align" id="Heading"> Fill Information </h4>
       </div>
-          <div class="modal-body">
+          <div class="modal-body custom-height-modal">
        
       <form class="form-horizontal" method="post" action="">
          
@@ -224,7 +227,7 @@ session_start();
             									</div>
 
 
-													<label class="col-md-2 control-label" for="last_name"> Hospital :-</label>  
+													<label class="col-md-2 control-label" for="dochospital"> Hospital :-</label>  
 							            <div class="col-md-2">
 																							<?php  echo" <input name='dochospital' class='form-control input-md' value=".$venue ['dochospital']. " type='text'>"; ?>
            							</div>
@@ -235,6 +238,44 @@ session_start();
             									</div>
           </div>
 
+<div class="row form-group">
+						
+												<label class="col-md-2 control-label" for="smartphone">  Date of Registration:-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='day' class='form-control input-md' value =" .$venue ['day']. " type='text'> "; ?>   
+            									</div>
+
+
+													<label class="col-md-2 control-label" for="last_name"> State Medical Council :-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input name='medicalcouncil' class='form-control input-md' value=".$venue ['medicalcouncil']. " type='text'>"; ?>
+           							</div>
+
+												<label class="col-md-2 control-label" for="smartphone"> QUALIFICATION :-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='qualifi' class='form-control input-md' value =" .$venue ['qualifi']. " type='text'> "; ?>   
+            									</div>
+          </div>
+
+
+<div class="row form-group">
+						
+												<label class="col-md-2 control-label" for="smartphone">  qualification Year:-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='day1' class='form-control input-md' value =" .$venue ['day1']. " type='text'> "; ?>   
+            									</div>
+
+
+													<label class="col-md-2 control-label" for="last_name"> University :-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input name='univername' class='form-control input-md' value=".$venue ['univername']. " type='text'>"; ?>
+           							</div>
+
+<label class="col-md-2 control-label" for="last_name"> perment Address :-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input name='paddress' class='form-control input-md' value=".$venue ['paddress']. " type='text'>"; ?>
+           							</div>
+          </div>
 
  
           <div class="form-group row">

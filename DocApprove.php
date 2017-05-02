@@ -118,8 +118,8 @@ if(isset($_GET['key']))
 
 <?php
 
-session_start();
-$_SESSION['uname'];
+//session_start();
+//$_SESSION['uname'];
 
 ?>
 

@@ -7,10 +7,10 @@ Donate organs. Give life.
 2) default-jdk
 3) rJava RMongo
 
-	$ sudo R
-	install.packages("rJava");
-	install.packages("RMongo");
-
+	Terminal : $ sudo R
+						> install.packages("rJava", lib="/usr/local/lib/R/site-library/");
+						> install.packages("RMongo", lib="/usr/local/lib/R/site-library/");
+					
 * Mongo DB Command :-
 1] mongodump -d organ
 2] cd dump; mongorestore -d organ organ/
