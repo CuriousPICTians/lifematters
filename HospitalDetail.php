@@ -21,6 +21,13 @@
 	<!-- W3.CSS is a modern CSS framework -->		
 		<link rel="stylesheet" href="w3.css">
 
+
+
+<!-- Bootstrap Date-Picker Plugin -->
+<script type="text/javascript" src="bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="bootstrap-datepicker/css/bootstrap-datepicker3.css"/>
+
+
 <link rel="stylesheet" href="w3-theme-blue-grey.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -78,6 +85,36 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 	
 	</head>
 
+
+
+<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="day"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'dd-MM-yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+
+$(document).ready(function(){
+      var date_input=$('input[name="day1"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'dd-MM-yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+
+</script>
+
+
 	<body class="w3-theme-l5">
 		
 	
@@ -102,10 +139,15 @@ session_start();
   <div class="w3-row">
 
 <div class="w3-row-padding">
-        <div class="w3-col m12">
+        <div class="w3-col m11">
           <div class="w3-card-2 w3-round w3-white">
             <div class="w3-container w3-padding">
-              <h6 class="w3-opacity "> Wel-Come </h6>
+<label class="w3-right"> Edit Profile :- &nbsp; 
+
+<button type="button" class="btn btn-info btn-s w3-right" data-title='Confirm' data-toggle='modal' data-target='#confirm' > 
+
+<span class="glyphicon glyphicon-eye-open"></span> Edit </button> </label>
+              <h6 class=" "> Wel-Come </h6>
               
             </div>
           </div>
@@ -174,6 +216,76 @@ session_start();
   <!-- End Grid -->
   </div>
   
+
+<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading"> Fill Information </h4>
+      </div>
+          <div class="modal-body custom-height-modal">
+       
+      <form class="form-horizontal" method="post" action="">
+         
+				 <fieldset>
+       
+          <div id="edit_farmer" style="display:none"></div>
+ 
+         
+          <div class="row form-group">
+		
+            <label class="col-md-2 control-label" for="first_name">Hospital Name:-</label>  
+						<div class="col-md-2">
+						<?php echo" <input  name='hospital_name'  class='form-control input-md-2' value=".$venue ['hospital_name']. " type='text'> "; ?>
+						</div>
+
+            <label class="col-md-2 control-label" for="middle_name">Registration No:-</label>  
+            <div class="col-md-2">
+						<?php  echo" <input name='hgrno' class='form-control input-md' value =" .$venue ['hgrno']. " type='text'> "; ?>           												 
+						</div>
+
+            <label class="col-md-2 control-label" for="last_name">Phone No:-</label>  
+							            <div class="col-md-2">
+																							<?php echo "<input name='phno' class='form-control input-md' value=" .$venue ['phno']. " type='text' >"; ?>
+           							</div>
+          </div>
+
+         
+          <div class="row form-group">
+						
+												<label class="col-md-2 control-label" for="smartphone"> Website:-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='website' class='form-control input-md' value =" .$venue ['website']. " type='text'> "; ?>   
+            									</div>
+
+
+													<label class="col-md-2 control-label" for="dochospital"> Email-ID :-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input name='hospitalemail' class='form-control input-md' value=".$venue ['hospitalemail']. " type='text'>"; ?>
+           							</div>
+
+												<hr>
+</div>
+          <div class="form-group row">
+           
+											 <div class="col-md-8 text-center">
+              <button type="submit" name="submit" value="submit" class="btn btn-large btn-success"> Save Information</button>
+              <button class="btn btn-large btn-danger" type="button" data-dismiss="modal" > Cancel </button>
+
+            </div>
+          </div>
+          </fieldset>
+        </form>
+      </div>
+        </div>
+
+
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+
 <!-- End Page Container -->
 </div>
 

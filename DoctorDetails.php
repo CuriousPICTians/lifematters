@@ -21,6 +21,12 @@
 	<!-- W3.CSS is a modern CSS framework -->		
 		<link rel="stylesheet" href="w3.css">
 
+
+<!-- Bootstrap Date-Picker Plugin -->
+<script type="text/javascript" src="bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="bootstrap-datepicker/css/bootstrap-datepicker3.css"/>
+
+
 <link rel="stylesheet" href="w3-theme-blue-grey.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -80,6 +86,35 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 	</style>
 	
 	</head>
+
+
+
+<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="day"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'dd-MM-yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+
+$(document).ready(function(){
+      var date_input=$('input[name="day1"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'dd-MM-yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+
+</script>
 
 	<body class="w3-theme-l5">
 		
@@ -202,19 +237,19 @@ session_start();
          
           <div class="row form-group">
 		
-            <label class="col-md-2 control-label" for="first_name">First Name :-</label>  
-							            <div class="col-md-2">
-																	<?php						echo" <input  name='firstname'  class='form-control input-md-2' value=".$venue ['fname']. " type='text'> "; ?>
-																		</div>
+            <label class="col-md-2 control-label" for="first_name">First Name:-</label>  
+						<div class="col-md-2">
+						<?php echo" <input  name='fname'  class='form-control input-md-2' value=".$venue ['fname']. " type='text'> "; ?>
+						</div>
 
-            <label class="col-md-2 control-label" for="middle_name">Middle Name :-</label>  
-            							<div class="col-md-2">
-																							<?php  echo" <input name='middlename' class='form-control input-md' value =" .$venue ['mname']. " type='text'> "; ?>           												 
-																			</div>
+            <label class="col-md-2 control-label" for="middle_name">Middle Name:-</label>  
+            <div class="col-md-2">
+						<?php  echo" <input name='mname' class='form-control input-md' value =" .$venue ['mname']. " type='text'> "; ?>           												 
+						</div>
 
             <label class="col-md-2 control-label" for="last_name">Last Name :-</label>  
 							            <div class="col-md-2">
-																							<?php echo "<input name='lastname' class='form-control input-md' value=" .$venue ['lname']. " type='text' >"; ?>
+																							<?php echo "<input name='lname' class='form-control input-md' value=" .$venue ['lname']. " type='text' >"; ?>
            							</div>
           </div>
 
@@ -251,7 +286,7 @@ session_start();
 																							<?php  echo" <input name='medicalcouncil' class='form-control input-md' value=".$venue ['medicalcouncil']. " type='text'>"; ?>
            							</div>
 
-												<label class="col-md-2 control-label" for="smartphone"> QUALIFICATION :-  </label>
+												<label class="col-md-2 control-label" for="smartphone"> QUALIFICATION:-  </label>
            									 <div class="col-md-2">
 																										 <?php  echo" <input name='qualifi' class='form-control input-md' value =" .$venue ['qualifi']. " type='text'> "; ?>   
             									</div>
@@ -303,6 +338,29 @@ session_start();
 
 
 }
+
+if(isset($_POST['submit']))
+{
+    $fname=$_POST['fname'];
+		$mname=$_POST['mname'];
+		$lname=$_POST['lname'];
+    $docphno=$_POST['docphno'];
+    $dochospital=$_POST['dochospital'];   
+    $grno=$_POST['grno'];
+    $day=$_POST['day'];
+    $medicalcouncil=$_POST['medicalcouncil'];
+    $qualifi=$_POST['qualifi'];  
+    $day1=$_POST['day1'];
+    $univername=$_POST['univername'];
+    $paddress=$_POST['paddress'];
+    $_SESSION['status']="Pending";
+
+$data=array('fname'=>$fname,'mname'=>$mname,'lname'=>$lname,'docphno'=>$docphno,'dochospital'=>$dochospital,'grno'=>$grno,
+'day'=>$day,'medicalcouncil'=>$medicalcouncil,'qualifi'=>$qualifi,'day1'=>$day1,'univername'=>$univername,'paddress'=>$paddress);
+
+}
+$cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
+
 }
 ?>
     
