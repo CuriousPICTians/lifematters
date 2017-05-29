@@ -60,7 +60,7 @@ if(isset($_POST['submit']))
     //$data=array('session'=>array('colg'=>$colg,'class'=>$class));
 
     $data=array('hospital'=>$hospital);
-				$data1=array('organ'=>$organ);
+				$data1=array('organ'=>$organ,'status'=>'0');
 
    // $collection->update (array("email" => $_SESSION['email'] ), array ('$set' => array('organ' => $data)));
     
@@ -157,7 +157,7 @@ $cursor_count = $cursor->count();
     echo "</tr>";
     
 
-				echo "<td>organ :- </td>";
+		echo "<td>organ :- </td>";
     echo "<td>".$venue ['organ'] . "</td>";
 
 
