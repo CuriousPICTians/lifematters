@@ -178,7 +178,7 @@ session_start();
 
     
     <!-- Middle Column -->
-    <div class="w3-col m7">
+    <div class="w3-col m4">
 
     <div class="w3-row-padding">
     <div class="w3-col m12">
@@ -213,7 +213,76 @@ session_start();
   <!-- End Middle Column -->
     </div>
     
+
+
+<!-- Right Column -->
+    <div class="w3-col m3">      
+
+							
+
+      <div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center"> Donor List  </h4>
+         <p class="w3-center"><img src="img/doc.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
+         <hr>
+			
+<?php
+
+		session_start();
+   
+	$con = new MongoClient();
+
+  if($con)
+  {
     
+
+    $database=$con->organ;
+    $collection1=$database->donorinfo;
+
+
+		$qry = array("Doc" => $_SESSION['email']);
+
+
+   $cursor = $collection1->find($qry);
+
+		
+		//$result = $collection1->findOne($qry);	
+
+		}
+	
+	if($cursor)
+	{
+?>
+
+	<table class="table table-responsive bio-table table-bordered table-hover table-condensed" >
+			<thead>
+					<tr>
+						<th> Donor Name</th>
+						<th> View </th>
+					</tr>
+			</thead>
+			<tbody>
+			<?php
+					foreach ($cursor as $venue) 
+					{
+						echo "
+								<tr>
+								<td>{$venue  ['firstname']} {$venue  ['middlename']}  {$venue  ['middlename']} </td>
+								</tr>
+								";  
+					}
+	}	
+	?>  
+		</tbody>
+		</table>	      
+     
+
+ </div>
+      </div> 
+				
+				<!-- End Right	 Column -->
+    </div>    
+
     
   <!-- End Grid -->
   </div>
