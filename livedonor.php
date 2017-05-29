@@ -44,8 +44,8 @@ if(isset($_POST['submit']))
    
     
     $hospital=$_POST['hospital'];
-				$organ=$_POST['organ'];
-
+		$organ=$_POST['organ'];
+		$Doc=$_POST['Doc'];
 
 
   $con = new MongoClient();
@@ -59,7 +59,7 @@ if(isset($_POST['submit']))
     
     //$data=array('session'=>array('colg'=>$colg,'class'=>$class));
 
-    $data=array('hospital'=>$hospital);
+    $data=array('hospital'=>$hospital,'Doc'=>$Doc);
 				$data1=array('organ'=>$organ,'status'=>'0');
 
    // $collection->update (array("email" => $_SESSION['email'] ), array ('$set' => array('organ' => $data)));

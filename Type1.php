@@ -75,7 +75,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 																											which can lead to  diabetes."> <b>Pancreas or Intestine </b> </a> </li>
 								</ol>
 
-					<br>
+
 <hr>
 
 
@@ -92,7 +92,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 </div>
 
 </br>				
-</br>
+	
 
 
 			<div class="form-inline">
@@ -107,6 +107,67 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 									<option value="KEM Hospital Mumbai"> KEM Hospital Mumbai </option>
 				</select>
 </div>
+
+<!--
+       
+<?php
+
+		session_start();
+   
+	$con = new MongoClient();
+
+  if($con)
+  {
+    
+
+    $database=$con->organ;
+    $collection=$database->docinfo;
+
+
+    $cursor = $collection->find();
+    $cursor_count = $cursor->count();
+	}
+
+foreach ($cursor as $venue) 
+{
+?>
+
+<div class="form-inline">
+
+		<label for="ex2"> <b>Select Doctor :- </b> </label>	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;										
+		<select name="doc" class="form-control" style="width:200px;">
+
+
+						<?php echo	"<option value='1'>" .$venue['email']. "</option>"; ?>\
+									
+		</select>
+
+</div>
+
+<?php 
+
+}
+?>
+
+
+-->
+
+
+<br>
+
+<div class="form-inline">
+  <label for="ex2"> <b>Select Doctor :- </b> </label>	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;										
+ <select name="Doc" class="form-control" style="width:200px;">
+
+									<option value="pawan@gmail.com"> DR.pawan </option>
+									<option value="mukesh@gmail.com"> DR.mukesh </option>
+									<option value="pc@gmail.com"> DR.pc </option>
+									
+</select>
+</div>
+
+
+
 <hr>
 <input type="submit" name="submit" class="btn btn-large btn-success" value="submit"/>
 </div>

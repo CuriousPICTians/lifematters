@@ -410,7 +410,7 @@ session_start();
 
 			if(!count($count))
 			{
-				$user_data=array('email'=>$uemail,'password'=>$upass,'approved'=>'0');
+				$user_data=array('email'=>$uemail,'password'=>$upass,'approved'=>'0' ,'status'=>'0' );
 				$collection->insert($user_data);
 ?>
                 
