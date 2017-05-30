@@ -117,7 +117,7 @@ session_start();
 ?>
 
 <!-- Page Container -->
-<div class="w3-container w3-content" style="max-width:1100px;margin-top:20px">    
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
   <!-- The Grid -->
   <div class="w3-row">
 
@@ -166,7 +166,7 @@ session_start();
 
 
 <!-- Middle Column -->
-    <div class="w3-col m7">
+    <div class="w3-col m6">
 
     <div class="w3-row-padding">
     <div class="w3-col m12">
@@ -192,6 +192,7 @@ session_start();
          <p class="w3-center"> </p>
          <hr>
 								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> Donation at :- ".$venue['hospital']."</p>"; ?>
+								<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> Follwing Doctor Is Appointed :- ".$venue['Doc']."</p>"; ?>
 								<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> Follwing Organ to be donoted :- ".$venue['organ']."</p>"; ?>
 
         </div>

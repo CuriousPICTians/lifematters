@@ -245,7 +245,7 @@ if(isset($_GET['key']))
 <!-- Page Container -->
 
 
-<div class="w3-container w3-content" style="max-width:1150px;margin-top:20px">    
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
 
 
   <!-- The Grid -->
