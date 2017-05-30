@@ -58,7 +58,7 @@ if(isset($_POST['submit']))
     
     //$data=array('session'=>array('colg'=>$colg,'class'=>$class));
 
-    $data=array('hospital'=>$hospital,'status'=>'0');
+    $data=array('hospital'=>$hospital,'status'=>'pending');
 
    // $collection->update (array("email" => $_SESSION['email'] ), array ('$set' => array('organ' => $data)));
     

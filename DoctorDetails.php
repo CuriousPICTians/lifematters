@@ -83,6 +83,22 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
   height: 1100px;
 }
 
+
+
+
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
+
+
 	</style>
 	
 	</head>
@@ -135,166 +151,34 @@ session_start();
 ?>
 
 <!-- Page Container -->
-<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
+
+
+<div class="w3-container w3-content" style="max-width:1200px;margin-top:20px">    
+
+
   <!-- The Grid -->
   <div class="w3-row">
 
 <div class="w3-row-padding">
-        <div class="w3-col m11">
+        <div class="w3-col m10">
           <div class="w3-card-2 w3-round w3-white">
             <div class="w3-container w3-padding">
-<label class="w3-right"> Edit Profile :- &nbsp; 
+								<label class="w3-right"> Edit Profile :- &nbsp; 
 
-<button type="button" class="btn btn-info btn-s w3-right" data-title='Confirm' data-toggle='modal' data-target='#confirm' > 
+								<button type="button" class="w3-btn w3-red w3-round w3-margin-right w3-medium" data-title='Confirm' data-toggle='modal' data-target='#confirm' > 
 
-<span class="glyphicon glyphicon-eye-open"></span> Edit </button> </label>
-              <h6 class=" "> Wel-Come </h6>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-<hr>
-    <!-- Left Column -->
-    <div class="w3-col m4">      
+								<span class="glyphicon glyphicon-eye-open"></span> Edit </button> </label>
+															<h6 class=" "> Wel-Come </h6>
+																
+<!-------------------------  modal for edit profile ------------------------------------>
 
-							
-
-      <div class="w3-card-2 w3-round w3-white">
-        <div class="w3-container">
-         <h4 class="w3-center"> Doctor Details </h4>
-         <p class="w3-center"><img src="img/doc.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
-         <hr>
-			<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-user-md fa-fw w3-margin-right w3-text-theme'></i> Doctor Name :- "  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>"; ?>        
-			<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Contact Number :- " .$venue ['docphno'] ." </p>"; ?>																					
-			<?php	echo"<p><i class='fa fa-at fa-fw w3-margin-right w3-text-theme'></i> Email-ID :- " .$venue ['email'] ." </p>"; ?>
-			<?php	echo"<p><i class='fa fa-briefcase fa-fw w3-margin-right w3-text-theme'></i> work at :- " .$venue ['dochospital'] ." </p>"; ?>
-			<?php	echo"<p><i class='fa fa-address-book fa-fw w3-margin-right w3-text-theme'></i> Permanent Address	 :- " .$venue ['paddress'] ." </p>"; ?>
-        </div>
-      </div> 
-				
-				<!-- End Left Column -->
-    </div>
-
-    
-    <!-- Middle Column -->
-    <div class="w3-col m4">
-
-    <div class="w3-row-padding">
-    <div class="w3-col m12">
-
-<div class="w3-card-2 w3-round w3-white">
-        <div class="w3-container">
-      <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Registration Details :- </h4>
-
-         <hr>
-								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> Registration Number :- "  .$venue ['grno'] ."</p>"; ?>        
- 							<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> Date of Registration :- " .$venue ['day'] . "</p>"; ?>        
-									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> State Medical Council :- " .$venue ['medicalcouncil'] ." </p>"; ?>
-        </div>
-      </div> 
-<hr>	
-
-<div class="w3-card-2 w3-round w3-white">
-        <div class="w3-container">
-         <h4 class="w3-center"> <img src="img/qu1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Qualification Details :- </h4>
-         <p class="w3-center"> </p>
-         <hr>
-								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> qualification :- ".$venue['qualifi']."</p>"; ?>
-								<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> qualification Year :- ".$venue['day1']."</p>"; ?>
-								<?php echo"<p> <i class='fa fa-university fa-fw w3-margin-right w3-text-theme'></i> University Name	 :- ".$venue['univername']."</p>"; ?>
-        </div>
-      </div>
- 
-</div>
-</div> 
-
-          
-  <!-- End Middle Column -->
-    </div>
-    
-
-
-<!-- Right Column -->
-    <div class="w3-col m3">      
-
-							
-
-      <div class="w3-card-2 w3-round w3-white">
-        <div class="w3-container">
-         <h4 class="w3-center"> Donor List  </h4>
-         <p class="w3-center"><img src="img/doc.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
-         <hr>
-			
-<?php
-
-		session_start();
-   
-	$con = new MongoClient();
-
-  if($con)
-  {
-    
-
-    $database=$con->organ;
-    $collection1=$database->donorinfo;
-
-
-		$qry = array("Doc" => $_SESSION['email']);
-
-
-   $cursor = $collection1->find($qry);
-
-		
-		//$result = $collection1->findOne($qry);	
-
-		}
-	
-	if($cursor)
-	{
-?>
-
-	<table class="table table-responsive bio-table table-bordered table-hover table-condensed" >
-			<thead>
-					<tr>
-						<th> Donor Name</th>
-						<th> View </th>
-					</tr>
-			</thead>
-			<tbody>
-			<?php
-					foreach ($cursor as $venue) 
-					{
-						echo "
-								<tr>
-								<td>{$venue  ['firstname']} {$venue  ['middlename']}  {$venue  ['middlename']} </td>
-								</tr>
-								";  
-					}
-	}	
-	?>  
-		</tbody>
-		</table>	      
-     
-
- </div>
-      </div> 
-				
-				<!-- End Right	 Column -->
-    </div>    
-
-    
-  <!-- End Grid -->
-  </div>
-  
-
-<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-          <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-        <h4 class="modal-title custom_align" id="Heading"> Fill Information </h4>
-      </div>
+								<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      					<div class="modal-dialog modal-lg" role="document">
+    						<div class="modal-content">
+        			  <div class="modal-header">
+      				  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+ 					      <h4 class="modal-title custom_align" id="Heading"> Fill Information </h4>
+    				  	</div>
           <div class="modal-body custom-height-modal">
        
       <form class="form-horizontal" method="post" action="">
@@ -400,8 +284,92 @@ session_start();
   </div>
       <!-- /.modal-dialog --> 
     </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+<hr>
+
+
+
+
+    <!-- Left Column -->
+    <div class="w3-col m4	">      
+
+							
+
+      <div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center"> Doctor Details </h4>
+         <p class="w3-center"><img src="img/doc.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
+         <hr>
+			<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-user-md fa-fw w3-margin-right w3-text-theme'></i> Doctor Name :- "  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>"; ?>        
+			<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Contact Number :- " .$venue ['docphno'] ." </p>"; ?>																					
+			<?php	echo"<p><i class='fa fa-at fa-fw w3-margin-right w3-text-theme'></i> Email-ID :- " .$venue ['email'] ." </p>"; ?>
+			<?php	echo"<p><i class='fa fa-briefcase fa-fw w3-margin-right w3-text-theme'></i> work at :- " .$venue ['dochospital'] ." </p>"; ?>
+			<?php	echo"<p><i class='fa fa-address-book fa-fw w3-margin-right w3-text-theme'></i> Permanent Address	 :- " .$venue ['paddress'] ." </p>"; ?>
+        </div>
+      </div> 
+				
+				<!-- End Left Column -->
+    </div>
+
+
+
+
+
+    
+    <!-- Middle Column -->
+    <div class="w3-col m6">
+
+    <div class="w3-row-padding">
+    <div class="w3-col m12">
+
+<div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+      <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Registration Details :- </h4>
+
+         <hr>
+								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> Registration Number :- "  .$venue ['grno'] ."</p>"; ?>        
+ 							<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> Date of Registration :- " .$venue ['day'] . "</p>"; ?>        
+									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> State Medical Council :- " .$venue ['medicalcouncil'] ." </p>"; ?>
+        </div>
+      </div> 
+<hr>	
+
+<div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center"> <img src="img/qu1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Qualification Details :- </h4>
+         <p class="w3-center"> </p>
+         <hr>
+								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> qualification :- ".$venue['qualifi']."</p>"; ?>
+								<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> qualification Year :- ".$venue['day1']."</p>"; ?>
+								<?php echo"<p> <i class='fa fa-university fa-fw w3-margin-right w3-text-theme'></i> University Name	 :- ".$venue['univername']."</p>"; ?>
+        </div>
+      </div>
+ 
+</div>
+</div> 
+
+          
+  <!-- End Middle Column -->
+    </div>
+    
+
+
+
+  <!-- End Grid -->
+  </div>
+  
+
 <!-- End Page Container -->
 </div>
+
+
+
 
 <?php
 

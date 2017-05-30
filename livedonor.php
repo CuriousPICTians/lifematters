@@ -60,7 +60,7 @@ if(isset($_POST['submit']))
     //$data=array('session'=>array('colg'=>$colg,'class'=>$class));
 
     $data=array('hospital'=>$hospital,'Doc'=>$Doc);
-				$data1=array('organ'=>$organ,'status'=>'0');
+				$data1=array('organ'=>$organ,'status'=>'pending');
 
    // $collection->update (array("email" => $_SESSION['email'] ), array ('$set' => array('organ' => $data)));
     
