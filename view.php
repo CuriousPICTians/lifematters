@@ -1,5 +1,3 @@
-
-
 <?php
 session_start();
 //$email = $_SESSION['email'];
@@ -12,7 +10,7 @@ $con = new MongoClient();
       $database=$con->organ;
 
       //connect to specific collection
-      $collection=$database->hospitalinfo;
+      $collection=$database->donorinfo;
       $collection1=$database->user;
     }
 
@@ -28,7 +26,8 @@ $con = new MongoClient();
 if ($_SERVER['REQUEST_METHOD'] == 'GET')
 {
 
-  if(isset($_GET['order']))
+  
+if(isset($_GET['order']))
   {
   	$temp = $collection -> find(array('_id' => new MongoId($_GET['order'])));
   	
@@ -36,11 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 		{
 			$collection -> remove(array('_id' => new MongoId($_GET['order'])));
 			?>
-			<script>alert("Hospital Has Been Deleted Successfully.");</script>
+			<script>alert("patient Has Been Deleted Successfully.");</script>
 			<?php
 		
 		}
   } 
+
 
 if(isset($_GET['key']))
   {
@@ -51,24 +51,26 @@ if(isset($_GET['key']))
 
 
 	 echo "<table class='table table-bordred table-striped custab'>
-      <caption> <h4 style='text-align:center;'> <b> Hospital Details</b> </h4> </caption>
+      <caption> <h4 style='text-align:center;'> <b> Patient Details</b> </h4> </caption>
       <tr>
-        <th> Hospital Name </th>
-        <th> Registration No. </th>
-        <th> Contact Number </th>
-        <th> Email-ID</th>
-        <th> City</th>
-        <th> Hospital website </th>
-        <th> Transplant License for</th>
+        <th> Name </th>
+        <th> gender</th>
+        <th> blood group </th>
+        <th> hospital</th>
+        <th> organ</th>
+        <th> Action </th>
       </tr>
       <tr>
-        <td>".$venue['hospital_name']."</td>
-        <td>".$venue['hgrno']."</td>       
-			 	<td>".$venue['phno']."</td>
-        <td>".$venue['hospitalemail']."</td>
-        <td>".$venue['city']."</td>
-      	<td>".$venue['website']."</td>
-				<td>".$venue['KidneyLicense']." " .$venue['LiverLicense']. " " .$venue['HeartLicense']. " " .$venue['LungsLicense']."</td>
+        <td>".$venue['firstname']. " " .$venue['middlename']. " " .$venue['lastname']."</td>
+        <td>".$venue['gender']."</td>       
+			 	<td>".$venue['blood']."</td>
+        <td>".$venue['hospital']."</td>
+        <td>".$venue['organ']."</td>
+				<td>
+
+				<button class='w3-btn w3-green w3-round w3-margin-left w3-small' data-title='Confirm' data-toggle='modal' data-target='#confirm' ><span class='glyphicon glyphicon-ok'> Confirm</span></button>
+				<button class='btn btn-danger btn-xs ' data-title='Delete' data-toggle='modal' data-target='#delete' ><span class='glyphicon glyphicon-trash'></span> Delete </button>
+				</td	>
       </tr>
       </table>";
 
@@ -77,8 +79,7 @@ if(isset($_GET['key']))
 }
 
 
-	
-  /* Update pending status to confirm in Database  */
+/* Update pending status to confirm in Database  */
 
   if(isset($_GET['process']))
   {
@@ -86,34 +87,32 @@ if(isset($_GET['key']))
   	
 		foreach($temp as $venue)
 		{
-		if($venue['status'] == "Confirmed" )
+		if($venue['status'] == "1" )
 		{
 			?>
-			<script>alert("Hospital confirmed already!");</script>
+			<script>alert("patient confirmed already!");</script>
 			<?php
 		}	
 		else
 		{
-		$collection -> update(array('_id' => new MongoId($_GET['process'])), array('$set' => array('status' => 'Confirmed')));
+		$collection -> update(array('_id' => new MongoId($_GET['process'])), array('$set' => array('status' => '1')));
+
 		?>
-		<script>alert("Hospital has been confirmed.");</script>
+		<script>alert("patient has been confirmed.");</script>
+
+
 		<?php
   		}
   		}
   }
+  
 }
 
 ?>
 
+
+
 <!DOCTYPE html>
-
-<?php
-
-//session_start();
- //$_SESSION['uname'];
-
-?>
-
 <html lang="en">
 <head>
 <title>Organ Donation</title>
@@ -142,7 +141,6 @@ if(isset($_GET['key']))
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-
 <style>
 .custab{
     border: 1px solid #ccc;
@@ -157,85 +155,27 @@ if(isset($_GET['key']))
     }
 </style>
 
-  </head>
 
-<body class="w3-content" style="max-width:1000px">
+</head>
+<body>
+
+
+<body class="w3-content" style="max-width:1050px">
 
 <div class="w3-container-fluid ">
-            <?php
-          	
-          		echo "<h3 style='text-align:left;'> List Of Hospitals :- </h3>";
-          ?>
+         
 
-      <table class="table table-responsive table-bordered table-hover custab table-condensed" >
-
-      <tr>
-        
- <th> Hospital Name </th>
-<th> Contact Number </th>
-<th> Email </th>
-<th> website </th>
-
-<th>Status</th>
-<th>View</th>
-<th>Action</th>
-      </tr>
-
-        <?php
-           // if($email == $_SESSION['email'])
-            	$result=$collection -> find(array("email"=> array('$exists' => true)));
-           // else
-      	    //  $result=$collection->find(array('complaint.email'=>$email));
-            foreach($result as $venue)
-            {
-
-                echo "<tr>";
-              //  if($uemail == 'sunil@gmail.com')
-echo "<td>".$venue['hospital_name']. "</td>";
-echo"<td>".$venue['phno']."</td>";
-echo"<td>".$venue['hospitalemail']."</td>";
-echo"<td>".$venue['website']."</td>";
-
- 
-     echo "<td style='font-weight:bold;";
-
-				 	if($venue ['status'] == 'Confirmed')
-			    		
-			    		echo "color:green'>";
-			    	else
-				    	echo "color:red'>";
-                
-                echo $venue  ['status']."</td>";
-/*                echo "<td><a href='profile.php?order=".$obj['_id']."'>Delete</a>";
-                if($uemail == 'repair@gmail.com')                
-	              	echo "<a href='profile.php?process=".$obj['_id']."'>Confirm</a>";
-	            echo "<td><a href='orderSummary.php?key=".$obj['_id']."'>Summary</a>";
-*/
-	               //echo "<td> <div class='action'> <a href='DocApprove.php?order=".$obj['_id']."'> Delete </a></div>";
-                
-												//if($email == 'sunil@gmail.com')                
-	              
-	              	//echo "<div class='action'><a href='DocApprove.php?process=".$obj['_id']."'> Confirm </a></div>";
-
-echo "<td><div class='action'><a href='ApproveHospital.php?key=".$venue['_id']."'> 
-			<button type='button' class='btn btn-info btn-xs' > <span class='glyphicon glyphicon-eye-open'></span> View </button>  </a></div>";
+ <!-- Middle Column -->
+    <div>
+   
+      <button type="reset" class="w3-btn w3-green w3-round w3-margin-bottom w3-medium" onclick="location.href='DoctorDetails.php'"> 
+			<i class="fa fa-reply"></i> Back </button>
+      
+    <!-- End Middle Column -->
+    </div>
 
 
 
-	echo "<td>
-
-				<button class='btn btn-success btn-xs' data-title='Confirm' data-toggle='modal' data-target='#confirm' ><span class='glyphicon glyphicon-ok'> Confirm</span></button>
-				<button class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#delete' ><span class='glyphicon glyphicon-trash'></span> Delete </button>
-			</td> ";
-
-               
-            }
-            
-          ?>
-    </table>
-    
-
-    
 
 <div class="clearfix"></div>
 <ul class="pagination pull-right">
@@ -265,7 +205,7 @@ echo "<td><div class='action'><a href='ApproveHospital.php?key=".$venue['_id']."
       </div>
         <div class="modal-footer ">
 
-				<?php echo "<div class='action'> <a href='ApproveHospital.php?order=".$venue['_id']."'> 
+				<?php echo "<div class='action'> <a href='view.php?order=".$venue['_id']."'> 
 										<button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> Delete </button> </a> </div>";  ?>
 
         <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No </button>
@@ -293,7 +233,7 @@ echo "<td><div class='action'><a href='ApproveHospital.php?key=".$venue['_id']."
       </div>
         <div class="modal-footer ">
 
-       <?php echo "<div class='action'> <a href='ApproveHospital.php?process=".$venue['_id']."'> 
+       <?php echo "<div class='action'> <a href='view.php?process=".$venue['_id']."'> 
 										<button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> Confirm </button> </a> </div>";  ?>
 
         <div> <button type="button" class="btn btn-default" data-dismiss="modal"> <span class="glyphicon glyphicon-remove"></span> No </button> </div>
@@ -307,6 +247,8 @@ echo "<td><div class='action'><a href='ApproveHospital.php?key=".$venue['_id']."
     </div>
 
 
-   </div>
+    </div>
+
   </body>
 </html>
+

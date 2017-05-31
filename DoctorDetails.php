@@ -21,6 +21,12 @@
 	<!-- W3.CSS is a modern CSS framework -->		
 		<link rel="stylesheet" href="w3.css">
 
+
+<!-- Bootstrap Date-Picker Plugin -->
+<script type="text/javascript" src="bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="bootstrap-datepicker/css/bootstrap-datepicker3.css"/>
+
+
 <link rel="stylesheet" href="w3-theme-blue-grey.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -71,12 +77,60 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 .stick a { line-height:20px !important;}
 .stick img { margin:0 !important;}
 
-
 }
+
+.custom-height-modal {
+  height: 1100px;
+}
+
+
+
+
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
+
 
 	</style>
 	
 	</head>
+
+
+
+<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="day"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'dd-MM-yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+
+$(document).ready(function(){
+      var date_input=$('input[name="day1"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'dd-MM-yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+
+</script>
 
 	<body class="w3-theme-l5">
 		
@@ -97,28 +151,153 @@ session_start();
 ?>
 
 <!-- Page Container -->
-<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
+
+
+<div class="w3-container w3-content" style="max-width:1200px;margin-top:20px">    
+
+
   <!-- The Grid -->
   <div class="w3-row">
 
 <div class="w3-row-padding">
-        <div class="w3-col m11">
+        <div class="w3-col m10">
           <div class="w3-card-2 w3-round w3-white">
             <div class="w3-container w3-padding">
-<label class="w3-right"> Edit Profile :- &nbsp; 
+								<label class="w3-right"> Edit Profile :- &nbsp; 
 
-<button type="button" class="btn btn-info btn-s w3-right" data-title='Confirm' data-toggle='modal' data-target='#confirm' > 
+								<button type="button" class="w3-btn w3-red w3-round w3-margin-right w3-medium" data-title='Confirm' data-toggle='modal' data-target='#confirm' > 
 
-<span class="glyphicon glyphicon-eye-open"></span> Edit </button> </label>
-              <h6 class=" "> Wel-Come </h6>
-              
+								<span class="glyphicon glyphicon-eye-open"></span> Edit </button> </label>
+															<h6 class=" "> Wel-Come </h6>
+																
+<!-------------------------  modal for edit profile ------------------------------------>
+
+								<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      					<div class="modal-dialog modal-lg" role="document">
+    						<div class="modal-content">
+        			  <div class="modal-header">
+      				  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+ 					      <h4 class="modal-title custom_align" id="Heading"> Fill Information </h4>
+    				  	</div>
+          <div class="modal-body custom-height-modal">
+       
+      <form class="form-horizontal" method="post" action="">
+         
+				 <fieldset>
+       
+          <div id="edit_farmer" style="display:none"></div>
+ 
+         
+          <div class="row form-group">
+		
+            <label class="col-md-2 control-label" for="first_name">First Name:-</label>  
+						<div class="col-md-2">
+						<?php echo" <input  name='fname'  class='form-control input-md-2' value=".$venue ['fname']. " type='text'> "; ?>
+						</div>
+
+            <label class="col-md-2 control-label" for="middle_name">Middle Name:-</label>  
+            <div class="col-md-2">
+						<?php  echo" <input name='mname' class='form-control input-md' value =" .$venue ['mname']. " type='text'> "; ?>           												 
+						</div>
+
+            <label class="col-md-2 control-label" for="last_name">Last Name :-</label>  
+							            <div class="col-md-2">
+																							<?php echo "<input name='lname' class='form-control input-md' value=" .$venue ['lname']. " type='text' >"; ?>
+           							</div>
+          </div>
+
+         
+          <div class="row form-group">
+						
+												<label class="col-md-2 control-label" for="smartphone"> phone No.:-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='docphno' class='form-control input-md' value =" .$venue ['docphno']. " type='text'> "; ?>   
+            									</div>
+
+
+													<label class="col-md-2 control-label" for="dochospital"> Hospital :-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input name='dochospital' class='form-control input-md' value=".$venue ['dochospital']. " type='text'>"; ?>
+           							</div>
+
+												<label class="col-md-2 control-label" for="smartphone"> Registration No :-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='grno' class='form-control input-md' value =" .$venue ['grno']. " type='text'> "; ?>   
+            									</div>
+          </div>
+
+<div class="row form-group">
+						
+												<label class="col-md-2 control-label" for="smartphone">  Date of Registration:-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='day' class='form-control input-md' value =" .$venue ['day']. " type='text'> "; ?>   
+            									</div>
+
+
+													<label class="col-md-2 control-label" for="last_name"> State Medical Council :-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input name='medicalcouncil' class='form-control input-md' value=".$venue ['medicalcouncil']. " type='text'>"; ?>
+           							</div>
+
+												<label class="col-md-2 control-label" for="smartphone"> QUALIFICATION:-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='qualifi' class='form-control input-md' value =" .$venue ['qualifi']. " type='text'> "; ?>   
+            									</div>
+          </div>
+
+
+<div class="row form-group">
+						
+												<label class="col-md-2 control-label" for="smartphone">  qualification Year:-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='day1' class='form-control input-md' value =" .$venue ['day1']. " type='text'> "; ?>   
+            									</div>
+
+
+													<label class="col-md-2 control-label" for="last_name"> University :-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input name='univername' class='form-control input-md' value=".$venue ['univername']. " type='text'>"; ?>
+           							</div>
+
+<label class="col-md-2 control-label" for="last_name"> perment Address :-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input name='paddress' class='form-control input-md' value=".$venue ['paddress']. " type='text'>"; ?>
+           							</div>
+          </div>
+
+ 
+          <div class="form-group row">
+           
+											 <div class="col-md-8 text-center">
+              <button type="submit" name="submit" value="submit" class="btn btn-large btn-success"> Save Information</button>
+              <button class="btn btn-large btn-danger" type="button" data-dismiss="modal" > Cancel </button>
+
+            </div>
+          </div>
+          </fieldset>
+        </form>
+      </div>
+        </div>
+
+
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+
             </div>
           </div>
         </div>
       </div>
+
+
 <hr>
+
+
+
+
     <!-- Left Column -->
-    <div class="w3-col m4">      
+    <div class="w3-col m4	">      
 
 							
 
@@ -138,9 +317,13 @@ session_start();
 				<!-- End Left Column -->
     </div>
 
+
+
+
+
     
     <!-- Middle Column -->
-    <div class="w3-col m7">
+    <div class="w3-col m6">
 
     <div class="w3-row-padding">
     <div class="w3-col m12">
@@ -175,93 +358,46 @@ session_start();
   <!-- End Middle Column -->
     </div>
     
-    
-    
+
+
+
   <!-- End Grid -->
   </div>
   
 
-<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-          <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-        <h4 class="modal-title custom_align" id="Heading"> Fill Information </h4>
-      </div>
-          <div class="modal-body">
-       
-      <form class="form-horizontal" method="post" action="">
-         
-				 <fieldset>
-       
-          <div id="edit_farmer" style="display:none"></div>
- 
-         
-          <div class="row form-group">
-		
-            <label class="col-md-2 control-label" for="first_name">First Name :-</label>  
-							            <div class="col-md-2">
-																	<?php						echo" <input  name='firstname'  class='form-control input-md-2' value=".$venue ['fname']. " type='text'> "; ?>
-																		</div>
-
-            <label class="col-md-2 control-label" for="middle_name">Middle Name :-</label>  
-            							<div class="col-md-2">
-																							<?php  echo" <input name='middlename' class='form-control input-md' value =" .$venue ['mname']. " type='text'> "; ?>           												 
-																			</div>
-
-            <label class="col-md-2 control-label" for="last_name">Last Name :-</label>  
-							            <div class="col-md-2">
-																							<?php echo "<input name='lastname' class='form-control input-md' value=" .$venue ['lname']. " type='text' >"; ?>
-           							</div>
-          </div>
-
-         
-          <div class="row form-group">
-						
-												<label class="col-md-2 control-label" for="smartphone"> phone No.:-  </label>
-           									 <div class="col-md-2">
-																										 <?php  echo" <input name='docphno' class='form-control input-md' value =" .$venue ['docphno']. " type='text'> "; ?>   
-            									</div>
-
-
-													<label class="col-md-2 control-label" for="last_name"> Hospital :-</label>  
-							            <div class="col-md-2">
-																							<?php  echo" <input name='dochospital' class='form-control input-md' value=".$venue ['dochospital']. " type='text'>"; ?>
-           							</div>
-
-												<label class="col-md-2 control-label" for="smartphone"> Registration No :-  </label>
-           									 <div class="col-md-2">
-																										 <?php  echo" <input name='grno' class='form-control input-md' value =" .$venue ['grno']. " type='text'> "; ?>   
-            									</div>
-          </div>
-
-
- 
-          <div class="form-group row">
-           
-											 <div class="col-md-8 text-center">
-              <button type="submit" name="submit" value="submit" class="btn btn-large btn-success"> Save Information</button>
-              <button class="btn btn-large btn-danger" type="button" data-dismiss="modal" > Cancel </button>
-
-            </div>
-          </div>
-          </fieldset>
-        </form>
-      </div>
-        </div>
-
-
-    <!-- /.modal-content --> 
-  </div>
-      <!-- /.modal-dialog --> 
-    </div>
 <!-- End Page Container -->
 </div>
+
+
+
 
 <?php
 
 
 }
+
+if(isset($_POST['submit']))
+{
+    $fname=$_POST['fname'];
+		$mname=$_POST['mname'];
+		$lname=$_POST['lname'];
+    $docphno=$_POST['docphno'];
+    $dochospital=$_POST['dochospital'];   
+    $grno=$_POST['grno'];
+    $day=$_POST['day'];
+    $medicalcouncil=$_POST['medicalcouncil'];
+    $qualifi=$_POST['qualifi'];  
+    $day1=$_POST['day1'];
+    $univername=$_POST['univername'];
+    $paddress=$_POST['paddress'];
+    $_SESSION['status']="Pending";
+
+$data=array('fname'=>$fname,'mname'=>$mname,'lname'=>$lname,'docphno'=>$docphno,'dochospital'=>$dochospital,'grno'=>$grno,
+'day'=>$day,'medicalcouncil'=>$medicalcouncil,'qualifi'=>$qualifi,'day1'=>$day1,'univername'=>$univername,'paddress'=>$paddress);
+
+}
+$cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
+
 }
 ?>
     

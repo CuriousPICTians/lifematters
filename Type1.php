@@ -75,14 +75,14 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 																											which can lead to  diabetes."> <b>Pancreas or Intestine </b> </a> </li>
 								</ol>
 
-					<br>
+
 <hr>
 
 
 
 <div class="form-inline">
   <label for="ex2"> <b>Select Which Organs You want to Donate :- </b> </label>	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;										
- <select name="organ" class="form-control" style="width:200px;">
+ <select name="organ" class="form-control" style="width:220px;">
 
 									<option value="1">Kidney</option>
 									<option value="2"> Liver</option>
@@ -92,22 +92,98 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 </div>
 
 </br>				
-</br>
+	
+
+<?php
+
+		session_start();
+   
+	$con = new MongoClient();
+
+  if($con)
+  {
+    
+
+    $database=$con->organ;
+    $collection=$database->hospitalinfo;
 
 
+    $cursor = $collection->find();
+    $cursor_count = $cursor->count();
+	}
+
+
+?>
 			<div class="form-inline">
   	<label><b>Select Nearest Hospital For Primary Checkup:- </b> </label>	&nbsp;&nbsp;					
- 			<select name="hospital"  class="form-control" style="width:200px;">
+ 			<select name="hospital"  class="form-control" style="width:220px;">
 
-									<option value="Sahyadri Hospital Pune"> Sahyadri Hospital Pune </option>
-									<option value="Sankriti Hospital Pune"> Sankriti Hospital Pune </option>
-									<option value="Aditya Birla Hospital Pune"> Aditya Birla Hospital Pune </option>
-									<option value="Sahyadri Hospital Nashik"> Sahyadri Hospital Nashik </option>
-									<option value="KEM Hospital Pune"> KEM Hospital Pune </option>
-									<option value="KEM Hospital Mumbai"> KEM Hospital Mumbai </option>
+									
+<?php 
+
+foreach ($cursor as $venue) 
+{
+
+?>
+						<?php echo	"<option value= " .$venue['hospital_name']. " >" .$venue['hospital_name']. "</option>"; ?>\
+
+
+<?php
+}
+?>				
 				</select>
 </div>
+
+<br>
+       
+<?php
+
+		session_start();
+   
+	$con = new MongoClient();
+
+  if($con)
+  {
+    
+
+    $database=$con->organ;
+    $collection=$database->docinfo;
+
+
+    $cursor = $collection->find();
+    $cursor_count = $cursor->count();
+	}
+
+
+?>
+
+<div class="form-inline">
+
+		<label for="ex2"> <b>Select Doctor :- </b> </label>	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;											
+		<select name="Doc" class="form-control" style="width:220px;">
+
+<?php 
+
+foreach ($cursor as $venue) 
+{
+
+?>
+						<?php echo	"<option value= " .$venue['email']. " >" .$venue['email']. "</option>"; ?>\
+
+
+<?php
+}
+?>									
+		</select>
+
+</div>
+
+
 <hr>
+
 <input type="submit" name="submit" class="btn btn-large btn-success" value="submit"/>
 </div>
 							

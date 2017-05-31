@@ -17,6 +17,12 @@
 	
 	<!-- Latest compiled JavaScript -->
 		<script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+
+
+<!-- Bootstrap Date-Picker Plugin -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
 		
 	<!-- W3.CSS is a modern CSS framework -->		
 		<link rel="stylesheet" href="w3.css">
@@ -78,6 +84,20 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 	
 	</head>
 
+<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="day"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'dd-MM-yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+</script>
+
 	<body class="w3-theme-l5">
 		
 	
@@ -100,8 +120,27 @@ session_start();
 <div class="w3-container w3-content" style="max-width:1100px;margin-top:20px">    
   <!-- The Grid -->
   <div class="w3-row">
+
+
+<div class="w3-row-padding">
+        <div class="w3-col m11">
+          <div class="w3-card-2 w3-round w3-white">
+            <div class="w3-container w3-padding">
+<label class="w3-right"> Edit Profile :- &nbsp; 
+
+<button type="button" class="btn btn-info btn-s w3-right" data-title='Confirm' data-toggle='modal' data-target='#confirm' > 
+
+<span class="glyphicon glyphicon-eye-open"></span> Edit </button> </label>
+              <h6 class=" "> Wel-Come </h6>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+<hr>
+
     <!-- Left Column -->
-    <div class="w3-col m3">      
+    <div class="w3-col m4">      
 
 							
 
@@ -110,129 +149,198 @@ session_start();
          <h4 class="w3-center"> Profile</h4>
          <p class="w3-center"><img src="img/a1.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
-        <?php echo" <p><i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i>" .$venue ['firstname'] ."  " .$venue ['middlename'] . "  "  .$venue ['lastname'] . " </p>"; ?>
-								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i>"  .$venue ['hospital'] ."</p>"; ?>        
- 							<?php echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i>" .$venue ['organ'] . "</p>"; ?>        
-								<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i>" .$venue ['blood'] ." </p>"; ?>																					
-									<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i>" .$venue ['gender'] ." </p>"; ?>
-         <?php echo"<p><i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i>" .$venue  ['day'] .$venue  ['month'].$venue  ['year']. "</p>";?>
+        <?php echo" <p style='text-transform:uppercase'> <i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i> Patient Name :- ".$venue ['firstname'] ."  " .$venue ['middlename'] . "  "  .$venue ['lastname'] . " </p>"; ?>
+								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> Hospital :-"  .$venue ['hospital'] ."</p>"; ?>        
+ 							<?php echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ :-" .$venue ['organ'] . "</p>"; ?>        
+								<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group :-" .$venue ['blood'] ." </p>"; ?>																					
+									<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> Gender :-" .$venue ['gender'] ." </p>"; ?>
+         <?php echo"<p><i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> DOB :-" .$venue  ['day'] .$venue  ['month'].$venue  ['year']. "</p>";?>
         </div>
       </div> 
 				
 				<!-- End Left Column -->
     </div>
     
-    <!-- Middle Column -->
-    <div class="w3-col m9">
-    
-      <div class="w3-row-padding">
-        <div class="w3-col m12">
-          <div class="w3-card-2 w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h6 class="w3-opacity "> Wel-Come </h6>
-              
-            </div>
-          </div>
+
+
+
+
+<!-- Middle Column -->
+    <div class="w3-col m7">
+
+    <div class="w3-row-padding">
+    <div class="w3-col m12">
+
+<div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+      <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Contact	 Details :- </h4>
+
+         <hr>
+								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> Mobile Number :- "  .$venue ['mobileno'] ."</p>"; ?>        
+ 							<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> Address :- " .$venue ['address'] . "</p>"; ?>        
+									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> City:- " .$venue ['city'] ." </p>"; ?>
+									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> State:- " .$venue ['state'] ." </p>"; ?>
+									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> Nationality:- " .$venue ['nati'] ." </p>"; ?>
+									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> Pin code:- " .$venue ['zipcode'] ." </p>"; ?>
+        </div>
+      </div> 
+<hr>	
+
+<div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center"> <img src="img/z1.jpg" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Organ Donation Details :- </h4>
+         <p class="w3-center"> </p>
+         <hr>
+								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> Donation at :- ".$venue['hospital']."</p>"; ?>
+								<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> Follwing Organ to be donoted :- ".$venue['organ']."</p>"; ?>
+
         </div>
       </div>
-      
-      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
-        <img src="img-1/ab.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:100px">
-        <span class="w3-right w3-opacity">  </span>
-        <h4> Patient information </h4><br>
-       <hr>
-        
+ 
+</div>
+</div> 
 
-<?php	
-
-	echo"<div class='row'>";
-	echo"	<div class='col-md-12'>";
-	echo"</div>";
-	echo"	<div class='col-md-6'>";
-	echo"<div class='table-responsive responsiv-table'>";
-	echo"<table class='table bio-table table-hover  table-condensed '>";
-	echo"<tbody>";
-			echo"<tr>  <td>First Name :- </td> ";
-			echo" <td>".$venue ['firstname'] . "</td>"; 
-			echo" </tr>";
-			echo"<tr>  <td> Middle Name :- </td> ";
-			echo" <td>".$venue ['middlename'] . "</td>"; 
-			echo" </tr>";
-			echo"<tr>  <td> Last Name :- </td> ";
-			echo" <td>".$venue ['lastname'] . "</td>"; 
-			echo" </tr>";
-			echo"<tr>  <td> Gender :- </td> ";
-			echo" <td>".$venue ['gender'] . "</td>"; 
-			echo" </tr>";
-			echo"<tr>  <td> Birth Date :- </td> ";
-			echo "<td>" .$venue  ['day'] .$venue  ['month'].$venue  ['year']. "</td>";
-			echo" </tr>";
-			echo"<tr>  <td> Blood group :- </td> ";
-			echo" <td>".$venue ['blood'] . "</td>"; 
-			echo" </tr>";
-			echo"<tr>  <td> Birth Place :- </td> ";
-			echo" <td>".$venue ['dobplace'] . "</td>"; 
-			echo" </tr>";
-			echo"<tr>  <td> Mobile Number :- </td> ";
-			echo" <td>".$venue ['mobileno'] . "</td>"; 
-			echo" </tr>";
-			echo"<tr>  <td>  Address :- </td> ";
-			echo" <td>".$venue ['address'] . "</td>"; 
-			echo" </tr>";
-			echo"<tr>  <td> city:- </td> ";
-			echo" <td>".$venue ['city'] . "</td>"; 
-			echo" </tr>";
-			echo"<tr>  <td> state:- </td> ";
-			echo" <td>".$venue ['state'] . "</td>"; 
-			echo" </tr>";
-			echo"<tr>  <td> Nationality :- </td> ";
-			echo" <td>".$venue ['nati'] . "</td>"; 
-			echo" </tr>";
-			echo"<tr>  <td> Zip Code :- </td> ";
-			echo" <td>".$venue ['zipcode'] . "</td>"; 
-			echo" </tr>";
-	
-echo" </tbody>";
-echo"</table>";
-echo" </div>";
-echo"</div>";
-
-																			
-echo"	<div class='col-md-6'>";
-echo"<div class='table-responsive responsiv-table'>";
-echo"<table class='table bio-table table-hover  table-condensed'>";
-echo"<tbody>";
-
-			echo"<tr>  <td> hospital-1 :- </td> ";
-			echo" <td>".$venue ['hospital'] . "</td>"; 
-			echo" </tr>";
-			echo "</tr>";
-			echo "<tc>";
-			echo "<td> Follwing Organ to be donoted </td>";
-			echo "</tc>";
-			echo "<tr>";																																																																				
-			echo "<td>Organ :- </td>";
-			echo "<td>".$venue ['organ'] . "</td>"; 
-			echo" </tr>";
-			echo" </tbody>";
-			echo"</table>";
-			echo" </div>";
-			echo"</div>";
-
-
-echo"</div>";
-echo"</div>";
-echo"</div>";
-?>
-           
-      
-    <!-- End Middle Column -->
+          
+  <!-- End Middle Column -->
     </div>
-    
-       
+
   <!-- End Grid -->
   </div>
   
+
+
+
+<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading"> Fill Information </h4>
+      </div>
+          <div class="modal-body custom-height-modal">
+       
+      <form class="form-horizontal" method="post" action="">
+         
+				 <fieldset>
+       
+          <div id="edit_farmer" style="display:none"></div>
+ 
+         
+          <div class="row form-group">
+		
+            <label class="col-md-2 control-label" for="first_name">First Name:-</label>  
+						<div class="col-md-2">
+						<?php echo" <input  name='firstname'  class='form-control input-md-2' value=".$venue ['firstname']. " type='text'> "; ?>
+						</div>
+
+            <label class="col-md-2 control-label" for="middle_name">Middle Name:-</label>  
+            <div class="col-md-2">
+						<?php  echo" <input name='middlename' class='form-control input-md' value =" .$venue ['middlename']. " type='text'> "; ?>           												 
+						</div>
+
+            <label class="col-md-2 control-label" for="last_name">Last Name :-</label>  
+							            <div class="col-md-2">
+																							<?php echo "<input name='lastname' class='form-control input-md' value=" .$venue ['lastname']. " type='text' >"; ?>
+           							</div>
+          </div>
+
+         
+          <div class="row form-group">
+						
+												<label class="col-md-2 control-label" for="smartphone"> Gender:-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='gender' class='form-control input-md' value =" .$venue ['gender']. " type='text'> "; ?>   
+            									</div>
+
+
+													<label class="col-md-2 control-label" for="dochospital"> DOB :-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input name='day' class='form-control input-md' value=".$venue ['day']. " type='text'>"; ?>
+           							</div>
+
+												<label class="col-md-2 control-label" for="smartphone"> Blood group:-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='blood' class='form-control input-md' value =" .$venue ['blood']. " type='text'> "; ?>   
+            									</div>
+          </div>
+
+<div class="row form-group">
+						
+												<label class="col-md-2 control-label" for="smartphone">  Birth Place:-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='dobplace' class='form-control input-md' value =" .$venue ['dobplace']. " type='text'> "; ?>   
+            									</div>
+
+
+													<label class="col-md-2 control-label" for="last_name"> Mobile No:-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input maxlength='10' minlength='10' name='mobileno' class='form-control input-md' value=".$venue ['mobileno']. " type='text'>"; ?>
+           							</div>
+
+												<label class="col-md-2 control-label" for="smartphone"> Adhar No:-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input maxlength='12'minlength='12' name='adharno' class='form-control input-md' value =" .$venue ['adharno']. " type='text'> "; ?>   
+            									</div>
+          </div>
+
+
+<div class="row form-group">
+						
+												<label class="col-md-2 control-label" for="smartphone"> Address:-  </label>
+           									 <div class="col-md-2">
+																										 <?php  echo" <input name='address' class='form-control input-md' value =" .$venue ['address']. " type='text'> "; ?>   
+            									</div>
+
+
+													<label class="col-md-2 control-label" for="last_name"> City:-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input name='city' class='form-control input-md' value=".$venue ['city']. " type='text'>"; ?>
+           							</div>
+
+<label class="col-md-2 control-label" for="last_name"> state:-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input name='state' class='form-control input-md' value=".$venue ['state']. " type='text'>"; ?>
+           							</div>
+          </div>
+
+
+<div class="row form-group">
+
+<label class="col-md-2 control-label" for="last_name"> Nationality :-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input name='nati' class='form-control input-md' value=".$venue ['nati']. " type='text'>"; ?>
+           							</div>
+          
+
+<label class="col-md-2 control-label" for="last_name"> Pin code:-</label>  
+							            <div class="col-md-2">
+																							<?php  echo" <input maxlength='6' minlength='6' name='zipcode' class='form-control input-md' value=".$venue ['zipcode']. " type='text'>"; ?>
+           							</div>
+          
+<hr>
+
+</div>
+
+          <div class="form-group row">
+           
+											 <div class="col-md-8 text-center">
+              <button type="submit" name="submit" value="submit" class="btn btn-large btn-success"> Save Information</button>
+              <button class="btn btn-large btn-danger" type="button" data-dismiss="modal" > Cancel </button>
+
+            </div>
+          </div>
+          </fieldset>
+        </form>
+      </div>
+        </div>
+
+
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+
+
 <!-- End Page Container -->
 </div>
 
@@ -240,6 +348,32 @@ echo"</div>";
 
 
 }
+
+if(isset($_POST['submit']))
+{
+
+    $firstname=$_POST['firstname'];
+    $middlename=$_POST['middlename'];
+    $lastname=$_POST['lastname'];
+    $gender=$_POST['gender'];   
+    $bdate=$_POST['day'];
+    $blood=$_POST['blood'];
+    $dobplace=$_POST['dobplace'];
+    $mobileno=$_POST['mobileno'];
+    $adharno=$_POST['adharno'];
+    $address=$_POST['address'];
+    $city=$_POST['city'];
+    $state=$_POST['state'];
+    $nati=$_POST['nati'];
+    $zipcode=$_POST['zipcode'];
+
+
+$data=array('firstname'=>$firstname,'middlename'=>$middlename,'lastname'=>$lastname,'gender'=>$gender,
+          'day'=>$bdate,'blood'=>$blood,'dobplace'=>$dobplace,'mobileno'=>$mobileno,'adharno'=>$adharno,
+          'address'=>$address,'city'=>$city,'state'=>$state,'nati'=>$nati,'zipcode'=>$zipcode);
+}
+$cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
+
 }
 ?>
     
