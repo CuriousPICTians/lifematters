@@ -8,9 +8,9 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_PROXY, "192.168.8.253");
 curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
 /*************************************/
-$database=$con->organ;
+$database = $con->organ;
 
-$collection=$database->donorinfo;
+$collection = $database->donorinfo;
 $cursor = $collection->find();
 $i = $j = 1;														//remove or modify
 foreach ($cursor as $venue)
@@ -20,7 +20,7 @@ if($i > 10) break;													//remove or modify
 	echo "Donor Name: ".$venue['firstname']." ".$venue['lastname']."<br>";
 	echo "Donor Hospital Address: ".$var1."<br>";
   
-	$collection=$database->receiverinfo;
+	$collection = $database->receiverinfo;
 	$cursor2 = $collection->find();
 	foreach ($cursor2 as $venue2)
 	{
