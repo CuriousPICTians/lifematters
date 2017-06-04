@@ -3,8 +3,8 @@
 <?php
 
 session_start();
-echo $_SESSION['uname'];
 
+echo $_SESSION['email'];
 ?>
 	<html lang="en">
 	<html>

@@ -1,5 +1,14 @@
+<?php
+
+session_start();
+
+?>
+
+
+
 	<!DOCTYPE html>
-	<html lang="en">
+	
+<html lang="en">
 	<html>
 
 
@@ -103,11 +112,10 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 	
 <?php
 
-  session_start();
+  
 
   $con = new MongoClient();
-  if($con)
-  {
+  
     $database=$con->organ;
     
     $collection=$database->donorinfo;
@@ -435,7 +443,7 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 <div class="modal fade" id="link" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
       <div class="modal-dialog">
     <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header">s
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
         <h4 class="modal-title custom_align" id="Heading"> Add Doctor to Profile </h4>
       </div>
@@ -488,28 +496,30 @@ if(isset($_POST['submit']))
     $state=$_POST['state'];
     $nati=$_POST['nati'];
     $zipcode=$_POST['zipcode'];
+    $organ=$_POST['organ'];
+
 
 
 $data=array('firstname'=>$firstname,'middlename'=>$middlename,'lastname'=>$lastname,'gender'=>$gender,
           'day'=>$bdate,'blood'=>$blood,'dobplace'=>$dobplace,'mobileno'=>$mobileno,'adharno'=>$adharno,
-          'address'=>$address,'city'=>$city,'state'=>$state,'nati'=>$nati,'zipcode'=>$zipcode);
-}
-$cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
+          'address'=>$address,'city'=>$city,'state'=>$state,'nati'=>$nati,'zipcode'=>$zipcode,'organ'=>$organ);
 
-?>
-
-  <script>
-  alert('Successfully ');
-                  window.location.href="DonorDetail.php";
-               </script>
-
-<?php
-  
+$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
 
 
 }
+
+
 ?>
-    
+ 
+
+
+
+
+
+
+
+ 
    
 </body>
 </html>

@@ -29,12 +29,12 @@ if($venue = $collection->findOne(array("email"=>'1082@hotmail.com')))
 echo "----------------------------------------------------"."<br>";
 
 
-if($venue['organ']==1)
-	$organtime=5620;
+if($venue['organ']==0)
+	$organtime=129600;  //6hrs
+else if($venue['organ']==1)
+	$organtime=43200;
 else if($venue['organ']==2)
-	$organtime=80890;
-else if($venue['organ']==3)
-	$organtime=11167;
+	$organtime=21600;
 
 else
 	echo "Organ not Found";

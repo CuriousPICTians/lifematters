@@ -103,6 +103,26 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 									</div>
 
 				<hr>
+
+<?php
+  /*$con = new MongoClient();
+
+    $database=$con->organ;
+    $collection=$database->donorinfo;
+    
+
+
+		
+
+
+if($kidney)
+$collection->update(array("email" => $_SESSION['email']), array('$set' => array('kidney'=>$kidney)));
+if($heart)
+$collection->update(array("email" => $_SESSION['email']), array('$set' => array('heart'=>$heart)));
+if($liver)
+$collection->update(array("email" => $_SESSION['email']), array('$set' => array('liver'=>$liver)));
+*/?>
+
 												<input type="submit" name="submit" class="btn btn-large btn-success" value="submit"/>
 				
 
