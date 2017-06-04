@@ -1,3 +1,9 @@
+
+
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 	<html lang="en">
 	<html>
@@ -250,131 +256,6 @@ function confirmPass()
 		
 
 
-<!--
-		<form method="post" action="">
-  
-		<div class="w3-container w3-light-grey w3-medium ">
-					
-		<h3> Create Account </h3>			
-					
-		</div>
-
-
-		
-			
-		</div>
-
-		<div id="section">
-			
-		<div class="container">
- 		
- 		 
- 		 <br>
-  				<form method="post" name="ckpass" >
-    		
-    		<table>		
-      			
-      			<tr>
-      				<td>		
-      					E-mail ID :-
-					</td>
-						<td>
-							<input type="text" class="form-control"  name="email" placeholder="Enter ID" id="email" required>
-						</td>
-    			</tr>
-		
-    			<tr>			
-    			<td>
-				
-				</br>
-				
-				
-				<tr>
-      				<td>		
-      					Confirm E-mail ID :-
-					</td>
-						<td>
-							<input type="text" class="form-control"  name="cemail" placeholder="RE-Enter ID" id="confemail" onblur="confirmEmail()"  required>
-						</td>
-    			</tr>
-		
-    			<tr>			
-    			<td>
-				
-    			<tr>			
-    			<td>
-				
-				</br>
-    				
-					Password:-</td>
-
-    				<td>  </br>
-    					<input type="password" class="form-control" name="pass" placeholder="Enter password" id="password" required>
-					</td>
-					</tr>
-
-    				<tr>
-    				<td>   </br>
-
-    					Confirm Password:-</td>
-
-    				<td>  </br>
-    					<input type="password" class="form-control" name="rpass" placeholder="RE-Enter password" id="rpassword" onblur="confirmPass()" required>
-					</td>
-					</tr>
-
-    				<tr>
-    				<td>   </br>
-    					<input type="submit" name="submit" class="btn btn-default" value="submit"/>
-    					
-    				</td>
-    				</tr>
-    				</table>		
-						
-  				</form>
-		</div>
-
-	</div>
-	
-
-</div>
-
-<script type="text/javascript">
-
-function confirmEmail() 
-		{
-        var email = document.getElementById("email").value;
-        var confemail = document.getElementById("confemail").value;
-        if(email != confemail) 
-        {
-            alert("Email Doesn't Match!");
-
-        document.getElementById("email").value = document.getElementById("confemail").value = '';
-        document.getElementById("email").focus();
-        }
-    }
-</script>
-
-<script type="text/javascript">
-
-function confirmPass() 
-		{
-        var pass = document.getElementById("password").value;
-        var confpass = document.getElementById("rpassword").value;
-        if(pass != confpass) 
-        {
-            alert("Password Doesn't Match!");
-            
-        document.getElementById("password").value = document.getElementById("rpassword").value = '';
-        document.getElementById("password").focus();
-        }
-    }
-
-
-</script>
-
-</form>
--->
 
 </div>
 
@@ -386,7 +267,6 @@ function confirmPass()
 
 
 <?php
-session_start();
 
 	if(isset($_POST['submit']))
 	{

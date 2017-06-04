@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -221,27 +225,7 @@ var zc= signup1.zipcode.value;
 
 <body>
 
-<label> <h3>Personal Information :- </h3></label> 
-
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-<?php
-
-	session_start();
-	echo $_SESSION['email'];
-
-?>
-<label> :-</label>
-<button type="submit" class="btn btn-default" onclick="location.href='logout.php'"> Logout </button>
-
+<label> <h3> <b> Fill Information :- </b> </h3></label> 
 
 
 	<div class="container-fluid">
@@ -250,13 +234,7 @@ var zc= signup1.zipcode.value;
 						<form method='post' name="signup1" action="RecieverOrganSelect.php" onSubmit="return formvalidate(signup1)">
 						<div class="row">
 		
-<p>	------------------------------------  ----------------------------------  ------------------------------------------------------------------  
-	------------------------------------  ----------------------------------  <p>
-
-
-
-<!----------------------------------------------------------------- 1 ------------------------------------------------------------------------------->
-						
+<hr>
 		
 			<div class="col-sm-4">
 				<div class="form-inline">
@@ -303,7 +281,6 @@ var zc= signup1.zipcode.value;
 				
 				
 				
-<!----------------------------------------------------------------- 2 --------------------------------------------------------------------------------->
 		
 		
 			<div class="col-sm-4">
@@ -354,7 +331,6 @@ var zc= signup1.zipcode.value;
 			</div>
 		
 		
-<!----------------------------------------------------------------- 3 --------------------------------------------------------------------------------->
 		
 		
 		
@@ -377,7 +353,7 @@ var zc= signup1.zipcode.value;
 						&nbsp;&nbsp;								  
 							<select name="blood" class="textfield2">
 
-								<option value="Select">Select</option>
+								<option value=""></option>
 								<option value="1">A+</option>
 								<option value="2">A-</option>
 								<option value="3+">B+</option>
@@ -411,9 +387,8 @@ var zc= signup1.zipcode.value;
 			</div>
 
 		</div>
-		<br>
-		<p>	------------------------------------  ----------------------------------  ------------------------------------------------------------------  
-			------------------------------------  ----------------------------------  <p>
+		<hr>
+		
 
 		<input type="submit" name="submit" class="btn btn-default" value="submit" tabindex="16"/>
 			<button type="reset" class="btn btn-default" tabindex="17" onclick="location.href='DDlogin.php'">Reset</button>
