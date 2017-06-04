@@ -30,13 +30,13 @@ echo $_SESSION['email'];
                 <input type="file" name="file4" id="file4" />
                 <br/><br/>
 
-                Enter Patient's Severity : <br/><br/>
+                Enter Patient's priority : <br/><br/>
 
-                <input type="radio" name="severity" value="1">Normal [Stage 1] <br/><br/>
-                <input type="radio" name="severity" value="2">Not Normal [Stage 2] <br/><br/>
-                <input type="radio" name="severity" value="3">Serious     [Stage 3]   <br/><br/>
-                <input type="radio" name="severity" value="4">Very Serious [Stage 4] <br/><br/>
-                <input type="radio" name="severity" value="5">Too Serious  [Stage 5]  <br/><br/>
+                <input type="radio" name="priority" value="1">Normal [Stage 1] <br/><br/>
+                <input type="radio" name="priority" value="2">Not Normal [Stage 2] <br/><br/>
+                <input type="radio" name="priority" value="3">Serious     [Stage 3]   <br/><br/>
+                <input type="radio" name="priority" value="4">Very Serious [Stage 4] <br/><br/>
+                <input type="radio" name="priority" value="5">Too Serious  [Stage 5]  <br/><br/>
 
                 <br/><br/>
 
@@ -66,7 +66,7 @@ echo $_SESSION['email'];
     $r2=$_POST['report2'];
     $r3=$_POST['report3'];
     $r4=$_POST['report4'];
-    $severity=$_POST['severity'];
+    $priority=$_POST['priority'];
     $approved=$_POST['approved'];
 
     $cursor = $collection->find();
@@ -98,7 +98,7 @@ echo $_SESSION['email'];
 
                     $obj = array( "report1"=>$r1,"report2"=>$r2,"report3"=>$r3,"report4"=>$r4,"file_name"=>$value["name"], "url" => $url, "unique_id" => $unique_id); //Adds the URL and Random ID to Mongo
                     
-                    $patient=array("severity"=>$severity);
+                    $patient=array("priority"=>$priority);
                    
                     $p=array("approved"=>$approved);
                    

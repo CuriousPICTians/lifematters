@@ -1,9 +1,14 @@
-	<?php
 
-  session_start();
+<?php
+
+session_start();
+
 ?>
-  <!DOCTYPE html>
-	<html lang="en">
+
+	<!DOCTYPE html>
+	
+<html lang="en">
+
 	<html>
 
 
@@ -108,9 +113,9 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 <?php
 
 
+
   $con = new MongoClient();
-  if($con)
-  {
+  
     $database=$con->organ;
     
     $collection=$database->donorinfo;
@@ -169,39 +174,40 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
         <?php echo" <p style='text-transform:uppercase'> <i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i> <b> Donor Name :- </b>  ".$venue ['firstname'] ."  " .$venue ['middlename'] . "  "  .$venue ['lastname'] . " </p>"; ?>
 								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> <b> Hospital :-</b> "  .$venue ['hospital'] ."</p>"; ?>        
 
-              <?php if($venue['organ']==1)
- 							echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b> Organ :-</b> Kidney </p>"; ?>        
+
+              <?php if($venue['organ']==0)
+ 							echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Kidney </p>"; ?>        
 								
+              <?php if($venue['organ']==1)
+              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Liver </p>"; ?>        
+                
               <?php if($venue['organ']==2)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b> Organ :-</b> Liver </p>"; ?>        
+              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Heart </p>"; ?>        
                 
-              <?php if($venue['organ']==3)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b> Organ :-</b>  Heart </p>"; ?>        
-                
+
+                <?php if($venue['blood']==0)
+                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : A+ </p>"; ?> 
 
                 <?php if($venue['blood']==1)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b> Blood group :-</b>  A+ </p>"; ?> 
+                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : A- </p>"; ?>
 
                 <?php if($venue['blood']==2)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> </b> Blood group :-</b>  A- </p>"; ?>
+                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : B+ </p>"; ?>
 
                 <?php if($venue['blood']==3)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b> Blood group :- </b>  B+ </p>"; ?>
+                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : B- </p>"; ?>
 
                 <?php if($venue['blood']==4)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b> Blood group :</b>  B- </p>"; ?>
-
-                <?php if($venue['blood']==5)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b> Blood group :-</b> O+ </p>"; ?>                   
+                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : O+ </p>"; ?>                   
                 
+                <?php if($venue['blood']==5)
+                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : O- </p>"; ?>
+
                 <?php if($venue['blood']==6)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b> Blood group :- </b> O- </p>"; ?>
+                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : AB+ </p>"; ?>    		
 
-                <?php if($venue['blood']==7)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b> Blood group  :-</b> AB+ </p>"; ?>    		
-
-                 <?php if($venue['blood']==8)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b> Blood group :-</b>  AB- </p>"; ?> 
+                 <?php if($venue['blood']==7)
+                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : AB- </p>"; ?> 
 
 
 									<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i><b> Gender </b>:-" .$venue ['gender'] ." </p>"; ?>
@@ -438,7 +444,7 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 <div class="modal fade" id="link" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
       <div class="modal-dialog">
     <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header">s
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
         <h4 class="modal-title custom_align" id="Heading"> Add Doctor to Profile </h4>
       </div>
@@ -491,28 +497,36 @@ if(isset($_POST['submit']))
     $state=$_POST['state'];
     $nati=$_POST['nati'];
     $zipcode=$_POST['zipcode'];
+    $organ=$_POST['organ'];
+
 
 
 $data=array('firstname'=>$firstname,'middlename'=>$middlename,'lastname'=>$lastname,'gender'=>$gender,
           'day'=>$bdate,'blood'=>$blood,'dobplace'=>$dobplace,'mobileno'=>$mobileno,'adharno'=>$adharno,
-          'address'=>$address,'city'=>$city,'state'=>$state,'nati'=>$nati,'zipcode'=>$zipcode);
+          'address'=>$address,'city'=>$city,'state'=>$state,'nati'=>$nati,'zipcode'=>$zipcode,'organ'=>$organ);
+
+$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
+
+
 }
+
 
 $cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' =>$data));
 
 ?>
+ 
+
 
   <script>
     alert('Successfully '); window.location.href="DonorDetail.php";
   </script>
 
-<?php
-  
 
 
-}
-?>
-    
+
+
+
+ 
    
 </body>
 </html>

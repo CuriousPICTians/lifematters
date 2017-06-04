@@ -72,27 +72,60 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
 Donate Selected Organs :-
 									
-<select name="organ"  style="width:100px;">
-	<option value="1">Kidney</option>
-	<option value="2"> Liver</option>
-	<option value="3">Heart</option>
-</select>
 
-<br/><br/><br/>
+									<select name="organ"  style="width:100px;">
+																	<option value="0">Kidney</option>
+																	<option value="1"> Liver</option>
+																<option value="2">Heart</option>
+									</select>
+								<br/><br/><br/>
+	
+								<script type="text/javascript">
+										function showfull_body(fbody) 
+										{
+											fullbody.style.display = fbody.checked ? "block" : "none";
+										}
 
-<script type="text/javascript">
-	function showfull_body(fbody) 
-	{
-		fullbody.style.display = fbody.checked ? "block" : "none";
-	}
-</script>
+									</script>
 
-<script type="text/javascript">
-	function showselect_organs(sorgans) 
-	{
-		selectedorgans.style.display = sorgans.checked ? "block" : "none";
-	}
-</script>
+									<script type="text/javascript">
+										function showselect_organs(sorgans) 
+										{
+											
+											selectedorgans.style.display = sorgans.checked ? "block" : "none";
+										}
+									</script>
+
+									<div id="fullbody" style="display: none">	
+													You Select Full Body Donation....!!</br>
+													Full Body Goes to Mediacal Collage For Students Practicing purpose.</br></br>
+
+														<!input type="submit" name="submit" class="btn btn-default" value="submit"/>
+									</div>
+
+				<hr>
+
+<?php
+  /*$con = new MongoClient();
+
+    $database=$con->organ;
+    $collection=$database->donorinfo;
+    
+
+
+		
+
+
+if($kidney)
+$collection->update(array("email" => $_SESSION['email']), array('$set' => array('kidney'=>$kidney)));
+if($heart)
+$collection->update(array("email" => $_SESSION['email']), array('$set' => array('heart'=>$heart)));
+if($liver)
+$collection->update(array("email" => $_SESSION['email']), array('$set' => array('liver'=>$liver)));
+*/?>
+
+												<input type="submit" name="submit" class="btn btn-large btn-success" value="submit"/>
+				
 
 <div id="fullbody" style="display: none">	
 

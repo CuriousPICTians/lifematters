@@ -1,8 +1,12 @@
 
 <?php
 
-//session_start();
 
+
+session_start();
+
+
+echo $_SESSION['email'];
 ?>
 	<!DOCTYPE html>
 
