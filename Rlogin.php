@@ -1,4 +1,10 @@
- <!DOCTYPE html>
+ 
+
+
+<?php
+session_start();
+?>
+<!DOCTYPE html>
  <html lang="en">
 <html>
 <head>
@@ -200,8 +206,7 @@ function validateForm() {
 
 
 <?php
-session_start();
-//echo $_SESSION['email'];
+
 
 if(isset($_POST['submit']))
 {
@@ -221,11 +226,8 @@ if(isset($_POST['submit']))
 
 		$database=$con->organ;
 		$collection=$database->receiverinfo;
-	
-
-	//$qry = array('login'=>array("email" => $login,"password" => $pass));
-	$qry = array("email" => $login,"password" => $pass);
-	$result = $collection->findOne($qry);	
+		$qry = array("email" => $login,"password" => $pass);
+	 $result = $collection->findOne($qry);	
 
 		
 	

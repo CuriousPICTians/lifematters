@@ -1,3 +1,9 @@
+<?php
+
+  session_start();
+
+?>
+
 <!DOCTYPE html>
 	<html lang="en">
 	<html>
@@ -258,7 +264,8 @@ function confirmPass()
 
 
 <?php
-session_start();
+
+  session_start();
 
 	if(isset($_POST['submit']))
 	{

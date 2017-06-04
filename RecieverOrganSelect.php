@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-echo $_SESSION['email'];
-
-
 if(isset($_POST['submit']))
 {
     $firstname=$_POST['firstname'];
@@ -32,15 +29,13 @@ if(isset($_POST['submit']))
     $database=$con->organ;
     $collection=$database->receiverinfo;
     
-    //$data=array('session'=>array('colg'=>$colg,'class'=>$class));
         $data=array('firstname'=>$firstname,'middlename'=>$middlename,'lastname'=>$lastname,'gender'=>$gender,
           'day'=>$day,'blood'=>$blood,'dobplace'=>$dobplace,'mobileno'=>$mobileno,'adharno'=>$adharno,
           'address'=>$address,'city'=>$city,'state'=>$state,'nati'=>$nati,'zipcode'=>$zipcode);
 
 
-       $collection->update(array("email" => $_SESSION['email']),array('$set' =>  $data));
+           $collection->update(array("email" => $_SESSION['email']),array('$set' =>  $data));
          
- //$collection->update (array("name" => $_SESSION['name'] ), array ('$set' => array(collage=> $data)));
 
 ?>
                 <script>alert('Successfully!!!');
@@ -97,7 +92,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
 
 
-<div class="container">
+<div class="container" style="max-width:700px;margin-top:50px>
 
 <div class="w3-col m7">
     
@@ -105,11 +100,12 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         <div class="w3-col m12">
           <div class="w3-card-2 w3-round w3-white">
             <div class="w3-container w3-padding">
-              <h6 class=""> Please Select Organ and Hospital </h6>
+              <br>
+              <h6 class="w3-center"> <b>Please Select Organ and Hospital </b></h6>
 														<hr>
               <div class="form-inline">
 																		<label for="ex2"> <b>Select Which Organs You want to Donate :- </b> </label>	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;										
-																		<select name="organ" class="form-control" style="width:200px;">
+																		<select name="organ" class="form-control" style="width:220px;">
 
 																						<option value="1">Kidney</option>
 																						<option value="2"> Liver</option>
@@ -122,7 +118,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 												
 <?php
 
-		session_start();
    
 	$con = new MongoClient();
 
@@ -164,7 +159,6 @@ foreach ($cursor as $venue)
        
 <?php
 
-		session_start();
    
 	$con = new MongoClient();
 
