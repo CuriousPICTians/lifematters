@@ -84,9 +84,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
   <label for="ex2"> <b>Select Which Organs You want to Donate :- </b> </label>	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;										
  <select name="organ" class="form-control" style="width:220px;">
 
-									<option value="1">Kidney</option>
-									<option value="2"> Liver</option>
-									<option value="3">Heart</option>
+									<option value="0">Kidney</option>
+									<option value="1"> Liver</option>
+									<option value="2">Heart</option>
 									
 </select>
 </div>

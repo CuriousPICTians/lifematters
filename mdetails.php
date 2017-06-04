@@ -41,13 +41,13 @@ if( $report1=$_POST['report1'])
     
 ?>
 
-Enter Patient's Severity : <br/><br/>
+Enter Patient's priority : <br/><br/>
 
-                <input type="radio" name="severity" value="1">Normal [Stage 1] <br/><br/>
-                <input type="radio" name="severity" value="2">Not Normal [Stage 2] <br/><br/>
-                <input type="radio" name="severity" value="3">Serious     [Stage 3]   <br/><br/>
-                <input type="radio" name="severity" value="4">Very Serious [Stage 4] <br/><br/>
-                <input type="radio" name="severity" value="5">Too Serious  [Stage 5]  <br/><br/>
+                <input type="radio" name="priority" value="0">Normal [Stage 1] <br/><br/>
+                <input type="radio" name="priority" value="1">Not Normal [Stage 2] <br/><br/>
+                <input type="radio" name="priority" value="2">Serious     [Stage 3]   <br/><br/>
+                <input type="radio" name="priority" value="3">Very Serious [Stage 4] <br/><br/>
+                <input type="radio" name="priority" value="4">Too Serious  [Stage 5]  <br/><br/>
 
                 <br/><br/>
 
@@ -64,7 +64,7 @@ $_SESSION['report1']=$report1;
 $report2=$_POST['report2'];
 $_SESSION['report2']=$report2;
 
-$severity=$_POST['severity'];
+$priority=$_POST['priority'];
     $approved=$_POST['approved'];
 
 
@@ -98,7 +98,7 @@ if(isset($_POST['submit']))
     else
         echo "no";
 
-                    $patient=array("severity"=>$severity);
+                    $patient=array("priority"=>$priority);
                    
                     $p=array("approved"=>$approved);
                    
@@ -106,8 +106,8 @@ if(isset($_POST['submit']))
         {
 
 				
-            $collection->update(array("email" => $_SESSION['email']),array('$set' => array($patient,'approved' => $approved)));
-						$collectionD->update(array("email" => $_SESSION['email']),array('$set' => array($patient,'approved' => $approved)));
+            $collection->update(array("email" => $_SESSION['email']),array('$set' => array('priority'=>$priority,'approved' => $approved)));
+			$collectionD->update(array("email" => $_SESSION['email']),array('$set' => array('priority'=>$priority,'approved' => $approved)));
 }
 ?>
 
@@ -120,6 +120,6 @@ window.location = "kmeans1.php";
 }
 ?> 
 </br>
-<button type="submit" name ="submit" class="btn btn-large btn-success" onclick="location.href='kmeans.php'" >submit</button>
+<button type="submit" name ="submit" class="btn btn-large btn-success" onclick="location.href='kmeans1.php'" >submit</button>
 
 </form>
