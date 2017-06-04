@@ -1,3 +1,8 @@
+	<?php
+
+
+session_start();
+?>
 	<!DOCTYPE html>
 	<html lang="en">
 	<html>
@@ -46,27 +51,17 @@
 
               	<form method="post" action="">
 
-															<div  class="col-xs-4">
-																				
-																			<label> <h6> Enter Organ & City Name :- </h6></label>
-															</div>																			
-
-														
-															<div  class="col-xs-3">
-																				
-																			<input type="text"  class="form-control" placeholder="Enter Organ" name="organ_name">
-															</div>
-
-																<div class="col-xs-3">
-																		
-																			<input type="text" class="form-control"  placeholder="Enter City" name="city">
-																</div>
-
-																<input type="submit" class="btn btn-default" name="submit" value="Search"/>
-															
-
-
-						</form>
+				<div  class="col-xs-4">
+				<label> <h6> Enter Organ & City Name :- </h6></label>
+				</div>																			
+				<div  class="col-xs-3">
+				<input type="text"  class="form-control" placeholder="Enter Organ" name="organ_name">
+				</div>
+				<div class="col-xs-3">
+				<input type="text" class="form-control"  placeholder="Enter City" name="city">
+				</div>
+				<input type="submit" class="btn btn-default" name="submit" value="Search"/>
+				</form>
 
             </div>
           </div>
@@ -87,114 +82,75 @@
 <?php
 
 
-session_start();
-
-
  if(isset($_POST['submit']))
-													{
-  	 
-													    $organ_name = $_POST  ['organ_name'];
-    													$city= $_POST['city'];
-   
-						
-																$con = new MongoClient();
-
-																						if($con)
-																						{
-								
-
-																								$database=$con->organ;
-																								$collection=$database->donorinfo;
-
-																							/*	if($organ_name=="PancreasorIntestine")
-																											$cursor = $collection->find(array('info.city'=>$city ,'organ.pancreas'=>$organ_name));
-
-																								if($organ_name=="PortionofLiver")
-																											$cursor = $collection->find(array('info.city'=>$city ,'organ.lportion'=>$organ_name));
-
-																								if($organ_name=="Liver")
-																											$cursor = $collection->find(array('info.city'=>$city ,'organ.liver'=>$organ_name));
-*/
-																								if($organ_name=="organ")
-																											$cursor = $collection->find(array('city'=>$city ,'organ'=>$organ_name));										
-																								
-																								echo"Search By :-";
-																								echo "$organ_name";  
-																								$cursor_count = $cursor->count();
-					
-
-																						}
-												}
+{
+ $organ_name = $_POST  ['organ_name'];
+$city= $_POST['city'];
+$con = new MongoClient();
+	if($con)
+	{
+		$database=$con->organ;
+		$collection=$database->donorinfo;
+		if($organ_name=="organ")
+		$cursor = $collection->find(array('city'=>$city ,'organ'=>$organ_name));										
+		echo"Search By :-";
+		echo "$organ_name";  
+		$cursor_count = $cursor->count();
+	}
+}
 
 
-    foreach ($cursor as $venue)
-    {
+foreach ($cursor as $venue)
+{
 
 echo"<div id='page-wrapper' >";
 echo"<div id='page-inner'>";
 
 echo"<div class='row  form-group' > ";
-										echo" <div class='col-md-11'>";
-
-																					echo" <div class='panel panel-default'>";
-																																echo"<div class='panel-heading'>";
-																																										echo"  Patient information  ";
-																															echo"</div>";
-
-																															echo"<div class='panel-body'>";
-																																								echo"<div class='table-responsive'>";
-
-																																																		echo "<table width='100%' class='table-hover table-responsive table-bordered table-condensed'>";
-
-																																																										echo "<tr>";
-	
-																																																																				echo"<th>  First Name </th>";
-																																																																				echo"<th>  Middle Name </th> "; 
-																																																																				echo"<th> 	Last Name </th> "; 
-																																																																				echo"<th>  Gender </th> "; 
-																																																																				echo"<th>  Birth Date </th> "; 
-																																																																				echo"<th>  Blood Group </th> "; 
-																																																																				echo"<th>  Birth Place </th> "; 
-																																																																				echo"<th>  Mobile Number </th> "; 
-																																																																				echo"<th>  Address </th> "; 
-																																																																				echo"<th>  City </th> "; 
-																																																																				echo"<th>  State </th> "; 
-																																																																				echo"<th>  Hospital </th> "; 
-																																																																				echo"<th> 	Donated Organ </th> "; 
-																																																																				echo"<tr>";
-																																																																													echo" <td>".$venue ['firstname'] . "</td>"; 
-																																																																													echo" <td>".$venue ['middlename'] . "</td>";
-																																																																													echo" <td>".$venue  ['lastname']. "</td>";
-																																																																												 echo"	<td>".$venue  ['gender'] ." </td>";
-																																																																													echo" <td>".$venue  ['day'] . "</td>";
-																																																																													echo" <td>".$venue  ['blood'] ." </td>";
-																																																																													echo"<td>".$venue  ['dobplace']." </td>";
-																																																																													echo"<td>".$venue  ['mobileno']. "</td>";
-																																																																													echo"<td>".$venue  ['address']. "</td>";
-																																																																													echo"<td>".$venue  ['city']." </td>";
-																																																																													echo"<td>".$venue  ['state']." </td>";
-																																																																													echo"<td>".$venue  ['hospital']." </td>";
-																																																																													echo"<td>".$venue  ['organ'] ." </td>";
-								
-																																																																				echo" </tr>";
-																																																																			
-
-
-																																																										echo "</tr>";
-																																																echo"</table>";
-
-
-																																								echo"</div>";
-																																		echo"</div>";
-																								echo"</div>";
-													echo"</div>";
-
-
-
-
-										
+echo" <div class='col-md-11'>";
+echo" <div class='panel panel-default'>";
+echo"<div class='panel-heading'>";
+echo"  Patient information  ";
 echo"</div>";
-
+echo"<div class='panel-body'>";
+echo"<div class='table-responsive'>";
+echo "<table width='100%' class='table-hover table-responsive table-bordered table-condensed'>";
+echo "<tr>";
+echo"<th>  First Name </th>";
+echo"<th>  Middle Name </th> "; 
+echo"<th> 	Last Name </th> "; 
+echo"<th>  Gender </th> "; 
+echo"<th>  Birth Date </th> "; 
+echo"<th>  Blood Group </th> "; 
+echo"<th>  Birth Place </th> "; 
+echo"<th>  Mobile Number </th> "; 
+echo"<th>  Address </th> "; 
+echo"<th>  City </th> "; 
+echo"<th>  State </th> "; 
+echo"<th>  Hospital </th> "; 
+echo"<th> 	Donated Organ </th> "; 
+echo"<tr>";
+echo" <td>".$venue ['firstname'] . "</td>"; 
+echo" <td>".$venue ['middlename'] . "</td>";
+echo" <td>".$venue  ['lastname']. "</td>";
+echo"	<td>".$venue  ['gender'] ." </td>";
+echo" <td>".$venue  ['day'] . "</td>";
+echo" <td>".$venue  ['blood'] ." </td>";
+echo"<td>".$venue  ['dobplace']." </td>";
+echo"<td>".$venue  ['mobileno']. "</td>";
+echo"<td>".$venue  ['address']. "</td>";
+echo"<td>".$venue  ['city']." </td>";
+echo"<td>".$venue  ['state']." </td>";
+echo"<td>".$venue  ['hospital']." </td>";
+echo"<td>".$venue  ['organ'] ." </td>";
+echo" </tr>";
+echo "</tr>";
+echo"</table>";
+echo"</div>";
+echo"</div>";
+echo"</div>";
+echo"</div>";
+echo"</div>";
 echo"</div>";
 echo"</div>";
 

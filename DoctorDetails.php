@@ -1,4 +1,9 @@
-	<!DOCTYPE html>
+	<?php
+
+  session_start();
+?>
+
+  <!DOCTYPE html>
 	<html lang="en">
 	<html>
 
@@ -138,7 +143,6 @@ $(document).ready(function(){
 
 <?php
 
-  session_start();
 
   $con = new MongoClient();
   if($con)
@@ -209,11 +213,11 @@ $(document).ready(function(){
          <h4 class="w3-center"> Doctor Details </h4>
          <p class="w3-center"><img src="img/doc.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
          <hr>
-			<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-user-md fa-fw w3-margin-right w3-text-theme'></i> Doctor Name :- "  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>"; ?>        
-			<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Contact Number :- " .$venue ['docphno'] ." </p>"; ?>																					
-			<?php	echo"<p><i class='fa fa-at fa-fw w3-margin-right w3-text-theme'></i> Email-ID :- " .$venue ['email'] ." </p>"; ?>
-  			<?php	echo"<p><i class='fa fa-briefcase fa-fw w3-margin-right w3-text-theme'></i> work at :- " .$venue ['Hos'] ." </p>"; ?>
-			<?php	echo"<p><i class='fa fa-address-book fa-fw w3-margin-right w3-text-theme'></i> Permanent Address	 :- " .$venue ['paddress'] ." </p>"; ?>
+			<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-user-md fa-fw w3-margin-right w3-text-theme'></i> <b> Doctor Name :-</b> "  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>"; ?>        
+			<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b> Contact Number :-</b> " .$venue ['docphno'] ." </p>"; ?>																					
+			<?php	echo"<p><i class='fa fa-at fa-fw w3-margin-right w3-text-theme'></i> <b> Email-ID :- </b>" .$venue ['email'] ." </p>"; ?>
+  			<?php	echo"<p><i class='fa fa-briefcase fa-fw w3-margin-right w3-text-theme'></i> <b> work at :- </b>" .$venue ['Hos'] ." </p>"; ?>
+			<?php	echo"<p><i class='fa fa-address-book fa-fw w3-margin-right w3-text-theme'></i> <b> Permanent Address	 :- </b>" .$venue ['paddress'] ." </p>"; ?>
         </div>
       </div> 
 				
@@ -238,9 +242,9 @@ $(document).ready(function(){
       <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Registration Details </h4>
 
          <hr>
-								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> Registration Number :- "  .$venue ['grno'] ."</p>"; ?>        
- 							<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> Date of Registration :- " .$venue ['day'] . "</p>"; ?>        
-									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> State Medical Council :- " .$venue ['medicalcouncil'] ." </p>"; ?>
+								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> <b> Registration Number :- </b>"  .$venue ['grno'] ."</p>"; ?>        
+ 							<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b> Date of Registration :- </b> " .$venue ['day'] . "</p>"; ?>        
+									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> <b> State Medical Council :- </b>" .$venue ['medicalcouncil'] ." </p>"; ?>
         </div>
       </div> 
 <hr>	
@@ -250,9 +254,9 @@ $(document).ready(function(){
          <h4 class="w3-center"> <img src="img/qu1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Qualification Details </h4>
          <p class="w3-center"> </p>
          <hr>
-								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> qualification :- ".$venue['qualifi']."</p>"; ?>
-								<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> qualification Year :- ".$venue['day1']."</p>"; ?>
-								<?php echo"<p> <i class='fa fa-university fa-fw w3-margin-right w3-text-theme'></i> University Name	 :- ".$venue['univername']."</p>"; ?>
+								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> <b> Qualification :- </b> ".$venue['qualifi']."</p>"; ?>
+								<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b> Qualification Year :- </b>".$venue['day1']."</p>"; ?>
+								<?php echo"<p> <i class='fa fa-university fa-fw w3-margin-right w3-text-theme'></i> <b> University Name	 :- </b>".$venue['univername']."</p>"; ?>
         </div>
       </div>
  
@@ -274,7 +278,7 @@ $(document).ready(function(){
  <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Status </h4>
 
          <hr>
-                <?php echo"<p> <b>Hospital </b>:- ".$venue['Hos']."</p>"; ?>
+                <?php echo"<p> <b> Hospital </b>:- ".$venue['Hos']."</p>"; ?>
                 <?php echo"<p> <b>Status </b> :- ".$venue['status']."</p>"; ?>
 
 
@@ -473,10 +477,7 @@ $cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' =>
 
 ?>
 
-  <script>
-  alert('Successfully ');
-                  window.location.href="DoctorDetails.php";
-               </script>
+  <script>   alert('Successfully '); window.location.href="DoctorDetails.php"; </script>
 
 <?php
 

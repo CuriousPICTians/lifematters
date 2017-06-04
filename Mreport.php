@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 	<html lang="en">
 	<html>
@@ -83,7 +87,6 @@
 
 
 <?php
-session_start();
 
 if(isset($_POST['submit']))
 {
