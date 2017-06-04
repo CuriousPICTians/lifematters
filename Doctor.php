@@ -124,9 +124,8 @@ body {
 						</div>
 	  
 						<a href="DoctorDetails.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Home </a>
-						<a href="PatientApprove.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Approve Patient </a> 
-
 						<a href="ApproveDonor.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Approve Donor </a> 
+
 						<a href="ApproveReceiver.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Approve Receiver </a> 
 
 						<a href="Psearch.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Search Patients</a> 
@@ -191,7 +190,7 @@ body {
 
 		<!-- !PAGE CONTENT! -->
 
-					<div class="w3-main" style="margin-left:190px">
+					<div class="w3-main" style="margin-left:210px">
 
 				
 				

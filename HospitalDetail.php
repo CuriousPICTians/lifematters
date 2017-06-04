@@ -139,14 +139,13 @@ session_start();
   <div class="w3-row">
 
 <div class="w3-row-padding">
-        <div class="w3-col m11">
+        <div class="w3-col m12">
           <div class="w3-card-2 w3-round w3-white">
             <div class="w3-container w3-padding">
-<label class="w3-right"> Edit Profile :- &nbsp; 
-
-<button type="button" class="btn btn-info btn-s w3-right" data-title='Confirm' data-toggle='modal' data-target='#confirm' > 
-
-<span class="glyphicon glyphicon-eye-open"></span> Edit </button> </label>
+          <span class="w3-right "> <label class="w3-right">
+          <button type="button" class="btn btn-info btn-s w3-right w3-red" data-title='Confirm' data-toggle='modal' data-target='#confirm' > 
+          <span class="glyphicon glyphicon-eye-open"></span> Edit Profile </button> </label> </span>
+          
               <h6 class=" "> Wel-Come </h6>
               
             </div>
@@ -177,7 +176,7 @@ session_start();
 
     
     <!-- Middle Column -->
-    <div class="w3-col m7">
+    <div class="w3-col m6">
 
     <div class="w3-row-padding">
     <div class="w3-col m12">
@@ -196,7 +195,7 @@ session_start();
 
 <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-         <h4 class="w3-center"> <img src="img/z1.jpg" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Types of transplant being done in your hospital </h4>
+         <h4 class="w3-center"> <img src="img/z1.jpg" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Types of Transplant Being Done in Hospital </h4>
          <p class="w3-center"> </p>
          <hr>
 								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> License For :-".$venue['KidneyLicense']." " 
@@ -211,11 +210,36 @@ session_start();
   <!-- End Middle Column -->
     </div>
     
+
+
+
+ <!-- Right Column -->
+    <div class="w3-col m2">
+      <div class="w3-card-2 w3-round w3-white w3-center">
+        <div class="w3-container">
+
+ <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Status </h4>
+
+         <hr>
+                <?php echo"<p> <b>License </b>:- ".$venue['KidneyLicense']." ".$venue['LiverLicense']. " " .$venue['HeartLicense']. " " .$venue['LungsLicense']."</p>"; ?>
+                <?php echo"<p> <b>Status </b> :- ".$venue['status']."</p>"; ?>
+
+
+        </div>
+      </div>
+      <br>
+      
+      
+      
+    <!-- End Right Column -->
+    </div>  
     
     
   <!-- End Grid -->
   </div>
   
+
+<!-------------------------  modal for edit profile ------------------------------------>
 
 <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
@@ -247,7 +271,7 @@ session_start();
 
             <label class="col-md-2 control-label" for="last_name">Phone No:-</label>  
 							            <div class="col-md-2">
-																							<?php echo "<input name='phno' class='form-control input-md' value=" .$venue ['phno']. " type='text' >"; ?>
+																							<?php echo "<input name='phno' maxlength='10' minlength='10' class='form-control input-md' value=" .$venue ['phno']. " type='text' >"; ?>
            							</div>
           </div>
 
@@ -289,10 +313,37 @@ session_start();
 <!-- End Page Container -->
 </div>
 
+
+
 <?php
 
 
 }
+
+if(isset($_POST['submit']))
+{
+    $hospital_name=$_POST['hospital_name'];
+    $hgrno=$_POST['hgrno']; 
+    $phno=$_POST['phno'];
+    $hospitalemail=$_POST['hospitalemail'];
+    $website=$_POST['website'];
+
+
+$data=array('hospital_name'=>$hospital_name,'hgrno'=>$hgrno, 'phno'=>$phno,'hospitalemail'=>$hospitalemail,'website'=>$website);
+
+
+}
+$cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
+
+?>
+
+  <script>
+  alert('Successfully ');
+                  window.location.href="HospitalDetail.php";
+               </script>
+
+<?php
+
 }
 ?>
     

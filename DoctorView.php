@@ -103,8 +103,9 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 		  
 <?php
 
-    //session_start();
-   
+    session_start();
+   $email = $_SESSION['email'];
+
   $con = new MongoClient();
 
   if($con)

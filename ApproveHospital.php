@@ -159,7 +159,7 @@ if(isset($_GET['key']))
 
   </head>
 
-<body class="w3-content" style="max-width:1000px">
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
 
 <div class="w3-container-fluid ">
             <?php
@@ -171,14 +171,13 @@ if(isset($_GET['key']))
 
       <tr>
         
- <th> Hospital Name </th>
+<th> Hospital Name </th>
 <th> Contact Number </th>
 <th> Email </th>
 <th> website </th>
-
-<th>Status</th>
-<th>View</th>
-<th>Action</th>
+<th> Status</th>
+<th> View</th>
+<th> Action</th>
       </tr>
 
         <?php
@@ -266,9 +265,9 @@ echo "<td><div class='action'><a href='ApproveHospital.php?key=".$venue['_id']."
         <div class="modal-footer ">
 
 				<?php echo "<div class='action'> <a href='ApproveHospital.php?order=".$venue['_id']."'> 
-										<button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> Delete </button> </a> </div>";  ?>
-
-        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No </button>
+										
+                    <button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> YES </button> </a> 
+                    <button type='button' class='btn btn-default w3-red' data-dismiss='modal'> <span class='glyphicon glyphicon-remove'></span> NO </button> </div>";  ?>
       </div>
         </div>
 
@@ -294,9 +293,9 @@ echo "<td><div class='action'><a href='ApproveHospital.php?key=".$venue['_id']."
         <div class="modal-footer ">
 
        <?php echo "<div class='action'> <a href='ApproveHospital.php?process=".$venue['_id']."'> 
-										<button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> Confirm </button> </a> </div>";  ?>
-
-        <div> <button type="button" class="btn btn-default" data-dismiss="modal"> <span class="glyphicon glyphicon-remove"></span> No </button> </div>
+										
+                    <button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> YES </button> </a> 
+                    <button type='button' class='btn btn-default w3-red' data-dismiss='modal'> <span class='glyphicon glyphicon-remove'></span> NO </button> </div>";  ?>
       </div>
         </div>
 

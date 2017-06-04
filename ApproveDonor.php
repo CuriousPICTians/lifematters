@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 			//$collection -> remove(array('_id' => new MongoId($_GET['order'])));
 		$collection -> update(array('_id' => new MongoId($_GET['order'])), array('$set' => array('status' => 'pending','Doc' => 'unlink')));
 			?>
-			<script>alert("Patient Has Been Deleted Successfully.");</script>
+			<script>alert("Patient has been Deleted Successfully..!!");</script>
 			<?php
 		
 		}
@@ -55,21 +55,59 @@ if(isset($_GET['key']))
       <caption> <h4 style='text-align:center;'> <b> Donor Details</b> </h4> </caption>
       <tr>
         <th> Name </th>
-        <th> gender</th>
-        <th> blood group </th>
-        <th> hospital</th>
-        <th> organ</th>
-        <th> action</th>
+        <th> Gender</th>
+        <th> Blood Group </th>
+        <th> Organ</th>
+        <th> Hospital</th>
+        <th> Action</th>
 
       </tr>
       <tr>
         <td>".$venue['firstname']. " " .$venue['middlename']. " " .$venue['lastname']."</td>
-        <td>".$venue['gender']."</td>       
-			 	<td>".$venue['blood']."</td>
-        <td>".$venue['hospital']."</td>
-        <td>".$venue['organ']."</td>
-				<td> 
-						<button class='btn btn-success btn-xs' data-title='Confirm' data-toggle='modal' data-target='#confirm' ><span class='glyphicon glyphicon-ok'> Confirm</span></button>
+        <td>".$venue['gender']."</td> ";
+
+		
+
+if($venue['blood']==1)
+echo "<td> A+ </td>";
+
+if($venue['blood']==2)
+echo "<td> A- </td>";
+
+if($venue['blood']==3)
+echo "<td> B+ </td>";
+
+if($venue['blood']==4)
+echo "<td> B- </td>";
+
+if($venue['blood']==5)
+echo "<td> O+ </td>";
+
+if($venue['blood']==6)
+echo "<td> O- </td>";
+
+if($venue['blood']==7)
+echo "<td> AB+ </td>";
+
+if($venue['blood']==8)
+echo "<td> AB- </td>";
+
+
+if($venue['organ']==1)
+echo"<td> Kidney </td>";
+
+if($venue['organ']==2)
+echo"<td> Liver </td>";
+
+if($venue['organ']==3)
+echo"<td> Heart</td>";
+
+
+       echo" <td>".$venue['hospital']."</td>
+
+			
+      	<td> 
+						<button class='btn btn-success btn-xs w3-teal' data-title='Confirm' data-toggle='modal' data-target='#confirm' ><span class=''> Confirm</span></button>
 						<button class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#delete' ><span class='glyphicon glyphicon-trash'></span> Delete </button>
 				</td>
       </tr>
@@ -92,14 +130,14 @@ if(isset($_GET['key']))
 		if($venue['status'] == "Confirmed" )
 		{
 			?>
-			<script>alert("Patient confirmed already!");</script>
+			<script>alert("Patient confirmed already..!!");</script>
 			<?php
 		}	
 		else
 		{
 		$collection -> update(array('_id' => new MongoId($_GET['process'])), array('$set' => array('status' => 'Confirmed')));
 		?>
-		<script>alert("Patient has been confirmed.");</script>
+		<script>alert("Patient has been Confirmed..!!");</script>
 		<?php
   		}
   		}
@@ -154,7 +192,7 @@ if(isset($_GET['key']))
 
   </head>
 
-<body class="w3-content" style="max-width:1000px">
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
 
 <div class="w3-container-fluid ">
 
@@ -166,21 +204,22 @@ if(isset($_GET['key']))
 
 	<tr>
 		<th> Donor Name</th>
-		<th> status </th>
-		<th>Action</th>
+		<th> Status </th>
+		<th> Action</th>
   </tr>
 
 <?php
-    if($email == $_SESSION['email'])
+
+  //  if($email == $_SESSION['email'])
    	$result=$collection -> find(array("Doc"=> $_SESSION['email']  ));
-    else
-    $result=$collection->find(array('complaint.email'=>$email));
+    //else
+    //$result=$collection->find(array('complaint.email'=>$email));
+    
     foreach($result as $venue)
     {
     	echo "<tr>";
 			echo "<td>".$venue['firstname']." ".$venue['middlename']. " " .$venue['lastname']. "</td>";
-
-	    echo "<td style='font-weight:bold;";
+      echo "<td style='font-weight:bold;";
 
 				 	if($venue ['status'] == 'Confirmed')
 				 		echo "color:green'>";
@@ -190,7 +229,7 @@ if(isset($_GET['key']))
 
 			echo "<td>
 								<div class='action'><a href='ApproveDonor.php?key=".$venue['_id']."'> 
-								<button type='button' class='btn btn-info btn-xs' > <span class='glyphicon glyphicon-eye-open'></span> View </button>  </a></div>
+								<button type='button' class='btn btn-info btn-xs w3-purple' > <span class='glyphicon glyphicon-eye-open'></span> View </button>  </a></div>
 						</td> ";
 
                
@@ -232,9 +271,10 @@ if(isset($_GET['key']))
         <div class="modal-footer ">
 
 				<?php echo "<div class='action'> <a href='ApproveDonor.php?order=".$venue['_id']."'> 
-										<button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> Delete </button> </a> </div>";  ?>
 
-        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No </button>
+										<button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> YES </button> </a> 
+                    <button type='button' class='btn btn-default w3-red' data-dismiss='modal'> <span class='glyphicon glyphicon-remove'></span> NO </button> </div>";  ?>
+
       </div>
         </div>
 
@@ -260,9 +300,12 @@ if(isset($_GET['key']))
         <div class="modal-footer ">
 
        <?php echo "<div class='action'> <a href='ApproveDonor.php?process=".$venue['_id']."'> 
-										<button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> Confirm </button> </a> </div>";  ?>
+							
+                  <button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> YES </button> </a> 
+                  <button type='button' class='btn btn-default w3-red' data-dismiss='modal'> <span class='glyphicon glyphicon-remove'></span> NO </button> </div>";  ?>
 
-        <div> <button type="button" class="btn btn-default" data-dismiss="modal"> <span class="glyphicon glyphicon-remove"></span> No </button> </div>
+       
+
       </div>
         </div>
 

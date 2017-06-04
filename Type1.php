@@ -96,7 +96,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
 <?php
 
-		session_start();
+		//session_start();
    
 	$con = new MongoClient();
 
@@ -138,7 +138,7 @@ foreach ($cursor as $venue)
        
 <?php
 
-		session_start();
+		//session_start();
    
 	$con = new MongoClient();
 
