@@ -17,9 +17,9 @@ char * hospital[] = {"KEM Hospital Mumbai", "Sahyadri Hospital Pune", "Aditya Bi
 char * domain[] = {"gmail.com", "ymail.com", "hotmail.com"};
 
 int approved[] = {0, 1};
-int priority[] = {0, 1, 2, 3, 4};
-int blood[] = {0, 1, 2, 3, 4, 5, 6, 7};
-int organ[] = {0, 1, 2, 3, 4, 5, 6};
+int priority[] = {1, 2, 3, 4, 5};
+int blood[] = {1, 2, 3, 4, 5, 6, 7, 8};
+int organ[] = {1, 2, 3};
 
 int getRandom(int size);
 
