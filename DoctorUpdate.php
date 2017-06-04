@@ -79,7 +79,7 @@ session_start();
 
     $database=$con->organ;
 
-    $collection1=$database->docinfo;
+    $collection1=$database->hospitalinfo;
 
 
  $cursor1 = $collection1->find();
@@ -117,15 +117,16 @@ session_start();
 
     <label for="ex2"> <b>Select Doctor :- </b> </label> &nbsp;&nbsp;&nbsp;&nbsp;
                      
- <select name="Doc" class="form-control" style="width:220px;">
+ <select name="Hos" class="form-control" style="width:220px;">
 
        <?php foreach ($cursor1 as $venue) 
         {
+
        ?>
-    
-            <?php 
-             if($venue['status']==Confirmed)    
-            echo  "<option value= " .$venue['email']. " >" .$venue['email']. "</option>"; ?>\
+            
+            <?php   if($venue['status']==Confirmed)    
+
+                  echo  "<option value= " .$venue['email']. " >" .$venue['email']. "</option>"; ?>\
         <?php
          }
         ?>
@@ -173,7 +174,7 @@ session_start();
 
   $con = new MongoClient();
   $database=$con->organ;
-  $collection=$database->donorinfo;
+  $collection=$database->docinfo;
 
   $cursor = $collection->find(array("email" => $_SESSION['email']));
 
@@ -187,8 +188,8 @@ session_start();
     if(isset($_POST['submit']))
 {
 
-    $Doc=$_POST['Doc'];
-    $data=array('Doc'=>$Doc,"status"=>"pending");
+    $Doc=$_POST['Hos'];
+    $data=array('Hos'=>$Doc,"status"=>"pending");
     $cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
 
 
@@ -196,7 +197,7 @@ session_start();
 
   <script>
   alert('Successfully ');
-                  window.location.href="DonorDetail.php";
+                  window.location.href="DoctorDetails.php";
                </script>
 
 <?php

@@ -10,24 +10,36 @@ curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
 /*************************************/
 $database = $con->organ;
 
+
 $collection = $database->donorinfo;
 $cursor = $collection->find();
+
+
 $i = $j = 1;														//remove or modify
+
 foreach ($cursor as $venue)
+
 {
 if($i > 10) break;													//remove or modify
+
+
 	$var1 = $venue['hospital'];
 	echo "Donor Name: ".$venue['firstname']." ".$venue['lastname']."<br>";
 	echo "Donor Hospital Address: ".$var1."<br>";
   
 	$collection = $database->receiverinfo;
 	$cursor2 = $collection->find();
-	foreach ($cursor2 as $venue2)
+
+	
+foreach ($cursor as $venue2)
+
 	{
 if($j > 1) {$j = 1; break;}											//remove or modify
+
 		$var2 = $venue2['hospital'];
 		echo "Receiver Name: ".$venue2['firstname']." ".$venue2['lastname']."<br>";
 		echo "Receiver Hospital Address: ".$var2."<br>";
+
 
 	  	$url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins='.$var1.'&destinations='.$var2;
 		$url = str_replace(" ", '%20', $url);	

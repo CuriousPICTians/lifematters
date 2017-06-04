@@ -52,14 +52,24 @@ session_start();
 
 //echo "Email Is : " .$out[$i];
 
-echo "</br>";
-echo "Email Is :: ".$result[$i];
-echo "</br>";
-
 }
+
+unset($_SESSION['result']);
 $_SESSION['result']=$result;
 
+//$length = count($_SESSION['result']);
+$length = count($result);
 
+//echo "Email Is :: ".$a[5];
+
+
+for($j = 0 ; $j < $length ; $j++)
+{
+//	echo "Email IS ::" .$result[$j];
+echo "</br>";
+echo "Email Is :: ".$result[$j];
+echo "</br>";
+}
 //echo "Email IS ::" .$result[];
 //echo"<br>";
 //var_dump($result);
@@ -85,7 +95,7 @@ for($j=0;$j<$length;$j++)
 ?>
 
 <script type="text/javascript">
-//window.location = "mm.php";
+window.location = "m.php";
 </script>
 
 

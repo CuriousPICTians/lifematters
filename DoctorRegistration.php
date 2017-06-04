@@ -109,15 +109,56 @@ $(document).ready(function(){
 
          
     <div class="row form-group">
+
 						<label class="col-md-2 control-label" for="smartphone"> Phone Number :-  </label>
        				 <div class="col-md-2">
 								<input  name="docphno"  maxlength="10" minlength="10" placeholder="phone NO" class="form-control input-md-2" value="" type="text" required> 
 						</div>
 
 						
+	
+
+<?php
+
+		//session_start();
+   
+	$con = new MongoClient();
+
+  if($con)
+  {
+    
+
+    $database=$con->organ;
+    $collection2=$database->hospitalinfo;
 
 
-						<label class="col-md-2 control-label" > Hospital :- </label>
+    $cursor2 = $collection2->find();
+    $cursor_count = $cursor2->count();
+	}
+
+
+?>
+  	<label class="col-md-2 control-label" ><b> Select Hospital:- </b> </label>
+  	<div class="col-md-2">
+
+
+ 		<select name="Hos"  class="form-control" >
+			<?php 
+
+				foreach ($cursor2 as $venue) 
+				{
+				?>
+					<?php echo	"<option value= " .$venue['email']. " >" .$venue['email']. "</option>"; ?>\
+				
+				<?php
+				}
+				?>				
+		</select>
+	</div>
+
+<br>
+
+						<!--<label class="col-md-2 control-label" > Hospital :- </label>
 							<div class="col-md-2">
 								<div class="input-group">
 							    <select id="sms" name="dochospital" class="form-control input-md" required>
@@ -128,14 +169,16 @@ $(document).ready(function(){
 						      <option value="KEM Hospital Pune"> KEM Hospital Pune </option>
 						      <option value="KEM Hospital Mumbai"> KEM Hospital Mumbai </option>
 							    </select>
-					</div>
-</div>
+								</div>
+							</div>-->
 
-<label class="col-md-2 control-label" for="first_name"> Permanent Address:-</label>  
+		<label class="col-md-2 control-label" for="first_name"> Permanent Address:-</label>  
 		<div class="col-md-2">
 				<textarea name="paddress" class="form-control" rows="3" id="emergency2" placeholder="Address" required></textarea>
 		</div>
 </div>
+
+
 
 <div class="row">
             <div class="col-md-5 panel panel-heading"><h4><b> Registration and Qualification Information :- </b> </h4>   </div>
@@ -155,13 +198,13 @@ $(document).ready(function(){
 		</div>
 
 <label class="col-md-2 control-label" > State Medical Council:-</label>
-											<div class="col-md-2">
-												<div class="input-group">
-																				    <select id="sms" name="medicalcouncil" class="form-control input-md" required>
-																				      <option value="maharashtra Medical Council"> maharashtra Medical Council </option>
-																				    </select>
-														</div>
-												</div>
+		<div class="col-md-2">
+		<div class="input-group">
+		 <select id="sms" name="medicalcouncil" class="form-control input-md" required>
+		  <option value="maharashtra Medical Council"> maharashtra Medical Council </option>
+		 </select>
+		</div>
+		</div>
 
 </div>
 
@@ -213,8 +256,8 @@ $(document).ready(function(){
 if(isset($_POST['submit']))
 {
     $fname=$_POST['fname'];
-		$mname=$_POST['mname'];
-		$lname=$_POST['lname'];
+	$mname=$_POST['mname'];
+	$lname=$_POST['lname'];
     $docphno=$_POST['docphno'];
     $dochospital=$_POST['dochospital'];   
     $grno=$_POST['grno'];
@@ -224,7 +267,9 @@ if(isset($_POST['submit']))
     $day1=$_POST['day1'];
     $univername=$_POST['univername'];
     $paddress=$_POST['paddress'];
+    $Hos=$_POST['Hos'];
     $_SESSION['status']="Pending";
+
 
 $con = new MongoClient();
 
@@ -236,8 +281,8 @@ $con = new MongoClient();
     $collection=$database->docinfo;
     
     //$data=array('session'=>array('colg'=>$colg,'class'=>$class));
-        $data=array('fname'=>$fname,'mname'=>$mname,'lname'=>$lname,'docphno'=>$docphno,'dochospital'=>$dochospital,'grno'=>$grno,
-'day'=>$day,'medicalcouncil'=>$medicalcouncil,'qualifi'=>$qualifi,'day1'=>$day1,'univername'=>$univername,'paddress'=>$paddress,'status'=>$_SESSION['status']);
+ $data=array('fname'=>$fname,'mname'=>$mname,'lname'=>$lname,'docphno'=>$docphno,'dochospital'=>$dochospital,'grno'=>$grno,
+'day'=>$day,'medicalcouncil'=>$medicalcouncil,'qualifi'=>$qualifi,'day1'=>$day1,'univername'=>$univername,'Hos'=>$Hos,'paddress'=>$paddress,'status'=>$_SESSION['status']);
 
 
        $collection->update(array("email" => $_SESSION['email']),array('$set' =>$data));
