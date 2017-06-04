@@ -89,7 +89,7 @@ if(isset($_POST['submit']))
 {
    
     $email = $_POST['email'];
-				$_SESSION['email']=$email;
+	$_SESSION['email']=$email;
     
   $con = new MongoClient();
 
@@ -98,13 +98,13 @@ if(isset($_POST['submit']))
     $collection=$database->receiverinfo;
 				$collectionD=$database->donorinfo;
 
- if($cursor = $collection->find(array("email" => $email,"approved" => "0")))
+ if($cursor = $collection->find(array("email" => $email)))
 {
  $cursor_count = $cursor->count();
  if($cursor_count)
     ;
  else
-    $cursor = $collectionD->find(array("email" => $email,"approved" => "0"));
+    $cursor = $collectionD->find(array("email" => $email));
 
   //foreach ($cursor as $venue) 
 {

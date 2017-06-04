@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 #Usage :
 #	1) From Command line : $ cd /var/www/html/lifematters; Rscript kmeans.R '<email_id>' 'donor/receiver'
-#	2) From PHP : exec("Rscript kmeans.R <email_id>", $out);
+#	2) From PHP : exec("Rscript kmeans.R <email_id> donor/receiver", $out);
 
 library(rJava)
 library(RMongo)
