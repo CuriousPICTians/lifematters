@@ -6,11 +6,16 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 /***********Proxy*********************/								//comment out if not using proxy
 <<<<<<< HEAD
+<<<<<<< HEAD
 curl_setopt($ch, CURLOPT_PROXY, "192.168.16.253");
 curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
 =======
 //curl_setopt($ch, CURLOPT_PROXY, "192.168.8.253");
 //curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
+>>>>>>> upstream/master
+=======
+curl_setopt($ch, CURLOPT_PROXY, "192.168.16.253");
+curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
 >>>>>>> upstream/master
 /*************************************/
 $database = $con->organ;
