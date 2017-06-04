@@ -6,7 +6,7 @@ session_start();
 unset($out);
 unset($result);
 //$patient =$_SESSION['email'];
-$patient = "1013@gmail.com"; 
+$patient = "1082@hotmail.com"; 
 $_SESSION['patient']=$patient;
 
 

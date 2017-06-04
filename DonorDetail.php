@@ -166,38 +166,38 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
         <?php echo" <p style='text-transform:uppercase'> <i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i> Donor Name :- ".$venue ['firstname'] ."  " .$venue ['middlename'] . "  "  .$venue ['lastname'] . " </p>"; ?>
 								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> Hospital :-"  .$venue ['hospital'] ."</p>"; ?>        
 
-              <?php if($venue['organ']==1)
+              <?php if($venue['organ']==0)
  							echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Kidney </p>"; ?>        
 								
-              <?php if($venue['organ']==2)
+              <?php if($venue['organ']==1)
               echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Liver </p>"; ?>        
                 
-              <?php if($venue['organ']==3)
+              <?php if($venue['organ']==2)
               echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Heart </p>"; ?>        
                 
 
-                <?php if($venue['blood']==1)
+                <?php if($venue['blood']==0)
                 echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : A+ </p>"; ?> 
 
-                <?php if($venue['blood']==2)
+                <?php if($venue['blood']==1)
                 echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : A- </p>"; ?>
 
-                <?php if($venue['blood']==3)
+                <?php if($venue['blood']==2)
                 echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : B+ </p>"; ?>
 
-                <?php if($venue['blood']==4)
+                <?php if($venue['blood']==3)
                 echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : B- </p>"; ?>
 
-                <?php if($venue['blood']==5)
+                <?php if($venue['blood']==4)
                 echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : O+ </p>"; ?>                   
                 
-                <?php if($venue['blood']==6)
+                <?php if($venue['blood']==5)
                 echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : O- </p>"; ?>
 
-                <?php if($venue['blood']==7)
+                <?php if($venue['blood']==6)
                 echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : AB+ </p>"; ?>    		
 
-                 <?php if($venue['blood']==8)
+                 <?php if($venue['blood']==7)
                 echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : AB- </p>"; ?> 
 
 

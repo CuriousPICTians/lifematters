@@ -73,9 +73,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 										 Donate Selected Organs :-
 									
 									<select name="organ"  style="width:100px;">
-																	<option value="1">Kidney</option>
-																	<option value="2"> Liver</option>
-																<option value="3">Heart</option>
+																	<option value="0">Kidney</option>
+																	<option value="1"> Liver</option>
+																<option value="2">Heart</option>
 									</select>
 								<br/><br/><br/>
 	
