@@ -17,9 +17,9 @@ char * hospital[] = {"KEM Hospital Mumbai", "Sahyadri Hospital Pune", "Aditya Bi
 char * domain[] = {"gmail.com", "ymail.com", "hotmail.com"};
 
 int approved[] = {0, 1};
-int priority[] = {1, 2, 3, 4, 5};
-int blood[] = {1, 2, 3, 4, 5, 6, 7, 8};
-int organ[] = {1, 2, 3};
+int priority[] = {0, 1, 2, 3, 4};
+int blood[] = {0, 1, 2, 3, 4, 5, 6, 7};
+int organ[] = {0, 1, 2};
 
 int getRandom(int size);
 
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 		fprintf(stdout, "\t\"password\" : "); fprintf(stdout, "\"%s\",\n", "1234");
 		fprintf(stdout, "\t\"approved\" : "); fprintf(stdout, "\"%d\",\n", approved[getRandom(sizeof(approved)/sizeof(approved[0]))]);
 		fprintf(stdout, "\t\"priority\" : "); fprintf(stdout, "\"%d\",\n", priority[getRandom(sizeof(priority)/sizeof(priority[0]))]);
-		fprintf(stdout, "\t\"organ\" : "); fprintf(stdout, "\"%d\",\n", approved[getRandom(sizeof(organ)/sizeof(organ[0]))]);
+		fprintf(stdout, "\t\"organ\" : "); fprintf(stdout, "\"%d\",\n", organ[getRandom(sizeof(organ)/sizeof(organ[0]))]);
 //		fprintf(stdout, "\t\"info\" : {\n");
 		fprintf(stdout, "\t\"firstname\" : "); fprintf(stdout, "\"%s\",\n", firstName[getRandom(sizeof(firstName)/sizeof(firstName[0]))]);
 		fprintf(stdout, "\t\"middlename\" : "); fprintf(stdout, "\"%s\",\n", firstName[getRandom(sizeof(firstName)/sizeof(firstName[0]))]);
