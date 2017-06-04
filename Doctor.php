@@ -113,7 +113,7 @@ body {
 	
 		<!-- Sidenav/menu -->
 
-					<nav class="w3-sidenav w3-collapse w3-animate-left" style="z-index:3;width:180px;" id="mySidenav"><br>
+					<nav class="w3-sidenav w3-collapse w3-animate-left" style="z-index:3;width:200px;" id="mySidenav"><br>
 						<div class="w3-container-fluid">
 							
 							<a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding" title="close menu">
@@ -124,7 +124,11 @@ body {
 						</div>
 	  
 						<a href="DoctorDetails.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Home </a>
-						<a href="approvepatient.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Approve Patient </a> 
+						<a href="PatientApprove.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Approve Patient </a> 
+
+						<a href="ApproveDonor.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Approve Donor </a> 
+						<a href="ApproveReceiver.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Approve Receiver </a> 
+
 						<a href="Psearch.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Search Patients</a> 
 						<a href="Mreport.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> Upload Report </a>
 						<a href="Result.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> Match List  </a>
@@ -134,7 +138,7 @@ body {
 
 		
 
-  <nav class="navbar navbar-default topbar" style="margin-left:190px">
+  <nav class="navbar navbar-default topbar" style="margin-left:210px">
 		<div class="container-fliud">
 
 			<div class="navbar-header">

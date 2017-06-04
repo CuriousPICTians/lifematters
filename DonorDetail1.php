@@ -109,9 +109,17 @@ session_start();
   if($con)
   {
     $database=$con->organ;
+    
     $collection=$database->donorinfo;
     $cursor = $collection->find(array("email"=>$_SESSION['email']));
     $cursor_count = $cursor->count();
+
+
+    $collection2=$database->docinfo;
+    $cursor2 = $collection2->find();
+    $cursor_count = $cursor2->count();
+
+
     foreach ($cursor as $venue)
     {
 ?>
@@ -211,6 +219,7 @@ session_start();
   <!-- End Grid -->
   </div>
   
+
 
 
 
@@ -337,6 +346,38 @@ session_start();
         </form>
       </div>
         </div>
+
+
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+
+
+
+<div class="modal fade" id="link" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading"> Add Doctor to Profile </h4>
+      </div>
+          <div class="modal-body">
+
+       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure...?</div>
+       
+      </div>
+      <div class="modal-footer ">
+
+       <?php echo "<div class='action'> <a href='DoctorView.php'> 
+        
+        <button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> YES </button> </a> 
+         <button type='button' class='btn btn-default w3-red' data-dismiss='modal'> <span class='glyphicon glyphicon-remove'></span> NO </button> </div>" ; ?>
+
+      </div>
+    
+        </div>
+
 
 
     <!-- /.modal-content --> 
