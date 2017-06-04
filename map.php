@@ -5,8 +5,8 @@ $con = new MongoClient();
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 /***********Proxy*********************/								//comment out if not using proxy
-//curl_setopt($ch, CURLOPT_PROXY, "192.168.8.253");
-//curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
+curl_setopt($ch, CURLOPT_PROXY, "192.168.16.253");
+curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
 /*************************************/
 $database = $con->organ;
 
@@ -42,7 +42,7 @@ if($j > 1) {$j = 1; break;}											//remove or modify
 
 
 	  	$url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins='.$var1.'&destinations='.$var2;
-		$url = str_replace(" ", '%20', $url);
+		$url = str_replace(" ", '%20', $url);	
 
 	  	curl_setopt($ch, CURLOPT_URL, $url);
 		$result = json_decode(curl_exec($ch), $assoc = true);
