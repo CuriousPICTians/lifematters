@@ -124,9 +124,7 @@ body {
 							<p> <b>Project by PICT </b></p>
 						</div>
 					
-						<a href="RecieverDetail.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Reciever Detail </a>
-						<a href="RecieverUpdate.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Update Information </a> 
-						<a href="CheckStatus.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-bars fa-fw w3-margin-right"></i> Check Status </a> 
+						<a href="RecieverDetail.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Receiver Detail </a>
 						<a href="logout.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-spinner fa-spin fa-fw w3-margin-right"></i> Logout </a>
 						
 					</nav>

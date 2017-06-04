@@ -135,155 +135,58 @@ $(document).ready(function(){
 	<body class="w3-theme-l5">
 		
 	
+
 <?php
 
-session_start();
+  session_start();
 
   $con = new MongoClient();
   if($con)
   {
     $database=$con->organ;
+    
     $collection=$database->docinfo;
     $cursor = $collection->find(array("email"=>$_SESSION['email']));
     $cursor_count = $cursor->count();
+
+
+    $collection2=$database->hospitalinfo;
+    $cursor2 = $collection2->find();
+    $cursor_count = $cursor2->count();
+
+
     foreach ($cursor as $venue)
     {
 ?>
 
+
 <!-- Page Container -->
 
 
-<div class="w3-container w3-content" style="max-width:1200px;margin-top:20px">    
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
 
 
   <!-- The Grid -->
   <div class="w3-row">
 
 <div class="w3-row-padding">
-        <div class="w3-col m10">
+        <div class="w3-col m12">
           <div class="w3-card-2 w3-round w3-white">
             <div class="w3-container w3-padding">
-								<label class="w3-right"> Edit Profile :- &nbsp; 
 
-								<button type="button" class="w3-btn w3-red w3-round w3-margin-right w3-medium" data-title='Confirm' data-toggle='modal' data-target='#confirm' > 
 
-								<span class="glyphicon glyphicon-eye-open"></span> Edit </button> </label>
-															<h6 class=" "> Wel-Come </h6>
+          <span class="w3-right "> <label class="w3-right">
+          <button type="button" class="btn btn-info btn-s w3-right w3-purple" data-title='Confirm' data-toggle='modal' data-target='#link' > 
+          <span class="glyphicon glyphicon-eye-open"></span> Add / Change Hospital </button> </label> </span>
+
+								
+          <span class="w3-right "> <label class="w3-right">
+          <button type="button" class="btn btn-info btn-s w3-right w3-red" data-title='Confirm' data-toggle='modal' data-target='#confirm' > 
+          <span class="glyphicon glyphicon-eye-open"></span> Edit Profile </button> </label> </span>
+															
+                <h6 class=" "> Wel-Come </h6>
 																
-<!-------------------------  modal for edit profile ------------------------------------>
 
-								<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-      					<div class="modal-dialog modal-lg" role="document">
-    						<div class="modal-content">
-        			  <div class="modal-header">
-      				  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
- 					      <h4 class="modal-title custom_align" id="Heading"> Fill Information </h4>
-    				  	</div>
-          <div class="modal-body custom-height-modal">
-       
-      <form class="form-horizontal" method="post" action="">
-         
-				 <fieldset>
-       
-          <div id="edit_farmer" style="display:none"></div>
- 
-         
-          <div class="row form-group">
-		
-            <label class="col-md-2 control-label" for="first_name">First Name:-</label>  
-						<div class="col-md-2">
-						<?php echo" <input  name='fname'  class='form-control input-md-2' value=".$venue ['fname']. " type='text'> "; ?>
-						</div>
-
-            <label class="col-md-2 control-label" for="middle_name">Middle Name:-</label>  
-            <div class="col-md-2">
-						<?php  echo" <input name='mname' class='form-control input-md' value =" .$venue ['mname']. " type='text'> "; ?>           												 
-						</div>
-
-            <label class="col-md-2 control-label" for="last_name">Last Name :-</label>  
-							            <div class="col-md-2">
-																							<?php echo "<input name='lname' class='form-control input-md' value=" .$venue ['lname']. " type='text' >"; ?>
-           							</div>
-          </div>
-
-         
-          <div class="row form-group">
-						
-												<label class="col-md-2 control-label" for="smartphone"> phone No.:-  </label>
-           									 <div class="col-md-2">
-																										 <?php  echo" <input name='docphno' class='form-control input-md' value =" .$venue ['docphno']. " type='text'> "; ?>   
-            									</div>
-
-
-													<label class="col-md-2 control-label" for="dochospital"> Hospital :-</label>  
-							            <div class="col-md-2">
-																							<?php  echo" <input name='dochospital' class='form-control input-md' value=".$venue ['dochospital']. " type='text'>"; ?>
-           							</div>
-
-												<label class="col-md-2 control-label" for="smartphone"> Registration No :-  </label>
-           									 <div class="col-md-2">
-																										 <?php  echo" <input name='grno' class='form-control input-md' value =" .$venue ['grno']. " type='text'> "; ?>   
-            									</div>
-          </div>
-
-<div class="row form-group">
-						
-												<label class="col-md-2 control-label" for="smartphone">  Date of Registration:-  </label>
-           									 <div class="col-md-2">
-																										 <?php  echo" <input name='day' class='form-control input-md' value =" .$venue ['day']. " type='text'> "; ?>   
-            									</div>
-
-
-													<label class="col-md-2 control-label" for="last_name"> State Medical Council :-</label>  
-							            <div class="col-md-2">
-																							<?php  echo" <input name='medicalcouncil' class='form-control input-md' value=".$venue ['medicalcouncil']. " type='text'>"; ?>
-           							</div>
-
-												<label class="col-md-2 control-label" for="smartphone"> QUALIFICATION:-  </label>
-           									 <div class="col-md-2">
-																										 <?php  echo" <input name='qualifi' class='form-control input-md' value =" .$venue ['qualifi']. " type='text'> "; ?>   
-            									</div>
-          </div>
-
-
-<div class="row form-group">
-						
-												<label class="col-md-2 control-label" for="smartphone">  qualification Year:-  </label>
-           									 <div class="col-md-2">
-																										 <?php  echo" <input name='day1' class='form-control input-md' value =" .$venue ['day1']. " type='text'> "; ?>   
-            									</div>
-
-
-													<label class="col-md-2 control-label" for="last_name"> University :-</label>  
-							            <div class="col-md-2">
-																							<?php  echo" <input name='univername' class='form-control input-md' value=".$venue ['univername']. " type='text'>"; ?>
-           							</div>
-
-<label class="col-md-2 control-label" for="last_name"> perment Address :-</label>  
-							            <div class="col-md-2">
-																							<?php  echo" <input name='paddress' class='form-control input-md' value=".$venue ['paddress']. " type='text'>"; ?>
-           							</div>
-          </div>
-
- 
-          <div class="form-group row">
-           
-											 <div class="col-md-8 text-center">
-              <button type="submit" name="submit" value="submit" class="btn btn-large btn-success"> Save Information</button>
-              <button class="btn btn-large btn-danger" type="button" data-dismiss="modal" > Cancel </button>
-
-            </div>
-          </div>
-          </fieldset>
-        </form>
-      </div>
-        </div>
-
-
-    <!-- /.modal-content --> 
-  </div>
-      <!-- /.modal-dialog --> 
-    </div>
 
             </div>
           </div>
@@ -297,7 +200,7 @@ session_start();
 
 
     <!-- Left Column -->
-    <div class="w3-col m4	">      
+    <div class="w3-col m5	">      
 
 							
 
@@ -309,7 +212,7 @@ session_start();
 			<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-user-md fa-fw w3-margin-right w3-text-theme'></i> Doctor Name :- "  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>"; ?>        
 			<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Contact Number :- " .$venue ['docphno'] ." </p>"; ?>																					
 			<?php	echo"<p><i class='fa fa-at fa-fw w3-margin-right w3-text-theme'></i> Email-ID :- " .$venue ['email'] ." </p>"; ?>
-			<?php	echo"<p><i class='fa fa-briefcase fa-fw w3-margin-right w3-text-theme'></i> work at :- " .$venue ['dochospital'] ." </p>"; ?>
+  			<?php	echo"<p><i class='fa fa-briefcase fa-fw w3-margin-right w3-text-theme'></i> work at :- " .$venue ['Hos'] ." </p>"; ?>
 			<?php	echo"<p><i class='fa fa-address-book fa-fw w3-margin-right w3-text-theme'></i> Permanent Address	 :- " .$venue ['paddress'] ." </p>"; ?>
         </div>
       </div> 
@@ -323,14 +226,16 @@ session_start();
 
     
     <!-- Middle Column -->
-    <div class="w3-col m6">
+    <div class="w3-col m5">
 
     <div class="w3-row-padding">
     <div class="w3-col m12">
 
 <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-      <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Registration Details :- </h4>
+          
+
+      <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Registration Details </h4>
 
          <hr>
 								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> Registration Number :- "  .$venue ['grno'] ."</p>"; ?>        
@@ -342,7 +247,7 @@ session_start();
 
 <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-         <h4 class="w3-center"> <img src="img/qu1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Qualification Details :- </h4>
+         <h4 class="w3-center"> <img src="img/qu1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Qualification Details </h4>
          <p class="w3-center"> </p>
          <hr>
 								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> qualification :- ".$venue['qualifi']."</p>"; ?>
@@ -361,8 +266,176 @@ session_start();
 
 
 
+ <!-- Right Column -->
+    <div class="w3-col m2">
+      <div class="w3-card-2 w3-round w3-white w3-center">
+        <div class="w3-container">
+
+ <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Status </h4>
+
+         <hr>
+                <?php echo"<p> <b>Hospital </b>:- ".$venue['Hos']."</p>"; ?>
+                <?php echo"<p> <b>Status </b> :- ".$venue['status']."</p>"; ?>
+
+
+        </div>
+      </div>
+      <br>
+      
+      
+      
+    <!-- End Right Column -->
+    </div>  
+
   <!-- End Grid -->
   </div>
+
+
+
+
+                                
+<!-------------------------  modal for edit profile ------------------------------------>
+
+                <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title custom_align" id="Heading"> Fill Information </h4>
+                </div>
+          <div class="modal-body custom-height-modal">
+       
+      <form class="form-horizontal" method="post" action="">
+         
+         <fieldset>
+       
+          <div id="edit_farmer" style="display:none"></div>
+ 
+         
+          <div class="row form-group">
+    
+            <label class="col-md-2 control-label" for="first_name">First Name:-</label>  
+            <div class="col-md-2">
+            <?php echo" <input  name='fname'  class='form-control input-md-2' value=".$venue ['fname']. " type='text'> "; ?>
+            </div>
+
+            <label class="col-md-2 control-label" for="middle_name">Middle Name:-</label>  
+            <div class="col-md-2">
+            <?php  echo" <input name='mname' class='form-control input-md' value =" .$venue ['mname']. " type='text'> "; ?>                                    
+            </div>
+
+            <label class="col-md-2 control-label" for="last_name">Last Name :-</label>  
+                          <div class="col-md-2">
+                                              <?php echo "<input name='lname' class='form-control input-md' value=" .$venue ['lname']. " type='text' >"; ?>
+                        </div>
+          </div>
+
+         
+          <div class="row form-group">
+            
+                        <label class="col-md-2 control-label" for="smartphone"> phone No.:-  </label>
+                             <div class="col-md-2">
+                                                     <?php  echo" <input name='docphno' class='form-control input-md' value =" .$venue ['docphno']. " type='text'> "; ?>   
+                              </div>
+
+
+                        <label class="col-md-2 control-label" for="smartphone"> Registration No :-  </label>
+                             <div class="col-md-2">
+                                                     <?php  echo" <input name='grno' class='form-control input-md' value =" .$venue ['grno']. " type='text'> "; ?>   
+                              </div>
+          </div>
+
+<div class="row form-group">
+            
+                        <label class="col-md-2 control-label" for="smartphone">  Date of Registration:-  </label>
+                             <div class="col-md-2">
+                                                     <?php  echo" <input name='day' class='form-control input-md' value =" .$venue ['day']. " type='text'> "; ?>   
+                              </div>
+
+
+                          <label class="col-md-2 control-label" for="last_name"> State Medical Council :-</label>  
+                          <div class="col-md-2">
+                                              <?php  echo" <input name='medicalcouncil' class='form-control input-md' value=".$venue ['medicalcouncil']. " type='text'>"; ?>
+                        </div>
+
+                        <label class="col-md-2 control-label" for="smartphone"> QUALIFICATION:-  </label>
+                             <div class="col-md-2">
+                                                     <?php  echo" <input name='qualifi' class='form-control input-md' value =" .$venue ['qualifi']. " type='text'> "; ?>   
+                              </div>
+          </div>
+
+
+<div class="row form-group">
+            
+                        <label class="col-md-2 control-label" for="smartphone">  qualification Year:-  </label>
+                             <div class="col-md-2">
+                                                     <?php  echo" <input name='day1' class='form-control input-md' value =" .$venue ['day1']. " type='text'> "; ?>   
+                              </div>
+
+
+                          <label class="col-md-2 control-label" for="last_name"> University :-</label>  
+                          <div class="col-md-2">
+                                              <?php  echo" <input name='univername' class='form-control input-md' value=".$venue ['univername']. " type='text'>"; ?>
+                        </div>
+
+<label class="col-md-2 control-label" for="last_name"> perment Address :-</label>  
+                          <div class="col-md-2">
+                                              <?php  echo" <input name='paddress' class='form-control input-md' value=".$venue ['paddress']. " type='text'>"; ?>
+                        </div>
+          </div>
+
+ 
+          <div class="form-group row">
+           
+                       <div class="col-md-8 text-center">
+              <button type="submit" name="submit" value="submit" class="btn btn-large btn-success"> Save Information</button>
+              <button class="btn btn-large btn-danger" type="button" data-dismiss="modal" > Cancel </button>
+
+            </div>
+          </div>
+          </fieldset>
+        </form>
+      </div>
+        </div>
+
+
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+
+
+
+<div class="modal fade" id="link" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading"> Add Doctor to Profile </h4>
+      </div>
+          <div class="modal-body">
+
+       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure...?</div>
+       
+      </div>
+      <div class="modal-footer ">
+
+       <?php echo "<div class='action'> <a href='DoctorUpdate.php'> 
+        
+        <button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> YES </button> </a> 
+         <button type='button' class='btn btn-default w3-red' data-dismiss='modal'> <span class='glyphicon glyphicon-remove'></span> NO </button> </div>" ; ?>
+
+      </div>
+    
+        </div>
+
+
+
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+
   
 
 <!-- End Page Container -->
@@ -397,6 +470,15 @@ $data=array('fname'=>$fname,'mname'=>$mname,'lname'=>$lname,'docphno'=>$docphno,
 
 }
 $cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
+
+?>
+
+  <script>
+  alert('Successfully ');
+                  window.location.href="DoctorDetails.php";
+               </script>
+
+<?php
 
 }
 ?>

@@ -103,7 +103,7 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 	
 <?php
 
-  session_start();
+session_start();
 
   $con = new MongoClient();
   if($con)
@@ -125,25 +125,20 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 ?>
 
 <!-- Page Container -->
-<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
+<div class="w3-container w3-content" style="max-width:1100px;margin-top:20px">    
   <!-- The Grid -->
   <div class="w3-row">
 
 
 <div class="w3-row-padding">
-        <div class="w3-col m12">
+        <div class="w3-col m11">
           <div class="w3-card-2 w3-round w3-white">
             <div class="w3-container w3-padding">
+<label class="w3-right"> Edit Profile :- &nbsp; 
 
-          <span class="w3-right "> <label class="w3-right">
-          <button type="button" class="btn btn-info btn-s w3-right w3-purple" data-title='Confirm' data-toggle='modal' data-target='#link' > 
-          <span class="glyphicon glyphicon-eye-open"></span> Add / Change Hospital </button> </label> </span>
+<button type="button" class="btn btn-info btn-s w3-right" data-title='Confirm' data-toggle='modal' data-target='#confirm' > 
 
-                
-          <span class="w3-right "> <label class="w3-right">
-          <button type="button" class="btn btn-info btn-s w3-right w3-red" data-title='Confirm' data-toggle='modal' data-target='#confirm' > 
-          <span class="glyphicon glyphicon-eye-open"></span> Edit Profile </button> </label> </span>
-
+<span class="glyphicon glyphicon-eye-open"></span> Edit </button> </label>
               <h6 class=" "> Wel-Come </h6>
               
             </div>
@@ -153,56 +148,21 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 <hr>
 
     <!-- Left Column -->
-    <div class="w3-col m5">      
+    <div class="w3-col m4">      
 
 							
 
       <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
          <h4 class="w3-center"> Profile</h4>
-
          <p class="w3-center"><img src="img/a1.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
-        <?php echo" <p style='text-transform:uppercase'> <i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i> Donor Name :- ".$venue ['firstname'] ."  " .$venue ['middlename'] . "  "  .$venue ['lastname'] . " </p>"; ?>
+        <?php echo" <p style='text-transform:uppercase'> <i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i> Patient Name :- ".$venue ['firstname'] ."  " .$venue ['middlename'] . "  "  .$venue ['lastname'] . " </p>"; ?>
 								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> Hospital :-"  .$venue ['hospital'] ."</p>"; ?>        
-
-              <?php if($venue['organ']==1)
- 							echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Kidney </p>"; ?>        
-								
-              <?php if($venue['organ']==2)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Liver </p>"; ?>        
-                
-              <?php if($venue['organ']==3)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Heart </p>"; ?>        
-                
-
-                <?php if($venue['blood']==1)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : A+ </p>"; ?> 
-
-                <?php if($venue['blood']==2)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : A- </p>"; ?>
-
-                <?php if($venue['blood']==3)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : B+ </p>"; ?>
-
-                <?php if($venue['blood']==4)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : B- </p>"; ?>
-
-                <?php if($venue['blood']==5)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : O+ </p>"; ?>                   
-                
-                <?php if($venue['blood']==6)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : O- </p>"; ?>
-
-                <?php if($venue['blood']==7)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : AB+ </p>"; ?>    		
-
-                 <?php if($venue['blood']==8)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : AB- </p>"; ?> 
-
-
+ 							<?php echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ :-" .$venue ['organ'] . "</p>"; ?>        
+								<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group :-" .$venue ['blood'] ." </p>"; ?>																					
 									<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> Gender :-" .$venue ['gender'] ." </p>"; ?>
-         <?php echo"<p><i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> DOB :-" .$venue  ['day'] ."</p>";?>
+         <?php echo"<p><i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> DOB :-" .$venue  ['day'] .$venue  ['month'].$venue  ['year']. "</p>";?>
         </div>
       </div> 
 				
@@ -214,7 +174,7 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 
 
 <!-- Middle Column -->
-    <div class="w3-col m5">
+    <div class="w3-col m7">
 
     <div class="w3-row-padding">
     <div class="w3-col m12">
@@ -222,33 +182,22 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 
 <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
+        <span class="w3-right w3-opacity"> <label class="w3-right">
+					<button type="button" class="btn btn-info btn-s w3-right w3-red" data-title='Confirm' data-toggle='modal' data-target='#link' > 
+					<span class="glyphicon glyphicon-eye-open"></span> Add / Change Doctor </button> </label> </span>
 
-       
-
-         <h4 class="w3-center"> <img src="img/z1.jpg" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Organ Donation Details </h4>
+         <h4 class="w3-center"> <img src="img/z1.jpg" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Organ Donation Details :- </h4>
          <p class="w3-center"> </p>
          <hr>
 								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> Donation at :- ".$venue['hospital']."</p>"; ?>
-
-                <?php if($venue['organ']==1)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Follwing Organ to be Donoted :  Kidney </p>"; ?>        
-                
-              <?php if($venue['organ']==2)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Follwing Organ to be Donoted :  Liver </p>"; ?>        
-                
-              <?php if($venue['organ']==3)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Follwing Organ to be Donoted :  Heart </p>"; ?>   
-
-
+								<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> Follwing Organ to be donoted :- ".$venue['organ']."</p>"; ?>
 
         </div>
       </div>
 <hr>
-
-
 <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-      <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Contact Details </h4>
+      <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Contact	 Details :- </h4>
 
          <hr>
 								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> Mobile Number :- "  .$venue ['mobileno'] ."</p>"; ?>        
@@ -266,32 +215,6 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
           
   <!-- End Middle Column -->
     </div>
-
-
-
- <!-- Right Column -->
-    <div class="w3-col m2">
-      <div class="w3-card-2 w3-round w3-white w3-center">
-        <div class="w3-container">
-
- <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Status </h4>
-
-         <hr>
-                <?php echo"<p> <b>Doctor </b>:- ".$venue['Doc']."</p>"; ?>
-                <?php echo"<p> <b>Status </b> :- ".$venue['status']."</p>"; ?>
-
-
-        </div>
-      </div>
-      <br>
-      
-      
-      
-    <!-- End Right Column -->
-    </div>
-    
-
-
 
   <!-- End Grid -->
   </div>
@@ -446,7 +369,7 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
       </div>
       <div class="modal-footer ">
 
-       <?php echo "<div class='action'> <a href='DonorUpdate.php'> 
+       <?php echo "<div class='action'> <a href='DoctorView.php'> 
         
         <button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> YES </button> </a> 
          <button type='button' class='btn btn-default w3-red' data-dismiss='modal'> <span class='glyphicon glyphicon-remove'></span> NO </button> </div>" ; ?>
@@ -495,17 +418,6 @@ $data=array('firstname'=>$firstname,'middlename'=>$middlename,'lastname'=>$lastn
           'address'=>$address,'city'=>$city,'state'=>$state,'nati'=>$nati,'zipcode'=>$zipcode);
 }
 $cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
-
-?>
-
-  <script>
-  alert('Successfully ');
-                  window.location.href="DonorDetail.php";
-               </script>
-
-<?php
-  
-
 
 }
 ?>

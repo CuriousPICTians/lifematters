@@ -5,11 +5,11 @@
 
 <title> Registration </title>
 
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
 
 
 <!--  jQuery -->
@@ -22,9 +22,9 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
-	
-		<!-- W3.CSS is a modern CSS framework -->		
-		<link rel="stylesheet" href="w3.css">
+
+    <!-- W3.CSS is a modern CSS framework -->   
+    <link rel="stylesheet" href="w3.css">
 
 <link rel="stylesheet" href="w3-theme-blue-grey.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
@@ -67,7 +67,7 @@
 </script>
 
 
-<body >
+<body>
 
 
 <?php
@@ -79,218 +79,135 @@ session_start();
 
     $database=$con->organ;
 
-    $collection=$database->receiverinfo;
+    $collection1=$database->docinfo;
 
 
- $cursor = $collection->find(array("email" => $_SESSION['email']));
+ $cursor1 = $collection1->find();
 
- $cursor_count = $cursor->count();
+ $cursor_count1 = $cursor1->count();
 
- if($cursor_count)
+ if($cursor_count1)
 
-  foreach ($cursor as $venue) 
+  //foreach ($cursor as $venue) 
 {
 ?>
 
-<div class="container-fluid" style="margin-top:50px;max-width:1100px">
-        <form class="form-horizontal" method="post" action="">
-         
-				 <fieldset>
-       
-          <div id="edit_farmer" style="display:none"></div>
- 
-         <div class="row">
-            <div class="col-md-4 panel panel-heading"><h4><b> Personal Information </b></h4></div>
-            <div class="col-md-4 panel panel-heading" style="display:none; color:red" id="contact_error"></div>
-          </div>
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1100px;margin-top:20px">    
 
-          <div class="row form-group">
-		
-            <label class="col-md-2 control-label" for="first_name">First Name :-</label>  
-							            <div class="col-md-2">
-																	<?php						echo" <input  name='firstname'  class='form-control input-md-2' value=".$venue ['firstname']. " type='text'> "; ?>
-																		</div>
+<form class="form-horizontal" method="post" action="">
 
-            <label class="col-md-2 control-label" for="middle_name">Middle Name :-</label>  
-            							<div class="col-md-2">
-																							<?php  echo" <input name='middlename' class='form-control input-md' value =" .$venue ['middlename']. " type='text'> "; ?>           												 
-																			</div>
+  <!-- The Grid -->
+  <div class="w3-row">
+  
+  
 
-            <label class="col-md-2 control-label" for="last_name">Last Name :-</label>  
-							            <div class="col-md-2">
-																							<?php echo "<input name='lastname' class='form-control input-md' value=" .$venue ['lastname']. " type='text' >"; ?>
-           							</div>
-          </div>
+<!-- Left Column -->
+    <div class="w3-col m5">      
 
-         
-          <div class="row form-group">
-						
-												<label class="col-md-2 control-label" for="smartphone"> Gender:-  </label>
-           									 <div class="col-md-2">
-																										 <?php  echo" <input name='gender' class='form-control input-md' value =" .$venue ['gender']. " type='text'> "; ?>   
-            									</div>
+              
 
-           <!-- <label class="col-md-2 control-label" for="smartphone"> Gender:-  </label>
-           									 <div class="col-md-2">
-		
-																										 <select name="gender" class="form-control" >
+      <div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center"> ADD or Change Doctor </h4>
+         <p class="w3-center"><img src="img/doc.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <hr>
+        
+<div class="form-inline">
 
-																										<?php				echo"	<option value='Select'>" .$venue ['gender']. "</option> "; ?>
-																															<option value="male"> Male </option>
-																															<option value="femalw">Female </option>
-																															<option value="other">Other </option>
-																											</select>
-																									</select>
-            									</div>-->
+    <label for="ex2"> <b>Select Doctor :- </b> </label> &nbsp;&nbsp;&nbsp;&nbsp;
+                     
+ <select name="Doc" class="form-control" style="width:220px;">
 
-													<label class="col-md-2 control-label" for="last_name"> Birth Date :-</label>  
-							            <div class="col-md-2">
-																							<?php  echo" <input name='day' class='form-control input-md' value=".$venue  ['day'].$venue  ['month'].$venue  ['year']. " type='text'>"; ?>
-           							</div>
+       <?php foreach ($cursor1 as $venue) 
+        {
+       ?>
+    
+            <?php 
+             if($venue['status']==Confirmed)    
 
-												<label class="col-md-2 control-label" for="smartphone"> Blood Group :-  </label>
-           									 <div class="col-md-2">
-																										 <?php  echo" <input name='blood' class='form-control input-md' value =" .$venue ['blood']. " type='text'> "; ?>   
-            									</div>
-													<!-- <label class="col-md-2 control-label" for="smartphone"> Blood Group:-  </label>
-           									 <div class="col-md-2">
-		
-																										 <select name="blood" class="form-control">
+            echo  "<option value= " .$venue['email']. " >" .$venue['email']. "</option>"; ?>\
+        <?php
+         }
+        ?>
+      </select>       
+    
 
-																															<?php echo"<option value='Select'>" .$venue ['blood']. "</option>"; ?>
-																															<option value="A+">A+</option>
-																															<option value="A-">A-</option>
-																															<option value="B+">B+</option>
-																															<option value="B-">B-</option>
-																															<option value="O+">O+</option>
-																															<option value="O-">O-</option>
-																															<option value="AB+">AB+</option>
-																															<option value="AB-">AB-</option>
-																											</select>
-																									</select>
-            									</div>-->
+</div>
 
-																												
+<hr>
 
-          </div>
-
- <div class="row form-group">
-		
-            <label class="col-md-2 control-label" for="first_name"> Birth Place :-</label>  
-							            <div class="col-md-2">
-																							 <?php echo"<input name='dobplace'  class='form-control input-md-2' value=" .$venue ['dobplace']. " type='text'>"; ?>
-																		</div>
-
-            <label class="col-md-2 control-label" for="mobile">Contact No :-</label>
-            					<div class="col-md-2">
-   								 										
-              							<?php echo"	<input  maxlength='10' name='mobileno' class='form-control input-md ac_mobile' value=" .$venue ['mobileno']. " type='text'  >"; ?>
-		
-            					</div>
-
-            <label class="col-md-2 control-label" for="last_name"> Adhar Number :-</label>  
-							            <div class="col-md-2">
-																							<?php echo" <input name='adharno' class='form-control input-md'  value=" .$venue  ['adharno']. " type='text'>"; ?>
-           							</div>
-          </div>
-										
-       
-
-		
-          <div class="row">
-            <div class="col-md-4 panel panel-heading"><h4><b>Address Information</b> </h4>   </div>
-            <div class="col-md-4 panel panel-heading" style="display:none; color:red" id="address_error"></div>
-          </div>
-
-          <div class="row form-group">
-          
-																		
-																
-								        <label class="col-md-2 control-label" for="street_address">Address:- </label>
-								        <div class="col-md-2	">
-																				 <?php echo"<textarea class='form-control' name='address'>" .$venue ['address']. " </textarea>"; ?>
-					       				 </div>
-
-										       
-
-																	<label class="col-md-2 control-label" for="district"> City / District:- </label>
-												       <div class="col-md-2">
-
-										        <?php  echo"<input name='city' class='form-control input-md ac_district' value=" .$venue ['city']. " type='text'>"; ?>
-										       </div>
-
-          </div>
-
-          <div class="row form-group">
-
-									        <label class="col-md-2 control-label" for="taluka">State:- </label>  
-								        <div class="col-md-2">
-								          <?php echo"<input name='state' class='form-control input-md ac_taluka'  value=" .$venue ['state']. " type='text'>"; ?>
-								        </div>
-
-								       
-								        <label class="col-md-2 control-label" for="PinCode">Pin Code:- </label>  
-								        <div class="col-md-2">
-								         <?php echo "<input name='zipcode' class='form-control input-md' value=".$venue ['zipcode']. " type='text'>"; ?>
-								        </div>
-
-																	<label class="col-md-2 control-label" for="pin_code">  Nationality:-  </label>  
-								        <div class="col-md-2">
-								         <?php echo "<input name='nati' class='form-control input-md' value=" .$venue ['nati']. " type='text'>"; ?>
-								        </div>
-	
+          <div class="form-group row">
+           
+                       <div class="col-md-8 text-center">
+              <button type="submit" name="submit" value="submit" class="btn btn-large btn-success"> Select </button>
+              <button class="btn btn-large btn-danger" type="button" onclick=history.go(-1)> Cancel </button>
+            </div>
           </div>
 
 
-          <div class="row form-group">
 
-          </div>
+        </div>
+      </div> 
+        
+        <!-- End Left Column -->
+    </div>
 
-<?php 
- }
 
+          <?php } ?>
+
+<!-- End Grid -->
+</div>
+
+
+</form>
+
+
+<!-- End Page Container -->
+</div>
+
+
+
+<?php
+
+//session_start();
+
+  $con = new MongoClient();
+  $database=$con->organ;
+  $collection=$database->receiverinfo;
+
+  $cursor = $collection->find(array("email" => $_SESSION['email']));
+
+  $cursor_count = $cursor->count();
+
+  if($cursor_count)
+
+  foreach ($cursor as $venue) 
+{
 
     if(isset($_POST['submit']))
 {
 
-    $firstname=$_POST['firstname'];
-    $middlename=$_POST['middlename'];
-    $lastname=$_POST['lastname'];
-    $gender=$_POST['gender'];   
-    $bdate=$_POST['day'];
-    $blood=$_POST['blood'];
-    $dobplace=$_POST['dobplace'];
-    $mobileno=$_POST['mobileno'];
-    $adharno=$_POST['adharno'];
-    $address=$_POST['address'];
-    $city=$_POST['city'];
-    $state=$_POST['state'];
-    $nati=$_POST['nati'];
-    $zipcode=$_POST['zipcode'];
+    $Doc=$_POST['Doc'];
+    $data=array('Doc'=>$Doc,"status"=>"pending");
+    $cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
 
 
-$data=array('firstname'=>$firstname,'middlename'=>$middlename,'lastname'=>$lastname,'gender'=>$gender,
-          'day'=>$bdate,'blood'=>$blood,'dobplace'=>$dobplace,'mobileno'=>$mobileno,'adharno'=>$adharno,
-          'address'=>$address,'city'=>$city,'state'=>$state,'nati'=>$nati,'zipcode'=>$zipcode);
+    ?>
 
-$cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
+  <script>
+  alert('Successfully ');
+                  window.location.href="RecieverDetail.php";
+               </script>
+
+<?php
+  }
 
 }
+
+
+
 ?>
-<p> ------------------------------------------------------------------------------------------
-				------------------------------------------------------------------------------------------ </p>
-          <div class="form-group row">
-           
-											 <div class="col-md-8 text-center">
-              <button type="submit" name="submit" value="submit" class="btn btn-large btn-success"> Save Information</button>
-              <button class="btn btn-large btn-danger" type="button" onclick=history.go(-1)> Cancel </button>
-            </div>
-          </div>
-          </fieldset>
-        </form>
-      </div>
-
-
 
 </body>
 </html>
