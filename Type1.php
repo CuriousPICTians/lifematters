@@ -49,31 +49,27 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
               <h6 class=""> Alive Donoer Can Donote Following Orgas Only : </h6>
               
 <hr>
-
-
-								<ol>
-													<li> <img src="img/Kidney.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
-																		<a href="#" title="About Kidney" data-toggle="popover" data-trigger="hover" data-content="Your kidneys filter wastes from your blood and convert them to urine. 
-																		When your kidneys stop working you can develop kidney failure. Harmful wastes and fluids build up in your body and your blood pressure may rise. 
-																		You can live healthily with one kidney."> <b>Kidney</b>  </a> </li> 
-													<br>
-													<li>  <img src="img/Kidney.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
-																			<a href="#" title="About Kidney" data-toggle="popover" data-trigger="hover" data-content="Your kidneys filter wastes from your blood and convert them to urine. 	
-																				When your kidneys stop working you can develop kidney failure. Harmful wastes and fluids build up in your body and your blood pressure may rise. 											
-																				You can live healthily with one kidney."><b> Liver </b> </a> </li>
-													<br>
-
-													<li>  <img src="img/Liver.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
-																			<a href="#" title="About Liver" data-toggle="popover" data-trigger="hover" data-content="Your liver produces bile to clean out your body. 
-																						If your liver isn’t working right, you will begin to feel tired, experience nausea, vomiting, decreased appetite, brown urine, 
-																						or even jaundice - yellowing in the whites of your eyes."><b> A Portion of the Liver </b> </a> </li>
-													<br>
-
-													<li>  <img src="img/Pancreas.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
-																			<a href="#" title="About Pancreas" data-toggle="popover" data-trigger="hover" data-content="Your pancreas is in your abdomen. 
-																											It produces insulin to control your blood sugar levels. If your pancreas is not working correctly your blood sugar level rises, 
-																											which can lead to  diabetes."> <b>Pancreas or Intestine </b> </a> </li>
-								</ol>
+<ol>
+<li> <img src="img/Kidney.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
+<a href="#" title="About Kidney" data-toggle="popover" data-trigger="hover" data-content="Your kidneys filter wastes from your blood and convert them to urine. 
+	When your kidneys stop working you can develop kidney failure. Harmful wastes and fluids build up in your body and your blood pressure may rise. 
+	You can live healthily with one kidney."> <b>Kidney</b>  </a> </li> 
+<br>
+<li>  <img src="img/Kidney.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
+<a href="#" title="About Kidney" data-toggle="popover" data-trigger="hover" data-content="Your kidneys filter wastes from your blood and convert them to urine. 	
+	When your kidneys stop working you can develop kidney failure. Harmful wastes and fluids build up in your body and your blood pressure may rise. 											
+	You can live healthily with one kidney."><b> Liver </b> </a> </li>
+<br>
+<li>  <img src="img/Liver.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
+<a href="#" title="About Liver" data-toggle="popover" data-trigger="hover" data-content="Your liver produces bile to clean out your body. 
+	If your liver isn’t working right, you will begin to feel tired, experience nausea, vomiting, decreased appetite, brown urine, 
+	or even jaundice - yellowing in the whites of your eyes."><b> A Portion of the Liver </b> </a> </li>
+<br>
+<li>  <img src="img/Pancreas.png" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
+<a href="#" title="About Pancreas" data-toggle="popover" data-trigger="hover" data-content="Your pancreas is in your abdomen. 
+	It produces insulin to control your blood sugar levels. If your pancreas is not working correctly your blood sugar level rises, 
+	which can lead to  diabetes."> <b>Pancreas or Intestine </b> </a> </li>
+</ol>
 
 
 <hr>
@@ -84,9 +80,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
   <label for="ex2"> <b>Select Which Organs You want to Donate :- </b> </label>	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;										
  <select name="organ" class="form-control" style="width:220px;">
 
-									<option value="1">Kidney</option>
-									<option value="2"> Liver</option>
-									<option value="3">Heart</option>
+	<option value="1">Kidney</option>
+	<option value="2"> Liver</option>
+	<option value="3">Heart</option>
 									
 </select>
 </div>
@@ -159,7 +155,7 @@ foreach ($cursor as $venue)
 
 <div class="form-inline">
 
-		<label for="ex2"> <b>Select Doctor :- </b> </label>	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;
+		<label for="ex2"> <b> Select Doctor :- </b> </label>	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;
 	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;
 	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;
 	&nbsp;&nbsp;&nbsp;&nbsp;											

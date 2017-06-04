@@ -195,9 +195,8 @@ session_start();
     ?>
 
   <script>
-  alert('Successfully ');
-                  window.location.href="DonorDetail.php";
-               </script>
+    alert('Successfully '); window.location.href="DonorDetail.php";
+  </script>
 
 <?php
   }

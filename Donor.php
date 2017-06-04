@@ -1,11 +1,11 @@
-	<!DOCTYPE html>
 
 <?php
 
-session_start();
-echo $_SESSION['uname'];
+//session_start();
 
 ?>
+	<!DOCTYPE html>
+
 	<html lang="en">
 	<html>
 

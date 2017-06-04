@@ -1,3 +1,9 @@
+<?php
+
+	session_start();
+	
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -221,26 +227,8 @@ var zc= signup1.zipcode.value;
 
 <body>
 
-<label> <h3>Personal Information :- </h3></label> 
+<label> <h3> Fill Information :- </h3></label> 
 
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-<?php
-
-	session_start();
-	echo $_SESSION['email'];
-
-?>
-<label> :-</label>
-<button type="submit" class="btn btn-default" onclick="location.href='logout.php'"> Logout </button>
 
 
 
@@ -250,12 +238,9 @@ var zc= signup1.zipcode.value;
 						<form method='post' name="signup1" action="DonorType.php" onSubmit="return formvalidate(signup1)">
 						<div class="row">
 		
-<p>	------------------------------------  ----------------------------------  ------------------------------------------------------------------  
-	------------------------------------  ----------------------------------  <p>
+<hr>
 
 
-
-<!----------------------------------------------------------------- 1 ------------------------------------------------------------------------------->
 						
 		
 			<div class="col-sm-4">
@@ -303,7 +288,6 @@ var zc= signup1.zipcode.value;
 				
 				
 				
-<!----------------------------------------------------------------- 2 --------------------------------------------------------------------------------->
 		
 		
 			<div class="col-sm-4">
@@ -354,7 +338,6 @@ var zc= signup1.zipcode.value;
 			</div>
 		
 		
-<!----------------------------------------------------------------- 3 --------------------------------------------------------------------------------->
 		
 		
 		
@@ -412,8 +395,8 @@ var zc= signup1.zipcode.value;
 
 		</div>
 		<br>
-		<p>	------------------------------------  ----------------------------------  ------------------------------------------------------------------  
-			------------------------------------  ----------------------------------  <p>
+
+		<hr>
 
 		<input type="submit" name="submit" class="btn btn-default" value="submit" tabindex="16"/>
 			<button type="reset" class="btn btn-default" tabindex="17" onclick="location.href='DDlogin.php'">Reset</button>
