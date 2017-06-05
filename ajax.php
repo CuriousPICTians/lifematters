@@ -26,33 +26,31 @@ function showUser(str) {
 </head>
 <body>
 
-<?php
-  $con = new MongoClient(); 
-  
-  if (!$con)
-      die('Could not connect: ');
-
-    $database=$con->organ;
-    $collection=$database->hospitalinfo;
-  
-    $cursor = $collection->find();
-?>
-
 <form>
 
-<select name="users" onchange="showUser(this.value)">
-<option value="">Select Hospital:</option>
-      <?php 
-      foreach ($cursor as $venue)
-        echo "<option value=".$venue['email'].">".$venue['hospital_name']."</option>";
-      ?>
-</select>
+
+<div class="form-inline">
+
+          <label for="ex2"> <b>Select Organs:- </b> </label>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+         <select name="organ" class="form-control" onchange="showUser(this.value)" style="width:220px;">
 
 
+                          <option value="0">Kidney</option>
+                          <option value="1"> Liver</option>
+                          <option value="2">Heart</option>
+                          
+        </select>
+        <br>
+        <select id="txtHint"></select>
+</div>
 
-<br>
-<select id="txtHint"></select>
 </form>
+
+
+
+
+
 
 </body>
 </html>
