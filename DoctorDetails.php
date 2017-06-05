@@ -428,22 +428,6 @@ $(document).ready(function(){
       </div>
     
         </div>
-
-
-
-    <!-- /.modal-content --> 
-  </div>
-      <!-- /.modal-dialog --> 
-    </div>
-
-  
-
-<!-- End Page Container -->
-</div>
-
-
-
-
 <?php
 
 
@@ -468,15 +452,11 @@ if(isset($_POST['submit']))
 $data=array('fname'=>$fname,'mname'=>$mname,'lname'=>$lname,'docphno'=>$docphno,'dochospital'=>$dochospital,'grno'=>$grno,
 'day'=>$day,'medicalcouncil'=>$medicalcouncil,'qualifi'=>$qualifi,'day1'=>$day1,'univername'=>$univername,'paddress'=>$paddress);
 
+$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
 }
-$cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
+
 
 ?>
-
-  <script>
-  alert('Successfully ');
-                  window.location.href="DoctorDetails.php";
-               </script>
 
 <?php
 

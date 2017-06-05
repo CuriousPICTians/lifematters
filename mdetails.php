@@ -65,7 +65,8 @@ $report2=$_POST['report2'];
 $_SESSION['report2']=$report2;
 
 $priority=$_POST['priority'];
-    $approved=$_POST['approved'];
+    
+$approved=$_POST['approved'];
 
 
 
@@ -86,12 +87,12 @@ if(isset($_POST['submit']))
 {
     if(isset($report1))
     {
-        $gridfs->storeUpload('pic', array('report1' => $_POST['report1'],'email' => $_SESSION['email']));
+        $gridfs->storeUpload('pic', array('report1' => $_POST['report1'],'email' => $_SESSION['pemail']));
     }
    //echo '<a href="d_test.php?file=picture.jpg">Download</a>';
     if(isset($report2))
     {
-        $gridfs->storeUpload('pic1', array('report2' => $_POST['report2'],'email' => $_SESSION['email']));
+        $gridfs->storeUpload('pic1', array('report2' => $_POST['report2'],'email' => $_SESSION['pemail']));
    // echo '<a href="r2.php?file=picture.jpg">Download</a>';
     }
     
@@ -105,9 +106,10 @@ if(isset($_POST['submit']))
         if($approved == 1)
         {
 
+echo $_SESSION['pemail'];
 				
-            $collection->update(array("email" => $_SESSION['email']),array('$set' => array('priority'=>$priority,'approved' => $approved)));
-			$collectionD->update(array("email" => $_SESSION['email']),array('$set' => array('priority'=>$priority,'approved' => $approved)));
+            $collection->update(array("email" => $_SESSION['pemail']),array('$set' => array('priority'=>$priority,'approved' => "1")));
+			$collectionD->update(array("email" => $_SESSION['pemail']),array('$set' => array('priority'=>$priority,'approved' => "1")));
 }
 ?>
 
