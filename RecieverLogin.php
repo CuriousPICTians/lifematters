@@ -1,3 +1,9 @@
+ 
+
+<?php
+session_start();
+?>
+
  <!DOCTYPE html>
  <html lang="en">
 <html>
@@ -202,8 +208,7 @@ function validateForm() {
 </html>
 
 <?php
-session_start();
-//echo $_SESSION['email'];
+
 
 if(isset($_POST['submit']))
 {

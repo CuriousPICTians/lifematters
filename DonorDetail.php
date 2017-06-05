@@ -1,14 +1,14 @@
+
 <?php
 
 session_start();
 
 ?>
 
-
-
 	<!DOCTYPE html>
 	
 <html lang="en">
+
 	<html>
 
 
@@ -112,7 +112,7 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 	
 <?php
 
-  
+
 
   $con = new MongoClient();
   
@@ -171,8 +171,9 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 
          <p class="w3-center"><img src="img/a1.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
-        <?php echo" <p style='text-transform:uppercase'> <i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i> Donor Name :- ".$venue ['firstname'] ."  " .$venue ['middlename'] . "  "  .$venue ['lastname'] . " </p>"; ?>
-								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> Hospital :-"  .$venue ['hospital'] ."</p>"; ?>        
+        <?php echo" <p style='text-transform:uppercase'> <i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i> <b> Donor Name :- </b>  ".$venue ['firstname'] ."  " .$venue ['middlename'] . "  "  .$venue ['lastname'] . " </p>"; ?>
+								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> <b> Hospital :-</b> "  .$venue ['hospital'] ."</p>"; ?>        
+
 
               <?php if($venue['organ']==0)
  							echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Kidney </p>"; ?>        
@@ -209,8 +210,8 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
                 echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : AB- </p>"; ?> 
 
 
-									<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> Gender :-" .$venue ['gender'] ." </p>"; ?>
-         <?php echo"<p><i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> DOB :-" .$venue  ['day'] ."</p>";?>
+									<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i><b> Gender </b>:-" .$venue ['gender'] ." </p>"; ?>
+         <?php echo"<p><i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b> DOB :- </b>" .$venue  ['day'] ."</p>";?>
         </div>
       </div> 
 				
@@ -236,16 +237,16 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
          <h4 class="w3-center"> <img src="img/z1.jpg" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Organ Donation Details </h4>
          <p class="w3-center"> </p>
          <hr>
-								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> Donation at :- ".$venue['hospital']."</p>"; ?>
+								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> <b> Donation at :- </b>".$venue['hospital']."</p>"; ?>
 
                 <?php if($venue['organ']==1)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Follwing Organ to be Donoted :  Kidney </p>"; ?>        
+              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b> Follwing Organ to be Donoted :- </b>   Kidney  </p>"; ?>        
                 
               <?php if($venue['organ']==2)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Follwing Organ to be Donoted :  Liver </p>"; ?>        
+              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b> Follwing Organ to be Donoted :- </b>  Liver </p>"; ?>        
                 
               <?php if($venue['organ']==3)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Follwing Organ to be Donoted :  Heart </p>"; ?>   
+              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i><b> Follwing Organ to be Donoted :-</b>  Heart </p> "; ?>   
 
 
 
@@ -259,12 +260,12 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
       <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Contact Details </h4>
 
          <hr>
-								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> Mobile Number :- "  .$venue ['mobileno'] ."</p>"; ?>        
- 							<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> Address :- " .$venue ['address'] . "</p>"; ?>        
-									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> City:- " .$venue ['city'] ." </p>"; ?>
-									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> State:- " .$venue ['state'] ." </p>"; ?>
-									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> Nationality:- " .$venue ['nati'] ." </p>"; ?>
-									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> Pin code:- " .$venue ['zipcode'] ." </p>"; ?>
+								<?php echo"<p > <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> <b>Mobile Number :- </b>"  .$venue ['mobileno'] ."</p>"; ?>        
+ 							  <?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b>Address :- </b>" .$venue ['address'] . "</p>"; ?>        
+									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> <b>City:- </b>" .$venue ['city'] ." </p>"; ?>
+									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> <b>State:- </b>" .$venue ['state'] ." </p>"; ?>
+									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> <b>Nationality:-</b> " .$venue ['nati'] ." </p>"; ?>
+									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> <b>Pin code:-</b> " .$venue ['zipcode'] ." </p>"; ?>
         </div>
       </div> 
  
@@ -510,9 +511,15 @@ $collection->update(array("email" => $_SESSION['email']),array('$set' => $data))
 }
 
 
+$cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' =>$data));
+
 ?>
  
 
+
+  <script>
+    alert('Successfully '); window.location.href="DonorDetail.php";
+  </script>
 
 
 

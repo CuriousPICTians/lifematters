@@ -16,15 +16,6 @@ $con = new MongoClient();
 
 
 
- if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-
-  if(isset($_POST['complaint']))
-        header("Location: complaint.php");
-}
-
-
-
 if ($_SERVER['REQUEST_METHOD'] == 'GET')
 {
 
@@ -34,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
   	
 		foreach($temp as $venue)
 		{
-			//$collection -> remove(array('_id' => new MongoId($_GET['order'])));
 		$collection -> update(array('_id' => new MongoId($_GET['order'])), array('$set' => array('status' => 'pending','Doc' => 'unlink')));
 			?>
 			<script>alert("Patient has been Deleted Successfully..!!");</script>
@@ -56,17 +46,22 @@ if(isset($_GET['key']))
       <tr>
         <th> Name </th>
         <th> Gender</th>
+        <th> DOB </th>
         <th> Blood Group </th>
         <th> Organ</th>
         <th> Hospital</th>
+        <th> mobile No </th>
+        <th> Adhar No </th>
+        <th> City </th>
+        <th> State </th>
+        <th> Nationality </th>
         <th> Action</th>
 
       </tr>
       <tr>
         <td>".$venue['firstname']. " " .$venue['middlename']. " " .$venue['lastname']."</td>
-        <td>".$venue['gender']."</td> ";
-
-		
+        <td>".$venue['gender']."</td> 
+        <td>".$venue['day']."</td> ";
 
 if($venue['blood']==1)
 echo "<td> A+ </td>";
@@ -103,10 +98,13 @@ if($venue['organ']==3)
 echo"<td> Heart</td>";
 
 
-       echo" <td>".$venue['hospital']."</td>
-
-			
-      	<td> 
+       echo" <td>".$venue['hospital']."</td>";
+       echo" <td>".$venue['mobileno']."</td>";
+       echo" <td>".$venue['adharno']."</td>";
+       echo" <td>".$venue['city']."</td>";
+       echo" <td>".$venue['state']."</td>";
+       echo" <td>".$venue['nati']."</td>";
+       echo"<td> 
 						<button class='btn btn-success btn-xs w3-teal' data-title='Confirm' data-toggle='modal' data-target='#confirm' ><span class=''> Confirm</span></button>
 						<button class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#delete' ><span class='glyphicon glyphicon-trash'></span> Delete </button>
 				</td>
@@ -197,28 +195,71 @@ echo"<td> Heart</td>";
 <div class="w3-container-fluid ">
 
 <?php
-   		echo "<h3 style='text-align:center;'> List Of Donor:- </h3>";
+   		echo "<h4 style='text-align:center;'> <b> List Of Donors </b> </h4>";
 ?>
 
 <table class="table table-responsive table-bordered table-hover custab table-condensed" >
 
 	<tr>
 		<th> Donor Name</th>
+    <th> Gender</th>
+    <th> Blood Group </th>
+    <th> Organ</th>
+    <th> Hospital</th>
 		<th> Status </th>
 		<th> Action</th>
   </tr>
 
 <?php
 
-  //  if($email == $_SESSION['email'])
    	$result=$collection -> find(array("Doc"=> $_SESSION['email']  ));
-    //else
-    //$result=$collection->find(array('complaint.email'=>$email));
     
     foreach($result as $venue)
     {
     	echo "<tr>";
 			echo "<td>".$venue['firstname']." ".$venue['middlename']. " " .$venue['lastname']. "</td>";
+      echo "<td>".$venue['gender']. "</td>";
+
+
+if($venue['blood']==1)
+echo "<td> A+ </td>";
+
+if($venue['blood']==2)
+echo "<td> A- </td>";
+
+if($venue['blood']==3)
+echo "<td> B+ </td>";
+
+if($venue['blood']==4)
+echo "<td> B- </td>";
+
+if($venue['blood']==5)
+echo "<td> O+ </td>";
+
+if($venue['blood']==6)
+echo "<td> O- </td>";
+
+if($venue['blood']==7)
+echo "<td> AB+ </td>";
+
+if($venue['blood']==8)
+echo "<td> AB- </td>";
+
+
+if($venue['organ']==1)
+echo"<td> Kidney </td>";
+
+if($venue['organ']==2)
+echo"<td> Liver </td>";
+
+if($venue['organ']==3)
+echo"<td> Heart</td>";
+                
+     
+
+      echo "<td>".$venue['hospital']. "</td>";
+
+
       echo "<td style='font-weight:bold;";
 
 				 	if($venue ['status'] == 'Confirmed')
