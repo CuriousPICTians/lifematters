@@ -1,22 +1,30 @@
- <!DOCTYPE html>
- <html lang="en">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<title>Organ Donation</title>
 
-  	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
 
-	<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<!-- Latest compiled JavaScript -->
-		<script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
-		
+  <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <!-- Latest compiled JavaScript -->
+    <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- W3.CSS is a modern CSS framework -->   
+    <link rel="stylesheet" href="w3.css">
 
+<link rel="stylesheet" href="w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
   	
@@ -149,9 +157,9 @@ function validateForm() {
 
 <section>
   <span></span>
-  <h1> Doctor Login</h1>
+  <h3> <b> Doctor Login </b> </h3>
 
- 
+ <br>
 
 <form>
 <table>		
@@ -161,7 +169,7 @@ function validateForm() {
       				<p> E-mail ID :-</p>
 					</td>
 						<td>
-							<input type="text" class="form-control"  name="email" placeholder=" Email-ID" required>
+							<input type="text" class="form-control"  name="email" placeholder=" E-mail ID" required>
 						</td>
     			</tr>
 		
@@ -186,9 +194,9 @@ function validateForm() {
   </form>
 </br>
 <input type="submit" name="submit" class="btn btn-default" value="Login"/>
-   <h5>
-  <b>  <a href='DoctorCreateAcc.php'> Create Account..!! </a> </b>
-  </h5>
+   
+  <h5> <b> <a href='DoctorCreateAcc.php'> Create Account..!! </a> </b> </h5>
+  
 </section>
 
 <br>

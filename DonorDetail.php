@@ -1,12 +1,14 @@
 
-<?php
+
+
+	<!DOCTYPE html>
+	
+  <?php
 
 session_start();
 
 ?>
 
-	<!DOCTYPE html>
-	
 <html lang="en">
 
 	<html>
@@ -171,47 +173,65 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 
          <p class="w3-center"><img src="img/a1.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
-        <?php echo" <p style='text-transform:uppercase'> <i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i> <b> Donor Name :- </b>  ".$venue ['firstname'] ."  " .$venue ['middlename'] . "  "  .$venue ['lastname'] . " </p>"; ?>
-								<?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> <b> Hospital :-</b> "  .$venue ['hospital'] ."</p>"; ?>        
 
 
-              <?php if($venue['organ']==0)
- 							echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Kidney </p>"; ?>        
-								
-              <?php if($venue['organ']==1)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Liver </p>"; ?>        
+
+
+        <?php 
+
+      echo" <p style='text-transform:uppercase'> <i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i> <b> Donor Name :- </b>  ".$venue ['firstname'] ."  " .$venue ['middlename'] . "  "  .$venue ['lastname'] . " </p>"; 
+				
+      if(isset($venue['hospital'])) 
+
+      echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> <b> Hospital :-</b> "  .$venue ['hospital'] ."</p>";?>         
+
+
+      <?php 
+
+      if($venue['organ']==0)
+ 			      echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b>Organ :</b>  Kidney </p>";         
+					
+      if($venue['organ']==1)
+            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i><b>Organ :</b> Liver </p>";         
                 
-              <?php if($venue['organ']==2)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Heart </p>"; ?>        
+       if($venue['organ']==2)
+           echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b>Organ :</b> Heart </p>";         
                 
 
-                <?php if($venue['blood']==0)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : A+ </p>"; ?> 
+      if($venue['blood']==0)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> A+ </p>";  
 
-                <?php if($venue['blood']==1)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : A- </p>"; ?>
+      if($venue['blood']==1)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> A- </p>"; 
 
-                <?php if($venue['blood']==2)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : B+ </p>"; ?>
+      if($venue['blood']==2)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> B+ </p>"; 
 
-                <?php if($venue['blood']==3)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : B- </p>"; ?>
+      if($venue['blood']==3)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> B- </p>"; 
 
-                <?php if($venue['blood']==4)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : O+ </p>"; ?>                   
+       if($venue['blood']==4)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> O+ </p>";                    
                 
-                <?php if($venue['blood']==5)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : O- </p>"; ?>
+       if($venue['blood']==5)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> O- </p>"; 
 
-                <?php if($venue['blood']==6)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : AB+ </p>"; ?>    		
+      if($venue['blood']==6)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> AB+ </p>";    		
 
-                 <?php if($venue['blood']==7)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : AB- </p>"; ?> 
+      if($venue['blood']==7)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> AB- </p>"; 
+    ?> 
 
 
-									<?php	echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i><b> Gender </b>:-" .$venue ['gender'] ." </p>"; ?>
-         <?php echo"<p><i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b> DOB :- </b>" .$venue  ['day'] ."</p>";?>
+			<?php	
+            if(isset($venue['gender'])) 
+            echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i><b> Gender </b>:-" .$venue ['gender'] ." </p>"; 
+
+            if(isset($venue['day'])) 
+            echo"<p><i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b> DOB :- </b>" .$venue  ['day'] ."</p>";
+      ?>
+      
         </div>
       </div> 
 				
@@ -233,21 +253,26 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
         <div class="w3-container">
 
        
-
          <h4 class="w3-center"> <img src="img/z1.jpg" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Organ Donation Details </h4>
          <p class="w3-center"> </p>
          <hr>
-								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> <b> Donation at :- </b>".$venue['hospital']."</p>"; ?>
+				
+        <?php 
+             if(isset($venue['hospital'])) 
+             echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> <b> Donation at :- </b>".$venue['hospital']."</p>"; 
+        ?>
 
-                <?php if($venue['organ']==1)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b> Follwing Organ to be Donoted :- </b>   Kidney  </p>"; ?>        
-                
-              <?php if($venue['organ']==2)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b> Follwing Organ to be Donoted :- </b>  Liver </p>"; ?>        
-                
-              <?php if($venue['organ']==3)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i><b> Follwing Organ to be Donoted :-</b>  Heart </p> "; ?>   
+        <?php 
 
+            if($venue['organ']==0)
+            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b> Follwing Organ to be Donoted :- </b>   Kidney  </p>";         
+                    
+            if($venue['organ']==1)
+            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b> Follwing Organ to be Donoted :- </b>  Liver </p>";         
+                    
+            if($venue['organ']==2)
+            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i><b> Follwing Organ to be Donoted :-</b>  Heart </p> "; 
+        ?>   
 
 
         </div>
@@ -260,12 +285,32 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
       <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Contact Details </h4>
 
          <hr>
-								<?php echo"<p > <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> <b>Mobile Number :- </b>"  .$venue ['mobileno'] ."</p>"; ?>        
- 							  <?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b>Address :- </b>" .$venue ['address'] . "</p>"; ?>        
-									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> <b>City:- </b>" .$venue ['city'] ." </p>"; ?>
-									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> <b>State:- </b>" .$venue ['state'] ." </p>"; ?>
-									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> <b>Nationality:-</b> " .$venue ['nati'] ." </p>"; ?>
-									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> <b>Pin code:-</b> " .$venue ['zipcode'] ." </p>"; ?>
+
+
+				<?php 
+
+        if(isset($venue['mobileno'])) 
+        echo"<p > <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> <b>Mobile Number :- </b>"  .$venue ['mobileno'] ."</p>";        
+
+        if(isset($venue['address'])) 
+ 				echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b>Address :- </b>" .$venue ['address'] . "</p>";  
+
+
+        if(isset($venue['city'])) 
+				echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> <b>City:- </b>" .$venue ['city'] ." </p>"; 
+
+        if(isset($venue['state'])) 
+        echo"<p><i class='fa fa-map fa-fw w3-margin-right w3-text-theme'></i> <b>State:- </b>" .$venue ['state'] ." </p>"; 
+
+
+        if(isset($venue['nati'])) 
+        echo"<p><i class='fa fa-flag-o fa-fw w3-margin-right w3-text-theme'></i> <b>Nationality:-</b> " .$venue ['nati'] ." </p>"; 
+
+        if(isset($venue['zipcode'])) 
+        echo"<p><i class='fa fa-pinterest-p fa-fw w3-margin-right w3-text-theme'></i> <b>Pin code:-</b> " .$venue ['zipcode'] ." </p>"; 
+
+       ?>
+
         </div>
       </div> 
  
@@ -286,8 +331,14 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
  <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Status </h4>
 
          <hr>
-                <?php echo"<p> <b>Doctor </b>:- ".$venue['Doc']."</p>"; ?>
-                <?php echo"<p> <b>Status </b> :- ".$venue['status']."</p>"; ?>
+                <?php 
+                   if(isset($venue['Doc'])) 
+                echo"<p> <b>Doctor </b>:- ".$venue['Doc']."</p>"; 
+
+                  if(isset($venue['status'])) 
+
+                echo"<p> <b>Status </b> :- ".$venue['status']."</p>"; 
+              ?>
 
 
         </div>
@@ -329,109 +380,107 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 		
             <label class="col-md-2 control-label" for="first_name">First Name:-</label>  
 						<div class="col-md-2">
-						<?php echo" <input  name='firstname'  class='form-control input-md-2' value=".$venue ['firstname']. " type='text'> "; ?>
+						<?php if(isset($venue['firstname'])) echo" <input  name='firstname'  class='form-control input-md-2' value=".$venue ['firstname']. " type='text'> "; ?>
 						</div>
 
             <label class="col-md-2 control-label" for="middle_name">Middle Name:-</label>  
             <div class="col-md-2">
-						<?php  echo" <input name='middlename' class='form-control input-md' value =" .$venue ['middlename']. " type='text'> "; ?>           												 
+						<?php  if(isset($venue['middlename'])) echo" <input name='middlename' class='form-control input-md' value =" .$venue ['middlename']. " type='text'> "; ?>           												 
 						</div>
 
             <label class="col-md-2 control-label" for="last_name">Last Name :-</label>  
-							            <div class="col-md-2">
-																							<?php echo "<input name='lastname' class='form-control input-md' value=" .$venue ['lastname']. " type='text' >"; ?>
-           							</div>
+							<div class="col-md-2">
+							<?php if(isset($venue['lastname'])) echo "<input name='lastname' class='form-control input-md' value=" .$venue ['lastname']. " type='text' >"; ?>
+           		</div>
           </div>
 
          
           <div class="row form-group">
 						
-												<label class="col-md-2 control-label" for="smartphone"> Gender:-  </label>
-           									 <div class="col-md-2">
-																										 <?php  echo" <input name='gender' class='form-control input-md' value =" .$venue ['gender']. " type='text'> "; ?>   
-            									</div>
-
-
-													<label class="col-md-2 control-label" for="dochospital"> DOB :-</label>  
-							            <div class="col-md-2">
-																							<?php  echo" <input name='day' class='form-control input-md' value=".$venue ['day']. " type='text'>"; ?>
-           							</div>
-
-												<label class="col-md-2 control-label" for="smartphone"> Blood group:-  </label>
-           									 <div class="col-md-2">
-																										 <?php  echo" <input name='blood' class='form-control input-md' value =" .$venue ['blood']. " type='text'> "; ?>   
-            									</div>
+					<label class="col-md-2 control-label" for="smartphone"> Gender:-  </label>
+          <div class="col-md-2">
+					 <?php  if(isset($venue['gender'])) echo" <input name='gender' class='form-control input-md' value =" .$venue ['gender']. " type='text'> "; ?>   
           </div>
+
+				<label class="col-md-2 control-label" for="dochospital"> DOB :-</label>  
+          <div class="col-md-2">
+					<?php  if(isset($venue['day'])) echo" <input name='day' class='form-control input-md' value=".$venue ['day']. " type='text'>"; ?>
+				</div>
+
+			<label class="col-md-2 control-label" for="smartphone"> Blood group:-  </label>
+			 <div class="col-md-2">
+				 <?php  if(isset($venue['blood'])) echo" <input name='blood' class='form-control input-md' value =" .$venue ['blood']. " type='text'> "; ?>   
+			</div>
+         </div>
 
 <div class="row form-group">
 						
-												<label class="col-md-2 control-label" for="smartphone">  Birth Place:-  </label>
-           									 <div class="col-md-2">
-																										 <?php  echo" <input name='dobplace' class='form-control input-md' value =" .$venue ['dobplace']. " type='text'> "; ?>   
-            									</div>
+	<label class="col-md-2 control-label" for="smartphone">  Birth Place:-  </label>
+  <div class="col-md-2">
+			 <?php  if(isset($venue['dobplace'])) echo" <input name='dobplace' class='form-control input-md' value =" .$venue ['dobplace']. " type='text'> "; ?>   
+  </div>
 
+	<label class="col-md-2 control-label" for="last_name"> Mobile No:-</label>  
+  <div class="col-md-2">
+		<?php  if(isset($venue['mobileno'])) echo" <input maxlength='10' minlength='10' name='mobileno' class='form-control input-md' value=".$venue ['mobileno']. " type='text'>"; ?>
+	</div>
 
-													<label class="col-md-2 control-label" for="last_name"> Mobile No:-</label>  
-							            <div class="col-md-2">
-																							<?php  echo" <input maxlength='10' minlength='10' name='mobileno' class='form-control input-md' value=".$venue ['mobileno']. " type='text'>"; ?>
-           							</div>
-
-												<label class="col-md-2 control-label" for="smartphone"> Adhar No:-  </label>
-           									 <div class="col-md-2">
-																										 <?php  echo" <input maxlength='12'minlength='12' name='adharno' class='form-control input-md' value =" .$venue ['adharno']. " type='text'> "; ?>   
-            									</div>
-          </div>
+<label class="col-md-2 control-label" for="smartphone"> Adhar No:-  </label>
+ <div class="col-md-2">
+			<?php  if(isset($venue['adharno'])) echo" <input maxlength='12'minlength='12' name='adharno' class='form-control input-md' value =" .$venue ['adharno']. " type='text'> "; ?>   
+</div>
+ </div>
 
 
 <div class="row form-group">
 						
-												<label class="col-md-2 control-label" for="smartphone"> Address:-  </label>
-           									 <div class="col-md-2">
-																										 <?php  echo" <input name='address' class='form-control input-md' value =" .$venue ['address']. " type='text'> "; ?>   
-            									</div>
+	<label class="col-md-2 control-label" for="smartphone"> Address:-  </label>
+   <div class="col-md-2">
+			 <?php  if(isset($venue['address'])) echo" <input name='address' class='form-control input-md' value =" .$venue ['address']. " type='text'> "; ?>   
+  </div>
 
 
-													<label class="col-md-2 control-label" for="last_name"> City:-</label>  
-							            <div class="col-md-2">
-																							<?php  echo" <input name='city' class='form-control input-md' value=".$venue ['city']. " type='text'>"; ?>
-           							</div>
+	<label class="col-md-2 control-label" for="last_name"> City:-</label>  
+	 <div class="col-md-2">
+				<?php  if(isset($venue['city'])) echo" <input name='city' class='form-control input-md' value=".$venue ['city']. " type='text'>"; ?>
+  </div>
 
 <label class="col-md-2 control-label" for="last_name"> state:-</label>  
-							            <div class="col-md-2">
-																							<?php  echo" <input name='state' class='form-control input-md' value=".$venue ['state']. " type='text'>"; ?>
-           							</div>
-          </div>
+	<div class="col-md-2">
+		<?php  if(isset($venue['state'])) echo" <input name='state' class='form-control input-md' value=".$venue ['state']. " type='text'>"; ?>
+  </div>
+  </div>
 
 
 <div class="row form-group">
 
 <label class="col-md-2 control-label" for="last_name"> Nationality :-</label>  
-							            <div class="col-md-2">
-																							<?php  echo" <input name='nati' class='form-control input-md' value=".$venue ['nati']. " type='text'>"; ?>
-           							</div>
+<div class="col-md-2">
+	<?php  if(isset($venue['nati'])) echo" <input name='nati' class='form-control input-md' value=".$venue ['nati']. " type='text'>"; ?>
+</div>
           
 
 <label class="col-md-2 control-label" for="last_name"> Pin code:-</label>  
-							            <div class="col-md-2">
-																							<?php  echo" <input maxlength='6' minlength='6' name='zipcode' class='form-control input-md' value=".$venue ['zipcode']. " type='text'>"; ?>
-           							</div>
+ <div class="col-md-2">
+			<?php if(isset($venue['zipcode']))  echo" <input maxlength='6' minlength='6' name='zipcode' class='form-control input-md' value=".$venue ['zipcode']. " type='text'>"; ?>
+</div>
           
 <hr>
 
 </div>
 
-          <div class="form-group row">
-           
-											 <div class="col-md-8 text-center">
-              <button type="submit" name="submit" value="submit" class="btn btn-large btn-success"> Save Information</button>
-              <button class="btn btn-large btn-danger" type="button" data-dismiss="modal" > Cancel </button>
+<div class="form-group row">
+<div class="col-md-8 text-center">
+     <button type="submit" name="submit" value="submit" class="btn btn-large btn-success"> Save Information</button>
+     <button class="btn btn-large btn-danger" type="button" data-dismiss="modal" > Cancel </button>
 
-            </div>
-          </div>
-          </fieldset>
-        </form>
-      </div>
-        </div>
+   </div>
+ </div>
+</fieldset>
+
+ </form>
+</div>
+</div>
 
 
     <!-- /.modal-content --> 

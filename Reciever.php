@@ -1,10 +1,9 @@
-	<!DOCTYPE html>
+	
 
+
+<!DOCTYPE html>
 <?php
-
 session_start();
-echo $_SESSION['uname'];
-
 ?>
 	<html lang="en">
 	<html>
@@ -125,7 +124,7 @@ body {
 						</div>
 					
 						<a href="RecieverDetail.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Receiver Detail </a>
-						<a href="logout.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-spinner fa-spin fa-fw w3-margin-right"></i> Logout </a>
+						<a href="logout.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-sign-out fa-fw w3-margin-right"></i> Logout </a>
 						
 					</nav>
 
