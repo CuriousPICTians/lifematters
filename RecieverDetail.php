@@ -1,4 +1,12 @@
+  
+
   <!DOCTYPE html>
+
+  <?php
+
+  session_start();
+  ?>
+  
   <html lang="en">
   <html>
 
@@ -103,7 +111,6 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
   
 <?php
 
-  session_start();
 
   $con = new MongoClient();
   if($con)
@@ -162,45 +169,58 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
          <h4 class="w3-center"> Profile</h4>
          <p class="w3-center"><img src="img/a1.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
-        <?php echo" <p style='text-transform:uppercase'> <i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i> Receiver Name :- ".$venue ['firstname'] ."  " .$venue ['middlename'] . "  "  .$venue ['lastname'] . " </p>"; ?>
-                <?php echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> Hospital :-"  .$venue ['hospital'] ."</p>"; ?>  
+        <?php 
+              echo" <p style='text-transform:uppercase'> <i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i> <b>Receiver Name :- </b>".$venue ['firstname'] ."  " .$venue ['middlename'] . "  "  .$venue ['lastname'] . " </p>";
+              
+              if(isset($venue['Doc'])) 
+              echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> <b>Hospital :- </b>"  .$venue ['hospital'] ."</p>"; 
+        ?>  
 
-                <?php if($venue['organ']==1)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Kidney </p>"; ?>        
+        <?php 
+
+      if($venue['organ']==0)
+            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b>Organ :</b>  Kidney </p>";         
+          
+      if($venue['organ']==1)
+            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i><b>Organ :</b> Liver </p>";         
                 
-              <?php if($venue['organ']==2)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Liver </p>"; ?>        
-                
-              <?php if($venue['organ']==3)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Heart </p>"; ?>        
+       if($venue['organ']==2)
+           echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b>Organ :</b> Heart </p>";         
                 
 
-                <?php if($venue['blood']==1)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : A+ </p>"; ?> 
+      if($venue['blood']==0)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> A+ </p>";  
 
-                <?php if($venue['blood']==2)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : A- </p>"; ?>
+      if($venue['blood']==1)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> A- </p>"; 
 
-                <?php if($venue['blood']==3)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : B+ </p>"; ?>
+      if($venue['blood']==2)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> B+ </p>"; 
 
-                <?php if($venue['blood']==4)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : B- </p>"; ?>
+      if($venue['blood']==3)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> B- </p>"; 
 
-                <?php if($venue['blood']==5)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : O+ </p>"; ?>                   
+       if($venue['blood']==4)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> O+ </p>";                    
                 
-                <?php if($venue['blood']==6)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : O- </p>"; ?>
+       if($venue['blood']==5)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> O- </p>"; 
 
-                <?php if($venue['blood']==7)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : AB+ </p>"; ?>       
+      if($venue['blood']==6)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> AB+ </p>";       
 
-                 <?php if($venue['blood']==8)
-                echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : AB- </p>"; ?> 
+      if($venue['blood']==7)
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> AB- </p>"; 
+    ?> 
 
-                  <?php echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> Gender :-" .$venue ['gender'] ." </p>"; ?>
-         <?php echo"<p><i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> DOB :-" .$venue  ['day'] ."</p>";?>
+    <?php 
+          if(isset($venue['gender']))
+            echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> <b>Gender :- </b>" .$venue ['gender'] ." </p>";
+          
+          if(isset($venue['day']))
+            echo"<p><i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b>DOB :- </b>" .$venue  ['day'] ."</p>";
+    ?>
+
         </div>
       </div> 
         
@@ -224,16 +244,24 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
          <h4 class="w3-center"> <img src="img/z1.jpg" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Organ Donation Details</h4>
          <p class="w3-center"> </p>
          <hr>
-                <?php echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> Donation at :- ".$venue['hospital']."</p>"; ?>
+        
+        <?php 
+           if(isset($venue['hospital']))
+             echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> <b> Donation at :- </b>".$venue['hospital']."</p>"; 
+         ?>
 
-<?php if($venue['organ']==1)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Follwing Organ to be Donoted :  Kidney </p>"; ?>        
-                
-              <?php if($venue['organ']==2)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Follwing Organ to be Donoted :  Liver </p>"; ?>        
-                
-              <?php if($venue['organ']==3)
-              echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Follwing Organ to be Donoted :  Heart </p>"; ?>   
+        <?php 
+
+            if($venue['organ']==0)
+            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b> Follwing Organ to be Donoted :- </b>   Kidney  </p>";         
+                    
+            if($venue['organ']==1)
+            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b> Follwing Organ to be Donoted :- </b>  Liver </p>";         
+                    
+            if($venue['organ']==2)
+            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i><b> Follwing Organ to be Donoted :-</b>  Heart </p> "; 
+        ?>   
+
 
         </div>
       </div>
@@ -245,12 +273,31 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
       <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Contact Details</h4>
 
          <hr>
-                <?php echo"<p style='text-transform:uppercase'> <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> Mobile Number :- "  .$venue ['mobileno'] ."</p>"; ?>        
-              <?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> Address :- " .$venue ['address'] . "</p>"; ?>        
-                  <?php echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> City:- " .$venue ['city'] ." </p>"; ?>
-                  <?php echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> State:- " .$venue ['state'] ." </p>"; ?>
-                  <?php echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> Nationality:- " .$venue ['nati'] ." </p>"; ?>
-                  <?php echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> Pin code:- " .$venue ['zipcode'] ." </p>"; ?>
+    
+    <?php 
+
+        if(isset($venue['mobileno'])) 
+        echo"<p > <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> <b>Mobile Number :- </b>"  .$venue ['mobileno'] ."</p>";        
+
+        if(isset($venue['address'])) 
+        echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b>Address :- </b>" .$venue ['address'] . "</p>";  
+
+
+        if(isset($venue['city'])) 
+        echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> <b>City:- </b>" .$venue ['city'] ." </p>"; 
+
+        if(isset($venue['state'])) 
+        echo"<p><i class='fa fa-map fa-fw w3-margin-right w3-text-theme'></i> <b>State:- </b>" .$venue ['state'] ." </p>"; 
+
+
+        if(isset($venue['nati'])) 
+        echo"<p><i class='fa fa-flag-o fa-fw w3-margin-right w3-text-theme'></i> <b>Nationality:-</b> " .$venue ['nati'] ." </p>"; 
+
+        if(isset($venue['zipcode'])) 
+        echo"<p><i class='fa fa-pinterest-p fa-fw w3-margin-right w3-text-theme'></i> <b>Pin code:-</b> " .$venue ['zipcode'] ." </p>"; 
+
+       ?>
+
         </div>
       </div> 
  

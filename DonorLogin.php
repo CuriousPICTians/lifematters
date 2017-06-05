@@ -149,10 +149,8 @@ function validateForm() {
 
 <section>
   <span></span>
-  <h1>Donor Login</h1>
-
- 
-
+  <h3> <b>Donor Login </b> </h3>
+  <br>
 <form>
 <table>		
       			
@@ -161,7 +159,7 @@ function validateForm() {
       				<p> E-mail ID :-</p>
 					</td>
 						<td>
-							<input type="text" class="form-control"  name="email" placeholder=" Email-ID" required>
+							<input type="text" class="form-control"  name="email" placeholder=" E-mail ID" required>
 						</td>
     			</tr>
 		

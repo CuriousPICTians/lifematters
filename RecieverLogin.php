@@ -158,7 +158,9 @@ function validateForm() {
 
 <section>
   <span></span>
-  <h1>Receiver Login</h1>
+  <h3> <b> Receiver Login </b> </h3>
+
+    <br>
   <form>
 
 
@@ -168,10 +170,10 @@ function validateForm() {
       			
       			<tr>
       				<td>		
-      				<p> Email-ID :-</p>
+      				<p> E-mail ID :-</p>
 					</td>
 						<td>
-							<input type="text" class="form-control"  name="email" placeholder="Email-ID" required>
+							<input type="text" class="form-control"  name="email" placeholder="E-mail ID" required>
 						</td>
     			</tr>
 		

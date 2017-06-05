@@ -3,7 +3,7 @@
 	<?php
 
   session_start();
-?>
+  ?>
 	<html lang="en">
 	<head>
 	<meta charset="UTF-8">
@@ -210,14 +210,20 @@ $(document).ready(function(){
          <hr>
 
 			<?php 
-      echo"<p style='text-transform:uppercase'> <i class='fa fa-user-md fa-fw w3-margin-right w3-text-theme'></i> Doctor Name :- "  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>";        
-			
-      echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Contact Number :- " .$venue ['docphno'] ." </p>"; 																					
-				echo"<p><i class='fa fa-at fa-fw w3-margin-right w3-text-theme'></i> Email-ID :- " .$venue ['email'] ." </p>"; 
-  		if(isset($venue['Hos'])) 
-          echo"<p><i class='fa fa-briefcase fa-fw w3-margin-right w3-text-theme'></i> work at :- " .$venue ['Hos'] ." </p>"; 
 
-			echo"<p><i class='fa fa-address-book fa-fw w3-margin-right w3-text-theme'></i> Permanent Address	 :- " .$venue ['paddress'] ." </p>"; ?>
+          echo"<p style='text-transform:uppercase'> <i class='fa fa-user-md fa-fw w3-margin-right w3-text-theme'></i> <b>Doctor Name :- </b>"  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>";        
+			
+          if(isset($venue['docphno']))
+            echo"<p><i class='fa fa-phone-square fa-fw w3-margin-right w3-text-theme'></i><b> Contact Number :- </b>" .$venue ['docphno'] ." </p>"; 																					
+				  
+          if(isset($venue['email']))
+            echo"<p><i class='fa fa-at fa-fw w3-margin-right w3-text-theme'></i> <b>Email-ID :- </b>" .$venue ['email'] ." </p>"; 
+  		    
+          if(isset($venue['Hos'])) 
+          echo"<p><i class='fa fa-briefcase fa-fw w3-margin-right w3-text-theme'></i> <b>work at :-</b> " .$venue ['Hos'] ." </p>"; 
+
+			    if(isset($venue['paddress']))echo"<p><i class='fa fa-address-book fa-fw w3-margin-right w3-text-theme'></i> <b>Permanent Address	 :- </b>" .$venue ['paddress'] ." </p>"; 
+      ?>
 
         </div>
       </div> 
@@ -243,9 +249,16 @@ $(document).ready(function(){
       <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Registration Details </h4>
 
          <hr>
-								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> <b> Registration Number :- </b>"  .$venue ['grno'] ."</p>"; ?>        
- 							<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b> Date of Registration :- </b> " .$venue ['day'] . "</p>"; ?>        
-									<?php	echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> <b> State Medical Council :- </b>" .$venue ['medicalcouncil'] ." </p>"; ?>
+			 <?php 
+              if(isset($venue['grno'])) 
+                echo"<p style='text-transform:uppercase'> <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> <b> Registration Number :- </b>"  .$venue ['grno'] ."</p>";       
+ 			        
+              if(isset($venue['day'])) 
+                echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b> Date of Registration :- </b> " .$venue ['day'] . "</p>";      
+							
+              if(isset($venue['medicalcouncil'])) 
+                echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> <b> State Medical Council :- </b>" .$venue ['medicalcouncil'] ." </p>"; 
+        ?>
         </div>
       </div> 
 <hr>	
@@ -255,9 +268,18 @@ $(document).ready(function(){
          <h4 class="w3-center"> <img src="img/qu1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Qualification Details </h4>
          <p class="w3-center"> </p>
          <hr>
-								<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> <b> Qualification :- </b> ".$venue['qualifi']."</p>"; ?>
-								<?php echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b> Qualification Year :- </b>".$venue['day1']."</p>"; ?>
-								<?php echo"<p> <i class='fa fa-university fa-fw w3-margin-right w3-text-theme'></i> <b> University Name	 :- </b>".$venue['univername']."</p>"; ?>
+				
+        <?php 
+
+              if(isset($venue['qualifi'])) 
+                echo"<p style='text-transform:uppercase'> <i class='fa fa-graduation-cap fa-fw w3-margin-right w3-text-theme'></i> <b> Qualification :- </b> ".$venue['qualifi']."</p>"; 
+							
+              if(isset($venue['day1'])) 
+                echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b> Qualification Year :- </b>".$venue['day1']."</p>"; 
+								
+              if(isset($venue['univername'])) 
+                  echo"<p> <i class='fa fa-university fa-fw w3-margin-right w3-text-theme'></i> <b> University Name	 :- </b>".$venue['univername']."</p>"; 
+        ?>
         </div>
       </div>
  
@@ -279,8 +301,11 @@ $(document).ready(function(){
  <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Status </h4>
 
          <hr>
-                <?php echo"<p> <b> Hospital </b>:- ".$venue['Hos']."</p>"; ?>
-                <?php echo"<p> <b>Status </b> :- ".$venue['status']."</p>"; ?>
+                <?php 
+
+                if(isset($venue['Hos'])) echo"<p> <b> Hospital </b>:- ".$venue['Hos']."</p>"; 
+                if(isset($venue['status'])) echo"<p> <b>Status </b> :- ".$venue['status']."</p>"; 
+                ?>
 
 
         </div>
@@ -288,7 +313,6 @@ $(document).ready(function(){
       <br>
       
                                 
-<!-------------------------  modal for edit profile ------------------------------------>
 
                 <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
