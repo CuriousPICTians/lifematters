@@ -8,7 +8,7 @@ library(RMongo)
 
 args <- commandArgs(TRUE)
 
-#args <- c("om@gmail.com", "donor")
+#args <- c("avinash@gmail.com", "receiver")
 
 if (args[2] == 'donor')
 {
@@ -16,6 +16,7 @@ if (args[2] == 'donor')
 	right <- 'receiverinfo'
 } else if (args[2] == 'receiver')
 {
+ # print("yes");
 	left <- 'receiverinfo'
 	right <- 'donorinfo'
 } else

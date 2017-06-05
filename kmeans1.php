@@ -9,7 +9,7 @@ unset($result);
 $patient =$_SESSION['pemail'];
 
 //echo $_SESSION['pemail'];
-//$patient = "om@gmail.com"; 
+//$patient = "avinash@gmail.com"; 
 
 //$_SESSION['patient']=$patient;
 
@@ -28,9 +28,10 @@ if($cursor=$collection->findOne(array("email"=>$patient)))
 }
 else if($cursor=$collectionD->findOne(array("email"=>$patient)))
    {
+   	echo $patient;
    	exec("Rscript kmeans.R $patient receiver", $out);
 	$_SESSION['rs']="receiver";
-	//echo "123";
+	echo "123";
 	}
 	else
 		echo "Not Possible";
@@ -38,7 +39,7 @@ else if($cursor=$collectionD->findOne(array("email"=>$patient)))
 
 	$length = count($out);
 
-//print_r($out);
+print_r($out);
 
 	for ($i = 0; $i < $length; $i++)
 	{

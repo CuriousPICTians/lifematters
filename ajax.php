@@ -37,7 +37,7 @@ function showUser(str) {
 
 
                           <option value="0">Kidney</option>
-                          <option value="1"> Liver</option>
+                          <option value="1">Liver</option>
                           <option value="2">Heart</option>
                           
         </select>
