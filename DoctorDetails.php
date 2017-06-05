@@ -1,5 +1,11 @@
 	<!DOCTYPE html>
-	<html lang="en">
+	<?php
+
+session_start();
+
+  ?>
+
+  <html lang="en">
 	<html>
 
 
@@ -138,7 +144,7 @@ $(document).ready(function(){
 
 <?php
 
-  session_start();
+  
 
   $con = new MongoClient();
   if($con)
@@ -209,11 +215,15 @@ $(document).ready(function(){
          <h4 class="w3-center"> Doctor Details </h4>
          <p class="w3-center"><img src="img/doc.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
          <hr>
-			<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-user-md fa-fw w3-margin-right w3-text-theme'></i> Doctor Name :- "  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>"; ?>        
-			<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Contact Number :- " .$venue ['docphno'] ." </p>"; ?>																					
-			<?php	echo"<p><i class='fa fa-at fa-fw w3-margin-right w3-text-theme'></i> Email-ID :- " .$venue ['email'] ." </p>"; ?>
-  			<?php	echo"<p><i class='fa fa-briefcase fa-fw w3-margin-right w3-text-theme'></i> work at :- " .$venue ['Hos'] ." </p>"; ?>
-			<?php	echo"<p><i class='fa fa-address-book fa-fw w3-margin-right w3-text-theme'></i> Permanent Address	 :- " .$venue ['paddress'] ." </p>"; ?>
+			<?php 
+      echo"<p style='text-transform:uppercase'> <i class='fa fa-user-md fa-fw w3-margin-right w3-text-theme'></i> Doctor Name :- "  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>";        
+			
+      echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Contact Number :- " .$venue ['docphno'] ." </p>"; 																					
+				echo"<p><i class='fa fa-at fa-fw w3-margin-right w3-text-theme'></i> Email-ID :- " .$venue ['email'] ." </p>"; 
+  		if(isset($venue['Hos'])) 
+          echo"<p><i class='fa fa-briefcase fa-fw w3-margin-right w3-text-theme'></i> work at :- " .$venue ['Hos'] ." </p>"; 
+
+			echo"<p><i class='fa fa-address-book fa-fw w3-margin-right w3-text-theme'></i> Permanent Address	 :- " .$venue ['paddress'] ." </p>"; ?>
         </div>
       </div> 
 				
@@ -282,17 +292,6 @@ $(document).ready(function(){
       </div>
       <br>
       
-      
-      
-    <!-- End Right Column -->
-    </div>  
-
-  <!-- End Grid -->
-  </div>
-
-
-
-
                                 
 <!-------------------------  modal for edit profile ------------------------------------>
 
