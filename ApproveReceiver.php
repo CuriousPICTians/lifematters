@@ -40,8 +40,8 @@ if(isset($_GET['key']))
 		{
 
 
-	  echo "<table class='table table-bordred table-striped custab'>
-      <caption> <h4 style='text-align:center;'> <b> Receiver Details</b> </h4> </caption>
+	  echo "<table class='table table-bordred table-responsive table-striped table-hover custab table-condensed custab'>
+      <caption> <h4 style='text-align:center;'> <b> Receiver Details </b> </h4> </caption>
       <tr>
         <th> Name </th>
         <th> Gender</th>
@@ -58,54 +58,88 @@ if(isset($_GET['key']))
 
       </tr>
       <tr>
-        <td>".$venue['firstname']. " " .$venue['middlename']. " " .$venue['lastname']."</td>
-        <td>".$venue['gender']."</td> 
-        <td>".$venue['day']."</td> ";
+        <td>".$venue['firstname']. " " .$venue['middlename']. " " .$venue['lastname']."</td>";
 
+        if(isset($venue['gender']))
+            echo" <td>".$venue['gender']."</td>";
+        else 
+            echo" <td> NA </td>";
 
+        if(isset($venue['day']))
+            echo" <td>".$venue['day']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+        
     
+      if($venue['blood']==0)
+        echo "<td> A+ </td>";
 
-if($venue['blood']==1)
-echo "<td> A+ </td>";
+        if($venue['blood']==1)
+        echo "<td> A- </td>";
 
-if($venue['blood']==2)
-echo "<td> A- </td>";
+        if($venue['blood']==2)
+        echo "<td> B+ </td>";
 
-if($venue['blood']==3)
-echo "<td> B+ </td>";
+        if($venue['blood']==3)
+        echo "<td> B- </td>";
 
-if($venue['blood']==4)
-echo "<td> B- </td>";
+        if($venue['blood']==4)
+        echo "<td> O+ </td>";
 
-if($venue['blood']==5)
-echo "<td> O+ </td>";
+        if($venue['blood']==5)
+        echo "<td> O- </td>";
 
-if($venue['blood']==6)
-echo "<td> O- </td>";
+        if($venue['blood']==6)
+        echo "<td> AB+ </td>";
 
-if($venue['blood']==7)
-echo "<td> AB+ </td>";
-
-if($venue['blood']==8)
-echo "<td> AB- </td>";
-
-
-if($venue['organ']==1)
-echo"<td> Kidney </td>";
-
-if($venue['organ']==2)
-echo"<td> Liver </td>";
-
-if($venue['organ']==3)
-echo"<td> Heart</td>";
+        if($venue['blood']==7)
+        echo "<td> AB- </td>";
 
 
-       echo" <td>".$venue['hospital']."</td>";
-       echo" <td>".$venue['mobileno']."</td>";
-       echo" <td>".$venue['adharno']."</td>";
-       echo" <td>".$venue['city']."</td>";
-       echo" <td>".$venue['state']."</td>";
-       echo" <td>".$venue['nati']."</td>";
+        if($venue['organ']==0)
+        echo"<td> Kidney </td>";
+
+        if($venue['organ']==1)
+        echo"<td> Liver </td>";
+
+        if($venue['organ']==2)
+        echo"<td> Heart</td>";
+
+
+
+
+        if(isset($venue['hospital']))
+            echo" <td>".$venue['hospital']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+        if(isset($venue['mobileno']))
+            echo" <td>".$venue['mobileno']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+          if(isset($venue['adharno']))
+            echo" <td>".$venue['adharno']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+          if(isset($venue['city']))
+            echo" <td>".$venue['city']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+          if(isset($venue['state']))
+            echo" <td>".$venue['state']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+        if(isset($venue['nati']))
+            echo" <td>".$venue['nati']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+       
        echo"<td> 
             <button class='btn btn-success btn-xs w3-teal' data-title='Confirm' data-toggle='modal' data-target='#confirm' ><span class=''> Confirm</span></button>
             <button class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#delete' ><span class='glyphicon glyphicon-trash'></span> Delete </button>
@@ -192,7 +226,9 @@ echo"<td> Heart</td>";
 
   </head>
 
-<body class="w3-content" style="max-width:1000px">
+<body>
+  
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
 
 <div class="w3-container-fluid ">
 
@@ -220,46 +256,55 @@ echo"<td> Heart</td>";
     {
       echo "<tr>";
       echo "<td>".$venue['firstname']." ".$venue['middlename']. " " .$venue['lastname']. "</td>";
-      echo "<td>".$venue['gender']. "</td>";
+
+      if(isset($venue['gender']))
+          echo" <td>".$venue['gender']."</td>";
+          else 
+            echo" <td> NA </td>";
 
 
-if($venue['blood']==1)
-echo "<td> A+ </td>";
+        if($venue['blood']==0)
+        echo "<td> A+ </td>";
 
-if($venue['blood']==2)
-echo "<td> A- </td>";
+        if($venue['blood']==1)
+        echo "<td> A- </td>";
 
-if($venue['blood']==3)
-echo "<td> B+ </td>";
+        if($venue['blood']==2)
+        echo "<td> B+ </td>";
 
-if($venue['blood']==4)
-echo "<td> B- </td>";
+        if($venue['blood']==3)
+        echo "<td> B- </td>";
 
-if($venue['blood']==5)
-echo "<td> O+ </td>";
+        if($venue['blood']==4)
+        echo "<td> O+ </td>";
 
-if($venue['blood']==6)
-echo "<td> O- </td>";
+        if($venue['blood']==5)
+        echo "<td> O- </td>";
 
-if($venue['blood']==7)
-echo "<td> AB+ </td>";
+        if($venue['blood']==6)
+        echo "<td> AB+ </td>";
 
-if($venue['blood']==8)
-echo "<td> AB- </td>";
+        if($venue['blood']==7)
+        echo "<td> AB- </td>";
 
 
-if($venue['organ']==1)
-echo"<td> Kidney </td>";
+        if($venue['organ']==0)
+        echo"<td> Kidney </td>";
 
-if($venue['organ']==2)
-echo"<td> Liver </td>";
+        if($venue['organ']==1)
+        echo"<td> Liver </td>";
 
-if($venue['organ']==3)
-echo"<td> Heart</td>";
-                
-     
+        if($venue['organ']==2)
+        echo"<td> Heart</td>";
 
-      echo "<td>".$venue['hospital']. "</td>";
+
+
+
+
+if(isset($venue['hospital']))
+          echo" <td>".$venue['hospital']."</td>";
+          else 
+            echo" <td> NA </td>";
 
 
       echo "<td style='font-weight:bold;";
@@ -360,5 +405,6 @@ echo"<td> Heart</td>";
 
 
    </div>
+      </div>
   </body>
 </html>

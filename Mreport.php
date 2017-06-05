@@ -46,26 +46,20 @@ session_start();
           <div class="w3-card-2 w3-round w3-white">
             <div class="w3-container w3-padding">
   
-															<form method="post" action="">
-		
-															<div  class="col-xs-5">
-																				
-																			<label> <h6> Enter Patient's Name/E-mail-ID :- </h6></label>
-															</div>																			
+			<form method="post" action="">
 
-															
-																<div  class="col-xs-3">
-																				
-																			<input type="text"  class="form-control" placeholder="Enter Organ" name="pemail">
+				<div  class="col-xs-5">
+				<label> <h6> Enter Patient's E-mail-ID :- </h6></label>
+				</div>																			
+	
+				<div  class="col-xs-3">
+				<input type="text"  class="form-control" placeholder="Enter Organ" name="pemail">
+				</div>
+	
+				<input type="submit" class="btn btn-large btn-success" name="submit" value="Search"/>
 
-															</div>
-
-																<input type="submit" class="btn btn-large btn-success" name="submit" value="Search"/>
-															
-
-
-						</form>
- </div>
+			</form>
+ 			</div>
           </div>
         </div>
       </div>
@@ -79,9 +73,7 @@ session_start();
 <br>
 <br>
 
-</body>
-</head>
-</html>
+
 
 
 
@@ -94,101 +86,188 @@ if(isset($_POST['submit']))
     $pemail = $_POST['pemail'];
 	$_SESSION['pemail']=$pemail;
     
-  $con = new MongoClient();
+  	$con = new MongoClient();
 
 
     $database=$con->organ;
     $collection=$database->receiverinfo;
 				$collectionD=$database->donorinfo;
 
- if($cursor = $collection->find(array("email" => $pemail)))
-{
- $cursor_count = $cursor->count();
- if($cursor_count)
-    ;
- else
-    $cursor = $collectionD->find(array("email" => $pemail));
+	if($cursor = $collection->find(array("email" => $pemail)))
+	{
+ 		$cursor_count = $cursor->count();
+ 		if($cursor_count);
+ 		else
+    	$cursor = $collectionD->find(array("email" => $pemail));
 
   //foreach ($cursor as $venue) 
-{
-?>
+	{
+	?>
 
 <!-- Middle Column -->
-    <div class="w3-col m12">
- 
-      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
-        <img src="img-1/ab.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:100px">
+ <div class="w3-col m12">
+ 	<div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+    	
+    	<img src="img-1/ab.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:100px">
         <span class="w3-right w3-opacity">  </span>
+        
         <h4> Patient information </h4><br>
-       <hr>
+       	
+       	<hr>
 
-<table class="table table-responsive bio-table table-bordered table-hover table-condensed" >
-														<thead>
-																<tr>
-																		<th>First Name</th>
-																		<th>Middle Name</th>
-																		<th>Last Name</th>
-																		<th>Gender</th>
-																		<th>Birth Date</th>
-																		<th>Birth Group</th>
-																		<th>Birth Place</th>
-																		<th>Mobile NO</th>
-																		<th>Address</th>
-																		<th>City</th>
-																		<th>State</th>
-																		<th>Nationality</th>
-																		<th>Hospital</th>
-																		<th> Donated Organ</th>
-																</tr>
-														</thead>
-														<tbody>
-								
-																			<?php
+		<table class="table table-responsive bio-table table-bordered table-hover table-condensed" >
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Middle Name</th>
+				<th>Last Name</th>
+				<th>Gender</th>
+				<th>Birth Date</th>
+				<th>Birth Group</th>
+				<th>Birth Place</th>
+				<th>Mobile NO</th>
+				<th>Address</th>
+				<th>City</th>
+				<th>State</th>
+				<th>Nationality</th>
+				<th>Hospital</th>
+				<th> Donated Organ</th>
+			</tr>
+		</thead>
 
-																			foreach ($cursor as $venue) 
-																						{
-																							echo "
-																							<tr>
-																												<td>{$venue  ['firstname']} </td>
-																												<td>{$venue  ['middlename']}</td>
-																												<td>{$venue  ['lastname']}</td>
-																												<td>{$venue  ['gender']}</td>
-																												<td>{$venue  ['day']}  </td>
-																												<td>{$venue  ['blood']}</td>
-																												<td>{$venue  ['dobplace']}</td>
-																												<td>{$venue  ['mobileno']}</td>
-																												<td>{$venue  ['address']}</td>
-																												<td>{$venue  ['city']}</td>
-																												<td>{$venue  ['state']}</td>
-																												<td>{$venue  ['nati']}</td>
-																												<td>{$venue  ['hospital']}</td>
-																												<td>{$venue  ['organ']}</td>
-						
-																												</tr>
-																							";  
-																				}
-																			?>
+		<tbody>
+		<?php
+		
+
+	
+	
+		foreach ($cursor as $venue) 
+		{
+		echo "<tr>";
+
+
+        if(isset($venue['firstname']))
+            echo" <td>".$venue['firstname']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+        if(isset($venue['middlename']))
+            echo" <td>".$venue['middlename']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+        if(isset($venue['lastname']))
+            echo" <td>".$venue['lastname']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+        if(isset($venue['gender']))
+            echo" <td>".$venue['gender']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+        if(isset($venue['day']))
+            echo" <td>".$venue['day']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+
+
+			if($venue['blood']==0)
+	        echo "<td> A+ </td>";
+
+	        if($venue['blood']==1)
+	        echo "<td> A- </td>";
+
+	        if($venue['blood']==2)
+	        echo "<td> B+ </td>";
+
+	        if($venue['blood']==3)
+	        echo "<td> B- </td>";
+
+	        if($venue['blood']==4)
+	        echo "<td> O+ </td>";
+
+	        if($venue['blood']==5)
+	        echo "<td> O- </td>";
+
+	        if($venue['blood']==6)
+	        echo "<td> AB+ </td>";
+
+	        if($venue['blood']==7)
+	        echo "<td> AB- </td>";
+
+
+        if(isset($venue['dobplace']))
+            echo" <td>".$venue['dobplace']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+        if(isset($venue['mobileno']))
+            echo" <td>".$venue['mobileno']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+        if(isset($venue['address']))
+            echo" <td>".$venue['address']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+        if(isset($venue['city']))
+            echo" <td>".$venue['city']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+        if(isset($venue['state']))
+            echo" <td>".$venue['state']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+        if(isset($venue['nati']))
+            echo" <td>".$venue['nati']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+        if(isset($venue['hospital']))
+            echo" <td>".$venue['hospital']."</td>";
+        else 
+            echo" <td> NA </td>";
+
+
+			if($venue['organ']==0)
+        	echo"<td> Kidney </td>";
+
+        	if($venue['organ']==1)
+        	echo"<td> Liver </td>";
+
+        	if($venue['organ']==2)
+        	echo"<td> Heart</td>";
+			
+			echo"</tr>";  
+		}
+		?>
   
-													</tbody>
-					</table>	      
+		</tbody>
+		</table>	      
        
         <button type="reset" class="btn btn-large btn-success" onclick="location.href='mdetails.php'"> NEXT </button>
+    
+
+
 </div>
-<?php
-    }
-
-    }
-else
-?>
-
-	<script>
-	alert('Successfully ..');
-               		
-               </script>
+</div>
 
 <?php
+    
+   }
+
+  }
+
 }
 
-
-
 ?>
+
+
+</body>
+</head>
+</html>
