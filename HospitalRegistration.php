@@ -68,7 +68,7 @@ echo $_SESSION['uname'];
     <div class="w3-col m5">
       
 
-							 <div class="w3-card-2 w3-round w3-white">
+		<div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
 
 <form method="post" action="">
@@ -77,7 +77,7 @@ echo $_SESSION['uname'];
     <thead>
       <tr>
         
-												<tr><th class="w3-center" colspan="2">Hospital Details </th></tr>
+		  <tr><th class="w3-center" colspan="2">Hospital Details </th></tr>
             <tr>
                 <td>
                     <span id="Label1"> Hospital Name :- </span><span style="color:Red">*</span>
@@ -128,7 +128,7 @@ echo $_SESSION['uname'];
                     <span id="Label5">Phone No :-</span><span style="color:Red">*</span>
                     </td>
                 <td>
-   																 <input name="phno" type="text" value="" maxlength="10" class="form-control" style="width:250px;" />
+   				<input name="phno" type="text" value="" maxlength="10" class="form-control" style="width:250px;" />
              						 
                 </td>
             </tr>
