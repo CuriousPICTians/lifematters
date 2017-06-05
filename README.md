@@ -20,3 +20,6 @@ Donate organs. Give life.
 
 * rscript  
 1) Rscript kmeans.R '<Donor/Receiver Email-ID>' 'donor/receiver'
+
+mongo restore from dump
+mongorestore --collection hospitalinfo --db organ dump/organ/hospitalinfo.bson
