@@ -156,6 +156,7 @@ for($i = 1;$i <= 2 ; $i++, $collection = $database ->donorinfo)
 	foreach ($cursor as $obj)
 	{
 		echo $j++.' ) '.$obj['email']."<br/>";
+		
 		echo 
 		"<tr>
 		<td>{$obj  ['email']} </td>
