@@ -15,8 +15,8 @@ else if($_SESSION['rs']=="receiver")
 $collection = $database->receiverinfo;
 else
 	echo "not";
-//if($cursor = $collection->find(array("email"=>$_SESSION['email'])))
-if($venue = $collection->findOne(array("email"=>'1082@hotmail.com')))	
+if($venue = $collection->findOne(array("email"=>$_SESSION['pemail'])))
+//if($venue = $collection->findOne(array("email"=>'1082@hotmail.com')))	
 {
    
 	$var1 = $venue['hospital'];
@@ -45,9 +45,12 @@ $collection=$database->donorinfo;
 
 
 $length = count($a);
-  
-for($i=0;$i<$length;$i++)
+ echo $length;
+print_r($a);
+
+for($i = 0; $i < $length; $i++)
 {	
+	echo "string";
   $venue2=$collection->findOne(array('email'=> $a[$i]));
   
 
@@ -76,14 +79,16 @@ for($i=0;$i<$length;$i++)
 				//echo "Time :: ";		
 				//print $result['rows'][0]['elements'][0]['duration']['value'];
 
-				
+				echo "Befor";
 				if ($organtime >= $result['rows'][0]['elements'][0]['duration']['value'])
 				{
 				
+				echo "Here";
 					$finalarray[$a[$i]] = $venue2['priority'];
 
 				}
-			
+				
+				echo "After";
 				
 				//$venue2['hospital'];
 				echo "Receiver Name: ".$venue2['firstname']." ".$venue2['lastname']. " " .$venue2['email'].  "<br>";
@@ -108,7 +113,7 @@ $length = count($finalarray);
 
 foreach ($finalarray as $k => $v) {
 
-	echo "value =".$k.  "Key =" .$v ;
+	//echo "value =".$k.  "Key =" .$v ;
 
     $groups[$v][] = $k;
 }
@@ -122,9 +127,9 @@ foreach ($groups as $value => $group) {
 
 //print_r(array_keys($sorted));
 
-$collection->update(array("email"=>'1082@hotmail.com'),array('$set'=>array("matchlist"=>array())));
+$collection->update(array("email"=>$_SESSION['pemail']),array('$set'=>array("matchlist"=>array())));
 
-$collection->update(array("email"=>'1082@hotmail.com'),array('$push'=>array("matchlist"=>array('$each'=>array_keys($sorted)))));
+$collection->update(array("email"=>$_SESSION['pemail']),array('$push'=>array("matchlist"=>array('$each'=>array_keys($sorted)))));
 
 
 

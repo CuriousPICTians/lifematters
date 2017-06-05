@@ -56,7 +56,7 @@ session_start();
 															
 																<div  class="col-xs-3">
 																				
-																			<input type="text"  class="form-control" placeholder="Enter Organ" name="email">
+																			<input type="text"  class="form-control" placeholder="Enter Organ" name="pemail">
 
 															</div>
 
@@ -91,8 +91,8 @@ session_start();
 if(isset($_POST['submit']))
 {
    
-    $email = $_POST['email'];
-				$_SESSION['email']=$email;
+    $pemail = $_POST['pemail'];
+	$_SESSION['pemail']=$pemail;
     
   $con = new MongoClient();
 
@@ -101,13 +101,13 @@ if(isset($_POST['submit']))
     $collection=$database->receiverinfo;
 				$collectionD=$database->donorinfo;
 
- if($cursor = $collection->find(array("email" => $email)))
+ if($cursor = $collection->find(array("email" => $pemail)))
 {
  $cursor_count = $cursor->count();
  if($cursor_count)
     ;
  else
-    $cursor = $collectionD->find(array("email" => $email));
+    $cursor = $collectionD->find(array("email" => $pemail));
 
   //foreach ($cursor as $venue) 
 {

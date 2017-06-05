@@ -5,9 +5,13 @@
 session_start();
 unset($out);
 unset($result);
-//$patient =$_SESSION['email'];
-$patient = "1082@hotmail.com"; 
-$_SESSION['patient']=$patient;
+
+$patient =$_SESSION['pemail'];
+
+//echo $_SESSION['pemail'];
+//$patient = "om@gmail.com"; 
+
+//$_SESSION['patient']=$patient;
 
 
 $con = new MongoClient();
@@ -17,18 +21,24 @@ $collection = $database->donorinfo;
 $collectionD = $database->receiverinfo;
 
 if($cursor=$collection->findOne(array("email"=>$patient)))
-{   exec("Rscript kmeans.R $patient donor", $out);
+{   
+	exec("Rscript kmeans.R $patient donor", $out);
 	$_SESSION['rs']="donor";
 //echo $patient;
 }
 else if($cursor=$collectionD->findOne(array("email"=>$patient)))
-   {exec("Rscript kmeans.R $patient receiver", $out);
-//	echo "Print";
+   {
+   	exec("Rscript kmeans.R $patient receiver", $out);
 	$_SESSION['rs']="receiver";
+	//echo "123";
 	}
 	else
 		echo "Not Possible";
+	
+
 	$length = count($out);
+
+//print_r($out);
 
 	for ($i = 0; $i < $length; $i++)
 	{
@@ -76,7 +86,7 @@ else if($cursor=$collectionD->findOne(array("email"=>$patient)))
 unset($_SESSION['result']);
 $_SESSION['result']=$result;
 
-//$length = count($_SESSION['result']);
+$length = count($_SESSION['result']);
 $length = count($result);
 
 //echo "Email Is :: ".$a[5];

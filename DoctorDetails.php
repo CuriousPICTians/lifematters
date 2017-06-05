@@ -1,15 +1,11 @@
+	<!DOCTYPE html>
+	
 	<?php
 
   session_start();
 ?>
-
-  <!DOCTYPE html>
 	<html lang="en">
-	<html>
-
-
 	<head>
-	
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
@@ -143,7 +139,6 @@ $(document).ready(function(){
 
 <?php
 
-
   $con = new MongoClient();
   if($con)
   {
@@ -213,11 +208,17 @@ $(document).ready(function(){
          <h4 class="w3-center"> Doctor Details </h4>
          <p class="w3-center"><img src="img/doc.png" class="" style="height:80px;width:80px" alt="Avatar"></p>
          <hr>
-			<?php echo"<p style='text-transform:uppercase'> <i class='fa fa-user-md fa-fw w3-margin-right w3-text-theme'></i> <b> Doctor Name :-</b> "  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>"; ?>        
-			<?php	echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b> Contact Number :-</b> " .$venue ['docphno'] ." </p>"; ?>																					
-			<?php	echo"<p><i class='fa fa-at fa-fw w3-margin-right w3-text-theme'></i> <b> Email-ID :- </b>" .$venue ['email'] ." </p>"; ?>
-  			<?php	echo"<p><i class='fa fa-briefcase fa-fw w3-margin-right w3-text-theme'></i> <b> work at :- </b>" .$venue ['Hos'] ." </p>"; ?>
-			<?php	echo"<p><i class='fa fa-address-book fa-fw w3-margin-right w3-text-theme'></i> <b> Permanent Address	 :- </b>" .$venue ['paddress'] ." </p>"; ?>
+
+			<?php 
+      echo"<p style='text-transform:uppercase'> <i class='fa fa-user-md fa-fw w3-margin-right w3-text-theme'></i> Doctor Name :- "  .$venue ['fname']. "  " .$venue ['mname']. " " .$venue ['lname'] ."</p>";        
+			
+      echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Contact Number :- " .$venue ['docphno'] ." </p>"; 																					
+				echo"<p><i class='fa fa-at fa-fw w3-margin-right w3-text-theme'></i> Email-ID :- " .$venue ['email'] ." </p>"; 
+  		if(isset($venue['Hos'])) 
+          echo"<p><i class='fa fa-briefcase fa-fw w3-margin-right w3-text-theme'></i> work at :- " .$venue ['Hos'] ." </p>"; 
+
+			echo"<p><i class='fa fa-address-book fa-fw w3-margin-right w3-text-theme'></i> Permanent Address	 :- " .$venue ['paddress'] ." </p>"; ?>
+
         </div>
       </div> 
 				
@@ -286,17 +287,6 @@ $(document).ready(function(){
       </div>
       <br>
       
-      
-      
-    <!-- End Right Column -->
-    </div>  
-
-  <!-- End Grid -->
-  </div>
-
-
-
-
                                 
 <!-------------------------  modal for edit profile ------------------------------------>
 
@@ -432,22 +422,6 @@ $(document).ready(function(){
       </div>
     
         </div>
-
-
-
-    <!-- /.modal-content --> 
-  </div>
-      <!-- /.modal-dialog --> 
-    </div>
-
-  
-
-<!-- End Page Container -->
-</div>
-
-
-
-
 <?php
 
 
@@ -472,17 +446,13 @@ if(isset($_POST['submit']))
 $data=array('fname'=>$fname,'mname'=>$mname,'lname'=>$lname,'docphno'=>$docphno,'dochospital'=>$dochospital,'grno'=>$grno,
 'day'=>$day,'medicalcouncil'=>$medicalcouncil,'qualifi'=>$qualifi,'day1'=>$day1,'univername'=>$univername,'paddress'=>$paddress);
 
+$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
 }
-$cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
 
+
+  }
 ?>
 
-  <script>   alert('Successfully '); window.location.href="DoctorDetails.php"; </script>
-
-<?php
-
-}
-?>
     
    
 </body>

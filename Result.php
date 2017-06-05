@@ -1,4 +1,9 @@
  <!DOCTYPE html>
+ 
+<?php
+session_start();
+?>
+
  <html lang="en">
 <html>
 <head>
@@ -106,28 +111,28 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
         <h4> Patient information </h4><br>
        <hr>
         <table class="table table-responsive bio-table table-bordered table-hover table-condensed" >
-														<thead>
-																<tr>
-																		<th>Patient's Email-ID </th>
-																	<th>First Name </th>
-																		<th>Last Name</th>
-																		<th>Gender</th>
-																		<th>Birth Date</th>
-																		<th>Birth Group</th>
-																		<th>Birth Place</th>
-																		<th>Mobile NO</th>
-																		<th>Address</th>
-																		<th>City</th>
-																		<th>State</th>
-																		<th>Nationality</th>
-																		<th>Hospital</th>
-																		<th> Donated Organ</th>
-																</tr>
-														</thead>
-														<tbody>
+		<thead>
+		<tr>
+		<th>Patient's Email-ID </th>
+		<th>First Name </th>
+		<th>Last Name</th>
+		<th>Gender</th>
+		<th>Birth Date</th>
+		<th>Blood Group</th>
+		<th>Birth Place</th>
+		<th>Mobile NO</th>
+		<th>Address</th>
+		<th>City</th>
+		<th>State</th>
+		<th>Nationality</th>
+		<th>Hospital</th>
+		<th> Donated Organ</th>
+		</tr>
+		</thead>
+		<tbody>
 <?php
 
-		session_start();
+		
    
 	$con = new MongoClient();
 
@@ -135,79 +140,50 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
   {
     
 
+
     $database=$con->organ;
-    $collection=$database->result;
-	$collectionD=$database->receiverinfo;
+   	$collection=$database->receiverinfo;
 
-    $cursor = $collection->find();
-		}
-?>
-						<?php
-                 foreach ($cursor as $venue) 
-																						{
-																							echo "
-																							<tr>
-																												<td>{$venue  ['email']} </td>
-																								
-																							
-																							";
-	
-																			
-
-$p=$venue['email'];
-
-
-?>
-<?php
-
-$cursor1 = $collectionD->find(array( 	"email" => $p ));
-
-foreach($cursor1 as $obj)
+for($i = 1;$i <= 2 ; $i++, $collection = $database ->donorinfo)
 {
+    $j = 1;
+    if($i == 1)
+   		echo "Donors:<br/>";
+	else
+    	echo "<br/>Receivers:<br/>";
+    $cursor = $collection->find(array('Doc'=>$_SESSION['email']));
+	
+	foreach ($cursor as $obj)
+	{
+		echo $j++.' ) '.$obj['email']."<br/>";
+		echo 
+		"<tr>
+		<td>{$obj  ['email']} </td>
+		<td>{$obj  ['firstname']}</td>
+		<td>{$obj  ['lastname']}</td>
+		<td>{$obj  ['gender']}</td>
+		<td>{$obj  ['day']} </td>
+		<td>{$obj  ['blood']}</td>
+		<td>{$obj  ['dobplace']}</td>
+		<td>{$obj  ['mobileno']}</td>
+		<td>{$obj  ['address']}</td>
+		<td>{$obj  ['city']}</td>
+		<td>{$obj  ['state']}</td>
+		<td>{$obj  ['nati']}</td>
+		<td>{$obj  ['hospital']}</td>
+		<td>{$obj  ['organ']}</td>
+		</tr>
+		"; 
+	}
+}
 
 
-echo "
-					  
-															
-																												<td>{$obj  ['middlename']}</td>
-																												<td>{$obj  ['lastname']}</td>
-																												<td>{$obj  ['gender']}</td>
-																												<td>{$obj  ['day']} {$venue  ['month']} {$venue  ['year']} </td>
-																												<td>{$obj  ['blood']}</td>
-																												<td>{$obj  ['dobplace']}</td>
-																												<td>{$obj  ['mobileno']}</td>
-																												<td>{$obj  ['address']}</td>
-																												<td>{$obj  ['city']}</td>
-																												<td>{$obj  ['state']}</td>
-																												<td>{$obj  ['nati']}</td>
-																												<td>{$obj  ['hospital']}</td>
-																												<td>{$obj  ['organ']}</td>
-						
-																												</tr>
-																							"; 
-								}			
+}	
 
-}								
+
   ?>
-													</tbody>
-					</table>	      
-     
-      
-    <!-- End Middle Column -->
-    </div>
-    
-    
-    
-  <!-- End Grid -->
-  </div>
-  
-<!-- End Page Container -->
-</div>
-
-
-
-
-
+</tbody>
+</table>	      
 </body>
 </html>
 
