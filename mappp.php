@@ -25,7 +25,7 @@ if($venue = $collection->findOne(array("email"=>$_SESSION['pemail'])))
 				
 				$var1=$venue3['hospital_name'];
 
-	echo "Donor Name: ".$venue['firstname']." ".$venue['lastname']." ".$venue['email']."<br>";
+	echo "Donor Name: ".$venue['firstname']." ".$venue['lastname']."<br>Email: ".$venue['email']."<br>";
 	echo "Donor Hospital Address: ".$var1."<br>";
 	echo "Organ name: ".$venue['organ']."<br>";
 	echo "priority: ".$venue['priority']. "<br>";
@@ -119,7 +119,7 @@ foreach ($groups as $value => $group) {
     }
 }
 
-print_r(array_keys($sorted));
+//print_r(array_keys($sorted));
 
 $collection->update(array("email"=>$_SESSION['pemail']),array('$set'=>array("matchlist"=>array())));
 //$collection->update(array("email"=>'avinash@gmail.com'),array('$set'=>array("matchlist"=>array())));
