@@ -217,7 +217,7 @@ if(isset($_GET['q']))
 
 
 
-			<input type="submit" name="submit" class="btn btn-large btn-success" value="submit"/>
+			<!--<input type="submit" name="submit" class="btn btn-large btn-success" value="submit"/>-->
 			<br><br>
 
 
