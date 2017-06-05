@@ -1,4 +1,4 @@
-<h4>Receiver's E-mails Are ::</h4>
+<h4>Finding Patients... ::</h4>
 
 <?php
 
@@ -28,10 +28,10 @@ if($cursor=$collection->findOne(array("email"=>$patient)))
 }
 else if($cursor=$collectionD->findOne(array("email"=>$patient)))
    {
-   	echo $patient;
+   	//echo $patient;
    	exec("Rscript kmeans.R $patient receiver", $out);
 	$_SESSION['rs']="receiver";
-	echo "123";
+	//echo "123";
 	}
 	else
 		echo "Not Possible";
@@ -39,7 +39,7 @@ else if($cursor=$collectionD->findOne(array("email"=>$patient)))
 
 	$length = count($out);
 
-print_r($out);
+//print_r($out);
 
 	for ($i = 0; $i < $length; $i++)
 	{
@@ -95,9 +95,9 @@ $length = count($result);
 
 for($j = 0 ; $j < $length ; $j++)
 {
-//	echo "Email IS ::" .$result[$j];
+//echo "Email IS ::" .$result[$j];
 echo "</br>";
-echo "Email Is :: ".$result[$j];
+//echo "Email Is :: ".$result[$j];
 echo "</br>";
 }
 
