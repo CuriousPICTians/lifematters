@@ -380,17 +380,32 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 		
             <label class="col-md-2 control-label" for="first_name">First Name:-</label>  
 						<div class="col-md-2">
-						<?php if(isset($venue['firstname'])) echo" <input  name='firstname'  class='form-control input-md-2' value=".$venue ['firstname']. " type='text'> "; ?>
-						</div>
+						
+            <?php if(isset($venue['firstname'])) 
+                  echo" <input  name='firstname'  class='form-control input-md-2' value=".$venue ['firstname']. " type='text'> ";
+						      else
+                  echo" <input  name='firstname'  class='form-control input-md-2' value='NA' type='text'> "; ?>
+
+            </div>
 
             <label class="col-md-2 control-label" for="middle_name">Middle Name:-</label>  
             <div class="col-md-2">
-						<?php  if(isset($venue['middlename'])) echo" <input name='middlename' class='form-control input-md' value =" .$venue ['middlename']. " type='text'> "; ?>           												 
-						</div>
+
+						<?php  if(isset($venue['middlename'])) 
+                  echo" <input name='middlename' class='form-control input-md' value =" .$venue ['middlename']. " type='text'> ";           												 
+						      else
+                  echo" <input name='middlename' class='form-control input-md' value ='NA' type='text'> "; ?>                                   
+
+            </div>
 
             <label class="col-md-2 control-label" for="last_name">Last Name :-</label>  
 							<div class="col-md-2">
-							<?php if(isset($venue['lastname'])) echo "<input name='lastname' class='form-control input-md' value=" .$venue ['lastname']. " type='text' >"; ?>
+
+							<?php if(isset($venue['lastname'])) 
+                    echo "<input name='lastname' class='form-control input-md' value=" .$venue ['lastname']. " type='text' >";
+                    else
+                    echo "<input name='lastname' class='form-control input-md' value='NA' type='text' >"; ?>
+
            		</div>
           </div>
 
@@ -399,19 +414,35 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 						
 					<label class="col-md-2 control-label" for="smartphone"> Gender:-  </label>
           <div class="col-md-2">
-					 <?php  if(isset($venue['gender'])) echo" <input name='gender' class='form-control input-md' value =" .$venue ['gender']. " type='text'> "; ?>   
+
+					 <?php  if(isset($venue['gender'])) 
+                  echo" <input name='gender' class='form-control input-md' value =" .$venue ['gender']. " type='text'> ";   
+                  else
+                  echo" <input name='gender' class='form-control input-md' value ='NA' type='text'> "; ?>   
+
           </div>
 
 				<label class="col-md-2 control-label" for="dochospital"> DOB :-</label>  
           <div class="col-md-2">
-					<?php  if(isset($venue['day'])) echo" <input name='day' class='form-control input-md' value=".$venue ['day']. " type='text'>"; ?>
+
+					<?php  if(isset($venue['day'])) 
+                echo" <input name='day' class='form-control input-md' value=".$venue ['day']. " type='text'>"; 
+                else
+                echo" <input name='day' class='form-control input-md' value='NA' type='text'>"; ?>
+
 				</div>
 
 			<label class="col-md-2 control-label" for="smartphone"> Blood group:-  </label>
 			 <div class="col-md-2">
-				 <?php  if(isset($venue['blood'])) echo" <input name='blood' class='form-control input-md' value =" .$venue ['blood']. " type='text'> "; ?>   
+
+				 <?php  if(isset($venue['blood'])) 
+         echo" <input name='blood' class='form-control input-md' value =" .$venue ['blood']. " type='text'> "; 
+         else
+         echo" <input name='blood' class='form-control input-md' value ='NA' type='text'> "; ?>   
+
 			</div>
          </div>
+
 
 <div class="row form-group">
 						
@@ -422,8 +453,13 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 
 	<label class="col-md-2 control-label" for="last_name"> Mobile No:-</label>  
   <div class="col-md-2">
-		<?php  if(isset($venue['mobileno'])) echo" <input maxlength='10' minlength='10' name='mobileno' class='form-control input-md' value=".$venue ['mobileno']. " type='text'>"; ?>
-	</div>
+		
+    <?php  if(isset($venue['mobileno'])) 
+           echo" <input maxlength='10' minlength='10' name='mobileno' class='form-control input-md' value=".$venue ['mobileno']. " type='text'>"; 
+	         else 
+           echo" <input maxlength='10' minlength='10' name='mobileno' class='form-control input-md' value='NA' type='text'>"; ?>
+
+  </div>
 
 <label class="col-md-2 control-label" for="smartphone"> Adhar No:-  </label>
  <div class="col-md-2">
@@ -471,8 +507,20 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 
 <div class="form-group row">
 <div class="col-md-8 text-center">
-     <button type="submit" name="submit" value="submit" class="btn btn-large btn-success"> Save Information</button>
-     <button class="btn btn-large btn-danger" type="button" data-dismiss="modal" > Cancel </button>
+
+     <!--<button type="button" name="submit" value="submit" class="btn btn-large btn-success"> Save Information</button>-->
+
+
+          <span class="w3-right "> <label class="w3-right">
+          <button type="button" class="btn btn-info btn-s w3-right w3-purple" data-title='sure' data-toggle='modal' data-target='#sure' > 
+          <span class=""></span> Submit </button> </label> </span>
+          
+
+          <span class="w3-right "> <label class="w3-right">
+          <button class="btn btn-large btn-danger" type="button" data-dismiss="modal" > Cancel </button>
+          <span class=""></span>  </button> </label> </span>
+
+
 
    </div>
  </div>
@@ -493,7 +541,7 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 <div class="modal fade" id="link" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
       <div class="modal-dialog">
     <div class="modal-content">
-          <div class="modal-header">s
+          <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
         <h4 class="modal-title custom_align" id="Heading"> Add Doctor to Profile </h4>
       </div>
@@ -519,6 +567,44 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
   </div>
       <!-- /.modal-dialog --> 
     </div>
+
+
+
+
+    <div class="modal fade" id="sure" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">s
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading"> Add Doctor to Profile </h4>
+      </div>
+          <div class="modal-body">
+
+       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure...?</div>
+       
+      </div>
+      <div class="modal-footer ">
+
+        <button type="button" class="btn btn-success"> <span class="glyphicon glyphicon-ok"></span> YES </button> </a> 
+         <button type="button" class="btn btn-default w3-red" data-dismiss="modal"> <span class="glyphicon glyphicon-remove"></span> NO </button> </div>"
+
+       <?php echo "<div class='action'> <a href='DonorUpdate.php'> 
+        
+        <button type='button' class='btn btn-success'> <span class='glyphicon glyphicon-ok'></span> YES </button> </a> 
+         <button type='button' class='btn btn-default w3-red' data-dismiss='modal'> <span class='glyphicon glyphicon-remove'></span> NO </button> </div>" ; ?>
+
+      </div>
+    
+        </div>
+
+
+
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+
+
 
 
 <!-- End Page Container -->
