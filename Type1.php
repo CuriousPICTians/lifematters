@@ -46,7 +46,7 @@ function showUser(str) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET","getuser.php?q="+str,true);
+        xmlhttp.open("GET","Type1.php?q="+str,true);
         xmlhttp.send();
     }
 }
@@ -151,7 +151,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 				<div class="form-inline">
 
 				  <label for="ex2"> <b>Select Hospital :- </b> </label>	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;	
-			        <select name="users" class="form-control" style="width:220px;" onchange="showUser(this.value)">
+			        <select name="hospital" class="form-control" style="width:220px;" onchange="showUser(this.value)">
 						<option value="">Select Hospital:</option>
      					 <?php 
       						foreach ($cursor as $venue)
@@ -167,8 +167,62 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 				<hr>
 
 
+
+
+
+<?php
+if(isset($_GET['q']))
+{
+
+  echo $_GET['q'];
+    $email1 = $_GET['q'];
+    $con = new MongoClient();
+    
+	if (!$con)
+    die('Could not connect: ');
+
+   $database = $con->organ;
+   $collection = $database->docinfo;
+
+
+    $cursor = $collection->find(array("Hos"=>$email1));
+    $cursor_count = $cursor->count();
+
+
+   
+?>
+
+
+<div class="form-inline">
+
+				  <label for="ex2"> <b>Select Doctor :- </b> </label>	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;	
+			        <select name="Doc" class="form-control" style="width:220px;" >
+						<option value="">Select Doctor:</option>
+     					 <?php 
+      						foreach ($cursor as $venue)
+        					echo "<option value=".$venue['email'].">".$venue['fname']."</option>";
+      					?>
+					</select>
+
+				</div>	
+
+<?php
+}
+?>
+
+
+<hr>
+
+
+
+
+
 			<input type="submit" name="submit" class="btn btn-large btn-success" value="submit"/>
 			<br><br>
+
+
+
+
 
 			</form>
 
@@ -180,6 +234,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 </div> 
 
           
+
+
+
   <!-- End Middle Column -->
     </div>
 

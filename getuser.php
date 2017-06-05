@@ -22,6 +22,7 @@ if (!$con)
     $cursor = $collection->find(array("Hos"=>$email));
     $cursor_count = $cursor->count();
 
+
     echo '<option value="">Select Doctor:</option>'; 
     foreach ($cursor as $venue)
         echo "<option value=".$venue['email'].">".$venue['fname']." ".$venue['lname']. "</option>";
