@@ -34,9 +34,9 @@ int main(int argc, char **argv)
 		fprintf(stdout, "\t\"email\" : "); fprintf(stdout, "\"%d@%s\",\n", i, "gmail.com");
 		fprintf(stdout, "\t\"password\" : "); fprintf(stdout, "\"%s\",\n", "1234");
 //		fprintf(stdout, "\t\"info\" : {\n");
-		fprintf(stdout, "\t\"firstname\" : "); fprintf(stdout, "\"%s\",\n", firstName[getRandom(sizeof(firstName)/sizeof(firstName[0]))]);
-		fprintf(stdout, "\t\"middlename\" : "); fprintf(stdout, "\"%s\",\n", firstName[getRandom(sizeof(firstName)/sizeof(firstName[0]))]);
-		fprintf(stdout, "\t\"lastname\" : "); fprintf(stdout, "\"%s\",\n", lastName[getRandom(sizeof(lastName)/sizeof(lastName[0]))]);
+		fprintf(stdout, "\t\"fname\" : "); fprintf(stdout, "\"%s\",\n", firstName[getRandom(sizeof(firstName)/sizeof(firstName[0]))]);
+		fprintf(stdout, "\t\"mname\" : "); fprintf(stdout, "\"%s\",\n", firstName[getRandom(sizeof(firstName)/sizeof(firstName[0]))]);
+		fprintf(stdout, "\t\"lname\" : "); fprintf(stdout, "\"%s\",\n", lastName[getRandom(sizeof(lastName)/sizeof(lastName[0]))]);
 		fprintf(stdout, "\t\"gender\" : "); fprintf(stdout, "\"%s\",\n", gender[getRandom(sizeof(gender)/sizeof(gender[0]))]);
 //		fprintf(stdout, "\t},\n");
 		fprintf(stdout, "\t\"status\" : "); fprintf(stdout, "\"%s\",\n", "confirmed");

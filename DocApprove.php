@@ -120,7 +120,7 @@ if(isset($_GET['key']))
 		}	
 		else
 		{
-		$collection -> update(array('_id' => new MongoId($_GET['process'])), array('$set' => array('status' => 'Confirmed')));
+		$collection -> update(array('_id' => new MongoId($_GET['process'])), array('$set' => array('status' => 'confirmed')));
 		?>
 		<script>alert("Doctor has been Confirmed..!!");</script>
 		<?php

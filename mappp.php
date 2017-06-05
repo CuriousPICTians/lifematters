@@ -4,6 +4,7 @@ session_start();
 unset($finalarray);
 $con = new MongoClient();
 $database = $con->organ;
+$collectionH=$database->hospitalinfo;
 
 $ch = curl_init();
 
@@ -16,10 +17,14 @@ $collection = $database->receiverinfo;
 else
 	echo "not";
 if($venue = $collection->findOne(array("email"=>$_SESSION['pemail'])))
-//if($venue = $collection->findOne(array("email"=>'1082@hotmail.com')))	
+//if($venue = $collection->findOne(array("email"=>'avinash@gmail.com')))	
 {
-   
-	$var1 = $venue['hospital'];
+   $hoemail = $venue['hospital'];
+
+				$venue3=$collectionH->findOne(array('email'=>$hoemail));
+				
+				$var1=$venue3['hospital_name'];
+
 	echo "Donor Name: ".$venue['firstname']." ".$venue['lastname']." ".$venue['email']."<br>";
 	echo "Donor Hospital Address: ".$var1."<br>";
 	echo "Organ name: ".$venue['organ']."<br>";
@@ -39,58 +44,46 @@ else if($venue['organ']==2)
 else
 	echo "Organ not Found";
 
+
 $a=$_SESSION['result'];
-$collectionD = $database->receiverinfo;
-$collection=$database->donorinfo;
-
-
+if($_SESSION['rs']=="donor")
+$collection2 = $database->receiverinfo;
+else if($_SESSION['rs']=="receiver")
+$collection2 = $database->donorinfo;
+else
+	echo "not";
 $length = count($a);
- echo $length;
-print_r($a);
-
-for($i = 0; $i < $length; $i++)
+ for($i = 0; $i < $length; $i++)
 {	
-	echo "string";
-  $venue2=$collection->findOne(array('email'=> $a[$i]));
-  
-
-  $array_count = count($venue2);
-
-
-	if(!$array_count)
-		$venue2 = $collectionD->findOne(array('email'=> $a[$i]));
+	$venue2 = $collection2->findOne(array('email'=> $a[$i]));
 	 
-			
+	$hoemail = $venue2['hospital'];
 
-			
-				$var2 = $venue2['hospital'];
-
+	$venue3=$collectionH->findOne(array('email'=>$hoemail));
 				
+	$var2=$venue3['hospital_name'];
 				//echo "Receiver Name: ".$venue2['firstname']." ".$venue2['lastname']. " " .$venue2['email'].  "<br>";
 				//echo "Receiver Hospital Address: ".$var2."<br>";
 
 
-	  			$url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins='.$var1.'&destinations='.$var2;
-				$url = str_replace(" ", '%20', $url);
-				//echo $url;
-	  			curl_setopt($ch, CURLOPT_URL, $url);
-				$result = json_decode(curl_exec($ch), $assoc = true);
+	$url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins='.$var1.'&destinations='.$var2 .'&key=AIzaSyB2ObLV1jRhll-pZjRqv7qZF6ezO-34QIc';
+	$url = str_replace(" ", '%20', $url);
+	//echo $url;
+	curl_setopt($ch, CURLOPT_URL, $url);
+	$result = json_decode(curl_exec($ch), $assoc = true);
 
-				//echo "Time :: ";		
-				//print $result['rows'][0]['elements'][0]['duration']['value'];
+	//echo "Time :: ";		
+	//print $result['rows'][0]['elements'][0]['duration']['value'];
+	if ($organtime >= $result['rows'][0]['elements'][0]['duration']['value'])
+	{
+				
+	$finalarray[$a[$i]] = $venue2['priority'];
 
-				echo "Befor";
-				if ($organtime >= $result['rows'][0]['elements'][0]['duration']['value'])
-				{
+	}
 				
-				echo "Here";
-					$finalarray[$a[$i]] = $venue2['priority'];
-
-				}
+			
 				
-				echo "After";
-				
-				//$venue2['hospital'];
+				/*$venue2['hospital'];
 				echo "Receiver Name: ".$venue2['firstname']." ".$venue2['lastname']. " " .$venue2['email'].  "<br>";
 				echo "Receiver Hospital Address: ".$var2."<br>";
 				echo "priority: ".$venue2['priority']."<br>";
@@ -104,9 +97,10 @@ for($i = 0; $i < $length; $i++)
 	
 				echo "----------------------------------------------------"."<br>";
 															//remove or modify
-			
+			*/
 
-		
+		$collection2->update(array('email'=> $a[$i]),array('$push'=>array("matchlist"=>array('$each'=>array($_SESSION['pemail'])))));
+
 	}
 
 $length = count($finalarray);
@@ -125,11 +119,14 @@ foreach ($groups as $value => $group) {
     }
 }
 
-//print_r(array_keys($sorted));
+print_r(array_keys($sorted));
 
 $collection->update(array("email"=>$_SESSION['pemail']),array('$set'=>array("matchlist"=>array())));
+//$collection->update(array("email"=>'avinash@gmail.com'),array('$set'=>array("matchlist"=>array())));
 
 $collection->update(array("email"=>$_SESSION['pemail']),array('$push'=>array("matchlist"=>array('$each'=>array_keys($sorted)))));
+//$collection->update(array("email"=>'avinash@gmail.com'),array('$push'=>array("matchlist"=>array('$each'=>array_keys($sorted)))));
+
 
 
 

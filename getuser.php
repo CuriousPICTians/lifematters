@@ -4,12 +4,16 @@
 </head>
 <body>
 
+
 <?php
+/*
 if(isset($_GET['q']))
 {
 
-  echo $_GET['q'];
-    $organ = $_GET['q'];
+    echo $_GET['q'];
+    
+    $organ1 = $_GET['q'];
+
     $con = new MongoClient();
     
 if (!$con)
@@ -20,19 +24,19 @@ if (!$con)
 
 
 
-if (organ==0)
+if (organ1==0)
 {
-    $cursor = $collection->find(array("LiverLicense"=>$organ));
+    $cursor = $collection->find(array("KidneyLicense"=>$Kidney));
 }
 
-if (organ==1) 
+if (organ1==1) 
 {
-    $cursor = $collection->find(array("KidneyLicense"=>$organ));
+    $cursor = $collection->find(array("LiverLicense"=>$Liver));
 } 
 
-if(organ==2) 
+if(organ1==2) 
 {
-    $cursor = $collection->find(array("HeartLicense"=>$organ));
+    $cursor = $collection->find(array("HeartLicense"=>$Heart));
 }
     
 
@@ -46,10 +50,10 @@ if(organ==2)
 
 
 }
-
+*/
 ?>
 
-
+Hello
 
 </body>
 </html>
