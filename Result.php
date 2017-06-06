@@ -80,7 +80,7 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 <body class="w3-theme-l5">
 
 <!-- Page Container -->
-<div class="w3-container w3-content" style="max-width:1400px;margin-top:10px">    
+<div class="w3-container w3-content" style="max-width:1200px;margin-top:10px">    
   <!-- The Grid -->
   <div class="w3-row">
     
@@ -316,16 +316,27 @@ if($con)
 			echo"</table>";
 
 		}
+
 			echo "<hr>";
 			echo "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 			echo "</br>";
+	
+
 	}
 }
 
 }
 ?>
+</div>
+</div>
+</div>
+</div>
+
+
 </body>
 </html>
+
+
 <?php
 function bloodgroup($a)
 {

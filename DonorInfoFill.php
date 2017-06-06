@@ -154,7 +154,7 @@ var f6= signup1.nati.value;
 	}
 	else
 	{
-		alert("Mobile no. must include Numeric characters only");
+		alert("Mobile no. must include Numeric only");
 		signup1.mobileno.focus();
 		return false;
 	}
@@ -177,7 +177,7 @@ var adno= signup1.adharno.value;
 	}
 	else
 	{
-		alert("Adhar No. must include Numeric characters only");
+		alert("Adhar No. must include Numeric only");
 		signup1.adharno.focus();
 		return false;
 	}
@@ -201,7 +201,7 @@ var zc= signup1.zipcode.value;
 	}
 	else
 	{
-		alert("PIN No. must include Numeric characters only");
+		alert("PIN No. must include Numeric only");
 		signup1.zipcode.focus();
 		return false;
 	}
@@ -253,8 +253,8 @@ var zc= signup1.zipcode.value;
 				<label ><br><br>
 					Gender :- </label>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="radio" name="gender" value="male" tabindex="4" > Male
-					<input type="radio" name="gender" value="male" tabindex="5" > Female
+					<input type="radio" name="gender" value="male" tabindex="4" required> Male
+					<input type="radio" name="gender" value="male" tabindex="5" required> Female
 				
 				
 				<br>
@@ -360,7 +360,7 @@ var zc= signup1.zipcode.value;
 						&nbsp;&nbsp;								  
 							<select name="blood" class="textfield2" required>
 
-								<option value="Select">Select</option>
+								<option value=""> </option>
 								<option value="0">A+</option>
 								<option value="1">A-</option>
 								<option value="2">B+</option>

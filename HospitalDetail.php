@@ -1,4 +1,8 @@
 	<!DOCTYPE html>
+  <?php
+
+session_start();
+?>
 	<html lang="en">
 	<html>
 
@@ -112,6 +116,95 @@ $(document).ready(function(){
       date_input.datepicker(options);
     })
 
+
+<script type="text/javascript">
+
+function formvalidate(signup1)
+{
+  var username=signup1.fname.value;
+  var letters = /^[A-Za-z]+$/;
+  var numbers= /^[0-9]+$/;
+  var mailformat=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  
+  
+var f4= signup1.hospital_name.value;
+  if(f4.match(letters))
+  {}
+  else
+  {
+    alert("hospital name must include characters only..!!");
+    signup1.hospital_name.focus();
+    return false;
+  }
+
+
+
+
+ var adno1= signup1.phno.value;
+  if(adno1.match(numbers))
+  {
+    if(adno1.length>10)
+    {
+      alert("mobile No. must be 10 digit");
+      signup1.phno.focus();
+      return false;
+    }
+    if(adno1.length<10)
+    {
+      alert("mobile  No must be 10 digit");
+      signup1.phno.focus();
+      return false;
+    }
+  }
+  else
+  {
+    alert("mobile  must include Numeric only");
+    signup1.phno.focus();
+    return false;
+  }
+
+
+
+
+var zc= signup1.hgrno.value;
+  if(zc.match(numbers))
+  {
+    if(zc.length>6)
+    {
+      alert("hgrno must be 6 digit");
+      signup1.hgrno.focus();
+      return false;
+    }
+    if(zc.length<6)
+    {
+      alert("hgrno must be 6 digit");
+      signup1.hgrno.focus();
+      return false;
+    }
+  }
+  else
+  {
+    alert("hgrno must include Numeric only");
+    signup1.hgrno.focus();
+    return false;
+  }
+
+
+  var uemail=signup1.hospitalemail.value;
+  if(uemail.match(mailformat))
+  {}
+  else
+  {
+    alert("You hav entered an invalid email address!!");
+    signup1.hospitalemail.focus();
+    return false;
+  }
+  
+    //If all conditions satisfied.........
+}
+
+</script>
+
 </script>
 
 
@@ -120,7 +213,6 @@ $(document).ready(function(){
 	
 <?php
 
-session_start();
 
   $con = new MongoClient();
   if($con)
@@ -239,7 +331,6 @@ session_start();
   </div>
   
 
-<!-------------------------  modal for edit profile ------------------------------------>
 
 <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
@@ -250,7 +341,7 @@ session_start();
       </div>
           <div class="modal-body custom-height-modal">
        
-      <form class="form-horizontal" method="post" action="">
+      <form class="form-horizontal" name="signup1" method="post" onSubmit="return formvalidate(signup1)" action="">
          
 				 <fieldset>
        
@@ -261,17 +352,17 @@ session_start();
 		
             <label class="col-md-2 control-label" for="first_name">Hospital Name:-</label>  
 						<div class="col-md-2">
-						<?php echo" <input  name='hospital_name'  class='form-control input-md-2' value=".$venue ['hospital_name']. " type='text'> "; ?>
+						<?php echo" <input  name='hospital_name'  class='form-control input-md-2' value=".$venue ['hospital_name']. " type='text' required> "; ?>
 						</div>
 
             <label class="col-md-2 control-label" for="middle_name">Registration No:-</label>  
             <div class="col-md-2">
-						<?php  echo" <input name='hgrno' class='form-control input-md' value =" .$venue ['hgrno']. " type='text'> "; ?>           												 
+						<?php  echo" <input maxlength='6' minlength='6' name='hgrno' class='form-control input-md' value =" .$venue ['hgrno']. " type='text' required> "; ?>           												 
 						</div>
 
             <label class="col-md-2 control-label" for="last_name">Phone No:-</label>  
-							            <div class="col-md-2">
-																							<?php echo "<input name='phno' maxlength='10' minlength='10' class='form-control input-md' value=" .$venue ['phno']. " type='text' >"; ?>
+						<div class="col-md-2">
+						<?php echo "<input name='phno' maxlength='10' minlength='10' class='form-control input-md' value=" .$venue ['phno']. " type='text' required>"; ?>
            							</div>
           </div>
 
@@ -280,13 +371,13 @@ session_start();
 						
 												<label class="col-md-2 control-label" for="smartphone"> Website:-  </label>
            									 <div class="col-md-2">
-																										 <?php  echo" <input name='website' class='form-control input-md' value =" .$venue ['website']. " type='text'> "; ?>   
+																										 <?php  echo" <input name='website' class='form-control input-md' value =" .$venue ['website']. " type='text' required> "; ?>   
             									</div>
 
 
 													<label class="col-md-2 control-label" for="dochospital"> Email-ID :-</label>  
 							            <div class="col-md-2">
-																							<?php  echo" <input name='hospitalemail' class='form-control input-md' value=".$venue ['hospitalemail']. " type='text'>"; ?>
+																							<?php  echo" <input name='hospitalemail' class='form-control input-md' value=".$venue ['hospitalemail']. " type='text' required>"; ?>
            							</div>
 
 												<hr>
@@ -331,9 +422,8 @@ if(isset($_POST['submit']))
 
 $data=array('hospital_name'=>$hospital_name,'hgrno'=>$hgrno, 'phno'=>$phno,'hospitalemail'=>$hospitalemail,'website'=>$website);
 
-
-}
 $cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
+
 
 ?>
 
@@ -345,6 +435,12 @@ $cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' =>
 <?php
 
 }
+
+
+
+}
+
+
 ?>
     
    

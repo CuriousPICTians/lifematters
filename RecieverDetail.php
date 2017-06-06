@@ -106,6 +106,161 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
     })
 </script>
 
+<script type="text/javascript">
+
+function formvalidate(signup1)
+{
+  var username=signup1.firstname.value;
+  var letters = /^[A-Za-z]+$/;
+  var numbers= /^[0-9]+$/;
+  var mailformat=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  
+  var f1= signup1.firstname.value;
+  if(f1.match(letters))
+  {}
+  else
+  {
+    alert("First Name must include characters only..!!");
+    signup1.firstname.focus();
+    return false;
+  }
+
+var f2= signup1.middlename.value;
+  if(f2.match(letters))
+  {}
+  else
+  {
+    alert("Middle Name must include characters only..!!");
+    signup1.middlename.focus();
+    return false;
+  }
+
+var f3= signup1.lastname.value;
+  if(f3.match(letters))
+  {}
+  else
+  {
+    alert("Last Name must include characters only..!!");
+    signup1.lastname.focus();
+    return false;
+  }
+
+var f4= signup1.city.value;
+  if(f4.match(letters))
+  {}
+  else
+  {
+    alert("City Name must include characters only..!!");
+    signup1.city.focus();
+    return false;
+  }
+
+var f5= signup1.state.value;
+  if(f5.match(letters))
+  {}
+  else
+  {
+    alert("State Name must include characters only..!!");
+    signup1.state.focus();
+    return false;
+  }
+
+var f6= signup1.nati.value;
+  if(f6.match(letters))
+  {}
+  else
+  {
+    alert("Nationality Name must include characters only..!!");
+    signup1.nati.focus();
+    return false;
+  }
+
+  var mob= signup1.mobileno.value;
+  if(mob.match(numbers))
+  {
+    if(mob.length>10)
+    {
+      alert("Mobile no. must be 10 digit");
+      signup1.mobileno.focus();
+      return false;
+    }
+    if(mob.length<10)
+    {
+      alert("Mobile no. must be 10 digit");
+      signup1.mobileno.focus();
+      return false;
+    }
+  }
+  else
+  {
+    alert("Mobile no. must include Numeric only");
+    signup1.mobileno.focus();
+    return false;
+  }
+
+var adno= signup1.adharno.value;
+  if(adno.match(numbers))
+  {
+    if(adno.length>12)
+    {
+      alert("Adhar No. must be 12 digit");
+      signup1.adharno.focus();
+      return false;
+    }
+    if(adno.length<12)
+    {
+      alert("Adhar No must be 12 digit");
+      signup1.adharno.focus();
+      return false;
+    }
+  }
+  else
+  {
+    alert("Adhar No. must include Numeric only");
+    signup1.adharno.focus();
+    return false;
+  }
+
+
+var zc= signup1.zipcode.value;
+  if(zc.match(numbers))
+  {
+    if(zc.length>6)
+    {
+      alert("PIN No must be 6 digit");
+      signup1.zipcode.focus();
+      return false;
+    }
+    if(zc.length<6)
+    {
+      alert("PIN No. must be 6 digit");
+      signup1.zipcode.focus();
+      return false;
+    }
+  }
+  else
+  {
+    alert("PIN No. must include Numeric only");
+    signup1.zipcode.focus();
+    return false;
+  }
+
+
+  var uemail=signup1.email.value;
+  if(uemail.match(mailformat))
+  {}
+  else
+  {
+    alert("You hav entered an invalid email address!!");
+    signup1.email.focus();
+    return false;
+  }
+  
+    //If all conditions satisfied.........
+}
+
+</script>
+
   <body class="w3-theme-l5">
     
   
@@ -170,55 +325,55 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
          <p class="w3-center"><img src="img/a1.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
         <?php 
-              echo" <p style='text-transform:uppercase'> <i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i> <b>Receiver Name :- </b>".$venue ['firstname'] ."  " .$venue ['middlename'] . "  "  .$venue ['lastname'] . " </p>";
+              echo" <p style='text-transform:uppercase'> <i class='fa fa-user-circle fa-fw w3-margin-right w3-text-theme'></i> <b> Donor Name :- </b>".$venue ['firstname'] ."  " .$venue ['middlename'] . "  "  .$venue ['lastname'] . " </p>";
               
-              if(isset($venue['Doc'])) 
-              echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> <b>Hospital :- </b>"  .$venue ['hospital'] ."</p>"; 
+              if(isset($venue['hospital'])) 
+              echo"<p> <i class='fa fa-hospital-o fa-fw w3-margin-right w3-text-theme'></i> Hospital :- "  .$venue ['hospital'] ."</p>"; 
         ?>  
 
         <?php 
 
       if($venue['organ']==0)
-            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b>Organ :</b>  Kidney </p>";         
+            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ :  Kidney </p>";         
           
       if($venue['organ']==1)
-            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i><b>Organ :</b> Liver </p>";         
+            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i>Organ : Liver </p>";         
                 
        if($venue['organ']==2)
-           echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b>Organ :</b> Heart </p>";         
+           echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> Organ : Heart </p>";         
                 
 
       if($venue['blood']==0)
-            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> A+ </p>";  
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : A+ </p>";  
 
       if($venue['blood']==1)
-            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> A- </p>"; 
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : A- </p>"; 
 
       if($venue['blood']==2)
-            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> B+ </p>"; 
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : B+ </p>"; 
 
       if($venue['blood']==3)
-            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> B- </p>"; 
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : B- </p>"; 
 
        if($venue['blood']==4)
-            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> O+ </p>";                    
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : O+ </p>";                    
                 
        if($venue['blood']==5)
-            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> O- </p>"; 
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : O- </p>"; 
 
       if($venue['blood']==6)
-            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> AB+ </p>";       
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : AB+ </p>";       
 
       if($venue['blood']==7)
-            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> <b>Blood group :</b> AB- </p>"; 
+            echo"<p><i class='fa fa-btc fa-fw w3-margin-right w3-text-theme'></i> Blood group : AB- </p>"; 
     ?> 
 
     <?php 
           if(isset($venue['gender']))
-            echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> <b>Gender :- </b>" .$venue ['gender'] ." </p>";
+            echo"<p><i class='fa fa-odnoklassniki fa-fw w3-margin-right w3-text-theme'></i> Gender :- " .$venue ['gender'] ." </p>";
           
           if(isset($venue['day']))
-            echo"<p><i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b>DOB :- </b>" .$venue  ['day'] ."</p>";
+            echo"<p><i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> DOB :- " .$venue  ['day'] ."</p>";
     ?>
 
         </div>
@@ -253,13 +408,13 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
         <?php 
 
             if($venue['organ']==0)
-            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b> Follwing Organ to be Donoted :- </b>   Kidney  </p>";         
+            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i>  Donoted Organ :- Kidney  </p>";         
                     
             if($venue['organ']==1)
-            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i> <b> Follwing Organ to be Donoted :- </b>  Liver </p>";         
+            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i>  Donoted Organ:-  Liver </p>";         
                     
             if($venue['organ']==2)
-            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i><b> Follwing Organ to be Donoted :-</b>  Heart </p> "; 
+            echo"<p> <i class='fa fa-gratipay fa-fw w3-margin-right w3-text-theme'></i>  Donoted Organ :- Heart </p> "; 
         ?>   
 
 
@@ -277,24 +432,24 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
     <?php 
 
         if(isset($venue['mobileno'])) 
-        echo"<p > <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> <b>Mobile Number :- </b>"  .$venue ['mobileno'] ."</p>";        
+        echo"<p > <i class='fa fa-registered fa-fw w3-margin-right w3-text-theme'></i> Mobile Number :- "  .$venue ['mobileno'] ."</p>";        
 
         if(isset($venue['address'])) 
-        echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> <b>Address :- </b>" .$venue ['address'] . "</p>";  
+        echo"<p> <i class='fa fa-calendar fa-fw w3-margin-right w3-text-theme'></i> Address :- " .$venue ['address'] . "</p>";  
 
 
         if(isset($venue['city'])) 
-        echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> <b>City:- </b>" .$venue ['city'] ." </p>"; 
+        echo"<p><i class='fa fa-h-square fa-fw w3-margin-right w3-text-theme'></i> City:- " .$venue ['city'] ." </p>"; 
 
         if(isset($venue['state'])) 
-        echo"<p><i class='fa fa-map fa-fw w3-margin-right w3-text-theme'></i> <b>State:- </b>" .$venue ['state'] ." </p>"; 
+        echo"<p><i class='fa fa-map fa-fw w3-margin-right w3-text-theme'></i> State:- " .$venue ['state'] ." </p>"; 
 
 
         if(isset($venue['nati'])) 
-        echo"<p><i class='fa fa-flag-o fa-fw w3-margin-right w3-text-theme'></i> <b>Nationality:-</b> " .$venue ['nati'] ." </p>"; 
+        echo"<p><i class='fa fa-flag-o fa-fw w3-margin-right w3-text-theme'></i> Nationality:- " .$venue ['nati'] ." </p>"; 
 
         if(isset($venue['zipcode'])) 
-        echo"<p><i class='fa fa-pinterest-p fa-fw w3-margin-right w3-text-theme'></i> <b>Pin code:-</b> " .$venue ['zipcode'] ." </p>"; 
+        echo"<p><i class='fa fa-pinterest-p fa-fw w3-margin-right w3-text-theme'></i> Pin code:-" .$venue ['zipcode'] ." </p>"; 
 
        ?>
 
@@ -318,8 +473,13 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
  <h4 class="w3-center"> <img src="img/re1.png" class="w3-circle" style="height:50px;width:50px" alt="Avatar"> Status </h4>
 
          <hr>
-                <?php echo"<p> <b>Doctor </b>:- ".$venue['Doc']."</p>"; ?>
-                <?php echo"<p> <b>Status </b> :- ".$venue['status']."</p>"; ?>
+                <?php 
+
+                   if(isset($venue['Doc'])) 
+                      echo"<p> <b>Doctor </b>:- ".$venue['Doc']."</p>"; 
+                
+                   if(isset($venue['status'])) 
+                     echo"<p> <b>Status </b> :- ".$venue['status']."</p>"; ?>
 
 
         </div>
@@ -350,103 +510,183 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
       </div>
           <div class="modal-body custom-height-modal">
        
-      <form class="form-horizontal" method="post" action="">
+      <form class="form-horizontal" name="signup1"  method="post"  onSubmit="return formvalidate(signup1)" action="">
          
          <fieldset>
        
           <div id="edit_farmer" style="display:none"></div>
  
          
-          <div class="row form-group">
+  <div class="row form-group">
     
-            <label class="col-md-2 control-label" for="first_name">First Name:-</label>  
-            <div class="col-md-2">
-            <?php echo" <input  name='firstname'  class='form-control input-md-2' value=".$venue ['firstname']. " type='text'> "; ?>
-            </div>
+    <label class="col-md-2 control-label" for="first_name">First Name:-</label>  
+      <div class="col-md-2">
+      <?php 
 
-            <label class="col-md-2 control-label" for="middle_name">Middle Name:-</label>  
-            <div class="col-md-2">
-            <?php  echo" <input name='middlename' class='form-control input-md' value =" .$venue ['middlename']. " type='text'> "; ?>                                    
-            </div>
+          if(isset($venue['firstname']))
+          echo" <input  name='firstname'  class='form-control input-md-2' value=".$venue ['firstname']. " type='text' required> ";
+          else
+          echo" <input  name='firstname'  class='form-control input-md-2' value='' type='text' required> "; ?>
+  
+      </div>
 
-            <label class="col-md-2 control-label" for="last_name">Last Name :-</label>  
-                          <div class="col-md-2">
-                                              <?php echo "<input name='lastname' class='form-control input-md' value=" .$venue ['lastname']. " type='text' >"; ?>
-                        </div>
-          </div>
+      <label class="col-md-2 control-label" for="middle_name">Middle Name:-</label>  
+      <div class="col-md-2">
+      <?php  
+
+          if(isset($venue['middlename']))
+            echo" <input name='middlename' class='form-control input-md' value =" .$venue ['middlename']. " type='text' required> ";                                    
+            else      
+            echo" <input name='middlename' class='form-control input-md' value ='' type='text' required> "; ?>                                    
+           
+      </div>
+
+      <label class="col-md-2 control-label" for="last_name">Last Name :-</label>  
+      <div class="col-md-2">
+      <?php 
+            if(isset($venue['lastname']))
+              echo "<input name='lastname' class='form-control input-md' value=" .$venue ['lastname']. " type='text' required>"; 
+            else
+              echo "<input name='lastname' class='form-control input-md' value='' type='text' required>"; ?>
+                         
+      </div>
+      </div>
 
          
-          <div class="row form-group">
-            
-                        <label class="col-md-2 control-label" for="smartphone"> Gender:-  </label>
-                             <div class="col-md-2">
-                                                     <?php  echo" <input name='gender' class='form-control input-md' value =" .$venue ['gender']. " type='text'> "; ?>   
-                              </div>
+      <div class="row form-group">
+       
+      <label class="col-md-2 control-label" for="smartphone"> Gender:-  </label>
+      <div class="col-md-2">
+          
+          <input type="radio" name="gender" value="male" tabindex="4" required> Male <br>
+          <input type="radio" name="gender" value="male" tabindex="5" required> Female
+          
 
+      </div>
 
-                          <label class="col-md-2 control-label" for="dochospital"> DOB :-</label>  
-                          <div class="col-md-2">
-                                              <?php  echo" <input name='day' class='form-control input-md' value=".$venue ['day']. " type='text'>"; ?>
-                        </div>
+     <label class="col-md-2 control-label" for="dochospital"> DOB :-</label>  
+     <div class="col-md-2">
+     <?php  
+          if(isset($venue['day']))
+            echo" <input name='day' class='form-control input-md' value=".$venue ['day']. " type='text' required>";
+            else
+            echo" <input name='day' class='form-control input-md' value='' type='text' required>"; ?>
 
-                        <label class="col-md-2 control-label" for="smartphone"> Blood group:-  </label>
-                             <div class="col-md-2">
-                                                     <?php  echo" <input name='blood' class='form-control input-md' value =" .$venue ['blood']. " type='text'> "; ?>   
-                              </div>
-          </div>
+      </div>
+
+      <label class="col-md-2 control-label" for="smartphone"> Blood group:-  </label>
+      <div class="col-md-2">
+
+                     
+              <select name="blood" class="textfield2" required>
+
+                <option value=""> </option>
+                <option value="0">A+</option>
+                <option value="1">A-</option>
+                <option value="2">B+</option>
+                <option value="3">B-</option>
+                <option value="4">O+</option>
+                <option value="5">O-</option>
+                <option value="6">AB+</option>
+                <option value="7">AB-</option>
+              </select>
+ 
+
+      </div>
+     </div>
 
 <div class="row form-group">
             
-                        <label class="col-md-2 control-label" for="smartphone">  Birth Place:-  </label>
-                             <div class="col-md-2">
-                                                     <?php  echo" <input name='dobplace' class='form-control input-md' value =" .$venue ['dobplace']. " type='text'> "; ?>   
-                              </div>
+  <label class="col-md-2 control-label" for="smartphone">  Birth Place:-  </label>
+  <div class="col-md-2">
+  <?php  
+
+        if(isset($venue['dobplace'])) 
+          echo" <input name='dobplace' class='form-control input-md' value =" .$venue ['dobplace']. " type='text' required> "; 
+        else
+          echo" <input name='dobplace' class='form-control input-md' value ='' type='text' required> "; ?>   
+
+  </div>
 
 
-                          <label class="col-md-2 control-label" for="last_name"> Mobile No:-</label>  
-                          <div class="col-md-2">
-                                              <?php  echo" <input maxlength='10' minlength='10' name='mobileno' class='form-control input-md' value=".$venue ['mobileno']. " type='text'>"; ?>
-                        </div>
+  <label class="col-md-2 control-label" for="last_name"> Mobile No:-</label>  
+  <div class="col-md-2">
+  <?php  
+          if(isset($venue['mobileno'])) 
+          echo" <input maxlength='10' minlength='10' name='mobileno' class='form-control input-md' value=".$venue ['mobileno']. " type='text' required>"; 
+          else
+          echo" <input maxlength='10' minlength='10' name='mobileno' class='form-control input-md' value='' type='text' required>"; ?>
 
-                        <label class="col-md-2 control-label" for="smartphone"> Adhar No:-  </label>
-                             <div class="col-md-2">
-                                                     <?php  echo" <input maxlength='12'minlength='12' name='adharno' class='form-control input-md' value =" .$venue ['adharno']. " type='text'> "; ?>   
-                              </div>
-          </div>
+  </div>
+
+  <label class="col-md-2 control-label" for="smartphone"> Adhar No:-  </label>
+  <div class="col-md-2">
+  <?php  
+            if(isset($venue['adharno'])) 
+            echo" <input maxlength='12'minlength='12' name='adharno' class='form-control input-md' value =" .$venue ['adharno']. " type='text' required> ";   
+            else
+            echo" <input maxlength='12'minlength='12' name='adharno' class='form-control input-md' value ='' type='text' required> "; ?>   
+
+  </div>
+  </div>
 
 
 <div class="row form-group">
             
-                        <label class="col-md-2 control-label" for="smartphone"> Address:-  </label>
-                             <div class="col-md-2">
-                                                     <?php  echo" <input name='address' class='form-control input-md' value =" .$venue ['address']. " type='text'> "; ?>   
-                              </div>
+<label class="col-md-2 control-label" for="smartphone"> Address:-  </label>
+<div class="col-md-2">
+<?php  
+          if(isset($venue['address'])) 
+          echo" <input name='address' class='form-control input-md' value =" .$venue ['address']. " type='text' required> ";    
+          else
+          echo" <input name='address' class='form-control input-md' value ='' type='text' required> "; ?>   
 
+</div>
 
-                          <label class="col-md-2 control-label" for="last_name"> City:-</label>  
-                          <div class="col-md-2">
-                                              <?php  echo" <input name='city' class='form-control input-md' value=".$venue ['city']. " type='text'>"; ?>
-                        </div>
+<label class="col-md-2 control-label" for="last_name"> City:-</label>  
+<div class="col-md-2">
+<?php  
+    if(isset($venue['city'])) 
+      echo" <input name='city' class='form-control input-md' value=".$venue ['city']. " type='text' required>" ; 
+    else
+      echo" <input name='city' class='form-control input-md' value='' type='text' required>" ; ?>
+</div>
+
 
 <label class="col-md-2 control-label" for="last_name"> state:-</label>  
-                          <div class="col-md-2">
-                                              <?php  echo" <input name='state' class='form-control input-md' value=".$venue ['state']. " type='text'>"; ?>
-                        </div>
-          </div>
+<div class="col-md-2">
+<?php  
+    if(isset($venue['state'])) 
+      echo" <input name='state' class='form-control input-md' value=".$venue ['state']. " type='text' required>"; 
+    else
+      echo" <input name='state' class='form-control input-md' value='' type='text' required>"; ?>
+
+</div>
+</div>
 
 
 <div class="row form-group">
 
 <label class="col-md-2 control-label" for="last_name"> Nationality :-</label>  
-                          <div class="col-md-2">
-                                              <?php  echo" <input name='nati' class='form-control input-md' value=".$venue ['nati']. " type='text'>"; ?>
-                        </div>
+<div class="col-md-2">
+<?php  
+    if(isset($venue['nati'])) 
+      echo" <input name='nati' class='form-control input-md' value=".$venue ['nati']. " type='text' required>"; 
+    else
+      echo" <input name='nati' class='form-control input-md' value='' type='text' required>"; ?>
+
+</div>
           
 
 <label class="col-md-2 control-label" for="last_name"> Pin code:-</label>  
-                          <div class="col-md-2">
-                                              <?php  echo" <input maxlength='6' minlength='6' name='zipcode' class='form-control input-md' value=".$venue ['zipcode']. " type='text'>"; ?>
-                        </div>
+<div class="col-md-2">
+<?php  
+      if(isset($venue['zipcode'])) 
+        echo" <input maxlength='6' minlength='6' name='zipcode' class='form-control input-md' value=".$venue ['zipcode']. " type='text' required>"; 
+      else
+        echo" <input maxlength='6' minlength='6' name='zipcode' class='form-control input-md' value='' type='text' required>"; ?>
+
+</div>
           
 <hr>
 
@@ -534,8 +774,9 @@ if(isset($_POST['submit']))
 $data=array('firstname'=>$firstname,'middlename'=>$middlename,'lastname'=>$lastname,'gender'=>$gender,
           'day'=>$bdate,'blood'=>$blood,'dobplace'=>$dobplace,'mobileno'=>$mobileno,'adharno'=>$adharno,
           'address'=>$address,'city'=>$city,'state'=>$state,'nati'=>$nati,'zipcode'=>$zipcode);
-}
+
 $cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
+
 
 ?>
 
@@ -545,6 +786,10 @@ $cursor=$collection->update(array("email" => $_SESSION['email']),array('$set' =>
                </script>
 
 <?php
+
+}
+
+
   
 
 

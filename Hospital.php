@@ -107,7 +107,7 @@ body {
 	
 	</head>
 
-	<body class="w3-content" style="max-width:1400px">
+	<body class="w3-content" style="max-width:1350px">
 		
 						
 <!-- Navigation bar with social media icons -->
@@ -138,7 +138,6 @@ body {
 	  
 <a href="HospitalDetail.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Hospital Details </a>
 <a href="DocApprove.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> Approve Doctor  </a>
-<a href="Result.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-md fa-fw w3-margin-right"></i> Match List  </a>
 <a href="logout.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-spinner fa-spin fa-fw w3-margin-right"></i> Logout </a>
 						
 					</nav>
@@ -203,7 +202,7 @@ body {
 					
 				
 				<div id="section">
-					<iframe src="HospitalDetail.php" name="cp" width="1180px" height="570px" style="border:none" ></iframe>
+					<iframe src="HospitalDetail.php" name="cp" width="1130px" height="570px" style="border:none" ></iframe>
 				</div>
 </body>
 </html>

@@ -93,7 +93,7 @@ body {
 	
 	</head>
 
-	<body class="w3-content" style="max-width:1400px">
+	<body class="w3-content" style="max-width:1350px">
 		
 					
 		
@@ -184,7 +184,7 @@ body {
 
 	
 				<div id="section">
-					<iframe src="RecieverDetail.php" name="cp" width="1180px" height="570px" style="border:none" ></iframe>
+					<iframe src="RecieverDetail.php" name="cp" width="1130px" height="570px" style="border:none" ></iframe>
 				</div>
 </body>
 </html>
