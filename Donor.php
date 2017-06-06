@@ -93,7 +93,7 @@ body {
 	
 	</head>
 
-	<body class="w3-content" style="max-width:1400px">
+	<body class="w3-content" style="max-width:1350px">
 		
 				
 		
@@ -123,6 +123,7 @@ body {
 						</div>
 
 						<a href="DonorDetail.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Donor detail </a>
+						
 						<a href="logout.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-sign-out fa-fw w3-margin-right"></i> Logout </a>
 						
 						
@@ -190,7 +191,7 @@ body {
 	
 				
 				<div id="section">
-					<iframe src="DonorDetail.php" name="cp" width="1180px" height="570px" style="border:none" ></iframe>
+					<iframe src="DonorDetail.php" name="cp" width="1130px" height="570px" style="border:none" ></iframe>
 				</div>
 </body>
 </html>

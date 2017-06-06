@@ -94,7 +94,7 @@ body {
 	
 	</head>
 
-	<body class="w3-content" style="max-width:1400px">
+	<body class="w3-content" style="max-width:1350px">
 		
 						
 <!-- Navigation bar with social media icons -->
@@ -126,7 +126,6 @@ body {
 	  	<a href="DoctorDetails.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i> Home </a>
 		<a href="ApproveDonor.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-circle-o fa-fw w3-margin-right"></i> Approve Donor </a> 
 		<a href="ApproveReceiver.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-user-o fa-fw w3-margin-right"></i> Approve Receiver </a> 
-		<a href="Psearch.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-outdent fa-fw w3-margin-right"></i> Search Patients</a> 
 		<a href="Mreport.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-clipboard fa-fw w3-margin-right"></i> Upload Report </a>
 		<a href="Result.php" target="cp" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-list-ul fa-fw w3-margin-right"></i> Match List  </a>
 		<a href="logout.php" class="w3-bar-item w3-button  w3-text-white w3-hover-text-white w3-padding "><i class="fa fa-sign-out fa-fw w3-margin-right"></i> Logout </a>
@@ -193,7 +192,7 @@ body {
 				
 				
 				<div id="section">
-					<iframe src="DoctorDetails.php" name="cp" width="1200px" height="560px" style="border:none" ></iframe>
+					<iframe src="DoctorDetails.php" name="cp" width="1130px" height="560px" style="border:none" ></iframe>
 				</div>
 </body>
 </html>

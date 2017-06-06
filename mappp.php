@@ -10,6 +10,8 @@ $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
+curl_setopt($ch, CURLOPT_PROXYPORT, "3128");
+curl_setopt($ch, CURLOPT_PROXY, "http://192.168.14.254");
 if($_SESSION['rs']=="donor")
 $collection = $database->donorinfo;
 else if($_SESSION['rs']=="receiver")
@@ -22,7 +24,7 @@ if($venue = $collection->findOne(array("email"=>$_SESSION['pemail'])))
    $hoemail = $venue['hospital'];
 
 				$venue3=$collectionH->findOne(array('email'=>$hoemail));
-				
+	echo "hoemail: ".$hoemail;			
 				$var1=$venue3['hospital_name'];
 
 	echo "Donor Name: ".$venue['firstname']." ".$venue['lastname']."<br>Email: ".$venue['email']."<br>";
@@ -66,14 +68,15 @@ $length = count($a);
 				//echo "Receiver Hospital Address: ".$var2."<br>";
 
 
-	$url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins='.$var1.'&destinations='.$var2 .'&key=AIzaSyB2ObLV1jRhll-pZjRqv7qZF6ezO-34QIc';
+	$url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins='.$var1.'&destinations='.$var2 .'&key=AIzaSyAe8jJ-XDpEofcyYi_tFRL_lYG2H_fDbTc';
+//	$url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins='.$var1.'&destinations='.$var2;
 	$url = str_replace(" ", '%20', $url);
 	//echo $url;
 	curl_setopt($ch, CURLOPT_URL, $url);
 	$result = json_decode(curl_exec($ch), $assoc = true);
 
-	//echo "Time :: ";		
-	//print $result['rows'][0]['elements'][0]['duration']['value'];
+	echo "Time :: ";		
+	print $result['rows'][0]['elements'][0]['duration']['value'];
 	if ($organtime >= $result['rows'][0]['elements'][0]['duration']['value'])
 	{
 				

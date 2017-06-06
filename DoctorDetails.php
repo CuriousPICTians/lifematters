@@ -104,7 +104,162 @@ box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);}
 	
 	</head>
 
+<script type="text/javascript">
 
+function formvalidate(signup1)
+{
+  var username=signup1.fname.value;
+  var letters = /^[A-Za-z]+$/;
+  var numbers= /^[0-9]+$/;
+  var mailformat=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  
+  var f1= signup1.fname.value;
+  if(f1.match(letters))
+  {}
+  else
+  {
+    alert("First Name must include characters only..!!");
+    signup1.fname.focus();
+    return false;
+  }
+
+var f2= signup1.mname.value;
+  if(f2.match(letters))
+  {}
+  else
+  {
+    alert("Middle Name must include characters only..!!");
+    signup1.mname.focus();
+    return false;
+  }
+
+var f3= signup1.lname.value;
+  if(f3.match(letters))
+  {}
+  else
+  {
+    alert("Last Name must include characters only..!!");
+    signup1.lname.focus();
+    return false;
+  }
+
+var f4= signup1.medicalcouncil.value;
+  if(f4.match(letters))
+  {}
+  else
+  {
+    alert("medical council Name must include characters only..!!");
+    signup1.medicalcouncil.focus();
+    return false;
+  }
+
+var f5= signup1.qualifi.value;
+  if(f5.match(letters))
+  {}
+  else
+  {
+    alert("qualification Name must include characters only..!!");
+    signup1.qualifi.focus();
+    return false;
+  }
+
+var f6= signup1.univername.value;
+  if(f6.match(letters))
+  {}
+  else
+  {
+    alert("university name Name must include characters only..!!");
+    signup1.univername.focus();
+    return false;
+  }
+
+
+
+ var adno1= signup1.docphno.value;
+  if(adno1.match(numbers))
+  {
+    if(adno1.length>10)
+    {
+      alert("mobile No. must be 10 digit");
+      signup1.docphno.focus();
+      return false;
+    }
+    if(adno1.length<10)
+    {
+      alert("mobile  No must be 10 digit");
+      signup1.docphno.focus();
+      return false;
+    }
+  }
+  else
+  {
+    alert("mobile  must include Numeric only");
+    signup1.docphno.focus();
+    return false;
+  }
+
+var adno= signup1.grno.value;
+  if(adno.match(numbers))
+  {
+    if(adno.length>6)
+    {
+      alert("grno No. must be 12 digit");
+      signup1.grno.focus();
+      return false;
+    }
+    if(adno.length<6)
+    {
+      alert("grno No must be 12 digit");
+      signup1.grno.focus();
+      return false;
+    }
+  }
+  else
+  {
+    alert("grno must include Numeric only");
+    signup1.grno.focus();
+    return false;
+  }
+
+
+var zc= signup1.zipcode.value;
+  if(zc.match(numbers))
+  {
+    if(zc.length>6)
+    {
+      alert("PIN No must be 6 digit");
+      signup1.zipcode.focus();
+      return false;
+    }
+    if(zc.length<6)
+    {
+      alert("PIN No. must be 6 digit");
+      signup1.zipcode.focus();
+      return false;
+    }
+  }
+  else
+  {
+    alert("PIN No. must include Numeric only");
+    signup1.zipcode.focus();
+    return false;
+  }
+
+
+  var uemail=signup1.email.value;
+  if(uemail.match(mailformat))
+  {}
+  else
+  {
+    alert("You hav entered an invalid email address!!");
+    signup1.email.focus();
+    return false;
+  }
+  
+    //If all conditions satisfied.........
+}
+
+</script>
 
 <script>
     $(document).ready(function(){
@@ -222,7 +377,8 @@ $(document).ready(function(){
           if(isset($venue['Hos'])) 
           echo"<p><i class='fa fa-briefcase fa-fw w3-margin-right w3-text-theme'></i> <b>work at :-</b> " .$venue ['Hos'] ." </p>"; 
 
-			    if(isset($venue['paddress']))echo"<p><i class='fa fa-address-book fa-fw w3-margin-right w3-text-theme'></i> <b>Permanent Address	 :- </b>" .$venue ['paddress'] ." </p>"; 
+			    if(isset($venue['paddress']))
+            echo"<p><i class='fa fa-address-book fa-fw w3-margin-right w3-text-theme'></i> <b>Permanent Address	 :- </b>" .$venue ['paddress'] ." </p>"; 
       ?>
 
         </div>
@@ -230,9 +386,6 @@ $(document).ready(function(){
 				
 				<!-- End Left Column -->
     </div>
-
-
-
 
 
     
@@ -323,7 +476,7 @@ $(document).ready(function(){
                 </div>
           <div class="modal-body custom-height-modal">
        
-      <form class="form-horizontal" method="post" action="">
+      <form class="form-horizontal" name="signup1" method="post" onSubmit="return formvalidate(signup1)" action="">
          
          <fieldset>
        
@@ -334,75 +487,130 @@ $(document).ready(function(){
     
             <label class="col-md-2 control-label" for="first_name">First Name:-</label>  
             <div class="col-md-2">
-            <?php echo" <input  name='fname'  class='form-control input-md-2' value=".$venue ['fname']. " type='text'> "; ?>
+            <?php 
+                  if(isset($venue['fname'])) 
+                  echo" <input  name='fname'  class='form-control input-md-2' value=".$venue ['fname']. " type='text' required> "; 
+                  else
+                  echo" <input  name='fname'  class='form-control input-md-2' value='' type='text' required> "; ?>
+                  
             </div>
 
             <label class="col-md-2 control-label" for="middle_name">Middle Name:-</label>  
             <div class="col-md-2">
-            <?php  echo" <input name='mname' class='form-control input-md' value =" .$venue ['mname']. " type='text'> "; ?>                                    
+            <?php  
+                  if(isset($venue['mname'])) 
+                  echo" <input name='mname' class='form-control input-md' value =" .$venue ['mname']. " type='text' required> ";                                     
+                  else
+                  echo" <input name='mname' class='form-control input-md' value ='' type='text' required> "; ?>                                    
+
             </div>
 
             <label class="col-md-2 control-label" for="last_name">Last Name :-</label>  
-                          <div class="col-md-2">
-                                              <?php echo "<input name='lname' class='form-control input-md' value=" .$venue ['lname']. " type='text' >"; ?>
-                        </div>
+            <div class="col-md-2">
+           <?php 
+                  if(isset($venue['lname'])) 
+                  echo "<input name='lname' class='form-control input-md' value=" .$venue ['lname']. " type='text' required>"; 
+                  else
+                  echo "<input name='lname' class='form-control input-md' value='' type='text' required>"; ?>
+                  
+          </div>
           </div>
 
          
           <div class="row form-group">
             
-                        <label class="col-md-2 control-label" for="smartphone"> phone No.:-  </label>
-                             <div class="col-md-2">
-                                                     <?php  echo" <input name='docphno' class='form-control input-md' value =" .$venue ['docphno']. " type='text'> "; ?>   
-                              </div>
+           <label class="col-md-2 control-label" for="smartphone"> phone No.:-  </label>
+           <div class="col-md-2">
+            <?php  
+                  if(isset($venue['docphno'])) 
+                  echo" <input maxlength='10' minlength='10'  name='docphno' class='form-control input-md' value =" .$venue ['docphno']. " type='text' required> ";    
+                  else
+                  echo" <input maxlength='10' minlength='10'  name='docphno' class='form-control input-md' value ='' type='text' required> "; ?>   
+
+            </div>
 
 
-                        <label class="col-md-2 control-label" for="smartphone"> Registration No :-  </label>
-                             <div class="col-md-2">
-                                                     <?php  echo" <input name='grno' class='form-control input-md' value =" .$venue ['grno']. " type='text'> "; ?>   
-                              </div>
+            <label class="col-md-2 control-label" for="smartphone"> Registration No :-  </label>
+            <div class="col-md-2">
+            <?php  
+                  if(isset($venue['grno'])) 
+                  echo" <input maxlength='6' minlength='6'  name='grno' class='form-control input-md' value =" .$venue ['grno']. " type='text' required> ";   
+                  else 
+                  echo" <input maxlength='6' minlength='6'  name='grno' class='form-control input-md' value ='' type='text' required> "; ?>   
+
+          </div>
           </div>
 
-<div class="row form-group">
-            
-                        <label class="col-md-2 control-label" for="smartphone">  Date of Registration:-  </label>
-                             <div class="col-md-2">
-                                                     <?php  echo" <input name='day' class='form-control input-md' value =" .$venue ['day']. " type='text'> "; ?>   
-                              </div>
+          <div class="row form-group">
+                      
+            <label class="col-md-2 control-label" for="smartphone">  Date of Registration:-  </label>
+            <div class="col-md-2">
+            <?php  
+                  if(isset($venue['day'])) 
+                  echo" <input name='day' class='form-control input-md' value =" .$venue ['day']. " type='text' required> ";   
+                  else
+                  echo" <input name='day' class='form-control input-md' value ='' type='text' required> "; ?>   
+
+            </div>
 
 
-                          <label class="col-md-2 control-label" for="last_name"> State Medical Council :-</label>  
-                          <div class="col-md-2">
-                                              <?php  echo" <input name='medicalcouncil' class='form-control input-md' value=".$venue ['medicalcouncil']. " type='text'>"; ?>
-                        </div>
+            <label class="col-md-2 control-label" for="last_name"> State Medical Council :-</label>  
+            <div class="col-md-2">
+            <?php  
+                    if(isset($venue['medicalcouncil'])) 
+                    echo" <input name='medicalcouncil' class='form-control input-md' value=".$venue ['medicalcouncil']. " type='text' required>"; 
+                    else
+                    echo" <input name='medicalcouncil' class='form-control input-md' value='' type='text' required>"; ?>
 
-                        <label class="col-md-2 control-label" for="smartphone"> QUALIFICATION:-  </label>
-                             <div class="col-md-2">
-                                                     <?php  echo" <input name='qualifi' class='form-control input-md' value =" .$venue ['qualifi']. " type='text'> "; ?>   
-                              </div>
+            </div>
+
+
+           <label class="col-md-2 control-label" for="smartphone"> QUALIFICATION:-  </label>
+           <div class="col-md-2">
+           <?php  
+                  if(isset($venue['qualifi'])) 
+                  echo" <input name='qualifi' class='form-control input-md' value =" .$venue ['qualifi']. " type='text' required> ";    
+                  else
+                  echo" <input name='qualifi' class='form-control input-md' value ='' type='text' required> "; ?>   
+
+           </div>
           </div>
 
 
-<div class="row form-group">
-            
-                        <label class="col-md-2 control-label" for="smartphone">  qualification Year:-  </label>
-                             <div class="col-md-2">
-                                                     <?php  echo" <input name='day1' class='form-control input-md' value =" .$venue ['day1']. " type='text'> "; ?>   
-                              </div>
+          <div class="row form-group">
+                      
+          <label class="col-md-2 control-label" for="smartphone">  qualification Year:-  </label>
+          <div class="col-md-2">
+          <?php  
+                  if(isset($venue['day1'])) 
+                  echo" <input name='day1' class='form-control input-md' value =" .$venue ['day1']. " type='text' required> ";    
+                  else
+                  echo" <input name='day1' class='form-control input-md' value ='' type='text' required> "; ?>   
 
-
-                          <label class="col-md-2 control-label" for="last_name"> University :-</label>  
-                          <div class="col-md-2">
-                                              <?php  echo" <input name='univername' class='form-control input-md' value=".$venue ['univername']. " type='text'>"; ?>
-                        </div>
-
-<label class="col-md-2 control-label" for="last_name"> perment Address :-</label>  
-                          <div class="col-md-2">
-                                              <?php  echo" <input name='paddress' class='form-control input-md' value=".$venue ['paddress']. " type='text'>"; ?>
-                        </div>
           </div>
 
- 
+          <label class="col-md-2 control-label" for="last_name"> University :-</label>  
+          <div class="col-md-2">
+          <?php  
+                  if(isset($venue['univername'])) 
+                  echo" <input name='univername' class='form-control input-md' value=".$venue ['univername']. " type='text' required>"; 
+                  else
+                  echo" <input name='univername' class='form-control input-md' value='' type='text' required>"; ?>
+
+          </div>
+
+          <label class="col-md-2 control-label" for="last_name"> perment Address :-</label>  
+          <div class="col-md-2">
+          <?php  
+                  if(isset($venue['paddress'])) 
+                  echo" <input name='paddress' class='form-control input-md' value=".$venue ['paddress']. " type='text' required>"; 
+                  else
+                  echo" <input name='paddress' class='form-control input-md' value='' type='text' required>"; ?>
+
+          </div>
+          </div>
+
+           
           <div class="form-group row">
            
                        <div class="col-md-8 text-center">
@@ -471,6 +679,15 @@ $data=array('fname'=>$fname,'mname'=>$mname,'lname'=>$lname,'docphno'=>$docphno,
 'day'=>$day,'medicalcouncil'=>$medicalcouncil,'qualifi'=>$qualifi,'day1'=>$day1,'univername'=>$univername,'paddress'=>$paddress);
 
 $collection->update(array("email" => $_SESSION['email']),array('$set' => $data));
+
+?>
+
+  <script>
+  alert('Successfully '); window.location.href="DoctorDetails.php";
+  </script>
+
+<?php
+
 }
 
 
